@@ -79,13 +79,11 @@ public class [aDataClass.eClass.name.toUpperFirst()/] {
     	sb.append("\" ");
 		[/if]
 	[/for]
-
-
     	sb.append(">");
 
 		// TODO deal with other case
 
-		sb.append("<");
+		sb.append("</");
     	sb.append(XML_[aDataClass.eClass.name.toUpper()/]);
     	sb.append(">");
 		return sb.toString();
