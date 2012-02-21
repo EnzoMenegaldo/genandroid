@@ -1,0 +1,354 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package genandroid.util;
+
+import genandroid.*;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.Switch;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Switch</b> for the model's inheritance hierarchy.
+ * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
+ * to invoke the <code>caseXXX</code> method for each class of the model,
+ * starting with the actual class of the object
+ * and proceeding up the inheritance hierarchy
+ * until a non-null result is returned,
+ * which is the result of the switch.
+ * <!-- end-user-doc -->
+ * @see genandroid.GenandroidPackage
+ * @generated
+ */
+public class GenandroidSwitch<T> extends Switch<T> {
+	/**
+	 * The cached model package
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static GenandroidPackage modelPackage;
+
+	/**
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenandroidSwitch() {
+		if (modelPackage == null) {
+			modelPackage = GenandroidPackage.eINSTANCE;
+		}
+	}
+
+	/**
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
+	}
+
+	/**
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
+		switch (classifierID) {
+			case GenandroidPackage.ANDROID_PROJECT: {
+				AndroidProject androidProject = (AndroidProject)theEObject;
+				T result = caseAndroidProject(androidProject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.DATA_MODEL: {
+				DataModel dataModel = (DataModel)theEObject;
+				T result = caseDataModel(dataModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.VIEW_ACTIVITY: {
+				ViewActivity viewActivity = (ViewActivity)theEObject;
+				T result = caseViewActivity(viewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.EDIT_VIEW_ACTIVITY: {
+				EditViewActivity editViewActivity = (EditViewActivity)theEObject;
+				T result = caseEditViewActivity(editViewActivity);
+				if (result == null) result = caseViewActivity(editViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY: {
+				ClassListViewActivity classListViewActivity = (ClassListViewActivity)theEObject;
+				T result = caseClassListViewActivity(classListViewActivity);
+				if (result == null) result = caseListViewActivity(classListViewActivity);
+				if (result == null) result = caseViewActivity(classListViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.DATA_CLASS: {
+				DataClass dataClass = (DataClass)theEObject;
+				T result = caseDataClass(dataClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.REFERENCE_LIST_VIEW_ACTIVITY: {
+				ReferenceListViewActivity referenceListViewActivity = (ReferenceListViewActivity)theEObject;
+				T result = caseReferenceListViewActivity(referenceListViewActivity);
+				if (result == null) result = caseClassListViewActivity(referenceListViewActivity);
+				if (result == null) result = caseListViewActivity(referenceListViewActivity);
+				if (result == null) result = caseViewActivity(referenceListViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.CLASS_DETAIL: {
+				ClassDetail classDetail = (ClassDetail)theEObject;
+				T result = caseClassDetail(classDetail);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.DATA_ATTRIBUTE: {
+				DataAttribute dataAttribute = (DataAttribute)theEObject;
+				T result = caseDataAttribute(dataAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.DATA_REFERENCE: {
+				DataReference dataReference = (DataReference)theEObject;
+				T result = caseDataReference(dataReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.LIST_VIEW_ACTIVITY: {
+				ListViewActivity listViewActivity = (ListViewActivity)theEObject;
+				T result = caseListViewActivity(listViewActivity);
+				if (result == null) result = caseViewActivity(listViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.ATTRIBUTE_LIST_VIEW_ACTIVITY: {
+				AttributeListViewActivity attributeListViewActivity = (AttributeListViewActivity)theEObject;
+				T result = caseAttributeListViewActivity(attributeListViewActivity);
+				if (result == null) result = caseListViewActivity(attributeListViewActivity);
+				if (result == null) result = caseViewActivity(attributeListViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
+		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Android Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Android Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAndroidProject(AndroidProject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataModel(DataModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViewActivity(ViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Edit View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Edit View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEditViewActivity(EditViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class List View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class List View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassListViewActivity(ClassListViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataClass(DataClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reference List View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reference List View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReferenceListViewActivity(ReferenceListViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class Detail</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassDetail(ClassDetail object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataAttribute(DataAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataReference(DataReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListViewActivity(ListViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute List View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute List View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributeListViewActivity(AttributeListViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	@Override
+	public T defaultCase(EObject object) {
+		return null;
+	}
+
+} //GenandroidSwitch
