@@ -31,7 +31,7 @@ public class [aDataClass.eClass.name.toUpperFirst()/] {
 	[/for]
 	
 	// internal id 
-	protected int id;
+	protected long id;
 	
 	[for (att : EAttribute | aDataClass.eClass.eAttributes)]
 		[if (att.upperBound = 1)]
@@ -60,6 +60,13 @@ public class [aDataClass.eClass.name.toUpperFirst()/] {
 	[/for]
 	} 
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String toXML(){
 		StringBuilder sb = new StringBuilder();

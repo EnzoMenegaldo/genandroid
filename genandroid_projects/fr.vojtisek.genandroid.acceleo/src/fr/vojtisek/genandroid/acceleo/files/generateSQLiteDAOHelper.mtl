@@ -4,7 +4,7 @@
 
 [template public generateSQLiteDAOHelper(aAndroidProject : AndroidProject)]
 
-[file ('/src/'+aAndroidProject.packagePrefixFolder()+'/datamodel/SQLiteDAOHelper.java', false, 'UTF-8')]
+[file ('/src/'+aAndroidProject.packagePrefixFolder()+'/datamodel/'+projectName4Class(aAndroidProject)+'DbAdapter.java', false, 'UTF-8')]
 /*******************************************************************************
  * Copyright (c) 2012 Vojtisek.
  * All rights reserved. This program and the accompanying materials
@@ -17,63 +17,145 @@
  *******************************************************************************/
 package fr.vojtisek.testgenapp.datamodel;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class SQLiteDAOHelper extends SQLiteOpenHelper {
+public class [projectName4Class(aAndroidProject)/]DbAdapter {
 	
-	public static final String TAG = "SQLiteDAOHelper";
+	public static final String TAG = "[projectName4Class(aAndroidProject)/]DbAdapter";
+	
+	private SQLiteDBHelper dbHelper;
+    private SQLiteDatabase db;
+    private final Context context;
 
-	public static final String DATABASE_NAME = "[aAndroidProject.name/].db";
+	public [projectName4Class(aAndroidProject)/]DbAdapter(Context context) {
+        this.context = context;
+    }
 
-	// any time you make changes to your database objects, you may have to increase the database version
-	//[protected ('SQLiteDAOHelper.version.protected')]
-	private static final int DATABASE_VERSION = 1;
-	//[/protected]
+    public [projectName4Class(aAndroidProject)/]DbAdapter open() throws SQLException {
+        dbHelper = new SQLiteDBHelper(context);
+        db = dbHelper.getWritableDatabase();
+        return this;
+    }
+    
+    public void close() {
+        dbHelper.close();
+    }
+
+	public class SQLiteDBHelper extends SQLiteOpenHelper {
+		
+		
+		public static final String DATABASE_NAME = "[aAndroidProject.name/].db";
+	
+		// any time you make changes to your database objects, you may have to increase the database version
+		//[protected ('SQLiteDAOHelper.version.protected')]
+		private static final int DATABASE_VERSION = 1;
+		//[/protected]
+	
+		[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
+			[if (aDataClass.storage = storageKind::SQLite)]
+		public static final String DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/] = "[aDataClass.eClass.name.toLower()/]Classes";
+		private static final String DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/]_CREATE =
+	            "create table [aDataClass.eClass.name.toLower()/]Classes (_id integer primary key autoincrement"
+	    		[for (att : EAttribute | aDataClass.eClass.eAttributes)]
+					[if (att.eType.instanceClassName = 'java.lang.String')]
+	                    + ", [att.name.toLower()/] text not null"
+					[elseif (att.eType.instanceClassName = 'int')]
+	                    + ", [att.name.toLower()/] integer not null"
+					[/if]
+				[/for]
+	                    + ");";
+			[/if]
+		[/for]
+	
+		[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
+			[if (aDataClass.storage = storageKind::SQLite)]
+		//public static final String DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/] = "[aDataClass.eClass.name.toLower()/]Classes";
+			[/if]
+		[/for]
+		
+	
+	
+	    SQLiteDBHelper(Context context) {
+	        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+	    }
+	
+	    @Override
+	    public void onCreate(SQLiteDatabase db) {
+		[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
+			[if (aDataClass.storage = storageKind::SQLite)]
+		 	db.execSQL(DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/]_CREATE);
+			[/if]
+		[/for]
+	    }
+	
+	    @Override
+	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	        Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
+	                + newVersion);
+		[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
+			[if (aDataClass.storage = storageKind::SQLite)]
+	        db.execSQL("DROP TABLE IF EXISTS "+ DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/]);
+			[/if]
+		[/for]
+	        onCreate(db);
+	    }
+		@Override
+		public synchronized void close() {
+			super.close();
+		}
+	}
 
 	[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
 		[if (aDataClass.storage = storageKind::SQLite)]
-	public static final String DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/] = "[aDataClass.eClass.name.toLower()/]Classes";
-	private static final String DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/]_CREATE =
-            "create table [aDataClass.eClass.name.toLower()/]Classes (_id integer primary key autoincrement"
-    		[for (att : EAttribute | aDataClass.eClass.eAttributes)]
-				[if (att.eType.instanceClassName = 'java.lang.String')]
-                    + ", [att.name.toLower()/] text not null"
-				[elseif (att.eType.instanceClassName = 'java.lang.String')]
-                    + ", creditcardtype integer not null"
-				[/if]
-			[/for]
+	/** insert this new [aDataClass.eClass.name.toUpperFirst()/] into the table
+      * @return the row at which it was inserted, the object id is also updated accordingly
+      */
+	public long insert([aDataClass.eClass.name.toUpperFirst()/] a[aDataClass.eClass.name.toUpperFirst()/]) {
+        
+		ContentValues args = new ContentValues();
+        [for (att : EAttribute | aDataClass.eClass.eAttributes)]
+        args.put("[att.name.toLower()/]",  a[aDataClass.eClass.name.toUpperFirst()/].[att.name.toLowerFirst()/]);
+        [/for]
 
-                    + ");";
+		a[aDataClass.eClass.name.toUpperFirst()/].setId(db.insert(SQLiteDBHelper.DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/], null, args));
+        return a[aDataClass.eClass.name.toUpperFirst()/].getId();
+    }
 		[/if]
 	[/for]
-
 	[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
 		[if (aDataClass.storage = storageKind::SQLite)]
-	public static final String DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/] = "[aDataClass.eClass.name.toLower()/]Classes";
+	/** insert this new [aDataClass.eClass.name.toUpperFirst()/] into the table
+      * @return the row at which it was inserted, the object id is also updated accordingly
+      */
+	public long update([aDataClass.eClass.name.toUpperFirst()/] a[aDataClass.eClass.name.toUpperFirst()/]) {
+        
+		ContentValues args = new ContentValues();
+        [for (att : EAttribute | aDataClass.eClass.eAttributes)]
+        args.put("[att.name.toLower()/]",  a[aDataClass.eClass.name.toUpperFirst()/].[att.name.toLowerFirst()/]);
+        [/for]
+
+		a[aDataClass.eClass.name.toUpperFirst()/].setId(db.insert(SQLiteDBHelper.DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/], null, args));
+        return a[aDataClass.eClass.name.toUpperFirst()/].getId();
+    }
 		[/if]
 	[/for]
-	
 
-
-    SQLiteDAOHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        //db.execSQL(DATABASE_CREATE);
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
-                + newVersion);
-        db.execSQL("DROP TABLE IF EXISTS econregistration");
-        onCreate(db);
-    }
 }
 [/file]
+[/template]
+[template public allEAttributesParam (anEClass : EClass) ]
+[anEClass.eAttributes.oneEAttributeParam()->sep(', ')/]
+[/template]
+
+[template public oneEAttributeParam (att : EAttribute) ]
+[att.eType.instanceClassName/] [att.name.toLowerFirst()/]
+[/template]
+
+[template public projectName4Class (aAndroidProject : AndroidProject) ]
+[aAndroidProject.name.toUpperFirst().replaceAll('\\.', '')/]
 [/template]
