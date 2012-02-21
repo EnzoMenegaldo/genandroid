@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module workflow('http://genandroid/1.0')/]
+[import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
+[import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
+[import fr::vojtisek::genandroid::acceleo::files::generateSQLiteDAOHelper/]
+
+
+[template public workflowDataClass(anAndroidProject : AndroidProject)]
+	
+	[comment @main /]
+	[for (aDataClass : DataClass | anAndroidProject.dataModel.dataClasses)] 
+		[aDataClass.generateDataClassFile()/]
+	[/for]
+	[anAndroidProject.generateDAOHelper()/]
+	[anAndroidProject.generateSQLiteDAOHelper()/]
+	
+[/template]

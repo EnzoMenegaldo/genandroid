@@ -1,0 +1,103 @@
+[comment encoding = UTF-8 /]
+[module generateDataClass('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateDataClassFile(aDataClass : DataClass)]
+
+[file ('/src/'+aDataClass.packagePrefixFolder()+'/datamodel/'.concat(aDataClass.eClass.name).concat('.java'), false, 'UTF-8')]
+
+/*******************************************************************************
+ * Copyright (c) 2012 Vojtisek.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Didier Vojtisek - initial API and implementation
+ *******************************************************************************/
+package [aDataClass.packagePrefix()/].datamodel;
+
+public class [aDataClass.eClass.name.toUpperFirst()/] {
+
+	public static final String XML_[aDataClass.eClass.name.toUpper()/] = "[aDataClass.eClass.name.toUpper()/]";
+	public static final String XML_ATT_ID = "id";
+	[for (att : EAttribute | aDataClass.eClass.eAttributes)]
+		[if (att.upperBound = 1)]
+	public static final String XML_ATT_[att.name.toUpper()/] = "[att.name.toLowerFirst()/]";
+		[else]
+	public static final String XML_ATT_[att.name.toUpper()/] = "[att.name.toUpper()/]";
+		[/if]
+	[/for]
+	
+	// internal id 
+	protected int id;
+	
+	[for (att : EAttribute | aDataClass.eClass.eAttributes)]
+		[if (att.upperBound = 1)]
+	protected [att.oneEAttributeParam()/];
+
+		[/if]
+	[/for]
+	[comment][for (ref : EReference | aDataClass.eClass.eReferences)]
+		[if (ref.upperBound = 1)]
+			[if (ref.eType.)]
+	private EditText w[w.name.toUpperFirst()/];
+
+			[/if]
+
+		[/if]
+	[/for][/comment]
+	// [protected (aDataClass.eClass.name.concat(' additional properties'))]
+	// [/protected]
+
+	public [aDataClass.eClass.name.toUpperFirst()/]([aDataClass.eClass.allEAttributesParam()/]) {
+		super();
+	[for (att : EAttribute | aDataClass.eClass.eAttributes)]
+		[if (att.upperBound = 1)]
+		this.[att.name.toLowerFirst()/] = [att.name.toLowerFirst()/];
+		[/if]
+	[/for]
+	} 
+
+
+	public String toXML(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("<");
+    	sb.append(XML_[aDataClass.eClass.name.toUpper()/]);
+		sb.append(" ");
+    	sb.append(XML_ATT_ID);
+    	sb.append("=\"");
+		sb.append(this.id);
+    	sb.append("\" ");
+	[for (att : EAttribute | aDataClass.eClass.eAttributes)]
+		[if (att.upperBound = 1)]
+		sb.append(" ");
+    	sb.append(XML_ATT_[att.name.toUpper()/]);
+    	sb.append("=\"");
+		sb.append(this.[att.name.toLowerFirst()/]);
+    	sb.append("\" ");
+		[/if]
+	[/for]
+
+
+    	sb.append(">");
+
+		// TODO deal with other case
+
+		sb.append("<");
+    	sb.append(XML_[aDataClass.eClass.name.toUpper()/]);
+    	sb.append(">");
+		return sb.toString();
+	}
+}
+[/file]
+[/template]
+
+[template public allEAttributesParam (anEClass : EClass) ]
+[anEClass.eAttributes.oneEAttributeParam()->sep(',')/]
+[/template]
+
+[template public oneEAttributeParam (att : EAttribute) ]
+[att.eType.instanceClassName/] [att.name.toLowerFirst()/]
+[/template]

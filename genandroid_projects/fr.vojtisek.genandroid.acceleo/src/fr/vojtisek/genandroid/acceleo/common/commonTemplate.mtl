@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module commonTemplate('http://www.eclipse.org/emf/2002/Ecore', 'http://genandroid/1.0')]
+
+
+[template public packagePrefixFolder(aAndroidProject : AndroidProject)]
+[packagePrefix.replaceAll('\\.','/')/]
+[/template]
+[template public packagePrefixFolder(aDataModel : DataModel)]
+[aDataModel.eContainer().oclAsType(AndroidProject).packagePrefixFolder()/]
+[/template]
+[template public packagePrefixFolder(aDataClass : DataClass)]
+[aDataClass.eContainer().oclAsType(DataModel).packagePrefixFolder()/]
+[/template]
+
+[template public packagePrefix(aDataModel : DataModel)]
+[aDataModel.eContainer().oclAsType(AndroidProject).packagePrefix/]
+[/template]
+[template public packagePrefix(aDataClass : DataClass)]
+[aDataClass.eContainer().oclAsType(DataModel).packagePrefix()/]
+[/template]
