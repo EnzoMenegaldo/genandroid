@@ -132,15 +132,25 @@ public class [projectName4Class(aAndroidProject)/]DbAdapter {
 	/** insert this new [aDataClass.eClass.name.toUpperFirst()/] into the table
       * @return the row at which it was inserted, the object id is also updated accordingly
       */
-	public long update([aDataClass.eClass.name.toUpperFirst()/] a[aDataClass.eClass.name.toUpperFirst()/]) {
+	public boolean update([aDataClass.eClass.name.toUpperFirst()/] a[aDataClass.eClass.name.toUpperFirst()/]) {
         
 		ContentValues args = new ContentValues();
         [for (att : EAttribute | aDataClass.eClass.eAttributes)]
         args.put("[att.name.toLower()/]",  a[aDataClass.eClass.name.toUpperFirst()/].[att.name.toLowerFirst()/]);
         [/for]
 
-		a[aDataClass.eClass.name.toUpperFirst()/].setId(db.insert(SQLiteDBHelper.DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/], null, args));
-        return a[aDataClass.eClass.name.toUpperFirst()/].getId();
+ 		return db.update(SQLiteDBHelper.DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/], args, "_id=" + a[aDataClass.eClass.name.toUpperFirst()/].getId(), null) > 0;
+    }
+		[/if]
+	[/for]
+
+	[for (aDataClass : DataClass | aAndroidProject.dataModel.dataClasses)]
+		[if (aDataClass.storage = storageKind::SQLite)]
+	public boolean delete[aDataClass.eClass.name.toUpperFirst()/](long rowId) {
+        return db.delete(SQLiteDBHelper.DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/],"_id=" + rowId, null) > 0;
+    }
+	public boolean delete([aDataClass.eClass.name.toUpperFirst()/] a[aDataClass.eClass.name.toUpperFirst()/]) {
+        return db.delete(SQLiteDBHelper.DATABASE_TABLE_[aDataClass.eClass.name.toUpper()/],"_id=" + a[aDataClass.eClass.name.toUpperFirst()/].getId(), null) > 0;
     }
 		[/if]
 	[/for]

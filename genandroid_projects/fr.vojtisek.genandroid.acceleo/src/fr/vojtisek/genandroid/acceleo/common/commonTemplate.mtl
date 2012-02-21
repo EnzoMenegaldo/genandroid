@@ -18,3 +18,22 @@
 [template public packagePrefix(aDataClass : DataClass)]
 [aDataClass.eContainer().oclAsType(DataModel).packagePrefix()/]
 [/template]
+
+[template public allEAttributesParam (anEClass : EClass) ]
+[anEClass.eAttributes.oneEAttributeParam()->sep(', ')/]
+[/template]
+
+[template public oneEAttributeParam (att : EAttribute) ]
+[att.eType.instanceClassName/] [att.name.toLowerFirst()/]
+[/template]
+
+[template public allEReferencesParam (anEClass : EClass) ]
+[anEClass.eReferences.oneEReferenceParam()->sep(', ')/]
+[/template]
+[template public oneEReferenceParam (ref : EReference) ]
+[ref.eType.name/] [ref.name.toLowerFirst()/]
+[/template]
+
+[template public projectName4Class (aAndroidProject : AndroidProject) ]
+[aAndroidProject.name.toUpperFirst().replaceAll('\\.', '')/]
+[/template]
