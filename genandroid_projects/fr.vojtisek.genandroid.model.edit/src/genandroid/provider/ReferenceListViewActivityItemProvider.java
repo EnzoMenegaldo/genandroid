@@ -9,6 +9,7 @@ package genandroid.provider;
 
 import genandroid.GenandroidPackage;
 
+import genandroid.ReferenceListViewActivity;
 import java.util.Collection;
 import java.util.List;
 
@@ -127,7 +128,10 @@ public class ReferenceListViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ReferenceListViewActivity_type");
+		String label = ((ReferenceListViewActivity)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ReferenceListViewActivity_type") :
+			getString("_UI_ReferenceListViewActivity_type") + " " + label;
 	}
 
 	/**

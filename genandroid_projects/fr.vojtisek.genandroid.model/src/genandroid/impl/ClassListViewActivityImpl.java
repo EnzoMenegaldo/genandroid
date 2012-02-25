@@ -6,6 +6,7 @@
  */
 package genandroid.impl;
 
+import genandroid.ClassDetail;
 import genandroid.ClassListViewActivity;
 import genandroid.DataClass;
 import genandroid.GenandroidPackage;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link genandroid.impl.ClassListViewActivityImpl#getListedElement <em>Listed Element</em>}</li>
+ *   <li>{@link genandroid.impl.ClassListViewActivityImpl#getPresentedDetail <em>Presented Detail</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +42,16 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 	 * @ordered
 	 */
 	protected DataClass listedElement;
+
+	/**
+	 * The cached value of the '{@link #getPresentedDetail() <em>Presented Detail</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPresentedDetail()
+	 * @generated
+	 * @ordered
+	 */
+	protected ClassDetail presentedDetail;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,12 +115,53 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ClassDetail getPresentedDetail() {
+		if (presentedDetail != null && presentedDetail.eIsProxy()) {
+			InternalEObject oldPresentedDetail = (InternalEObject)presentedDetail;
+			presentedDetail = (ClassDetail)eResolveProxy(oldPresentedDetail);
+			if (presentedDetail != oldPresentedDetail) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL, oldPresentedDetail, presentedDetail));
+			}
+		}
+		return presentedDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClassDetail basicGetPresentedDetail() {
+		return presentedDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPresentedDetail(ClassDetail newPresentedDetail) {
+		ClassDetail oldPresentedDetail = presentedDetail;
+		presentedDetail = newPresentedDetail;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL, oldPresentedDetail, presentedDetail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT:
 				if (resolve) return getListedElement();
 				return basicGetListedElement();
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
+				if (resolve) return getPresentedDetail();
+				return basicGetPresentedDetail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +176,9 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 		switch (featureID) {
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT:
 				setListedElement((DataClass)newValue);
+				return;
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
+				setPresentedDetail((ClassDetail)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +195,9 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT:
 				setListedElement((DataClass)null);
 				return;
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
+				setPresentedDetail((ClassDetail)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,6 +212,8 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 		switch (featureID) {
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT:
 				return listedElement != null;
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
+				return presentedDetail != null;
 		}
 		return super.eIsSet(featureID);
 	}

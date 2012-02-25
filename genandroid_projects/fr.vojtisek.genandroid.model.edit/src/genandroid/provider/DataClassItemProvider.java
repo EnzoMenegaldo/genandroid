@@ -8,6 +8,7 @@ package genandroid.provider;
 
 
 import genandroid.DataClass;
+import genandroid.GenandroidFactory;
 import genandroid.GenandroidPackage;
 import genandroid.storageKind;
 
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -116,6 +118,37 @@ public class DataClassItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(GenandroidPackage.Literals.DATA_CLASS__DATA_REFERENCES);
+			childrenFeatures.add(GenandroidPackage.Literals.DATA_CLASS__DATA_ATTRIBUTES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns DataClass.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,15 +163,20 @@ public class DataClassItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		storageKind labelValue = ((DataClass)object).getStorage();
+		StringBuilder result = new StringBuilder();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DataClass_type") :
-			getString("_UI_DataClass_type") + " " + label;
+		result.append(getString("_UI_DataClass_type"));
+		if(label == null || label.length() == 0)
+			result.append( " " + label);
+		if(((DataClass)object).getEClass() != null){
+			result.append( " " +((DataClass)object).getEClass().getName());
+		}
+		return result.toString();
 	}
 
 	/**
@@ -156,6 +194,10 @@ public class DataClassItemProvider
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
+			case GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -170,6 +212,16 @@ public class DataClassItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.DATA_CLASS__DATA_REFERENCES,
+				 GenandroidFactory.eINSTANCE.createDataReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.DATA_CLASS__DATA_ATTRIBUTES,
+				 GenandroidFactory.eINSTANCE.createDataAttribute()));
 	}
 
 	/**

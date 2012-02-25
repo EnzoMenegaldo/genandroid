@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link genandroid.AndroidProject#getDataModel <em>Data Model</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getViewActivities <em>View Activities</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getPackagePrefix <em>Package Prefix</em>}</li>
+ *   <li>{@link genandroid.AndroidProject#getClassDetails <em>Class Details</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,5 +124,21 @@ public interface AndroidProject extends EObject {
 	 * @generated
 	 */
 	void setPackagePrefix(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Class Details</b></em>' containment reference list.
+	 * The list contents are of type {@link genandroid.ClassDetail}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Class Details</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Class Details</em>' containment reference list.
+	 * @see genandroid.GenandroidPackage#getAndroidProject_ClassDetails()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ClassDetail> getClassDetails();
 
 } // AndroidProject

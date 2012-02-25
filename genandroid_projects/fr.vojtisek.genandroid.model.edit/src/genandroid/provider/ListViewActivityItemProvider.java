@@ -9,6 +9,7 @@ package genandroid.provider;
 
 import genandroid.GenandroidPackage;
 
+import genandroid.ListViewActivity;
 import java.util.Collection;
 import java.util.List;
 
@@ -104,7 +105,10 @@ public class ListViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ListViewActivity_type");
+		String label = ((ListViewActivity)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ListViewActivity_type") :
+			getString("_UI_ListViewActivity_type") + " " + label;
 	}
 
 	/**

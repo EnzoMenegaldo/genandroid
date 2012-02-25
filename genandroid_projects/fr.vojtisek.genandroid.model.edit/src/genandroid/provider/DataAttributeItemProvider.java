@@ -8,6 +8,7 @@ package genandroid.provider;
 
 
 import genandroid.DataAttribute;
+import genandroid.DataClass;
 import genandroid.GenandroidPackage;
 import genandroid.storageKind;
 
@@ -130,15 +131,20 @@ public class DataAttributeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		storageKind labelValue = ((DataAttribute)object).getStorage();
+		StringBuilder result = new StringBuilder();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DataAttribute_type") :
-			getString("_UI_DataAttribute_type") + " " + label;
+		result.append(getString("_UI_DataAttribute_type"));
+		if(label == null || label.length() == 0)
+			result.append( " " + label);
+		if(((DataAttribute)object).getEAttribute() != null){
+			result.append( " " +((DataAttribute)object).getEAttribute().getName());
+		}
+		return result.toString();
 	}
 
 	/**

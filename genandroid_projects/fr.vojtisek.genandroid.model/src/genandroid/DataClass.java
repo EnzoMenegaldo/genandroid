@@ -6,6 +6,7 @@
  */
 package genandroid;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -19,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link genandroid.DataClass#getEClass <em>EClass</em>}</li>
  *   <li>{@link genandroid.DataClass#getStorage <em>Storage</em>}</li>
+ *   <li>{@link genandroid.DataClass#getDataReferences <em>Data References</em>}</li>
+ *   <li>{@link genandroid.DataClass#getDataAttributes <em>Data Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +85,37 @@ public interface DataClass extends EObject {
 	 * @generated
 	 */
 	void setStorage(storageKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Data References</b></em>' containment reference list.
+	 * The list contents are of type {@link genandroid.DataReference}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data References</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data References</em>' containment reference list.
+	 * @see genandroid.GenandroidPackage#getDataClass_DataReferences()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataReference> getDataReferences();
+
+	/**
+	 * Returns the value of the '<em><b>Data Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link genandroid.DataAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Attributes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Attributes</em>' containment reference list.
+	 * @see genandroid.GenandroidPackage#getDataClass_DataAttributes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataAttribute> getDataAttributes();
 
 } // DataClass

@@ -7,6 +7,7 @@
 package genandroid.provider;
 
 
+import genandroid.ClassListViewActivity;
 import genandroid.GenandroidPackage;
 
 import java.util.Collection;
@@ -59,6 +60,7 @@ public class ClassListViewActivityItemProvider
 			super.getPropertyDescriptors(object);
 
 			addListedElementPropertyDescriptor(object);
+			addPresentedDetailPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +88,28 @@ public class ClassListViewActivityItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Presented Detail feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPresentedDetailPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ClassListViewActivity_presentedDetail_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ClassListViewActivity_presentedDetail_feature", "_UI_ClassListViewActivity_type"),
+				 GenandroidPackage.Literals.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ClassListViewActivity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,7 +128,10 @@ public class ClassListViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ClassListViewActivity_type");
+		String label = ((ClassListViewActivity)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ClassListViewActivity_type") :
+			getString("_UI_ClassListViewActivity_type") + " " + label;
 	}
 
 	/**

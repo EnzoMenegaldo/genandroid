@@ -107,13 +107,22 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT__PACKAGE_PREFIX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Class Details</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__CLASS_DETAILS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Android Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT_FEATURE_COUNT = 4;
+	int ANDROID_PROJECT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
@@ -144,31 +153,13 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_MODEL__DATA_CLASSES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Data References</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_MODEL__DATA_REFERENCES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Data Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_MODEL__DATA_ATTRIBUTES = 3;
-
-	/**
 	 * The number of structural features of the '<em>Data Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_MODEL_FEATURE_COUNT = 4;
+	int DATA_MODEL_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ViewActivityImpl <em>View Activity</em>}' class.
@@ -181,13 +172,22 @@ public interface GenandroidPackage extends EPackage {
 	int VIEW_ACTIVITY = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ACTIVITY__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_ACTIVITY_FEATURE_COUNT = 0;
+	int VIEW_ACTIVITY_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.EditViewActivityImpl <em>Edit View Activity</em>}' class.
@@ -198,6 +198,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	int EDIT_VIEW_ACTIVITY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDIT_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Edit View Activity</em>' class.
@@ -217,6 +226,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	int LIST_VIEW_ACTIVITY = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -247,6 +265,15 @@ public interface GenandroidPackage extends EPackage {
 	int CLASS_LIST_VIEW_ACTIVITY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__NAME = LIST_VIEW_ACTIVITY__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,13 +292,22 @@ public interface GenandroidPackage extends EPackage {
 	int CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Presented Detail</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Class List View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_LIST_VIEW_ACTIVITY_FEATURE_COUNT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 1;
+	int CLASS_LIST_VIEW_ACTIVITY_FEATURE_COUNT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataClassImpl <em>Data Class</em>}' class.
@@ -302,13 +338,31 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_CLASS__STORAGE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Data References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CLASS__DATA_REFERENCES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Data Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CLASS__DATA_ATTRIBUTES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Data Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CLASS_FEATURE_COUNT = 2;
+	int DATA_CLASS_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ReferenceListViewActivityImpl <em>Reference List View Activity</em>}' class.
@@ -319,6 +373,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__NAME = CLASS_LIST_VIEW_ACTIVITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -337,6 +400,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY__LISTED_ELEMENT = CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Presented Detail</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL = CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
@@ -376,13 +448,40 @@ public interface GenandroidPackage extends EPackage {
 	int CLASS_DETAIL = 7;
 
 	/**
+	 * The feature id for the '<em><b>Main Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_DETAIL__MAIN_ATTRIBUTES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_DETAIL__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Secondary Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_DETAIL__SECONDARY_ATTRIBUTES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Class Detail</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DETAIL_FEATURE_COUNT = 0;
+	int CLASS_DETAIL_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataAttributeImpl <em>Data Attribute</em>}' class.
@@ -467,6 +566,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE_LIST_VIEW_ACTIVITY = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_LIST_VIEW_ACTIVITY__NAME = LIST_VIEW_ACTIVITY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -570,6 +678,17 @@ public interface GenandroidPackage extends EPackage {
 	EAttribute getAndroidProject_PackagePrefix();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.AndroidProject#getClassDetails <em>Class Details</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Class Details</em>'.
+	 * @see genandroid.AndroidProject#getClassDetails()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EReference getAndroidProject_ClassDetails();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataModel <em>Data Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,28 +721,6 @@ public interface GenandroidPackage extends EPackage {
 	EReference getDataModel_DataClasses();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link genandroid.DataModel#getDataReferences <em>Data References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data References</em>'.
-	 * @see genandroid.DataModel#getDataReferences()
-	 * @see #getDataModel()
-	 * @generated
-	 */
-	EReference getDataModel_DataReferences();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link genandroid.DataModel#getDataAttributes <em>Data Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data Attributes</em>'.
-	 * @see genandroid.DataModel#getDataAttributes()
-	 * @see #getDataModel()
-	 * @generated
-	 */
-	EReference getDataModel_DataAttributes();
-
-	/**
 	 * Returns the meta object for class '{@link genandroid.ViewActivity <em>View Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -632,6 +729,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getViewActivity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.ViewActivity#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see genandroid.ViewActivity#getName()
+	 * @see #getViewActivity()
+	 * @generated
+	 */
+	EAttribute getViewActivity_Name();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.EditViewActivity <em>Edit View Activity</em>}'.
@@ -665,6 +773,17 @@ public interface GenandroidPackage extends EPackage {
 	EReference getClassListViewActivity_ListedElement();
 
 	/**
+	 * Returns the meta object for the reference '{@link genandroid.ClassListViewActivity#getPresentedDetail <em>Presented Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Presented Detail</em>'.
+	 * @see genandroid.ClassListViewActivity#getPresentedDetail()
+	 * @see #getClassListViewActivity()
+	 * @generated
+	 */
+	EReference getClassListViewActivity_PresentedDetail();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataClass <em>Data Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +814,28 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataClass_Storage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.DataClass#getDataReferences <em>Data References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data References</em>'.
+	 * @see genandroid.DataClass#getDataReferences()
+	 * @see #getDataClass()
+	 * @generated
+	 */
+	EReference getDataClass_DataReferences();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.DataClass#getDataAttributes <em>Data Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Attributes</em>'.
+	 * @see genandroid.DataClass#getDataAttributes()
+	 * @see #getDataClass()
+	 * @generated
+	 */
+	EReference getDataClass_DataAttributes();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.ReferenceListViewActivity <em>Reference List View Activity</em>}'.
@@ -737,6 +878,39 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getClassDetail();
+
+	/**
+	 * Returns the meta object for the reference list '{@link genandroid.ClassDetail#getMainAttributes <em>Main Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Main Attributes</em>'.
+	 * @see genandroid.ClassDetail#getMainAttributes()
+	 * @see #getClassDetail()
+	 * @generated
+	 */
+	EReference getClassDetail_MainAttributes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.ClassDetail#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see genandroid.ClassDetail#getName()
+	 * @see #getClassDetail()
+	 * @generated
+	 */
+	EAttribute getClassDetail_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link genandroid.ClassDetail#getSecondaryAttributes <em>Secondary Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Secondary Attributes</em>'.
+	 * @see genandroid.ClassDetail#getSecondaryAttributes()
+	 * @see #getClassDetail()
+	 * @generated
+	 */
+	EReference getClassDetail_SecondaryAttributes();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.DataAttribute <em>Data Attribute</em>}'.
@@ -930,6 +1104,14 @@ public interface GenandroidPackage extends EPackage {
 		EAttribute ANDROID_PROJECT__PACKAGE_PREFIX = eINSTANCE.getAndroidProject_PackagePrefix();
 
 		/**
+		 * The meta object literal for the '<em><b>Class Details</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANDROID_PROJECT__CLASS_DETAILS = eINSTANCE.getAndroidProject_ClassDetails();
+
+		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -956,22 +1138,6 @@ public interface GenandroidPackage extends EPackage {
 		EReference DATA_MODEL__DATA_CLASSES = eINSTANCE.getDataModel_DataClasses();
 
 		/**
-		 * The meta object literal for the '<em><b>Data References</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_MODEL__DATA_REFERENCES = eINSTANCE.getDataModel_DataReferences();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Attributes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_MODEL__DATA_ATTRIBUTES = eINSTANCE.getDataModel_DataAttributes();
-
-		/**
 		 * The meta object literal for the '{@link genandroid.impl.ViewActivityImpl <em>View Activity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -980,6 +1146,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VIEW_ACTIVITY = eINSTANCE.getViewActivity();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_ACTIVITY__NAME = eINSTANCE.getViewActivity_Name();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.EditViewActivityImpl <em>Edit View Activity</em>}' class.
@@ -1010,6 +1184,14 @@ public interface GenandroidPackage extends EPackage {
 		EReference CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT = eINSTANCE.getClassListViewActivity_ListedElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Presented Detail</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL = eINSTANCE.getClassListViewActivity_PresentedDetail();
+
+		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataClassImpl <em>Data Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1034,6 +1216,22 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_CLASS__STORAGE = eINSTANCE.getDataClass_Storage();
+
+		/**
+		 * The meta object literal for the '<em><b>Data References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_CLASS__DATA_REFERENCES = eINSTANCE.getDataClass_DataReferences();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_CLASS__DATA_ATTRIBUTES = eINSTANCE.getDataClass_DataAttributes();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.ReferenceListViewActivityImpl <em>Reference List View Activity</em>}' class.
@@ -1070,6 +1268,30 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CLASS_DETAIL = eINSTANCE.getClassDetail();
+
+		/**
+		 * The meta object literal for the '<em><b>Main Attributes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_DETAIL__MAIN_ATTRIBUTES = eINSTANCE.getClassDetail_MainAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS_DETAIL__NAME = eINSTANCE.getClassDetail_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Secondary Attributes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS_DETAIL__SECONDARY_ATTRIBUTES = eINSTANCE.getClassDetail_SecondaryAttributes();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataAttributeImpl <em>Data Attribute</em>}' class.

@@ -243,6 +243,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAndroidProject_ClassDetails() {
+		return (EReference)androidProjectEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataModel() {
 		return dataModelEClass;
 	}
@@ -270,26 +279,17 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataModel_DataReferences() {
-		return (EReference)dataModelEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDataModel_DataAttributes() {
-		return (EReference)dataModelEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getViewActivity() {
 		return viewActivityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getViewActivity_Name() {
+		return (EAttribute)viewActivityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -324,6 +324,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getClassListViewActivity_PresentedDetail() {
+		return (EReference)classListViewActivityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataClass() {
 		return dataClassEClass;
 	}
@@ -344,6 +353,24 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 */
 	public EAttribute getDataClass_Storage() {
 		return (EAttribute)dataClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataClass_DataReferences() {
+		return (EReference)dataClassEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataClass_DataAttributes() {
+		return (EReference)dataClassEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -380,6 +407,33 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 */
 	public EClass getClassDetail() {
 		return classDetailEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassDetail_MainAttributes() {
+		return (EReference)classDetailEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClassDetail_Name() {
+		return (EAttribute)classDetailEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassDetail_SecondaryAttributes() {
+		return (EReference)classDetailEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -523,29 +577,35 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(androidProjectEClass, ANDROID_PROJECT__DATA_MODEL);
 		createEReference(androidProjectEClass, ANDROID_PROJECT__VIEW_ACTIVITIES);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__PACKAGE_PREFIX);
+		createEReference(androidProjectEClass, ANDROID_PROJECT__CLASS_DETAILS);
 
 		dataModelEClass = createEClass(DATA_MODEL);
 		createEReference(dataModelEClass, DATA_MODEL__ROOT_CLASS);
 		createEReference(dataModelEClass, DATA_MODEL__DATA_CLASSES);
-		createEReference(dataModelEClass, DATA_MODEL__DATA_REFERENCES);
-		createEReference(dataModelEClass, DATA_MODEL__DATA_ATTRIBUTES);
 
 		viewActivityEClass = createEClass(VIEW_ACTIVITY);
+		createEAttribute(viewActivityEClass, VIEW_ACTIVITY__NAME);
 
 		editViewActivityEClass = createEClass(EDIT_VIEW_ACTIVITY);
 
 		classListViewActivityEClass = createEClass(CLASS_LIST_VIEW_ACTIVITY);
 		createEReference(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT);
+		createEReference(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL);
 
 		dataClassEClass = createEClass(DATA_CLASS);
 		createEReference(dataClassEClass, DATA_CLASS__ECLASS);
 		createEAttribute(dataClassEClass, DATA_CLASS__STORAGE);
+		createEReference(dataClassEClass, DATA_CLASS__DATA_REFERENCES);
+		createEReference(dataClassEClass, DATA_CLASS__DATA_ATTRIBUTES);
 
 		referenceListViewActivityEClass = createEClass(REFERENCE_LIST_VIEW_ACTIVITY);
 		createEReference(referenceListViewActivityEClass, REFERENCE_LIST_VIEW_ACTIVITY__REFERENCE);
 		createEReference(referenceListViewActivityEClass, REFERENCE_LIST_VIEW_ACTIVITY__FROM);
 
 		classDetailEClass = createEClass(CLASS_DETAIL);
+		createEReference(classDetailEClass, CLASS_DETAIL__MAIN_ATTRIBUTES);
+		createEAttribute(classDetailEClass, CLASS_DETAIL__NAME);
+		createEReference(classDetailEClass, CLASS_DETAIL__SECONDARY_ATTRIBUTES);
 
 		dataAttributeEClass = createEClass(DATA_ATTRIBUTE);
 		createEReference(dataAttributeEClass, DATA_ATTRIBUTE__EATTRIBUTE);
@@ -609,29 +669,35 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getAndroidProject_DataModel(), this.getDataModel(), null, "dataModel", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAndroidProject_ViewActivities(), this.getViewActivity(), null, "viewActivities", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndroidProject_PackagePrefix(), theEcorePackage.getEString(), "packagePrefix", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAndroidProject_ClassDetails(), this.getClassDetail(), null, "classDetails", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataModel_RootClass(), theEcorePackage.getEClass(), null, "rootClass", null, 0, 1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataModel_DataClasses(), this.getDataClass(), null, "dataClasses", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataModel_DataReferences(), this.getDataReference(), null, "dataReferences", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataModel_DataAttributes(), this.getDataAttribute(), null, "dataAttributes", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewActivityEClass, ViewActivity.class, "ViewActivity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getViewActivity_Name(), theEcorePackage.getEString(), "name", null, 1, 1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editViewActivityEClass, EditViewActivity.class, "EditViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(classListViewActivityEClass, ClassListViewActivity.class, "ClassListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassListViewActivity_ListedElement(), this.getDataClass(), null, "listedElement", null, 1, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassListViewActivity_PresentedDetail(), this.getClassDetail(), null, "presentedDetail", null, 0, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataClassEClass, DataClass.class, "DataClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataClass_EClass(), theEcorePackage.getEClass(), null, "eClass", null, 1, 1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataClass_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataClass_DataReferences(), this.getDataReference(), null, "dataReferences", null, 0, -1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataClass_DataAttributes(), this.getDataAttribute(), null, "dataAttributes", null, 0, -1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceListViewActivityEClass, ReferenceListViewActivity.class, "ReferenceListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceListViewActivity_Reference(), this.getDataReference(), null, "reference", null, 1, 1, ReferenceListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReferenceListViewActivity_From(), this.getDataClass(), null, "from", null, 1, 1, ReferenceListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classDetailEClass, ClassDetail.class, "ClassDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getClassDetail_MainAttributes(), this.getDataAttribute(), null, "mainAttributes", null, 1, -1, ClassDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassDetail_Name(), theEcorePackage.getEString(), "name", null, 0, 1, ClassDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassDetail_SecondaryAttributes(), this.getDataAttribute(), null, "secondaryAttributes", null, 0, -1, ClassDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataAttributeEClass, DataAttribute.class, "DataAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataAttribute_EAttribute(), theEcorePackage.getEAttribute(), null, "eAttribute", null, 1, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

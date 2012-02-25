@@ -7,6 +7,7 @@
 package genandroid.provider;
 
 
+import genandroid.AttributeListViewActivity;
 import genandroid.GenandroidPackage;
 
 import java.util.Collection;
@@ -127,7 +128,10 @@ public class AttributeListViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AttributeListViewActivity_type");
+		String label = ((AttributeListViewActivity)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AttributeListViewActivity_type") :
+			getString("_UI_AttributeListViewActivity_type") + " " + label;
 	}
 
 	/**

@@ -7,6 +7,7 @@
 package genandroid.impl;
 
 import genandroid.AndroidProject;
+import genandroid.ClassDetail;
 import genandroid.DataModel;
 import genandroid.GenandroidPackage;
 import genandroid.ViewActivity;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getDataModel <em>Data Model</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getViewActivities <em>View Activities</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getPackagePrefix <em>Package Prefix</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getClassDetails <em>Class Details</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,16 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * @ordered
 	 */
 	protected String packagePrefix = PACKAGE_PREFIX_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getClassDetails() <em>Class Details</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassDetails()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ClassDetail> classDetails;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,6 +237,18 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ClassDetail> getClassDetails() {
+		if (classDetails == null) {
+			classDetails = new EObjectContainmentEList<ClassDetail>(ClassDetail.class, this, GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS);
+		}
+		return classDetails;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -232,6 +256,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return basicSetDataModel(null, msgs);
 			case GenandroidPackage.ANDROID_PROJECT__VIEW_ACTIVITIES:
 				return ((InternalEList<?>)getViewActivities()).basicRemove(otherEnd, msgs);
+			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
+				return ((InternalEList<?>)getClassDetails()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -252,6 +278,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return getViewActivities();
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
 				return getPackagePrefix();
+			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
+				return getClassDetails();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -278,6 +306,10 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
 				setPackagePrefix((String)newValue);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
+				getClassDetails().clear();
+				getClassDetails().addAll((Collection<? extends ClassDetail>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -302,6 +334,9 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
 				setPackagePrefix(PACKAGE_PREFIX_EDEFAULT);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
+				getClassDetails().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -322,6 +357,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return viewActivities != null && !viewActivities.isEmpty();
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
 				return PACKAGE_PREFIX_EDEFAULT == null ? packagePrefix != null : !PACKAGE_PREFIX_EDEFAULT.equals(packagePrefix);
+			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
+				return classDetails != null && !classDetails.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

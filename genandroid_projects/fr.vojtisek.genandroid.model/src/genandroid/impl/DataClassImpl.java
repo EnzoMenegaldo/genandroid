@@ -6,17 +6,24 @@
  */
 package genandroid.impl;
 
+import genandroid.DataAttribute;
 import genandroid.DataClass;
+import genandroid.DataReference;
 import genandroid.GenandroidPackage;
 import genandroid.storageKind;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +34,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link genandroid.impl.DataClassImpl#getEClass <em>EClass</em>}</li>
  *   <li>{@link genandroid.impl.DataClassImpl#getStorage <em>Storage</em>}</li>
+ *   <li>{@link genandroid.impl.DataClassImpl#getDataReferences <em>Data References</em>}</li>
+ *   <li>{@link genandroid.impl.DataClassImpl#getDataAttributes <em>Data Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +71,26 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	 * @ordered
 	 */
 	protected storageKind storage = STORAGE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDataReferences() <em>Data References</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataReference> dataReferences;
+
+	/**
+	 * The cached value of the '{@link #getDataAttributes() <em>Data Attributes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataAttributes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataAttribute> dataAttributes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +175,46 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<DataReference> getDataReferences() {
+		if (dataReferences == null) {
+			dataReferences = new EObjectContainmentEList<DataReference>(DataReference.class, this, GenandroidPackage.DATA_CLASS__DATA_REFERENCES);
+		}
+		return dataReferences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataAttribute> getDataAttributes() {
+		if (dataAttributes == null) {
+			dataAttributes = new EObjectContainmentEList<DataAttribute>(DataAttribute.class, this, GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES);
+		}
+		return dataAttributes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
+				return ((InternalEList<?>)getDataReferences()).basicRemove(otherEnd, msgs);
+			case GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES:
+				return ((InternalEList<?>)getDataAttributes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -154,6 +223,10 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 				return basicGetEClass();
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				return getStorage();
+			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
+				return getDataReferences();
+			case GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES:
+				return getDataAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +236,7 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -171,6 +245,14 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 				return;
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				setStorage((storageKind)newValue);
+				return;
+			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
+				getDataReferences().clear();
+				getDataReferences().addAll((Collection<? extends DataReference>)newValue);
+				return;
+			case GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES:
+				getDataAttributes().clear();
+				getDataAttributes().addAll((Collection<? extends DataAttribute>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,6 +272,12 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				setStorage(STORAGE_EDEFAULT);
 				return;
+			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
+				getDataReferences().clear();
+				return;
+			case GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES:
+				getDataAttributes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +294,10 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 				return eClass != null;
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				return storage != STORAGE_EDEFAULT;
+			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
+				return dataReferences != null && !dataReferences.isEmpty();
+			case GenandroidPackage.DATA_CLASS__DATA_ATTRIBUTES:
+				return dataAttributes != null && !dataAttributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

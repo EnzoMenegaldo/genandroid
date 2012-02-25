@@ -7,6 +7,7 @@
 package genandroid.provider;
 
 
+import genandroid.EditViewActivity;
 import java.util.Collection;
 import java.util.List;
 
@@ -78,7 +79,10 @@ public class EditViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EditViewActivity_type");
+		String label = ((EditViewActivity)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_EditViewActivity_type") :
+			getString("_UI_EditViewActivity_type") + " " + label;
 	}
 
 	/**

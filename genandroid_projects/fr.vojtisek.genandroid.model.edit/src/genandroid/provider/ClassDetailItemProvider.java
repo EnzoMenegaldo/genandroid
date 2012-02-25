@@ -7,6 +7,8 @@
 package genandroid.provider;
 
 
+import genandroid.ClassDetail;
+import genandroid.GenandroidPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,13 +17,16 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link genandroid.ClassDetail} object.
@@ -58,8 +63,77 @@ public class ClassDetailItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addMainAttributesPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addSecondaryAttributesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Main Attributes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMainAttributesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ClassDetail_mainAttributes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ClassDetail_mainAttributes_feature", "_UI_ClassDetail_type"),
+				 GenandroidPackage.Literals.CLASS_DETAIL__MAIN_ATTRIBUTES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ClassDetail_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ClassDetail_name_feature", "_UI_ClassDetail_type"),
+				 GenandroidPackage.Literals.CLASS_DETAIL__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Secondary Attributes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecondaryAttributesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ClassDetail_secondaryAttributes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ClassDetail_secondaryAttributes_feature", "_UI_ClassDetail_type"),
+				 GenandroidPackage.Literals.CLASS_DETAIL__SECONDARY_ATTRIBUTES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,7 +155,10 @@ public class ClassDetailItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ClassDetail_type");
+		String label = ((ClassDetail)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ClassDetail_type") :
+			getString("_UI_ClassDetail_type") + " " + label;
 	}
 
 	/**
@@ -94,6 +171,12 @@ public class ClassDetailItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ClassDetail.class)) {
+			case GenandroidPackage.CLASS_DETAIL__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

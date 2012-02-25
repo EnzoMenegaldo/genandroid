@@ -106,8 +106,6 @@ public class DataModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GenandroidPackage.Literals.DATA_MODEL__DATA_CLASSES);
-			childrenFeatures.add(GenandroidPackage.Literals.DATA_MODEL__DATA_REFERENCES);
-			childrenFeatures.add(GenandroidPackage.Literals.DATA_MODEL__DATA_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -160,8 +158,6 @@ public class DataModelItemProvider
 
 		switch (notification.getFeatureID(DataModel.class)) {
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
-			case GenandroidPackage.DATA_MODEL__DATA_REFERENCES:
-			case GenandroidPackage.DATA_MODEL__DATA_ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,16 +179,6 @@ public class DataModelItemProvider
 			(createChildParameter
 				(GenandroidPackage.Literals.DATA_MODEL__DATA_CLASSES,
 				 GenandroidFactory.eINSTANCE.createDataClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GenandroidPackage.Literals.DATA_MODEL__DATA_REFERENCES,
-				 GenandroidFactory.eINSTANCE.createDataReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GenandroidPackage.Literals.DATA_MODEL__DATA_ATTRIBUTES,
-				 GenandroidFactory.eINSTANCE.createDataAttribute()));
 	}
 
 	/**
