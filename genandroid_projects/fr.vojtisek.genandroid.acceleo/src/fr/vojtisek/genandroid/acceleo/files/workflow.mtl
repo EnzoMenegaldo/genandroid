@@ -5,6 +5,7 @@
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewActivity/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewAdapter/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListView_ListView/]
+[import fr::vojtisek::genandroid::acceleo::files::generateAndroidManifest/]
 [comment][import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
 [import fr::vojtisek::genandroid::acceleo::files::generateSQLiteDAOHelper/][/comment]
 [import fr::vojtisek::genandroid::acceleo::files::generateOrmLiteDBHelper/]
@@ -28,6 +29,6 @@
 	[comment][anAndroidProject.generateDAOHelper()/]
 	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
 	[anAndroidProject.generateOrmLiteDBHelper()/]	
-
+	[anAndroidProject.generateAndroidManifest()/]
 
 [/template]
