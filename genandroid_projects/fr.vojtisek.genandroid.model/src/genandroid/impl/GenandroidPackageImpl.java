@@ -14,7 +14,8 @@ import genandroid.DataAttribute;
 import genandroid.DataClass;
 import genandroid.DataModel;
 import genandroid.DataReference;
-import genandroid.EditViewActivity;
+import genandroid.EditableElementViewActivity;
+import genandroid.ElementViewActivity;
 import genandroid.GenandroidFactory;
 import genandroid.GenandroidPackage;
 import genandroid.ListViewActivity;
@@ -64,7 +65,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass editViewActivityEClass = null;
+	private EClass editableElementViewActivityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,6 +122,13 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	private EClass attributeListViewActivityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementViewActivityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,8 +305,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEditViewActivity() {
-		return editViewActivityEClass;
+	public EClass getEditableElementViewActivity() {
+		return editableElementViewActivityEClass;
 	}
 
 	/**
@@ -540,6 +548,24 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getElementViewActivity() {
+		return elementViewActivityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementViewActivity_Element() {
+		return (EReference)elementViewActivityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getstorageKind() {
 		return storageKindEEnum;
 	}
@@ -586,7 +612,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		viewActivityEClass = createEClass(VIEW_ACTIVITY);
 		createEAttribute(viewActivityEClass, VIEW_ACTIVITY__NAME);
 
-		editViewActivityEClass = createEClass(EDIT_VIEW_ACTIVITY);
+		editableElementViewActivityEClass = createEClass(EDITABLE_ELEMENT_VIEW_ACTIVITY);
 
 		classListViewActivityEClass = createEClass(CLASS_LIST_VIEW_ACTIVITY);
 		createEReference(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT);
@@ -621,6 +647,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		attributeListViewActivityEClass = createEClass(ATTRIBUTE_LIST_VIEW_ACTIVITY);
 		createEReference(attributeListViewActivityEClass, ATTRIBUTE_LIST_VIEW_ACTIVITY__ATTRIBUTE);
 		createEReference(attributeListViewActivityEClass, ATTRIBUTE_LIST_VIEW_ACTIVITY__FROM);
+
+		elementViewActivityEClass = createEClass(ELEMENT_VIEW_ACTIVITY);
+		createEReference(elementViewActivityEClass, ELEMENT_VIEW_ACTIVITY__ELEMENT);
 
 		// Create enums
 		storageKindEEnum = createEEnum(STORAGE_KIND);
@@ -657,11 +686,12 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		editViewActivityEClass.getESuperTypes().add(this.getViewActivity());
+		editableElementViewActivityEClass.getESuperTypes().add(this.getElementViewActivity());
 		classListViewActivityEClass.getESuperTypes().add(this.getListViewActivity());
 		referenceListViewActivityEClass.getESuperTypes().add(this.getClassListViewActivity());
 		listViewActivityEClass.getESuperTypes().add(this.getViewActivity());
 		attributeListViewActivityEClass.getESuperTypes().add(this.getListViewActivity());
+		elementViewActivityEClass.getESuperTypes().add(this.getViewActivity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(androidProjectEClass, AndroidProject.class, "AndroidProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -678,7 +708,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(viewActivityEClass, ViewActivity.class, "ViewActivity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewActivity_Name(), theEcorePackage.getEString(), "name", null, 1, 1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(editViewActivityEClass, EditViewActivity.class, "EditViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(editableElementViewActivityEClass, EditableElementViewActivity.class, "EditableElementViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(classListViewActivityEClass, ClassListViewActivity.class, "ClassListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassListViewActivity_ListedElement(), this.getDataClass(), null, "listedElement", null, 1, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -713,6 +743,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(attributeListViewActivityEClass, AttributeListViewActivity.class, "AttributeListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAttributeListViewActivity_Attribute(), this.getDataAttribute(), null, "attribute", null, 1, 1, AttributeListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttributeListViewActivity_From(), this.getDataClass(), null, "from", null, 1, 1, AttributeListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(elementViewActivityEClass, ElementViewActivity.class, "ElementViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementViewActivity_Element(), this.getDataClass(), null, "element", null, 1, 1, ElementViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(storageKindEEnum, storageKind.class, "storageKind");

@@ -63,7 +63,7 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 		switch (eClass.getClassifierID()) {
 			case GenandroidPackage.ANDROID_PROJECT: return createAndroidProject();
 			case GenandroidPackage.DATA_MODEL: return createDataModel();
-			case GenandroidPackage.EDIT_VIEW_ACTIVITY: return createEditViewActivity();
+			case GenandroidPackage.EDITABLE_ELEMENT_VIEW_ACTIVITY: return createEditableElementViewActivity();
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY: return createClassListViewActivity();
 			case GenandroidPackage.DATA_CLASS: return createDataClass();
 			case GenandroidPackage.REFERENCE_LIST_VIEW_ACTIVITY: return createReferenceListViewActivity();
@@ -72,6 +72,7 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 			case GenandroidPackage.DATA_REFERENCE: return createDataReference();
 			case GenandroidPackage.LIST_VIEW_ACTIVITY: return createListViewActivity();
 			case GenandroidPackage.ATTRIBUTE_LIST_VIEW_ACTIVITY: return createAttributeListViewActivity();
+			case GenandroidPackage.ELEMENT_VIEW_ACTIVITY: return createElementViewActivity();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,9 +133,9 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EditViewActivity createEditViewActivity() {
-		EditViewActivityImpl editViewActivity = new EditViewActivityImpl();
-		return editViewActivity;
+	public EditableElementViewActivity createEditableElementViewActivity() {
+		EditableElementViewActivityImpl editableElementViewActivity = new EditableElementViewActivityImpl();
+		return editableElementViewActivity;
 	}
 
 	/**
@@ -215,6 +216,16 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 	public AttributeListViewActivity createAttributeListViewActivity() {
 		AttributeListViewActivityImpl attributeListViewActivity = new AttributeListViewActivityImpl();
 		return attributeListViewActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementViewActivity createElementViewActivity() {
+		ElementViewActivityImpl elementViewActivity = new ElementViewActivityImpl();
+		return elementViewActivity;
 	}
 
 	/**

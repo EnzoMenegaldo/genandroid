@@ -88,10 +88,11 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GenandroidPackage.EDIT_VIEW_ACTIVITY: {
-				EditViewActivity editViewActivity = (EditViewActivity)theEObject;
-				T result = caseEditViewActivity(editViewActivity);
-				if (result == null) result = caseViewActivity(editViewActivity);
+			case GenandroidPackage.EDITABLE_ELEMENT_VIEW_ACTIVITY: {
+				EditableElementViewActivity editableElementViewActivity = (EditableElementViewActivity)theEObject;
+				T result = caseEditableElementViewActivity(editableElementViewActivity);
+				if (result == null) result = caseElementViewActivity(editableElementViewActivity);
+				if (result == null) result = caseViewActivity(editableElementViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -151,6 +152,13 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GenandroidPackage.ELEMENT_VIEW_ACTIVITY: {
+				ElementViewActivity elementViewActivity = (ElementViewActivity)theEObject;
+				T result = caseElementViewActivity(elementViewActivity);
+				if (result == null) result = caseViewActivity(elementViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -201,17 +209,17 @@ public class GenandroidSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Edit View Activity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Editable Element View Activity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Edit View Activity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Editable Element View Activity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEditViewActivity(EditViewActivity object) {
+	public T caseEditableElementViewActivity(EditableElementViewActivity object) {
 		return null;
 	}
 
@@ -332,6 +340,21 @@ public class GenandroidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAttributeListViewActivity(AttributeListViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementViewActivity(ElementViewActivity object) {
 		return null;
 	}
 

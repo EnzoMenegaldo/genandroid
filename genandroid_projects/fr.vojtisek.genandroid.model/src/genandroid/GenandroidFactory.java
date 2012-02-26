@@ -44,13 +44,13 @@ public interface GenandroidFactory extends EFactory {
 	DataModel createDataModel();
 
 	/**
-	 * Returns a new object of class '<em>Edit View Activity</em>'.
+	 * Returns a new object of class '<em>Editable Element View Activity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Edit View Activity</em>'.
+	 * @return a new object of class '<em>Editable Element View Activity</em>'.
 	 * @generated
 	 */
-	EditViewActivity createEditViewActivity();
+	EditableElementViewActivity createEditableElementViewActivity();
 
 	/**
 	 * Returns a new object of class '<em>Class List View Activity</em>'.
@@ -123,6 +123,15 @@ public interface GenandroidFactory extends EFactory {
 	 * @generated
 	 */
 	AttributeListViewActivity createAttributeListViewActivity();
+
+	/**
+	 * Returns a new object of class '<em>Element View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element View Activity</em>'.
+	 * @generated
+	 */
+	ElementViewActivity createElementViewActivity();
 
 	/**
 	 * Returns the package supported by this factory.

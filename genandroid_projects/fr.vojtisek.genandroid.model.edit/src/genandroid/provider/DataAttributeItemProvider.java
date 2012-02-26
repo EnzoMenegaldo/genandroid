@@ -142,7 +142,9 @@ public class DataAttributeItemProvider
 		if(label == null || label.length() == 0)
 			result.append( " " + label);
 		if(((DataAttribute)object).getEAttribute() != null){
-			result.append( " " +((DataAttribute)object).getEAttribute().getName());
+			result.append(" ");
+			result.append(((DataAttribute)object).getEAttribute().getContainerClass().getName());
+			result.append( "." +((DataAttribute)object).getEAttribute().getName());
 		}
 		return result.toString();
 	}

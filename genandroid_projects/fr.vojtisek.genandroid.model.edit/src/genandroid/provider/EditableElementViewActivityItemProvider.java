@@ -7,7 +7,8 @@
 package genandroid.provider;
 
 
-import genandroid.EditViewActivity;
+import genandroid.EditableElementViewActivity;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -22,13 +23,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link genandroid.EditViewActivity} object.
+ * This is the item provider adapter for a {@link genandroid.EditableElementViewActivity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EditViewActivityItemProvider
-	extends ViewActivityItemProvider
+public class EditableElementViewActivityItemProvider
+	extends ElementViewActivityItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -41,7 +42,7 @@ public class EditViewActivityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EditViewActivityItemProvider(AdapterFactory adapterFactory) {
+	public EditableElementViewActivityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,14 +62,14 @@ public class EditViewActivityItemProvider
 	}
 
 	/**
-	 * This returns EditViewActivity.gif.
+	 * This returns EditableElementViewActivity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EditViewActivity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EditableElementViewActivity"));
 	}
 
 	/**
@@ -79,10 +80,10 @@ public class EditViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EditViewActivity)object).getName();
+		String label = ((EditableElementViewActivity)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EditViewActivity_type") :
-			getString("_UI_EditViewActivity_type") + " " + label;
+			getString("_UI_EditableElementViewActivity_type") :
+			getString("_UI_EditableElementViewActivity_type") + " " + label;
 	}
 
 	/**

@@ -122,26 +122,26 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link genandroid.EditViewActivity} instances.
+	 * This keeps track of the one adapter used for all {@link genandroid.EditableElementViewActivity} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EditViewActivityItemProvider editViewActivityItemProvider;
+	protected EditableElementViewActivityItemProvider editableElementViewActivityItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link genandroid.EditViewActivity}.
+	 * This creates an adapter for a {@link genandroid.EditableElementViewActivity}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEditViewActivityAdapter() {
-		if (editViewActivityItemProvider == null) {
-			editViewActivityItemProvider = new EditViewActivityItemProvider(this);
+	public Adapter createEditableElementViewActivityAdapter() {
+		if (editableElementViewActivityItemProvider == null) {
+			editableElementViewActivityItemProvider = new EditableElementViewActivityItemProvider(this);
 		}
 
-		return editViewActivityItemProvider;
+		return editableElementViewActivityItemProvider;
 	}
 
 	/**
@@ -329,6 +329,29 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.ElementViewActivity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ElementViewActivityItemProvider elementViewActivityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.ElementViewActivity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createElementViewActivityAdapter() {
+		if (elementViewActivityItemProvider == null) {
+			elementViewActivityItemProvider = new ElementViewActivityItemProvider(this);
+		}
+
+		return elementViewActivityItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -429,7 +452,7 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	public void dispose() {
 		if (androidProjectItemProvider != null) androidProjectItemProvider.dispose();
 		if (dataModelItemProvider != null) dataModelItemProvider.dispose();
-		if (editViewActivityItemProvider != null) editViewActivityItemProvider.dispose();
+		if (editableElementViewActivityItemProvider != null) editableElementViewActivityItemProvider.dispose();
 		if (classListViewActivityItemProvider != null) classListViewActivityItemProvider.dispose();
 		if (dataClassItemProvider != null) dataClassItemProvider.dispose();
 		if (referenceListViewActivityItemProvider != null) referenceListViewActivityItemProvider.dispose();
@@ -438,6 +461,7 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 		if (dataReferenceItemProvider != null) dataReferenceItemProvider.dispose();
 		if (listViewActivityItemProvider != null) listViewActivityItemProvider.dispose();
 		if (attributeListViewActivityItemProvider != null) attributeListViewActivityItemProvider.dispose();
+		if (elementViewActivityItemProvider != null) elementViewActivityItemProvider.dispose();
 	}
 
 }

@@ -84,8 +84,8 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 				return createViewActivityAdapter();
 			}
 			@Override
-			public Adapter caseEditViewActivity(EditViewActivity object) {
-				return createEditViewActivityAdapter();
+			public Adapter caseEditableElementViewActivity(EditableElementViewActivity object) {
+				return createEditableElementViewActivityAdapter();
 			}
 			@Override
 			public Adapter caseClassListViewActivity(ClassListViewActivity object) {
@@ -118,6 +118,10 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAttributeListViewActivity(AttributeListViewActivity object) {
 				return createAttributeListViewActivityAdapter();
+			}
+			@Override
+			public Adapter caseElementViewActivity(ElementViewActivity object) {
+				return createElementViewActivityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -182,16 +186,16 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link genandroid.EditViewActivity <em>Edit View Activity</em>}'.
+	 * Creates a new adapter for an object of class '{@link genandroid.EditableElementViewActivity <em>Editable Element View Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see genandroid.EditViewActivity
+	 * @see genandroid.EditableElementViewActivity
 	 * @generated
 	 */
-	public Adapter createEditViewActivityAdapter() {
+	public Adapter createEditableElementViewActivityAdapter() {
 		return null;
 	}
 
@@ -304,6 +308,20 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeListViewActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.ElementViewActivity <em>Element View Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.ElementViewActivity
+	 * @generated
+	 */
+	public Adapter createElementViewActivityAdapter() {
 		return null;
 	}
 

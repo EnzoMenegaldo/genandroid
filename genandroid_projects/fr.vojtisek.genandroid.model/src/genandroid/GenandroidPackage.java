@@ -190,14 +190,14 @@ public interface GenandroidPackage extends EPackage {
 	int VIEW_ACTIVITY_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link genandroid.impl.EditViewActivityImpl <em>Edit View Activity</em>}' class.
+	 * The meta object id for the '{@link genandroid.impl.ElementViewActivityImpl <em>Element View Activity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see genandroid.impl.EditViewActivityImpl
-	 * @see genandroid.impl.GenandroidPackageImpl#getEditViewActivity()
+	 * @see genandroid.impl.ElementViewActivityImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getElementViewActivity()
 	 * @generated
 	 */
-	int EDIT_VIEW_ACTIVITY = 3;
+	int ELEMENT_VIEW_ACTIVITY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -206,16 +206,62 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDIT_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
+	int ELEMENT_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Edit View Activity</em>' class.
+	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDIT_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 0;
+	int ELEMENT_VIEW_ACTIVITY__ELEMENT = VIEW_ACTIVITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Element View Activity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link genandroid.impl.EditableElementViewActivityImpl <em>Editable Element View Activity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.EditableElementViewActivityImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getEditableElementViewActivity()
+	 * @generated
+	 */
+	int EDITABLE_ELEMENT_VIEW_ACTIVITY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITABLE_ELEMENT_VIEW_ACTIVITY__NAME = ELEMENT_VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITABLE_ELEMENT_VIEW_ACTIVITY__ELEMENT = ELEMENT_VIEW_ACTIVITY__ELEMENT;
+
+	/**
+	 * The number of structural features of the '<em>Editable Element View Activity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITABLE_ELEMENT_VIEW_ACTIVITY_FEATURE_COUNT = ELEMENT_VIEW_ACTIVITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ListViewActivityImpl <em>List View Activity</em>}' class.
@@ -620,7 +666,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @see genandroid.impl.GenandroidPackageImpl#getstorageKind()
 	 * @generated
 	 */
-	int STORAGE_KIND = 12;
+	int STORAGE_KIND = 13;
 
 
 	/**
@@ -742,14 +788,14 @@ public interface GenandroidPackage extends EPackage {
 	EAttribute getViewActivity_Name();
 
 	/**
-	 * Returns the meta object for class '{@link genandroid.EditViewActivity <em>Edit View Activity</em>}'.
+	 * Returns the meta object for class '{@link genandroid.EditableElementViewActivity <em>Editable Element View Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Edit View Activity</em>'.
-	 * @see genandroid.EditViewActivity
+	 * @return the meta object for class '<em>Editable Element View Activity</em>'.
+	 * @see genandroid.EditableElementViewActivity
 	 * @generated
 	 */
-	EClass getEditViewActivity();
+	EClass getEditableElementViewActivity();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.ClassListViewActivity <em>Class List View Activity</em>}'.
@@ -1030,6 +1076,27 @@ public interface GenandroidPackage extends EPackage {
 	EReference getAttributeListViewActivity_From();
 
 	/**
+	 * Returns the meta object for class '{@link genandroid.ElementViewActivity <em>Element View Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element View Activity</em>'.
+	 * @see genandroid.ElementViewActivity
+	 * @generated
+	 */
+	EClass getElementViewActivity();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.ElementViewActivity#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see genandroid.ElementViewActivity#getElement()
+	 * @see #getElementViewActivity()
+	 * @generated
+	 */
+	EReference getElementViewActivity_Element();
+
+	/**
 	 * Returns the meta object for enum '{@link genandroid.storageKind <em>storage Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1156,14 +1223,14 @@ public interface GenandroidPackage extends EPackage {
 		EAttribute VIEW_ACTIVITY__NAME = eINSTANCE.getViewActivity_Name();
 
 		/**
-		 * The meta object literal for the '{@link genandroid.impl.EditViewActivityImpl <em>Edit View Activity</em>}' class.
+		 * The meta object literal for the '{@link genandroid.impl.EditableElementViewActivityImpl <em>Editable Element View Activity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see genandroid.impl.EditViewActivityImpl
-		 * @see genandroid.impl.GenandroidPackageImpl#getEditViewActivity()
+		 * @see genandroid.impl.EditableElementViewActivityImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getEditableElementViewActivity()
 		 * @generated
 		 */
-		EClass EDIT_VIEW_ACTIVITY = eINSTANCE.getEditViewActivity();
+		EClass EDITABLE_ELEMENT_VIEW_ACTIVITY = eINSTANCE.getEditableElementViewActivity();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.ClassListViewActivityImpl <em>Class List View Activity</em>}' class.
@@ -1388,6 +1455,24 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ATTRIBUTE_LIST_VIEW_ACTIVITY__FROM = eINSTANCE.getAttributeListViewActivity_From();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.ElementViewActivityImpl <em>Element View Activity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.ElementViewActivityImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getElementViewActivity()
+		 * @generated
+		 */
+		EClass ELEMENT_VIEW_ACTIVITY = eINSTANCE.getElementViewActivity();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_VIEW_ACTIVITY__ELEMENT = eINSTANCE.getElementViewActivity_Element();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.

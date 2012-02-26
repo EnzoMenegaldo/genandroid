@@ -6,27 +6,27 @@
  */
 package genandroid.impl;
 
-import genandroid.EditViewActivity;
+import genandroid.EditableElementViewActivity;
 import genandroid.GenandroidPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Edit View Activity</b></em>'.
+ * An implementation of the model object '<em><b>Editable Element View Activity</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class EditViewActivityImpl extends ViewActivityImpl implements EditViewActivity {
+public class EditableElementViewActivityImpl extends ElementViewActivityImpl implements EditableElementViewActivity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EditViewActivityImpl() {
+	protected EditableElementViewActivityImpl() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public class EditViewActivityImpl extends ViewActivityImpl implements EditViewAc
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return GenandroidPackage.Literals.EDIT_VIEW_ACTIVITY;
+		return GenandroidPackage.Literals.EDITABLE_ELEMENT_VIEW_ACTIVITY;
 	}
 
-} //EditViewActivityImpl
+} //EditableElementViewActivityImpl

@@ -22,7 +22,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ViewActivity" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EditViewActivity" eSuperTypes="#//ViewActivity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EditableElementViewActivity" eSuperTypes="#//ElementViewActivity"/>
   <eClassifiers xsi:type="ecore:EClass" name="ClassListViewActivity" eSuperTypes="#//ListViewActivity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="listedElement" lowerBound="1"
         eType="#//DataClass"/>
@@ -74,5 +74,9 @@
     <eLiterals name="SQLite"/>
     <eLiterals name="XML" value="1"/>
     <eLiterals name="ZippedXML" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementViewActivity" eSuperTypes="#//ViewActivity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        eType="#//DataClass"/>
   </eClassifiers>
 </ecore:EPackage>
