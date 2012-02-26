@@ -11,8 +11,8 @@
 [template public packagePrefixFolder(aDataClass : DataClass)]
 [aDataClass.eContainer().oclAsType(DataModel).packagePrefixFolder()/]
 [/template]
-[template public packagePrefixFolder(aClassListViewActivity : ClassListViewActivity)]
-[aClassListViewActivity.eContainer().oclAsType(AndroidProject).packagePrefixFolder()/]
+[template public packagePrefixFolder(aViewActivity : ViewActivity)]
+[aViewActivity.eContainer().oclAsType(AndroidProject).packagePrefixFolder()/]
 [/template]
 
 [template public packagePrefix(aDataModel : DataModel)]
@@ -21,8 +21,8 @@
 [template public packagePrefix(aDataClass : DataClass)]
 [aDataClass.eContainer().oclAsType(DataModel).packagePrefix()/]
 [/template]
-[template public packagePrefix(aClassListViewActivity : ClassListViewActivity)]
-[aClassListViewActivity.eContainer().oclAsType(AndroidProject).packagePrefix/]
+[template public packagePrefix(aViewActivity : ViewActivity)]
+[aViewActivity.eContainer().oclAsType(AndroidProject).packagePrefix/]
 [/template]
 
 [template public allEAttributesParam (anEClass : EClass) ]
