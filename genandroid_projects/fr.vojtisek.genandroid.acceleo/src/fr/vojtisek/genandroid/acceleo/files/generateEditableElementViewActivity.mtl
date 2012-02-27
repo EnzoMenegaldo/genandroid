@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module generateEditableElementViewActivity('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 [import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+[import fr::vojtisek::genandroid::acceleo::common::commonActivityTemplate/]
 
 [template public generateEditableElementViewActivity(anElementViewActivity : ElementViewActivity)]
 
@@ -78,7 +79,7 @@ public class [anElementViewActivity.name/]EditableElementViewActivity extends Or
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 		// add options in the menu
-        menu.add(Menu.NONE, 1, 0, R.string.preferences_option).setIcon(android.R.drawable.ic_menu_preferences);
+        [anElementViewActivity.addPreferenceInMenu()/]
 		//[protected ('additional onCreateOptionsMenu')]
 
 		//[/protected]
@@ -89,10 +90,10 @@ public class [anElementViewActivity.name/]EditableElementViewActivity extends Or
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	// behavior of option menu
+
+        
         switch (item.getItemId()) {
-        case 1:
-            startActivity(new Intent(this, PreferencesActivity.class));
-            return true;
+        [anElementViewActivity.addPreferenceMenuAction()/]
 		//[protected ('additional menu action')]
 
 		//[/protected]

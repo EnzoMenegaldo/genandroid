@@ -14,7 +14,9 @@
 [template public packagePrefixFolder(aViewActivity : ViewActivity)]
 [aViewActivity.eContainer().oclAsType(AndroidProject).packagePrefixFolder()/]
 [/template]
-
+[template public packagePrefixFolder(aPreferenceViewActivity : PreferenceViewActivity)]
+[aPreferenceViewActivity.eContainer().oclAsType(AndroidProject).packagePrefixFolder()/]
+[/template]
 [template public packagePrefix(aDataModel : DataModel)]
 [aDataModel.eContainer().oclAsType(AndroidProject).packagePrefix/]
 [/template]
@@ -23,6 +25,9 @@
 [/template]
 [template public packagePrefix(aViewActivity : ViewActivity)]
 [aViewActivity.eContainer().oclAsType(AndroidProject).packagePrefix/]
+[/template]
+[template public packagePrefix(aPreferenceViewActivity : PreferenceViewActivity)]
+[aPreferenceViewActivity.eContainer().oclAsType(AndroidProject).packagePrefix/]
 [/template]
 
 [template public allEAttributesParam (anEClass : EClass) ]
