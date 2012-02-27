@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	<ImageView
+	<!--<ImageView
         android:id="@+id/divelist_viewrow_icon"
         android:contentDescription="Dive icon"
         android:layout_width="22px"
@@ -19,58 +19,27 @@
         android:layout_marginRight="10px"
         android:layout_marginTop="4px"
         android:src="@drawable/ic_launcher" >
-    </ImageView>
+    </ImageView>-->
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <TableRow
+	[for (dataAtt : DataAttribute | anElementViewActivity.element.dataAttributes)]
+		[if ((dataAtt.eAttribute.eType.instanceClassName = 'java.lang.String') or
+			(dataAtt.eAttribute.eType.instanceClassName = 'int')) 
+		]
+		<TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
             <TextView
-	            android:text="@string/detail_divedate"
+	            android:text="@string/[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.eAttribute.name.toLower()/]_label"
 	            android:padding="3dip" />
 	        <TextView
-	            android:id="@+id/detail_divedate"
+	            android:id="@+id/[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.eAttribute.name.toLower()/]"
 	            android:gravity="right"
 	            android:padding="3dip" />
         </TableRow>
-        
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-	            android:text="@string/detail_divelocation"
-	            android:padding="3dip" />
-	        <TextView
-	            android:id="@+id/detail_divelocation"
-	            android:gravity="right"
-	            android:padding="3dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-	            android:text="@string/detail_divedepth"
-	            android:padding="3dip" />
-	        <TextView
-	            android:id="@+id/detail_divedepth"
-	            android:gravity="right"
-	            android:padding="3dip" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <TextView
-	            android:text="@string/detail_diveduration"
-	            android:padding="3dip" />
-	        <TextView
-	            android:id="@+id/detail_diveduration"
-	            android:gravity="right"
-	            android:padding="3dip" />
-        </TableRow>
+		[/if]
+	[/for]
     </TableLayout>
 
 </LinearLayout>
