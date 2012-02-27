@@ -17,6 +17,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/viewActivities"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/packagePrefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/classDetails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/preferenceView"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataModel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataModel/rootClass"/>
@@ -62,6 +63,9 @@
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//ElementViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ElementViewActivity/element"/>
+    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//PreferenceViewActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//PreferenceViewActivity/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

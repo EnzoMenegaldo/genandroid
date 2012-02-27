@@ -116,13 +116,22 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT__CLASS_DETAILS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Preference View</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__PREFERENCE_VIEW = 5;
+
+	/**
 	 * The number of structural features of the '<em>Android Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT_FEATURE_COUNT = 5;
+	int ANDROID_PROJECT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
@@ -659,6 +668,34 @@ public interface GenandroidPackage extends EPackage {
 	int ATTRIBUTE_LIST_VIEW_ACTIVITY_FEATURE_COUNT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.PreferenceViewActivityImpl <em>Preference View Activity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.PreferenceViewActivityImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getPreferenceViewActivity()
+	 * @generated
+	 */
+	int PREFERENCE_VIEW_ACTIVITY = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREFERENCE_VIEW_ACTIVITY__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Preference View Activity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREFERENCE_VIEW_ACTIVITY_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,7 +703,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @see genandroid.impl.GenandroidPackageImpl#getstorageKind()
 	 * @generated
 	 */
-	int STORAGE_KIND = 13;
+	int STORAGE_KIND = 14;
 
 
 	/**
@@ -733,6 +770,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAndroidProject_ClassDetails();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Preference View</em>'.
+	 * @see genandroid.AndroidProject#getPreferenceView()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EReference getAndroidProject_PreferenceView();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.DataModel <em>Data Model</em>}'.
@@ -1097,6 +1145,27 @@ public interface GenandroidPackage extends EPackage {
 	EReference getElementViewActivity_Element();
 
 	/**
+	 * Returns the meta object for class '{@link genandroid.PreferenceViewActivity <em>Preference View Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Preference View Activity</em>'.
+	 * @see genandroid.PreferenceViewActivity
+	 * @generated
+	 */
+	EClass getPreferenceViewActivity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.PreferenceViewActivity#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see genandroid.PreferenceViewActivity#getName()
+	 * @see #getPreferenceViewActivity()
+	 * @generated
+	 */
+	EAttribute getPreferenceViewActivity_Name();
+
+	/**
 	 * Returns the meta object for enum '{@link genandroid.storageKind <em>storage Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1177,6 +1246,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANDROID_PROJECT__CLASS_DETAILS = eINSTANCE.getAndroidProject_ClassDetails();
+
+		/**
+		 * The meta object literal for the '<em><b>Preference View</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANDROID_PROJECT__PREFERENCE_VIEW = eINSTANCE.getAndroidProject_PreferenceView();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
@@ -1473,6 +1550,24 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT_VIEW_ACTIVITY__ELEMENT = eINSTANCE.getElementViewActivity_Element();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.PreferenceViewActivityImpl <em>Preference View Activity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.PreferenceViewActivityImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getPreferenceViewActivity()
+		 * @generated
+		 */
+		EClass PREFERENCE_VIEW_ACTIVITY = eINSTANCE.getPreferenceViewActivity();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PREFERENCE_VIEW_ACTIVITY__NAME = eINSTANCE.getPreferenceViewActivity_Name();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.

@@ -19,6 +19,7 @@ import genandroid.ElementViewActivity;
 import genandroid.GenandroidFactory;
 import genandroid.GenandroidPackage;
 import genandroid.ListViewActivity;
+import genandroid.PreferenceViewActivity;
 import genandroid.ReferenceListViewActivity;
 import genandroid.ViewActivity;
 import genandroid.storageKind;
@@ -129,6 +130,13 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	private EClass elementViewActivityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass preferenceViewActivityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +261,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 */
 	public EReference getAndroidProject_ClassDetails() {
 		return (EReference)androidProjectEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAndroidProject_PreferenceView() {
+		return (EReference)androidProjectEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -566,6 +583,24 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPreferenceViewActivity() {
+		return preferenceViewActivityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPreferenceViewActivity_Name() {
+		return (EAttribute)preferenceViewActivityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getstorageKind() {
 		return storageKindEEnum;
 	}
@@ -604,6 +639,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(androidProjectEClass, ANDROID_PROJECT__VIEW_ACTIVITIES);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__PACKAGE_PREFIX);
 		createEReference(androidProjectEClass, ANDROID_PROJECT__CLASS_DETAILS);
+		createEReference(androidProjectEClass, ANDROID_PROJECT__PREFERENCE_VIEW);
 
 		dataModelEClass = createEClass(DATA_MODEL);
 		createEReference(dataModelEClass, DATA_MODEL__ROOT_CLASS);
@@ -650,6 +686,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		elementViewActivityEClass = createEClass(ELEMENT_VIEW_ACTIVITY);
 		createEReference(elementViewActivityEClass, ELEMENT_VIEW_ACTIVITY__ELEMENT);
+
+		preferenceViewActivityEClass = createEClass(PREFERENCE_VIEW_ACTIVITY);
+		createEAttribute(preferenceViewActivityEClass, PREFERENCE_VIEW_ACTIVITY__NAME);
 
 		// Create enums
 		storageKindEEnum = createEEnum(STORAGE_KIND);
@@ -700,6 +739,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getAndroidProject_ViewActivities(), this.getViewActivity(), null, "viewActivities", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndroidProject_PackagePrefix(), theEcorePackage.getEString(), "packagePrefix", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAndroidProject_ClassDetails(), this.getClassDetail(), null, "classDetails", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAndroidProject_PreferenceView(), this.getPreferenceViewActivity(), null, "preferenceView", null, 0, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataModel_RootClass(), theEcorePackage.getEClass(), null, "rootClass", null, 0, 1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -746,6 +786,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		initEClass(elementViewActivityEClass, ElementViewActivity.class, "ElementViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElementViewActivity_Element(), this.getDataClass(), null, "element", null, 1, 1, ElementViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(preferenceViewActivityEClass, PreferenceViewActivity.class, "PreferenceViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPreferenceViewActivity_Name(), theEcorePackage.getEString(), "name", "Preferences", 1, 1, PreferenceViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(storageKindEEnum, storageKind.class, "storageKind");

@@ -10,6 +10,7 @@ import genandroid.AndroidProject;
 import genandroid.ClassDetail;
 import genandroid.DataModel;
 import genandroid.GenandroidPackage;
+import genandroid.PreferenceViewActivity;
 import genandroid.ViewActivity;
 
 import java.util.Collection;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getViewActivities <em>View Activities</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getPackagePrefix <em>Package Prefix</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getClassDetails <em>Class Details</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getPreferenceView <em>Preference View</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,6 +117,16 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * @ordered
 	 */
 	protected EList<ClassDetail> classDetails;
+
+	/**
+	 * The cached value of the '{@link #getPreferenceView() <em>Preference View</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreferenceView()
+	 * @generated
+	 * @ordered
+	 */
+	protected PreferenceViewActivity preferenceView;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,6 +261,49 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PreferenceViewActivity getPreferenceView() {
+		return preferenceView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPreferenceView(PreferenceViewActivity newPreferenceView, NotificationChain msgs) {
+		PreferenceViewActivity oldPreferenceView = preferenceView;
+		preferenceView = newPreferenceView;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, oldPreferenceView, newPreferenceView);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPreferenceView(PreferenceViewActivity newPreferenceView) {
+		if (newPreferenceView != preferenceView) {
+			NotificationChain msgs = null;
+			if (preferenceView != null)
+				msgs = ((InternalEObject)preferenceView).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, null, msgs);
+			if (newPreferenceView != null)
+				msgs = ((InternalEObject)newPreferenceView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, null, msgs);
+			msgs = basicSetPreferenceView(newPreferenceView, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, newPreferenceView, newPreferenceView));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -258,6 +313,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return ((InternalEList<?>)getViewActivities()).basicRemove(otherEnd, msgs);
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 				return ((InternalEList<?>)getClassDetails()).basicRemove(otherEnd, msgs);
+			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
+				return basicSetPreferenceView(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -280,6 +337,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return getPackagePrefix();
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 				return getClassDetails();
+			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
+				return getPreferenceView();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,6 +369,9 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				getClassDetails().clear();
 				getClassDetails().addAll((Collection<? extends ClassDetail>)newValue);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
+				setPreferenceView((PreferenceViewActivity)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -337,6 +399,9 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 				getClassDetails().clear();
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
+				setPreferenceView((PreferenceViewActivity)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -359,6 +424,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return PACKAGE_PREFIX_EDEFAULT == null ? packagePrefix != null : !PACKAGE_PREFIX_EDEFAULT.equals(packagePrefix);
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 				return classDetails != null && !classDetails.isEmpty();
+			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
+				return preferenceView != null;
 		}
 		return super.eIsSet(featureID);
 	}

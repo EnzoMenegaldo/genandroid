@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link genandroid.AndroidProject#getViewActivities <em>View Activities</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getPackagePrefix <em>Package Prefix</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getClassDetails <em>Class Details</em>}</li>
+ *   <li>{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,5 +141,31 @@ public interface AndroidProject extends EObject {
 	 * @generated
 	 */
 	EList<ClassDetail> getClassDetails();
+
+	/**
+	 * Returns the value of the '<em><b>Preference View</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Preference View</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Preference View</em>' containment reference.
+	 * @see #setPreferenceView(PreferenceViewActivity)
+	 * @see genandroid.GenandroidPackage#getAndroidProject_PreferenceView()
+	 * @model containment="true"
+	 * @generated
+	 */
+	PreferenceViewActivity getPreferenceView();
+
+	/**
+	 * Sets the value of the '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Preference View</em>' containment reference.
+	 * @see #getPreferenceView()
+	 * @generated
+	 */
+	void setPreferenceView(PreferenceViewActivity value);
 
 } // AndroidProject

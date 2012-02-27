@@ -352,6 +352,29 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.PreferenceViewActivity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PreferenceViewActivityItemProvider preferenceViewActivityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.PreferenceViewActivity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPreferenceViewActivityAdapter() {
+		if (preferenceViewActivityItemProvider == null) {
+			preferenceViewActivityItemProvider = new PreferenceViewActivityItemProvider(this);
+		}
+
+		return preferenceViewActivityItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,6 +485,7 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 		if (listViewActivityItemProvider != null) listViewActivityItemProvider.dispose();
 		if (attributeListViewActivityItemProvider != null) attributeListViewActivityItemProvider.dispose();
 		if (elementViewActivityItemProvider != null) elementViewActivityItemProvider.dispose();
+		if (preferenceViewActivityItemProvider != null) preferenceViewActivityItemProvider.dispose();
 	}
 
 }

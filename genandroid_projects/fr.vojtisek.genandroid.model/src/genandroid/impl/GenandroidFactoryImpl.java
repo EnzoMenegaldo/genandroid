@@ -73,6 +73,7 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 			case GenandroidPackage.LIST_VIEW_ACTIVITY: return createListViewActivity();
 			case GenandroidPackage.ATTRIBUTE_LIST_VIEW_ACTIVITY: return createAttributeListViewActivity();
 			case GenandroidPackage.ELEMENT_VIEW_ACTIVITY: return createElementViewActivity();
+			case GenandroidPackage.PREFERENCE_VIEW_ACTIVITY: return createPreferenceViewActivity();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -226,6 +227,16 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 	public ElementViewActivity createElementViewActivity() {
 		ElementViewActivityImpl elementViewActivity = new ElementViewActivityImpl();
 		return elementViewActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PreferenceViewActivity createPreferenceViewActivity() {
+		PreferenceViewActivityImpl preferenceViewActivity = new PreferenceViewActivityImpl();
+		return preferenceViewActivity;
 	}
 
 	/**

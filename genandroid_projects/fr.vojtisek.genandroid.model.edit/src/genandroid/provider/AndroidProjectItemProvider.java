@@ -132,6 +132,7 @@ public class AndroidProjectItemProvider
 			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__DATA_MODEL);
 			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__VIEW_ACTIVITIES);
 			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__CLASS_DETAILS);
+			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__PREFERENCE_VIEW);
 		}
 		return childrenFeatures;
 	}
@@ -193,6 +194,7 @@ public class AndroidProjectItemProvider
 			case GenandroidPackage.ANDROID_PROJECT__DATA_MODEL:
 			case GenandroidPackage.ANDROID_PROJECT__VIEW_ACTIVITIES:
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
+			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -249,6 +251,11 @@ public class AndroidProjectItemProvider
 			(createChildParameter
 				(GenandroidPackage.Literals.ANDROID_PROJECT__CLASS_DETAILS,
 				 GenandroidFactory.eINSTANCE.createClassDetail()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.ANDROID_PROJECT__PREFERENCE_VIEW,
+				 GenandroidFactory.eINSTANCE.createPreferenceViewActivity()));
 	}
 
 	/**
