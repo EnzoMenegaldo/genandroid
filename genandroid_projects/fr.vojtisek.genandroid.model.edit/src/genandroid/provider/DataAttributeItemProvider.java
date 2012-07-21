@@ -9,6 +9,7 @@ package genandroid.provider;
 
 import genandroid.DataAttribute;
 import genandroid.DataClass;
+import genandroid.DataReference;
 import genandroid.GenandroidPackage;
 import genandroid.storageKind;
 
@@ -20,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -143,7 +145,10 @@ public class DataAttributeItemProvider
 			result.append( " " + label);
 		if(((DataAttribute)object).getEAttribute() != null){
 			result.append(" ");
-			result.append(((DataAttribute)object).getEAttribute().getContainerClass().getName());
+			if(((DataAttribute)object).getEAttribute().getContainerClass() != null)
+				result.append(((DataAttribute)object).getEAttribute().getContainerClass().getName());
+			else
+				result.append(((DataAttribute)object).getEAttribute().getEContainingClass().getName());
 			result.append( "." +((DataAttribute)object).getEAttribute().getName());
 		}
 		return result.toString();
