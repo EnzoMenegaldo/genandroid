@@ -146,7 +146,7 @@ public class DataReferenceItemProvider
 			result.append(" ");
 			if(((DataReference)object).getEReference().getContainerClass() != null)
 				result.append(((DataReference)object).getEReference().getContainerClass().getName());
-			else
+			else if(((DataReference)object).getEReference().getEContainingClass() != null)
 				result.append(((DataReference)object).getEReference().getEContainingClass().getName());
 			result.append( "." +((DataReference)object).getEReference().getName());
 		}

@@ -147,7 +147,7 @@ public class DataAttributeItemProvider
 			result.append(" ");
 			if(((DataAttribute)object).getEAttribute().getContainerClass() != null)
 				result.append(((DataAttribute)object).getEAttribute().getContainerClass().getName());
-			else
+			else if(((DataAttribute)object).getEAttribute().getEContainingClass() != null)
 				result.append(((DataAttribute)object).getEAttribute().getEContainingClass().getName());
 			result.append( "." +((DataAttribute)object).getEAttribute().getName());
 		}

@@ -7,13 +7,17 @@
 package genandroid.impl;
 
 import genandroid.GenandroidPackage;
+import genandroid.PreferenceViewActivity;
 import genandroid.ViewActivity;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,6 +111,7 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
