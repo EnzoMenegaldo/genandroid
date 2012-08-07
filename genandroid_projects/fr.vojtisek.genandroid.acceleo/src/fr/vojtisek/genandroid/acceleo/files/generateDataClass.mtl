@@ -51,11 +51,19 @@ public class [aDataClass.eClass.name.toUpperFirst()/] {
 	
 	[for (ref : EReference | aDataClass.eClass.eReferences)]
 		[if (ref.upperBound = 1 and not ref.eOpposite.oclIsUndefined())]
-	//@DatabaseField(foreign = true, columnName = USER_ID_FIELD_NAME)
-	//protected [ref.oneEReferenceParam()/];
+	@DatabaseField(foreign = true) //, columnName = USER_ID_FIELD_NAME)
+	protected [ref.oneEReferenceParam()/];
 		[elseif (ref.upperBound = 1 and ref.eOpposite.oclIsUndefined())]
+	// TODO single reference 
+	// protected [ref.oneEReferenceParam()/];
+		[elseif (ref.upperBound <> 1 and ref.eOpposite.upperBound <> 1)]
+	// TODO many 2 many not supported yet, use simple one to many for the moment, you'll have to maintain the coherence manually for the moment
+	@ForeignCollectionField(eager = false, foreignFieldName = "[ref.eOpposite.name/]_one")
+	protected ForeignCollection<[ref.eType.name/]> [ref.name.toLowerFirst()/];
+	@DatabaseField(foreign = true) 
+	protected [ref.oneEReferenceParam()/]_one;
 		[else]
-	@ForeignCollectionField(eager = false)
+	@ForeignCollectionField(eager = false, foreignFieldName = "[ref.eOpposite.name/]")
 	protected ForeignCollection<[ref.eType.name/]> [ref.name.toLowerFirst()/];
 		[/if]
 	[/for]
