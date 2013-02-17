@@ -339,6 +339,69 @@
         <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//AndroidProject"/>
       </parameter>
     </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="multiplicity" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="feature" referredVariable="/0/multiplicity/feature">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//StructuralFeature/lowerbound"/>
+      </body>
+      <body xsi:type="mtl:IfBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".."/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="feature" referredVariable="/0/multiplicity/feature">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//StructuralFeature/upperBound"/>
+          </body>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="feature" referredVariable="/0/multiplicity/feature">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//StructuralFeature/upperBound"/>
+            </source>
+            <argument xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/-.1"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3C%3E"/>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="*"/>
+          </else>
+        </body>
+        <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="feature" referredVariable="/0/multiplicity/feature">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//StructuralFeature/lowerbound"/>
+          </source>
+          <argument xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="feature" referredVariable="/0/multiplicity/feature">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//StructuralFeature/upperBound"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3C%3E"/>
+        </ifExpr>
+      </body>
+      <parameter name="feature">
+        <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+      </parameter>
+    </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
     <eClassifiers xsi:type="ecore:EClass" name="String_Class">
@@ -763,6 +826,16 @@
           <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//AndroidProject"/>
         </eParameters>
       </eOperations>
+      <eOperations name="multiplicity">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/multiplicity"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="feature">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -1031,6 +1104,18 @@
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </eOperations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StructuralFeature_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//StructuralFeature"/>
+      </eAnnotations>
+      <eOperations name="multiplicity">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/multiplicity"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1269,6 +1354,30 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//AndroidProject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//StructuralFeature"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1818,6 +1927,111 @@
       <details key="start" value="2019"/>
       <details key="end" value="2051"/>
       <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/multiplicity">
+      <details key="start" value="2129"/>
+      <details key="end" value="2337"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/multiplicity/@body.0">
+      <details key="start" value="2190"/>
+      <details key="end" value="2208"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/multiplicity/@body.0/feature">
+      <details key="start" value="2190"/>
+      <details key="end" value="2197"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/multiplicity/@body.1">
+      <details key="start" value="2210"/>
+      <details key="end" value="2325"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/multiplicity/@body.1/@body.0">
+      <details key="start" value="2256"/>
+      <details key="end" value="2258"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/multiplicity/@body.1/@body.1">
+      <details key="start" value="2258"/>
+      <details key="end" value="2320"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/multiplicity/@body.1/@body.1/@body.0">
+      <details key="start" value="2288"/>
+      <details key="end" value="2306"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/multiplicity/@body.1/@body.1/@body.0/feature">
+      <details key="start" value="2288"/>
+      <details key="end" value="2295"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/multiplicity/@body.1/@body.1/@ifExpr">
+      <details key="start" value="2261"/>
+      <details key="end" value="2286"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/multiplicity/@body.1/@body.1/@ifExpr/@source">
+      <details key="start" value="2262"/>
+      <details key="end" value="2280"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/multiplicity/@body.1/@body.1/@ifExpr/@source/feature">
+      <details key="start" value="2262"/>
+      <details key="end" value="2269"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/multiplicity/@body.1/@body.1/@ifExpr/@argument.0">
+      <details key="start" value="2283"/>
+      <details key="end" value="2285"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/multiplicity/@body.1/@body.1/@ifExpr/@argument.0/@source">
+      <details key="start" value="2284"/>
+      <details key="end" value="2285"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/multiplicity/@body.1/@body.1/@else">
+      <details key="start" value="2308"/>
+      <details key="end" value="2315"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/multiplicity/@body.1/@body.1/@else/@body.0">
+      <details key="start" value="2314"/>
+      <details key="end" value="2315"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/multiplicity/@body.1/@ifExpr">
+      <details key="start" value="2213"/>
+      <details key="end" value="2255"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/multiplicity/@body.1/@ifExpr/@source">
+      <details key="start" value="2214"/>
+      <details key="end" value="2232"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/multiplicity/@body.1/@ifExpr/@source/feature">
+      <details key="start" value="2214"/>
+      <details key="end" value="2221"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/multiplicity/@body.1/@ifExpr/@argument.0">
+      <details key="start" value="2236"/>
+      <details key="end" value="2254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/multiplicity/@body.1/@ifExpr/@argument.0/feature">
+      <details key="start" value="2236"/>
+      <details key="end" value="2243"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/multiplicity/feature">
+      <details key="start" value="2159"/>
+      <details key="end" value="2186"/>
+      <details key="line" value="52"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

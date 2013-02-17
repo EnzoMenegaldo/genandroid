@@ -48,3 +48,7 @@
 [template public projectName4Class (aAndroidProject : AndroidProject) ]
 [aAndroidProject.name.toUpperFirst().replaceAll('\\.', '')/]
 [/template]
+
+[template public multiplicity(feature : StructuralFeature)]
+[feature.lowerbound/][if(feature.lowerbound <> feature.upperBound)]..[if(feature.upperBound<> -1)][feature.upperBound/][else]*[/if][/if]
+[/template]

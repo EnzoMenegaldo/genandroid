@@ -4,6 +4,7 @@
 [import fr::vojtisek::genandroid::acceleo::files::generateMain_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClassXMLParser/]
+[import fr::vojtisek::genandroid::acceleo::files::generateYUMLClassDiagram/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewActivity_Class/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewAdapter/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListView_layout/]
@@ -51,6 +52,8 @@
 		[/if]
 		
 	[/for]
+	[anAndroidProject.dataModel.generateYUMLClassDiagram()/]
+
 	[comment][anAndroidProject.generateDAOHelper()/]
 	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
 	[anAndroidProject.generateOrmLiteDBHelper()/]	
