@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module workflow('http://genandroid/1.0')/]
+[module androidGenerateAllButDataModel('http://genandroid/1.0')/]
 
 [import fr::vojtisek::genandroid::acceleo::files::generateMain_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
@@ -44,13 +44,14 @@
 		[/if]
 	[/for]
 
-	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+	[comment][for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 		[if(aDataClassifer.oclIsKindOf(DataClass))]
 			[aDataClassifer.oclAsType(DataClass).generateDataClassFile()/] 
 			[aDataClassifer.oclAsType(DataClass).generateDataClassXMLParser()/]
 		[/if]
 		
 	[/for]
+	[/comment]
 	[comment][anAndroidProject.generateDAOHelper()/]
 	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
 	[anAndroidProject.generateOrmLiteDBHelper()/]	

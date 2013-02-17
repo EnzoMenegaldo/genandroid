@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module workflow('http://genandroid/1.0')/]
+[module androidGenerateDataModelOnly('http://genandroid/1.0')/]
 
 [import fr::vojtisek::genandroid::acceleo::files::generateMain_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
@@ -25,41 +25,13 @@
 [template public workflowDataClass(anAndroidProject : AndroidProject)]
 	
 	[comment @main /]
-	[for (aViewActivity : ViewActivity | anAndroidProject.viewActivities)]
-		[if(aViewActivity.oclIsTypeOf(ClassListViewActivity))] 
-			[aViewActivity.oclAsType(ClassListViewActivity).generateClassListViewActivity_Class()/]
-			[aViewActivity.oclAsType(ClassListViewActivity).generateClassListViewAdapter()/]
-			[aViewActivity.oclAsType(ClassListViewActivity).generateClassListView_layout()/]
-		[/if] 
-		[if(aViewActivity.oclIsKindOf(ElementViewActivity))]
-			[comment  also for EditableElementViewActivity /]
-			[aViewActivity.oclAsType(ElementViewActivity).generateElementViewActivity_Class()/]
-			[aViewActivity.oclAsType(ElementViewActivity).generateElementView_layout()/]
-			[aViewActivity.oclAsType(ElementViewActivity).generateElementView_strings()/]
-			
-		[/if]
-		[if(aViewActivity.oclIsKindOf(EditableElementViewActivity))]
-			[aViewActivity.oclAsType(ElementViewActivity).generateEditableElementViewActivity_Class()/]
-			[aViewActivity.oclAsType(ElementViewActivity).generateEditableElementView_layout()/]
-		[/if]
-	[/for]
+	
 
 	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 		[if(aDataClassifer.oclIsKindOf(DataClass))]
 			[aDataClassifer.oclAsType(DataClass).generateDataClassFile()/] 
 			[aDataClassifer.oclAsType(DataClass).generateDataClassXMLParser()/]
 		[/if]
-		
 	[/for]
-	[comment][anAndroidProject.generateDAOHelper()/]
-	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
-	[anAndroidProject.generateOrmLiteDBHelper()/]	
-	[anAndroidProject.generateAndroidManifest()/]	
-	[anAndroidProject.generateMain_strings()/]
-	[if(not anAndroidProject.preferenceView.oclIsUndefined())]
-		[anAndroidProject.preferenceView.generatePreferenceViewActivity()/]
-		[anAndroidProject.preferenceView.generatePreferenceViewActivity_xml()/]
-		[anAndroidProject.preferenceView.generatePreferenceViewActivity_strings()/]
-	[/if]
-
+	
 [/template]

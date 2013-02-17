@@ -25,17 +25,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Entry point of the 'Workflow' generation module.
+ * Entry point of the 'AndroidGenerateAll' generation module.
  *
  * @generated
  */
-public class Workflow extends AbstractAcceleoGenerator {
+public class AndroidGenerateAll extends AbstractAcceleoGenerator {
     /**
      * The name of the module.
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/fr/vojtisek/genandroid/acceleo/files/workflow";
+    public static final String MODULE_FILE_NAME = "/fr/vojtisek/genandroid/acceleo/files/androidGenerateAll";
     
     /**
      * The name of the templates that are to be generated.
@@ -65,7 +65,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public Workflow() {
+    public AndroidGenerateAll() {
         // Empty implementation
     }
 
@@ -85,7 +85,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *             the model cannot be loaded.
      * @generated
      */
-    public Workflow(URI modelURI, File targetFolder,
+    public AndroidGenerateAll(URI modelURI, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -106,7 +106,7 @@ public class Workflow extends AbstractAcceleoGenerator {
      *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
      * @generated
      */
-    public Workflow(EObject model, File targetFolder,
+    public AndroidGenerateAll(EObject model, File targetFolder,
             List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -134,7 +134,7 @@ public class Workflow extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                Workflow generator = new Workflow(modelURI, folder, arguments);
+                AndroidGenerateAll generator = new AndroidGenerateAll(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
