@@ -1,0 +1,34 @@
+[comment encoding = UTF-8 /]
+[module generateYUMLClassDiagram('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateYUMLClassDiagram(aDataModel : DataModel)]
+
+[file ('/documentation/'+aDataModel.name+'ClassDiagram.yuml', false, 'UTF-8')]
+[for (aClassifier : DataClassifier | aDataModel.dataClasses)]
+	[if(aClassifier.oclIsKindOf(DataClass))]
+['['+aClassifier.name/][if(aClassifier.oclAsType(DataClass).dataAttributes->size() >0)]
+|[aClassifier.oclAsType(DataClass).dataAttributes.name->sep(';')/][/if][']'/]		
+	[/if]
+[/for]
+[for (aClassifier : DataClassifier | aDataModel.dataClasses)]
+	[if(aClassifier.oclIsKindOf(DataClass))]
+['['+aClassifier.name+']'/]
+		[for (ref : DataReference | aClassifier.oclAsType(DataClass).dataReferences)]
+			[if(ref.opposite.oclIsUndefined())]
+['['+aClassifier.name+']'/]-[ref.name/] [ref.multiplicity()/]>['['+ref.type.name+']'/]
+			[/if]
+		[/for]
+	[else]
+	[/if]
+[/for]
+[for (assoc : DataAssociation | aDataModel.dataAssociations)]
+['['+assoc.references->first().type.name+']'/][assoc.references->first().name/] [assoc.references->first().multiplicity()/]-[
+assoc.references->last().name/]  [assoc.references->last().multiplicity()/]['['+assoc.references->last().type.name+']'/]
+[/for]
+[/file]
+[/template]
+
+
+
+
