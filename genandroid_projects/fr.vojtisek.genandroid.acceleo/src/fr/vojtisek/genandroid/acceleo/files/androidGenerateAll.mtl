@@ -4,6 +4,7 @@
 [import fr::vojtisek::genandroid::acceleo::files::generateMain_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClassXMLParser/]
+[import fr::vojtisek::genandroid::acceleo::files::generateDataAssociation/]
 [import fr::vojtisek::genandroid::acceleo::files::generateYUMLClassDiagram/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewActivity_Class/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewAdapter/]
@@ -18,6 +19,7 @@
 [import fr::vojtisek::genandroid::acceleo::files::generatePreferenceViewActivity_strings/]
 
 [import fr::vojtisek::genandroid::acceleo::files::generateAndroidManifest/]
+[import fr::vojtisek::genandroid::acceleo::files::generateDBContextHelper/]
 [comment][import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
 [import fr::vojtisek::genandroid::acceleo::files::generateSQLiteDAOHelper/][/comment]
 [import fr::vojtisek::genandroid::acceleo::files::generateOrmLiteDBHelper/]
@@ -50,12 +52,15 @@
 			[aDataClassifer.oclAsType(DataClass).generateDataClassFile()/] 
 			[aDataClassifer.oclAsType(DataClass).generateDataClassXMLParser()/]
 		[/if]
-		
+	[/for]
+	[for (aDataAssociation : DataAssociation | anAndroidProject.dataModel.dataAssociations)] 
+			[aDataAssociation.generateDataAssociationFile()/] 
 	[/for]
 	[anAndroidProject.dataModel.generateYUMLClassDiagram()/]
 
 	[comment][anAndroidProject.generateDAOHelper()/]
 	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
+	[anAndroidProject.generateDBContextHelper()/]	
 	[anAndroidProject.generateOrmLiteDBHelper()/]	
 	[anAndroidProject.generateAndroidManifest()/]	
 	[anAndroidProject.generateMain_strings()/]

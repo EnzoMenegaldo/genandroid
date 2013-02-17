@@ -22,6 +22,14 @@ import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.SelectArg;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import [aDataClass.packagePrefix()/].datamodel.associations.*;
 
 /** 
   * [aDataClass.documentation/] 
@@ -46,7 +54,8 @@ public class [aDataClass.name.toUpperFirst()/] {
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
 
 		[if(not att.documentation.oclIsUndefined())]
-	/** [att.documentation/] */ [/if]
+	/** [att.documentation/] */ 
+		[/if]
 		[if (att.upperBound = 1)]
 			[if (att.storage = storageKind::SQLite)] 
 	@DatabaseField
@@ -60,7 +69,8 @@ public class [aDataClass.name.toUpperFirst()/] {
 	[for (ref : DataReference | aDataClass.dataReferences)]
 
 		[if(not ref.documentation.oclIsUndefined())]
-	/** [ref.documentation/] */ [/if]
+	/** [ref.documentation/] */ 
+		[/if]
 		[if (ref.opposite.oclIsUndefined())] [comment no opposite /]
 			[if (ref.upperBound = 1)]
 				[if (ref.storage = storageKind::SQLite)]
@@ -69,7 +79,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	protected [ref.oneEReferenceParam()/];
 			[else] [comment management of references with multiplicity <> 1 but no opposite /]
 				[if (ref.storage = storageKind::SQLite)]
-	@ForeignCollectionField(eager = false")
+	@ForeignCollectionField(eager = false)
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 				[else]
 	// NOT Implemented non SQLite collection reference (no opposite) [ref.name.toLowerFirst()/];
@@ -85,17 +95,41 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[else] [comment management of references with opposite and multiplicity <> 1 /]
 				[if (ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().upperBound <> 1)]	
 					[if (ref.storage = storageKind::SQLite)]
-	// TODO many 2 many not completly supported yet, use simple one to many for the moment, you'll have to maintain the coherence manually for the moment
-	@ForeignCollectionField(eager = false, foreignFieldName = "[ref.opposite.name/]_one")
-	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
-	@DatabaseField(foreign = true) 
-	protected [ref.oneEReferenceParam()/]_one;				
+	public List<[ref.type.name.toUpperFirst()/]> lookup[ref.name.toUpperFirst()/]([aDataClass.eContainer().eContainer().oclAsType(AndroidProject).dataModel.name.toUpperFirst()/]Helper contextDB) throws SQLException {
+		if ([ref.name.toLowerFirst()/]Query == null) {
+			[ref.name.toLowerFirst()/]Query = make[ref.name.toUpperFirst()/]Query(contextDB);
+		}
+		[ref.name.toLowerFirst()/]Query.setArgumentHolderValue(0, this);
+		return contextDB.[ref.type.name.toLowerFirst()/]Dao.query([ref.name.toLowerFirst()/]Query);
+	}
+	private PreparedQuery<[ref.type.name.toUpperFirst()/]> [ref.name.toLowerFirst()/]Query = null;
+	/**
+	 * Build a query for [ref.type.name.toUpperFirst()/] objects that match a [aDataClass.name/]
+	 */
+	private PreparedQuery<[ref.type.name.toUpperFirst()/]> make[ref.name.toUpperFirst()/]Query([aDataClass.eContainer().eContainer().oclAsType(AndroidProject).dataModel.name.toUpperFirst()/]Helper contextDB) throws SQLException {
+		// build our inner query for UserPost objects
+		QueryBuilder<[ref.opposite.name.toUpperFirst()/], Integer> [ref.opposite.name.toLowerFirst()/]Qb = contextDB.[ref.opposite.name.toLowerFirst()/]Dao.queryBuilder();
+		// just select the post-id field
+		[ref.opposite.name.toLowerFirst()/]Qb.selectColumns([ref.opposite.name.toUpperFirst()/].[ref.type.name.toUpper()/]_ID_FIELD_NAME);
+		SelectArg userSelectArg = new SelectArg();
+		// you could also just pass in user1 here
+		[ref.opposite.name.toLowerFirst()/]Qb.where().eq([ref.opposite.name.toUpperFirst()/].[aDataClass.name.toUpper()/]_ID_FIELD_NAME, userSelectArg);
+
+		// build our outer query for Post objects
+		QueryBuilder<[ref.type.name.toUpperFirst()/], Integer> [ref.type.name.toLowerFirst()/]Qb = contextDB.[ref.type.name.toLowerFirst()/]Dao.queryBuilder();
+		// where the id matches in the [ref.type.name.toLowerFirst()/]-id from the inner query
+		[ref.type.name.toLowerFirst()/]Qb.where().in("_id", [ref.opposite.name.toLowerFirst()/]Qb);
+		return [ref.type.name.toLowerFirst()/]Qb.prepare();
+	}
+
+
+				
 					[else]
 	// NOT Implemented non SQLite many2many collection reference [ref.name.toLowerFirst()/];
 					[/if]
 				[else] [comment the opposite has multiplicity = 1/]
 					[if (ref.storage = storageKind::SQLite)]
-	@ForeignCollectionField(eager = false, foreignFieldName = "[ref.opposite.name/]")
+	@ForeignCollectionField(eager = false, foreignFieldName = "[ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().name/]")
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 					[else]
 	// NOT Implemented non SQLite collection reference [ref.name.toLowerFirst()/];
