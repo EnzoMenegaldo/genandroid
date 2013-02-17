@@ -249,6 +249,11 @@ public class AndroidProjectItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(GenandroidPackage.Literals.ANDROID_PROJECT__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createCustomViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(GenandroidPackage.Literals.ANDROID_PROJECT__CLASS_DETAILS,
 				 GenandroidFactory.eINSTANCE.createClassDetail()));
 

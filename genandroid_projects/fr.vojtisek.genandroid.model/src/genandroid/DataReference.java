@@ -17,8 +17,10 @@ import org.eclipse.emf.ecore.EReference;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link genandroid.DataReference#getEReference <em>EReference</em>}</li>
  *   <li>{@link genandroid.DataReference#getStorage <em>Storage</em>}</li>
+ *   <li>{@link genandroid.DataReference#isContainment <em>Containment</em>}</li>
+ *   <li>{@link genandroid.DataReference#getOpposite <em>Opposite</em>}</li>
+ *   <li>{@link genandroid.DataReference#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,33 +28,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model
  * @generated
  */
-public interface DataReference extends EObject {
-	/**
-	 * Returns the value of the '<em><b>EReference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>EReference</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EReference</em>' reference.
-	 * @see #setEReference(EReference)
-	 * @see genandroid.GenandroidPackage#getDataReference_EReference()
-	 * @model required="true"
-	 * @generated
-	 */
-	EReference getEReference();
-
-	/**
-	 * Sets the value of the '{@link genandroid.DataReference#getEReference <em>EReference</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>EReference</em>' reference.
-	 * @see #getEReference()
-	 * @generated
-	 */
-	void setEReference(EReference value);
-
+public interface DataReference extends StructuralFeature {
 	/**
 	 * Returns the value of the '<em><b>Storage</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
@@ -82,5 +58,85 @@ public interface DataReference extends EObject {
 	 * @generated
 	 */
 	void setStorage(storageKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Containment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Containment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Containment</em>' attribute.
+	 * @see #setContainment(boolean)
+	 * @see genandroid.GenandroidPackage#getDataReference_Containment()
+	 * @model
+	 * @generated
+	 */
+	boolean isContainment();
+
+	/**
+	 * Sets the value of the '{@link genandroid.DataReference#isContainment <em>Containment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Containment</em>' attribute.
+	 * @see #isContainment()
+	 * @generated
+	 */
+	void setContainment(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Opposite</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link genandroid.DataAssociation#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Opposite</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Opposite</em>' reference.
+	 * @see #setOpposite(DataAssociation)
+	 * @see genandroid.GenandroidPackage#getDataReference_Opposite()
+	 * @see genandroid.DataAssociation#getReferences
+	 * @model opposite="references"
+	 * @generated
+	 */
+	DataAssociation getOpposite();
+
+	/**
+	 * Sets the value of the '{@link genandroid.DataReference#getOpposite <em>Opposite</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Opposite</em>' reference.
+	 * @see #getOpposite()
+	 * @generated
+	 */
+	void setOpposite(DataAssociation value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(DataClass)
+	 * @see genandroid.GenandroidPackage#getDataReference_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	DataClass getType();
+
+	/**
+	 * Sets the value of the '{@link genandroid.DataReference#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(DataClass value);
 
 } // DataReference

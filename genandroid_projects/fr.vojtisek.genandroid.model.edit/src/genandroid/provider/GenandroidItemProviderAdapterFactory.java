@@ -375,6 +375,121 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.NamedElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedElementItemProvider namedElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.NamedElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedElementAdapter() {
+		if (namedElementItemProvider == null) {
+			namedElementItemProvider = new NamedElementItemProvider(this);
+		}
+
+		return namedElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.StructuralFeature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StructuralFeatureItemProvider structuralFeatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.StructuralFeature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStructuralFeatureAdapter() {
+		if (structuralFeatureItemProvider == null) {
+			structuralFeatureItemProvider = new StructuralFeatureItemProvider(this);
+		}
+
+		return structuralFeatureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.CustomViewActivity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomViewActivityItemProvider customViewActivityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.CustomViewActivity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCustomViewActivityAdapter() {
+		if (customViewActivityItemProvider == null) {
+			customViewActivityItemProvider = new CustomViewActivityItemProvider(this);
+		}
+
+		return customViewActivityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.NativeDataClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NativeDataClassItemProvider nativeDataClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.NativeDataClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNativeDataClassAdapter() {
+		if (nativeDataClassItemProvider == null) {
+			nativeDataClassItemProvider = new NativeDataClassItemProvider(this);
+		}
+
+		return nativeDataClassItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.DataAssociation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataAssociationItemProvider dataAssociationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.DataAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataAssociationAdapter() {
+		if (dataAssociationItemProvider == null) {
+			dataAssociationItemProvider = new DataAssociationItemProvider(this);
+		}
+
+		return dataAssociationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +601,11 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 		if (attributeListViewActivityItemProvider != null) attributeListViewActivityItemProvider.dispose();
 		if (elementViewActivityItemProvider != null) elementViewActivityItemProvider.dispose();
 		if (preferenceViewActivityItemProvider != null) preferenceViewActivityItemProvider.dispose();
+		if (namedElementItemProvider != null) namedElementItemProvider.dispose();
+		if (structuralFeatureItemProvider != null) structuralFeatureItemProvider.dispose();
+		if (customViewActivityItemProvider != null) customViewActivityItemProvider.dispose();
+		if (nativeDataClassItemProvider != null) nativeDataClassItemProvider.dispose();
+		if (dataAssociationItemProvider != null) dataAssociationItemProvider.dispose();
 	}
 
 }

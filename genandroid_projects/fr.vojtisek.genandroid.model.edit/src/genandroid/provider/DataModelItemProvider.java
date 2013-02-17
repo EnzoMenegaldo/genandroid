@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DataModelItemProvider
-	extends ItemProviderAdapter
+	extends NamedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -66,31 +66,8 @@ public class DataModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRootClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Root Class feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRootClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataModel_rootClass_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataModel_rootClass_feature", "_UI_DataModel_type"),
-				 GenandroidPackage.Literals.DATA_MODEL__ROOT_CLASS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -106,6 +83,7 @@ public class DataModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GenandroidPackage.Literals.DATA_MODEL__DATA_CLASSES);
+			childrenFeatures.add(GenandroidPackage.Literals.DATA_MODEL__DATA_ASSOCIATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -142,7 +120,10 @@ public class DataModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataModel_type");
+		String label = ((DataModel)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataModel_type") :
+			getString("_UI_DataModel_type") + " " + label;
 	}
 
 	/**
@@ -158,6 +139,7 @@ public class DataModelItemProvider
 
 		switch (notification.getFeatureID(DataModel.class)) {
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
+			case GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -179,17 +161,16 @@ public class DataModelItemProvider
 			(createChildParameter
 				(GenandroidPackage.Literals.DATA_MODEL__DATA_CLASSES,
 				 GenandroidFactory.eINSTANCE.createDataClass()));
-	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return GenandroidEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.DATA_MODEL__DATA_CLASSES,
+				 GenandroidFactory.eINSTANCE.createNativeDataClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.DATA_MODEL__DATA_ASSOCIATIONS,
+				 GenandroidFactory.eINSTANCE.createDataAssociation()));
 	}
 
 }

@@ -39,7 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DataClassItemProvider
-	extends ItemProviderAdapter
+	extends DataClassifierItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -67,32 +67,9 @@ public class DataClassItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEClassPropertyDescriptor(object);
 			addStoragePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the EClass feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEClassPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataClass_eClass_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataClass_eClass_feature", "_UI_DataClass_type"),
-				 GenandroidPackage.Literals.DATA_CLASS__ECLASS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -163,20 +140,14 @@ public class DataClassItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		storageKind labelValue = ((DataClass)object).getStorage();
-		StringBuilder result = new StringBuilder();
-		String label = labelValue == null ? null : labelValue.toString();
-		result.append(getString("_UI_DataClass_type"));
-		if(label == null || label.length() == 0)
-			result.append( " " + label);
-		if(((DataClass)object).getEClass() != null){
-			result.append( " " +((DataClass)object).getEClass().getName());
-		}
-		return result.toString();
+		String label = ((DataClass)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataClass_type") :
+			getString("_UI_DataClass_type") + " " + label;
 	}
 
 	/**
@@ -222,17 +193,6 @@ public class DataClassItemProvider
 			(createChildParameter
 				(GenandroidPackage.Literals.DATA_CLASS__DATA_ATTRIBUTES,
 				 GenandroidFactory.eINSTANCE.createDataAttribute()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return GenandroidEditPlugin.INSTANCE;
 	}
 
 }

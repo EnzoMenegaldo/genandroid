@@ -128,6 +128,30 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 				return createPreferenceViewActivityAdapter();
 			}
 			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseStructuralFeature(StructuralFeature object) {
+				return createStructuralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseCustomViewActivity(CustomViewActivity object) {
+				return createCustomViewActivityAdapter();
+			}
+			@Override
+			public Adapter caseDataClassifier(DataClassifier object) {
+				return createDataClassifierAdapter();
+			}
+			@Override
+			public Adapter caseNativeDataClass(NativeDataClass object) {
+				return createNativeDataClassAdapter();
+			}
+			@Override
+			public Adapter caseDataAssociation(DataAssociation object) {
+				return createDataAssociationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -340,6 +364,90 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPreferenceViewActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.StructuralFeature <em>Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.StructuralFeature
+	 * @generated
+	 */
+	public Adapter createStructuralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.CustomViewActivity <em>Custom View Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.CustomViewActivity
+	 * @generated
+	 */
+	public Adapter createCustomViewActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.DataClassifier <em>Data Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.DataClassifier
+	 * @generated
+	 */
+	public Adapter createDataClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.NativeDataClass <em>Native Data Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.NativeDataClass
+	 * @generated
+	 */
+	public Adapter createNativeDataClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.DataAssociation <em>Data Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.DataAssociation
+	 * @generated
+	 */
+	public Adapter createDataAssociationAdapter() {
 		return null;
 	}
 

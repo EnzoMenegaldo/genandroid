@@ -50,7 +50,15 @@ public enum storageKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZIPPED_XML(2, "ZippedXML", "ZippedXML");
+	ZIPPED_XML(2, "ZippedXML", "ZippedXML"), /**
+	 * The '<em><b>File</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILE(3, "File", "File");
 
 	/**
 	 * The '<em><b>SQ Lite</b></em>' literal value.
@@ -98,6 +106,21 @@ public enum storageKind implements Enumerator {
 	public static final int ZIPPED_XML_VALUE = 2;
 
 	/**
+	 * The '<em><b>File</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>File</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILE
+	 * @model name="File"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILE_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>storage Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,6 +131,7 @@ public enum storageKind implements Enumerator {
 			SQ_LITE,
 			XML,
 			ZIPPED_XML,
+			FILE,
 		};
 
 	/**
@@ -161,6 +185,7 @@ public enum storageKind implements Enumerator {
 			case SQ_LITE_VALUE: return SQ_LITE;
 			case XML_VALUE: return XML;
 			case ZIPPED_XML_VALUE: return ZIPPED_XML;
+			case FILE_VALUE: return FILE;
 		}
 		return null;
 	}

@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DataReferenceItemProvider
-	extends ItemProviderAdapter
+	extends StructuralFeatureItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -66,32 +66,12 @@ public class DataReferenceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEReferencePropertyDescriptor(object);
 			addStoragePropertyDescriptor(object);
+			addContainmentPropertyDescriptor(object);
+			addOppositePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the EReference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEReferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataReference_eReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataReference_eReference_feature", "_UI_DataReference_type"),
-				 GenandroidPackage.Literals.DATA_REFERENCE__EREFERENCE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -117,6 +97,72 @@ public class DataReferenceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Containment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainmentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataReference_containment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataReference_containment_feature", "_UI_DataReference_type"),
+				 GenandroidPackage.Literals.DATA_REFERENCE__CONTAINMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Opposite feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOppositePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataReference_opposite_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataReference_opposite_feature", "_UI_DataReference_type"),
+				 GenandroidPackage.Literals.DATA_REFERENCE__OPPOSITE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataReference_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataReference_type_feature", "_UI_DataReference_type"),
+				 GenandroidPackage.Literals.DATA_REFERENCE__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns DataReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,27 +177,14 @@ public class DataReferenceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		
-		storageKind labelValue = ((DataReference)object).getStorage();
-		StringBuilder result = new StringBuilder();
-		String label = labelValue == null ? null : labelValue.toString();
-		result.append(getString("_UI_DataReference_type"));
-		if(label == null || label.length() == 0)
-			result.append( " " + label);
-		if(((DataReference)object).getEReference() != null){
-			result.append(" ");
-			if(((DataReference)object).getEReference().getContainerClass() != null)
-				result.append(((DataReference)object).getEReference().getContainerClass().getName());
-			else if(((DataReference)object).getEReference().getEContainingClass() != null)
-				result.append(((DataReference)object).getEReference().getEContainingClass().getName());
-			result.append( "." +((DataReference)object).getEReference().getName());
-		}
-		return result.toString();
-		
+		String label = ((DataReference)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataReference_type") :
+			getString("_UI_DataReference_type") + " " + label;
 	}
 
 	/**
@@ -167,6 +200,7 @@ public class DataReferenceItemProvider
 
 		switch (notification.getFeatureID(DataReference.class)) {
 			case GenandroidPackage.DATA_REFERENCE__STORAGE:
+			case GenandroidPackage.DATA_REFERENCE__CONTAINMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -183,17 +217,6 @@ public class DataReferenceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return GenandroidEditPlugin.INSTANCE;
 	}
 
 }

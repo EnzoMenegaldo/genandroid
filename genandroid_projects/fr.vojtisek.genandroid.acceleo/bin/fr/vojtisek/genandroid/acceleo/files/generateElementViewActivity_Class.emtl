@@ -1,0 +1,2169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generateElementViewActivity_Class" nsURI="fr::vojtisek::genandroid::acceleo::files::generateElementViewActivity_Class" startHeaderPosition="30" endHeaderPosition="205">
+    <input>
+      <takesTypesFrom href="http://genandroid/1.0#/"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </input>
+    <imports href="../common/commonTemplate.emtl#/0"/>
+    <imports href="../common/commonActivityTemplate.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateElementViewActivity_Class" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/*******************************************************************************&#xD;&#xA; * Copyright (c) 2012 Vojtisek.&#xD;&#xA; * All rights reserved. This program and the accompanying materials&#xD;&#xA; * are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA; * which accompanies this distribution, and is available at&#xD;&#xA; * http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA; * &#xD;&#xA; * Contributors:&#xD;&#xA; *     Didier Vojtisek - initial API and implementation&#xD;&#xA; *******************************************************************************/&#xD;&#xA;package "/>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../common/commonTemplate.emtl#/0/packagePrefix.2"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".activities;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;import "/>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../common/commonTemplate.emtl#/0/packagePrefix.2"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".datamodel."/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;import "/>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../common/commonTemplate.emtl#/0/packagePrefix.2"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".datamodel.OrmLiteDBHelper;&#xD;&#xA;import "/>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../common/commonTemplate.emtl#/0/packagePrefix.2"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".R;&#xD;&#xA;&#xD;&#xA;import android.app.Activity;&#xD;&#xA;import android.content.Context;&#xD;&#xA;import android.content.Intent;&#xD;&#xA;import android.os.Bundle;&#xD;&#xA;import android.util.Log;&#xD;&#xA;import android.view.Menu;&#xD;&#xA;import android.view.MenuItem;&#xD;&#xA;import android.view.View;&#xD;&#xA;import android.widget.AdapterView;&#xD;&#xA;import android.widget.AdapterView.OnItemClickListener;&#xD;&#xA;import android.widget.ListView;&#xD;&#xA;import android.widget.TextView;&#xD;&#xA;import android.widget.Toast;&#xD;&#xA;import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;&#xD;&#xA;import com.j256.ormlite.dao.RuntimeExceptionDao;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;public class "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//ViewActivity/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="ElementViewActivity extends OrmLiteBaseActivity&lt;OrmLiteDBHelper>{&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;protected int "/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+          </source>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Id;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/** Called when the activity is first created. */&#xD;&#xA;    @Override&#xD;&#xA;    public void onCreate(Bundle savedInstanceState) {&#xD;&#xA;        super.onCreate(savedInstanceState);&#xD;&#xA;        setContentView(R.layout."/>
+        <body xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//ViewActivity/name"/>
+          </source>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_elementview);&#xD;&#xA;        "/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+          </source>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Id = getIntent().getExtras().getInt(&quot;"/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+          </source>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Id&quot;);&#xD;&#xA;        //findViewById(R.id.divedate);&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;    @Override&#xD;&#xA;&#x9;protected void onResume() {&#xD;&#xA;&#x9;&#x9;super.onResume();&#xD;&#xA;&#x9;&#x9;refreshScreenData();&#xD;&#xA;&#x9;}&#xD;&#xA;    &#xD;&#xA;    &#xD;&#xA;    private void refreshScreenData() {&#xD;&#xA;    &#x9;// get our dao&#xD;&#xA;    &#x9;RuntimeExceptionDao&lt;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", Integer> entriesDao = getHelper().get"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Dao();&#xD;&#xA;    &#x9;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" entry = entriesDao.queryForId("/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toLowerFirst">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+          </source>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Id);&#xD;&#xA;    &#x9;&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;((TextView) findViewById(R.id."/>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                  <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//ViewActivity/name"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_elementview_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="dataAtt" referredVariable="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+                  <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")).setText(entry.get"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="dataAtt" referredVariable="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+                  <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="());&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//NativeDataClass"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="dataAtt" referredVariable="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+                    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//DataAttribute/type"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NativeDataClass/instanceClassName"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="java.lang.String">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+            </ifExpr>
+            <elseIf>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;((TextView) findViewById(R.id."/>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//ViewActivity/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_elementview_"/>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="dataAtt" referredVariable="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+                    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")).setText(((Integer)entry.get"/>
+              <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toUpperFirst">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="dataAtt" referredVariable="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+                    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+                </source>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="()).toString());&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//NativeDataClass"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="dataAtt" referredVariable="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+                      <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//DataAttribute/type"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NativeDataClass/instanceClassName"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="int">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </ifExpr>
+            </elseIf>
+          </body>
+          <loopVariable name="dataAtt">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/22/OrderedSet(DataAttribute)">
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//DataClass/dataAttributes"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    &#x9;/*SimpleDateFormat dateFormatter = new SimpleDateFormat(&quot;MM/dd/yyyy HH:mm&quot;);&#xD;&#xA;    &#x9;((TextView) findViewById(R.id.detail_divedate)).setText(dateFormatter.format(entry.getDate()));&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;    &#x9;((TextView) findViewById(R.id.detail_divelocation)).setText(entry.getLocation());&#xD;&#xA;    &#x9;&#xD;&#xA;    &#x9;((TextView) findViewById(R.id.detail_divedepth)).setText(entry.getMaxdepth().toString());&#xD;&#xA;    &#x9;&#xD;&#xA;    &#x9;((TextView) findViewById(R.id.detail_diveduration)).setText(entry.getDuration().toString());&#xD;&#xA;    &#x9;*/&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;@Override&#xD;&#xA;    public boolean onCreateOptionsMenu(Menu menu) {&#xD;&#xA;&#x9;&#x9;// add options in the menu&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;menu.add(Menu.NONE, 0, 0, R.string.edit_menu).setIcon(android.R.drawable.ic_menu_edit);&#xD;&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/35/EditableElementViewActivity">
+              <referredType xsi:type="ecore:EClass" href="http://genandroid/1.0#//EditableElementViewActivity"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsKindOf"/>
+          </ifExpr>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../common/commonActivityTemplate.emtl#/0/addPreferenceInMenu"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;//"/>
+        <body xsi:type="mtl:ProtectedAreaBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xA;&#x9;&#x9;//"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="additional onCreateOptionsMenu">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </marker>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;        return super.onCreateOptionsMenu(menu);&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;    &#xD;&#xA;    @Override&#xD;&#xA;    public boolean onOptionsItemSelected(MenuItem item) {&#xD;&#xA;    &#x9;// behavior of option menu&#xD;&#xA;        switch (item.getItemId()) {&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        case 0:&#xD;&#xA;        &#x9;Intent toDetailView = new Intent(this, "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//ViewActivity/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="EditableElementViewActivity.class);&#xD;&#xA;            Bundle b = new Bundle();&#xD;&#xA;            b.putInt(&quot;"/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                  <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Id&quot;, "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                  <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://genandroid/1.0#//ElementViewActivity/element"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Id);&#xD;&#xA;    &#x9;&#x9;toDetailView.putExtras(b);&#xD;&#xA;            startActivity(toDetailView);&#xD;&#xA;            return true;&#xD;&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+              <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/35/EditableElementViewActivity">
+              <referredType xsi:type="ecore:EClass" href="http://genandroid/1.0#//EditableElementViewActivity"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsKindOf"/>
+          </ifExpr>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="../common/commonActivityTemplate.emtl#/0/addPreferenceMenuAction"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+            <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;//"/>
+        <body xsi:type="mtl:ProtectedAreaBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;//"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="additional menu action">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </marker>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;        }&#xD;&#xA;        return false;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;&#x9;private void showToast(String message) {&#xD;&#xA;        Toast.makeText(this, message, Toast.LENGTH_LONG).show();&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/src/">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </source>
+                <argument xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="../common/commonTemplate.emtl#/0/packagePrefixFolder.3"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+                  </argument>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/activities/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="anElementViewActivity" referredVariable="/0/generateElementViewActivity_Class/anElementViewActivity">
+                <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://genandroid/1.0#//ViewActivity/name"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="ElementViewActivity.java">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="anElementViewActivity">
+        <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="substitute">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="r">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="t">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="index">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="r">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="first">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="n">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="last">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="n">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="strstr">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="r">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="strtok">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="s1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="flag">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="strcmp">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="s1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="isAlpha">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+      </eOperations>
+      <eOperations name="isAlphanum">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+      </eOperations>
+      <eOperations name="toUpperFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="toLowerFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="replace">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="replacement">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="replaceAll">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="replacement">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="substituteAll">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="replacement">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="startsWith">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="endsWith">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="trim">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="tokenize">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(String)"/>
+        <eParameters name="delimiters">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="contains">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="matches">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="regex">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="lastIndex">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="equalsIgnoreCase">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="substring">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="startIndex">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+      <eOperations name="toString">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+      <eOperations name="toString">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="eAllContents">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="eAllContents">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="ancestors">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="ancestors">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="siblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="siblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="eInverse">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:OrderedSetType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//OrderedSet(OclAny)"/>
+      </eOperations>
+      <eOperations name="eInverse">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:OrderedSetType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//OrderedSet(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="precedingSiblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="precedingSiblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="followingSiblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="followingSiblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="eContainer">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//OclAny"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="eContents">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="eGet">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        <eParameters name="featureName">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateElementViewActivity_Class">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateElementViewActivity_Class"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anElementViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aAndroidProject">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//AndroidProject"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aDataModel">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataModel"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.2"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aDataClass">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.3"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ViewActivity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.4"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPreferenceViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//PreferenceViewActivity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aDataModel">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataModel"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aDataClass">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix.2"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ViewActivity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix.3"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPreferenceViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//PreferenceViewActivity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="allEAttributesParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/allEAttributesParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anEClass">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="oneEAttributeParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/oneEAttributeParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="att">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="allEReferencesParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/allEReferencesParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anEClass">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataClass"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="oneEReferenceParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/oneEReferenceParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="ref">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataReference"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="projectName4Class">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/projectName4Class"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aAndroidProject">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//AndroidProject"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="addPreferenceInMenu">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonActivityTemplate.emtl#/0/addPreferenceInMenu"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ViewActivity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="addPreferenceMenuAction">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonActivityTemplate.emtl#/0/addPreferenceMenuAction"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aViewActivity">
+          <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ViewActivity"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+      <eOperations name="toString">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="invoke">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        <eParameters name="class">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="method">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arguments">
+          <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="current">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//OclAny"/>
+        <eParameters name="index">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="current">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//OclAny"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getProperty">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="key">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getProperty">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="key">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arguments">
+          <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getProperty">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="propertiesFileName">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="key">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getProperty">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="propertiesFileName">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="key">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arguments">
+          <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+      <eOperations name="sep">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="separatorString">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="filter">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:CollectionType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+      <eOperations name="reverse">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eOperations>
+      <eOperations name="lastIndexOf">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="element">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+      <eOperations name="reverse">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:OrderedSetType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eOperations>
+      <eOperations name="lastIndexOf">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="element">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/T"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ElementViewActivity_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//ElementViewActivity"/>
+      </eAnnotations>
+      <eOperations name="generateElementViewActivity_Class">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateElementViewActivity_Class"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AndroidProject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//AndroidProject"/>
+      </eAnnotations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="projectName4Class">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/projectName4Class"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataModel_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//DataModel"/>
+      </eAnnotations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataClass_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//DataClass"/>
+      </eAnnotations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.2"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="allEAttributesParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/allEAttributesParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="allEReferencesParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/allEReferencesParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewActivity_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//ViewActivity"/>
+      </eAnnotations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.3"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix.2"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="addPreferenceInMenu">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonActivityTemplate.emtl#/0/addPreferenceInMenu"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="addPreferenceMenuAction">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonActivityTemplate.emtl#/0/addPreferenceMenuAction"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PreferenceViewActivity_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//PreferenceViewActivity"/>
+      </eAnnotations>
+      <eOperations name="packagePrefixFolder">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefixFolder.4"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="packagePrefix">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/packagePrefix.3"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataAttribute_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//DataAttribute"/>
+      </eAnnotations>
+      <eOperations name="oneEAttributeParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/oneEAttributeParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataReference_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://genandroid/1.0#//DataReference"/>
+      </eAnnotations>
+      <eOperations name="oneEReferenceParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../common/commonTemplate.emtl#/0/oneEReferenceParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(DataAttribute)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//DataAttribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="EditableElementViewActivity">
+      <referredType xsi:type="ecore:EClass" href="http://genandroid/1.0#//EditableElementViewActivity"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://genandroid/1.0#//ElementViewActivity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateElementViewActivity_Class">
+      <details key="start" value="288"/>
+      <details key="end" value="5480"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateElementViewActivity_Class/@body.0">
+      <details key="start" value="386"/>
+      <details key="end" value="388"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateElementViewActivity_Class/@body.1">
+      <details key="start" value="388"/>
+      <details key="end" value="5467"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateElementViewActivity_Class/@body.1/@body.0">
+      <details key="start" value="535"/>
+      <details key="end" value="1071"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateElementViewActivity_Class/@body.1/@body.1">
+      <details key="start" value="1072"/>
+      <details key="end" value="1109"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateElementViewActivity_Class/@body.1/@body.1/anElementViewActivity">
+      <details key="start" value="1072"/>
+      <details key="end" value="1093"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElementViewActivity_Class/@body.1/@body.2">
+      <details key="start" value="1111"/>
+      <details key="end" value="1136"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElementViewActivity_Class/@body.1/@body.3">
+      <details key="start" value="1137"/>
+      <details key="end" value="1174"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElementViewActivity_Class/@body.1/@body.3/anElementViewActivity">
+      <details key="start" value="1137"/>
+      <details key="end" value="1158"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElementViewActivity_Class/@body.1/@body.4">
+      <details key="start" value="1176"/>
+      <details key="end" value="1187"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElementViewActivity_Class/@body.1/@body.5">
+      <details key="start" value="1188"/>
+      <details key="end" value="1222"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElementViewActivity_Class/@body.1/@body.5/@source">
+      <details key="start" value="1188"/>
+      <details key="end" value="1217"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElementViewActivity_Class/@body.1/@body.5/@source/anElementViewActivity">
+      <details key="start" value="1188"/>
+      <details key="end" value="1209"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElementViewActivity_Class/@body.1/@body.6">
+      <details key="start" value="1224"/>
+      <details key="end" value="1234"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElementViewActivity_Class/@body.1/@body.7">
+      <details key="start" value="1235"/>
+      <details key="end" value="1272"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElementViewActivity_Class/@body.1/@body.7/anElementViewActivity">
+      <details key="start" value="1235"/>
+      <details key="end" value="1256"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElementViewActivity_Class/@body.1/@body.8">
+      <details key="start" value="1274"/>
+      <details key="end" value="1310"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElementViewActivity_Class/@body.1/@body.9">
+      <details key="start" value="1311"/>
+      <details key="end" value="1348"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElementViewActivity_Class/@body.1/@body.9/anElementViewActivity">
+      <details key="start" value="1311"/>
+      <details key="end" value="1332"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElementViewActivity_Class/@body.1/@body.10">
+      <details key="start" value="1350"/>
+      <details key="end" value="1908"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElementViewActivity_Class/@body.1/@body.11">
+      <details key="start" value="1909"/>
+      <details key="end" value="1935"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElementViewActivity_Class/@body.1/@body.11/anElementViewActivity">
+      <details key="start" value="1909"/>
+      <details key="end" value="1930"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElementViewActivity_Class/@body.1/@body.12">
+      <details key="start" value="1937"/>
+      <details key="end" value="2022"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElementViewActivity_Class/@body.1/@body.13">
+      <details key="start" value="2023"/>
+      <details key="end" value="2072"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElementViewActivity_Class/@body.1/@body.13/@source">
+      <details key="start" value="2023"/>
+      <details key="end" value="2057"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElementViewActivity_Class/@body.1/@body.13/@source/@source">
+      <details key="start" value="2023"/>
+      <details key="end" value="2052"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElementViewActivity_Class/@body.1/@body.13/@source/@source/anElementViewActivity">
+      <details key="start" value="2023"/>
+      <details key="end" value="2044"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElementViewActivity_Class/@body.1/@body.14">
+      <details key="start" value="2074"/>
+      <details key="end" value="2281"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElementViewActivity_Class/@body.1/@body.15">
+      <details key="start" value="2282"/>
+      <details key="end" value="2318"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElementViewActivity_Class/@body.1/@body.15/@source">
+      <details key="start" value="2282"/>
+      <details key="end" value="2308"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElementViewActivity_Class/@body.1/@body.15/@source/anElementViewActivity">
+      <details key="start" value="2282"/>
+      <details key="end" value="2303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElementViewActivity_Class/@body.1/@body.16">
+      <details key="start" value="2320"/>
+      <details key="end" value="2344"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElementViewActivity_Class/@body.1/@body.17">
+      <details key="start" value="2345"/>
+      <details key="end" value="2394"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElementViewActivity_Class/@body.1/@body.17/@source">
+      <details key="start" value="2345"/>
+      <details key="end" value="2379"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElementViewActivity_Class/@body.1/@body.17/@source/@source">
+      <details key="start" value="2345"/>
+      <details key="end" value="2374"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElementViewActivity_Class/@body.1/@body.17/@source/@source/anElementViewActivity">
+      <details key="start" value="2345"/>
+      <details key="end" value="2366"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElementViewActivity_Class/@body.1/@body.18">
+      <details key="start" value="2396"/>
+      <details key="end" value="2433"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElementViewActivity_Class/@body.1/@body.19">
+      <details key="start" value="2434"/>
+      <details key="end" value="2483"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElementViewActivity_Class/@body.1/@body.19/@source">
+      <details key="start" value="2434"/>
+      <details key="end" value="2468"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElementViewActivity_Class/@body.1/@body.19/@source/@source">
+      <details key="start" value="2434"/>
+      <details key="end" value="2463"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElementViewActivity_Class/@body.1/@body.19/@source/@source/anElementViewActivity">
+      <details key="start" value="2434"/>
+      <details key="end" value="2455"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElementViewActivity_Class/@body.1/@body.20">
+      <details key="start" value="2485"/>
+      <details key="end" value="2737"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElementViewActivity_Class/@body.1/@body.21">
+      <details key="start" value="2738"/>
+      <details key="end" value="2772"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElementViewActivity_Class/@body.1/@body.21/@source">
+      <details key="start" value="2738"/>
+      <details key="end" value="2767"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElementViewActivity_Class/@body.1/@body.21/@source/anElementViewActivity">
+      <details key="start" value="2738"/>
+      <details key="end" value="2759"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElementViewActivity_Class/@body.1/@body.22">
+      <details key="start" value="2774"/>
+      <details key="end" value="2813"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElementViewActivity_Class/@body.1/@body.23">
+      <details key="start" value="2814"/>
+      <details key="end" value="2848"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElementViewActivity_Class/@body.1/@body.23/@source">
+      <details key="start" value="2814"/>
+      <details key="end" value="2843"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElementViewActivity_Class/@body.1/@body.23/@source/anElementViewActivity">
+      <details key="start" value="2814"/>
+      <details key="end" value="2835"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElementViewActivity_Class/@body.1/@body.24">
+      <details key="start" value="2850"/>
+      <details key="end" value="2863"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElementViewActivity_Class/@body.1/@body.25">
+      <details key="start" value="2864"/>
+      <details key="end" value="2898"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElementViewActivity_Class/@body.1/@body.25/@source">
+      <details key="start" value="2864"/>
+      <details key="end" value="2893"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElementViewActivity_Class/@body.1/@body.25/@source/anElementViewActivity">
+      <details key="start" value="2864"/>
+      <details key="end" value="2885"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElementViewActivity_Class/@body.1/@body.26">
+      <details key="start" value="2900"/>
+      <details key="end" value="2931"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElementViewActivity_Class/@body.1/@body.27">
+      <details key="start" value="2932"/>
+      <details key="end" value="2981"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElementViewActivity_Class/@body.1/@body.27/@source">
+      <details key="start" value="2932"/>
+      <details key="end" value="2966"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElementViewActivity_Class/@body.1/@body.27/@source/@source">
+      <details key="start" value="2932"/>
+      <details key="end" value="2961"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElementViewActivity_Class/@body.1/@body.27/@source/@source/anElementViewActivity">
+      <details key="start" value="2932"/>
+      <details key="end" value="2953"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElementViewActivity_Class/@body.1/@body.28">
+      <details key="start" value="2983"/>
+      <details key="end" value="2996"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElementViewActivity_Class/@body.1/@body.29">
+      <details key="start" value="3001"/>
+      <details key="end" value="3576"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0">
+      <details key="start" value="3086"/>
+      <details key="end" value="3564"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.0">
+      <details key="start" value="3146"/>
+      <details key="end" value="3178"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.1">
+      <details key="start" value="3179"/>
+      <details key="end" value="3215"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.1/@source">
+      <details key="start" value="3179"/>
+      <details key="end" value="3205"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.1/@source/anElementViewActivity">
+      <details key="start" value="3179"/>
+      <details key="end" value="3200"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.2">
+      <details key="start" value="3217"/>
+      <details key="end" value="3230"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.3">
+      <details key="start" value="3231"/>
+      <details key="end" value="3253"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.3/@source">
+      <details key="start" value="3231"/>
+      <details key="end" value="3243"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.3/@source/dataAtt">
+      <details key="start" value="3231"/>
+      <details key="end" value="3238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.4">
+      <details key="start" value="3255"/>
+      <details key="end" value="3275"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.5">
+      <details key="start" value="3276"/>
+      <details key="end" value="3303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.5/@source">
+      <details key="start" value="3276"/>
+      <details key="end" value="3288"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.5/@source/dataAtt">
+      <details key="start" value="3276"/>
+      <details key="end" value="3283"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@body.6">
+      <details key="start" value="3305"/>
+      <details key="end" value="3311"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@ifExpr">
+      <details key="start" value="3090"/>
+      <details key="end" value="3143"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@ifExpr/@source">
+      <details key="start" value="3091"/>
+      <details key="end" value="3121"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@ifExpr/@source/@source">
+      <details key="start" value="3091"/>
+      <details key="end" value="3103"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@ifExpr/@source/@source/dataAtt">
+      <details key="start" value="3091"/>
+      <details key="end" value="3098"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@ifExpr/@argument.0">
+      <details key="start" value="3124"/>
+      <details key="end" value="3142"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0">
+      <details key="start" value="3314"/>
+      <details key="end" value="3559"/>
+      <details key="line" value="71"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.0">
+      <details key="start" value="3364"/>
+      <details key="end" value="3396"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.1">
+      <details key="start" value="3397"/>
+      <details key="end" value="3433"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.1/@source">
+      <details key="start" value="3397"/>
+      <details key="end" value="3423"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.1/@source/anElementViewActivity">
+      <details key="start" value="3397"/>
+      <details key="end" value="3418"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.2">
+      <details key="start" value="3435"/>
+      <details key="end" value="3448"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.3">
+      <details key="start" value="3449"/>
+      <details key="end" value="3471"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.3/@source">
+      <details key="start" value="3449"/>
+      <details key="end" value="3461"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.3/@source/dataAtt">
+      <details key="start" value="3449"/>
+      <details key="end" value="3456"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.4">
+      <details key="start" value="3473"/>
+      <details key="end" value="3503"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.5">
+      <details key="start" value="3504"/>
+      <details key="end" value="3531"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.5/@source">
+      <details key="start" value="3504"/>
+      <details key="end" value="3516"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.5/@source/dataAtt">
+      <details key="start" value="3504"/>
+      <details key="end" value="3511"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@body.6">
+      <details key="start" value="3533"/>
+      <details key="end" value="3556"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@ifExpr">
+      <details key="start" value="3322"/>
+      <details key="end" value="3362"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@ifExpr/@source">
+      <details key="start" value="3323"/>
+      <details key="end" value="3353"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@ifExpr/@source/@source">
+      <details key="start" value="3323"/>
+      <details key="end" value="3335"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@ifExpr/@source/@source/dataAtt">
+      <details key="start" value="3323"/>
+      <details key="end" value="3330"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@body.0/@elseIf.0/@ifExpr/@argument.0">
+      <details key="start" value="3356"/>
+      <details key="end" value="3361"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateElementViewActivity_Class/@body.1/@body.29/dataAtt">
+      <details key="start" value="3007"/>
+      <details key="end" value="3030"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@iterSet">
+      <details key="start" value="3033"/>
+      <details key="end" value="3077"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@iterSet/@source">
+      <details key="start" value="3033"/>
+      <details key="end" value="3062"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateElementViewActivity_Class/@body.1/@body.29/@iterSet/@source/anElementViewActivity">
+      <details key="start" value="3033"/>
+      <details key="end" value="3054"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateElementViewActivity_Class/@body.1/@body.30">
+      <details key="start" value="3578"/>
+      <details key="end" value="4174"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateElementViewActivity_Class/@body.1/@body.31">
+      <details key="start" value="4176"/>
+      <details key="end" value="4344"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateElementViewActivity_Class/@body.1/@body.31/@body.0">
+      <details key="start" value="4246"/>
+      <details key="end" value="4337"/>
+      <details key="line" value="90"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateElementViewActivity_Class/@body.1/@body.31/@ifExpr">
+      <details key="start" value="4179"/>
+      <details key="end" value="4243"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateElementViewActivity_Class/@body.1/@body.31/@ifExpr/anElementViewActivity">
+      <details key="start" value="4180"/>
+      <details key="end" value="4201"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateElementViewActivity_Class/@body.1/@body.31/@ifExpr/@argument.0">
+      <details key="start" value="4214"/>
+      <details key="end" value="4241"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateElementViewActivity_Class/@body.1/@body.32">
+      <details key="start" value="4346"/>
+      <details key="end" value="4354"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateElementViewActivity_Class/@body.1/@body.33">
+      <details key="start" value="4355"/>
+      <details key="end" value="4398"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateElementViewActivity_Class/@body.1/@body.33/anElementViewActivity">
+      <details key="start" value="4355"/>
+      <details key="end" value="4376"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateElementViewActivity_Class/@body.1/@body.34">
+      <details key="start" value="4400"/>
+      <details key="end" value="4406"/>
+      <details key="line" value="93"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateElementViewActivity_Class/@body.1/@body.35">
+      <details key="start" value="4406"/>
+      <details key="end" value="4471"/>
+      <details key="line" value="93"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateElementViewActivity_Class/@body.1/@body.35/@body.0">
+      <details key="start" value="4452"/>
+      <details key="end" value="4459"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateElementViewActivity_Class/@body.1/@body.35/@marker">
+      <details key="start" value="4418"/>
+      <details key="end" value="4450"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateElementViewActivity_Class/@body.1/@body.36">
+      <details key="start" value="4471"/>
+      <details key="end" value="4685"/>
+      <details key="line" value="96"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateElementViewActivity_Class/@body.1/@body.37">
+      <details key="start" value="4687"/>
+      <details key="end" value="5172"/>
+      <details key="line" value="104"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.0">
+      <details key="start" value="4757"/>
+      <details key="end" value="4822"/>
+      <details key="line" value="105"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.1">
+      <details key="start" value="4823"/>
+      <details key="end" value="4849"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.1/anElementViewActivity">
+      <details key="start" value="4823"/>
+      <details key="end" value="4844"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.2">
+      <details key="start" value="4851"/>
+      <details key="end" value="4948"/>
+      <details key="line" value="106"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.3">
+      <details key="start" value="4949"/>
+      <details key="end" value="4998"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.3/@source">
+      <details key="start" value="4949"/>
+      <details key="end" value="4983"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.3/@source/@source">
+      <details key="start" value="4949"/>
+      <details key="end" value="4978"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.3/@source/@source/anElementViewActivity">
+      <details key="start" value="4949"/>
+      <details key="end" value="4970"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.4">
+      <details key="start" value="5000"/>
+      <details key="end" value="5005"/>
+      <details key="line" value="108"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.5">
+      <details key="start" value="5006"/>
+      <details key="end" value="5055"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.5/@source">
+      <details key="start" value="5006"/>
+      <details key="end" value="5040"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.5/@source/@source">
+      <details key="start" value="5006"/>
+      <details key="end" value="5035"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.5/@source/@source/anElementViewActivity">
+      <details key="start" value="5006"/>
+      <details key="end" value="5027"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@body.6">
+      <details key="start" value="5057"/>
+      <details key="end" value="5165"/>
+      <details key="line" value="108"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@ifExpr">
+      <details key="start" value="4690"/>
+      <details key="end" value="4754"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@ifExpr/anElementViewActivity">
+      <details key="start" value="4691"/>
+      <details key="end" value="4712"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateElementViewActivity_Class/@body.1/@body.37/@ifExpr/@argument.0">
+      <details key="start" value="4725"/>
+      <details key="end" value="4752"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateElementViewActivity_Class/@body.1/@body.38">
+      <details key="start" value="5174"/>
+      <details key="end" value="5182"/>
+      <details key="line" value="113"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateElementViewActivity_Class/@body.1/@body.39">
+      <details key="start" value="5183"/>
+      <details key="end" value="5230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateElementViewActivity_Class/@body.1/@body.39/anElementViewActivity">
+      <details key="start" value="5183"/>
+      <details key="end" value="5204"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateElementViewActivity_Class/@body.1/@body.40">
+      <details key="start" value="5232"/>
+      <details key="end" value="5238"/>
+      <details key="line" value="114"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateElementViewActivity_Class/@body.1/@body.41">
+      <details key="start" value="5238"/>
+      <details key="end" value="5296"/>
+      <details key="line" value="114"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateElementViewActivity_Class/@body.1/@body.41/@body.0">
+      <details key="start" value="5276"/>
+      <details key="end" value="5284"/>
+      <details key="line" value="115"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateElementViewActivity_Class/@body.1/@body.41/@marker">
+      <details key="start" value="5250"/>
+      <details key="end" value="5274"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateElementViewActivity_Class/@body.1/@body.42">
+      <details key="start" value="5296"/>
+      <details key="end" value="5460"/>
+      <details key="line" value="117"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl">
+      <details key="start" value="395"/>
+      <details key="end" value="515"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source">
+      <details key="start" value="395"/>
+      <details key="end" value="488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@source">
+      <details key="start" value="395"/>
+      <details key="end" value="461"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@source/@source">
+      <details key="start" value="395"/>
+      <details key="end" value="446"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@source/@source/@source">
+      <details key="start" value="395"/>
+      <details key="end" value="402"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@source/@source/@argument.0">
+      <details key="start" value="403"/>
+      <details key="end" value="446"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@source/@source/@argument.0/anElementViewActivity">
+      <details key="start" value="403"/>
+      <details key="end" value="424"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@source/@argument.0">
+      <details key="start" value="447"/>
+      <details key="end" value="461"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@argument.0">
+      <details key="start" value="462"/>
+      <details key="end" value="488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@source/@argument.0/anElementViewActivity">
+      <details key="start" value="462"/>
+      <details key="end" value="483"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateElementViewActivity_Class/@body.1/@fileUrl/@argument.0">
+      <details key="start" value="489"/>
+      <details key="end" value="515"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateElementViewActivity_Class/@body.1/@charset">
+      <details key="start" value="524"/>
+      <details key="end" value="531"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateElementViewActivity_Class/anElementViewActivity">
+      <details key="start" value="339"/>
+      <details key="end" value="382"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

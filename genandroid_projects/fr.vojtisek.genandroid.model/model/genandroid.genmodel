@@ -10,6 +10,7 @@
       <genEnumLiterals ecoreEnumLiteral="genandroid.ecore#//storageKind/SQLite"/>
       <genEnumLiterals ecoreEnumLiteral="genandroid.ecore#//storageKind/XML"/>
       <genEnumLiterals ecoreEnumLiteral="genandroid.ecore#//storageKind/ZippedXML"/>
+      <genEnumLiterals ecoreEnumLiteral="genandroid.ecore#//storageKind/File"/>
     </genEnums>
     <genClasses ecoreClass="genandroid.ecore#//AndroidProject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/name"/>
@@ -20,8 +21,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/preferenceView"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataModel">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataModel/rootClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataModel/dataClasses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataModel/dataAssociations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="genandroid.ecore#//ViewActivity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ViewActivity/name"/>
@@ -32,7 +33,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ClassListViewActivity/presentedDetail"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataClass">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataClass/eClass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataClass/storage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataClass/dataReferences"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataClass/dataAttributes"/>
@@ -47,12 +47,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ClassDetail/secondaryAttributes"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataAttribute">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataAttribute/eAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataAttribute/storage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataAttribute/type"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataReference/eReference"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataReference/storage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataReference/containment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataReference/opposite"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataReference/type"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//ListViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ListViewActivity/selectItemAction"/>
@@ -66,6 +68,23 @@
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//PreferenceViewActivity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//PreferenceViewActivity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//NamedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//NamedElement/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//StructuralFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//StructuralFeature/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//StructuralFeature/lowerbound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//StructuralFeature/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//CustomViewActivity"/>
+    <genClasses ecoreClass="genandroid.ecore#//DataClassifier"/>
+    <genClasses ecoreClass="genandroid.ecore#//NativeDataClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//NativeDataClass/instanceClassName"/>
+    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//DataAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataAssociation/references"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

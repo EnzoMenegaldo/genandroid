@@ -79,6 +79,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.DATA_MODEL: {
 				DataModel dataModel = (DataModel)theEObject;
 				T result = caseDataModel(dataModel);
+				if (result == null) result = caseNamedElement(dataModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -107,6 +108,8 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.DATA_CLASS: {
 				DataClass dataClass = (DataClass)theEObject;
 				T result = caseDataClass(dataClass);
+				if (result == null) result = caseDataClassifier(dataClass);
+				if (result == null) result = caseNamedElement(dataClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,12 +131,16 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.DATA_ATTRIBUTE: {
 				DataAttribute dataAttribute = (DataAttribute)theEObject;
 				T result = caseDataAttribute(dataAttribute);
+				if (result == null) result = caseStructuralFeature(dataAttribute);
+				if (result == null) result = caseNamedElement(dataAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GenandroidPackage.DATA_REFERENCE: {
 				DataReference dataReference = (DataReference)theEObject;
 				T result = caseDataReference(dataReference);
+				if (result == null) result = caseStructuralFeature(dataReference);
+				if (result == null) result = caseNamedElement(dataReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,6 +169,48 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.PREFERENCE_VIEW_ACTIVITY: {
 				PreferenceViewActivity preferenceViewActivity = (PreferenceViewActivity)theEObject;
 				T result = casePreferenceViewActivity(preferenceViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T result = caseNamedElement(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.STRUCTURAL_FEATURE: {
+				StructuralFeature structuralFeature = (StructuralFeature)theEObject;
+				T result = caseStructuralFeature(structuralFeature);
+				if (result == null) result = caseNamedElement(structuralFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.CUSTOM_VIEW_ACTIVITY: {
+				CustomViewActivity customViewActivity = (CustomViewActivity)theEObject;
+				T result = caseCustomViewActivity(customViewActivity);
+				if (result == null) result = caseViewActivity(customViewActivity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.DATA_CLASSIFIER: {
+				DataClassifier dataClassifier = (DataClassifier)theEObject;
+				T result = caseDataClassifier(dataClassifier);
+				if (result == null) result = caseNamedElement(dataClassifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.NATIVE_DATA_CLASS: {
+				NativeDataClass nativeDataClass = (NativeDataClass)theEObject;
+				T result = caseNativeDataClass(nativeDataClass);
+				if (result == null) result = caseDataClassifier(nativeDataClass);
+				if (result == null) result = caseNamedElement(nativeDataClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.DATA_ASSOCIATION: {
+				DataAssociation dataAssociation = (DataAssociation)theEObject;
+				T result = caseDataAssociation(dataAssociation);
+				if (result == null) result = caseNamedElement(dataAssociation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -376,6 +425,96 @@ public class GenandroidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePreferenceViewActivity(PreferenceViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Structural Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStructuralFeature(StructuralFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom View Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomViewActivity(CustomViewActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Classifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataClassifier(DataClassifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Native Data Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Native Data Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNativeDataClass(NativeDataClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Association</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataAssociation(DataAssociation object) {
 		return null;
 	}
 

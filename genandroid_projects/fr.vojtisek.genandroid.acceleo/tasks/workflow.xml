@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="workflow" name="fr.vojtisek.genandroid.acceleo">
     <property name="ECLIPSE_HOME" value="E:/eclipse_3.7.1_android/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../workspaces/devAndroid_git_RuntimeWorkbench"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.vojtisek.genandroid.acceleo.libraryclasspath">

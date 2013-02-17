@@ -1,0 +1,50 @@
+[comment encoding = UTF-8 /]
+[module generatePreferenceViewActivity_strings('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generatePreferenceViewActivity_strings(aPreferenceViewActivity : PreferenceViewActivity)]
+
+[file ('/res/values/'.concat(aPreferenceViewActivity.name.toLower()).concat('_strings.xml'), false, 'UTF-8')]
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--[protected ('protected')]
+		-->
+    <!-- Options text -->
+    <string name="[aPreferenceViewActivity.name.toLower()/]_menu_title">[aPreferenceViewActivity.name.toUpperFirst()/]</string>
+    
+	<!-- Preferences -->
+	<!--<string name="unit_category">Units category</string>
+	<string name="unit_prompt">Choose the units</string>
+	<string name="length_unit_prompt">Length unit</string>
+	<string name="length_unit_summary">Define which length unit is used in the application</string>
+    <string-array name="length_units_array">
+        <item name="meter">Meter</item>
+        <item name="inch">Inch</item>
+    </string-array><string-array name="length_units_arrayvalues">
+        <item name="meter">m</item>
+        <item name="inch">inch</item>
+    </string-array>
+    <string name="temperature_unit_prompt">Temperature unit</string>
+	<string name="temperature_unit_summary">Define which temperature unit is used in the application</string>
+	<string-array name="temperature_units_array">
+        <item name="celcius">Celcius</item>
+        <item name="fahrenheit">Fahrenheit</item>
+    </string-array><string-array name="temperature_units_arrayvalues">
+        <item name="celcius">°C</item>
+        <item name="fahrenheit">°F</item>
+    </string-array>
+    
+    <string name="presentation_category">Presentation category</string>
+    <string name="dateformat_prompt">Choose a format for date</string>
+    <string name="dateformat_summary">(ex: MM/dd/yyyy HH:mm)</string>
+    <string name="dateformat_default">MM/dd/yyyy HH:mm</string>
+    -->
+    <!--[/protected]
+		-->
+</resources>
+[/file]
+[/template]
+
+
+
+

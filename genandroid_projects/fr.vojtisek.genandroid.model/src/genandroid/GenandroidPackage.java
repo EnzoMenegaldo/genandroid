@@ -134,6 +134,43 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT_FEATURE_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.NamedElementImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__DOCUMENTATION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,13 +181,22 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_MODEL = 1;
 
 	/**
-	 * The feature id for the '<em><b>Root Class</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_MODEL__ROOT_CLASS = 0;
+	int DATA_MODEL__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_MODEL__DOCUMENTATION = NAMED_ELEMENT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Data Classes</b></em>' containment reference list.
@@ -159,7 +205,16 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_MODEL__DATA_CLASSES = 1;
+	int DATA_MODEL__DATA_CLASSES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Associations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_MODEL__DATA_ASSOCIATIONS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Data Model</em>' class.
@@ -168,7 +223,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_MODEL_FEATURE_COUNT = 2;
+	int DATA_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ViewActivityImpl <em>View Activity</em>}' class.
@@ -365,6 +420,43 @@ public interface GenandroidPackage extends EPackage {
 	int CLASS_LIST_VIEW_ACTIVITY_FEATURE_COUNT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.DataClassifierImpl <em>Data Classifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.DataClassifierImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getDataClassifier()
+	 * @generated
+	 */
+	int DATA_CLASSIFIER = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CLASSIFIER__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CLASSIFIER__DOCUMENTATION = NAMED_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The number of structural features of the '<em>Data Classifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CLASSIFIER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link genandroid.impl.DataClassImpl <em>Data Class</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -375,13 +467,22 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_CLASS = 5;
 
 	/**
-	 * The feature id for the '<em><b>EClass</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CLASS__ECLASS = 0;
+	int DATA_CLASS__NAME = DATA_CLASSIFIER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CLASS__DOCUMENTATION = DATA_CLASSIFIER__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Storage</b></em>' attribute.
@@ -390,7 +491,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CLASS__STORAGE = 1;
+	int DATA_CLASS__STORAGE = DATA_CLASSIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Data References</b></em>' containment reference list.
@@ -399,7 +500,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CLASS__DATA_REFERENCES = 2;
+	int DATA_CLASS__DATA_REFERENCES = DATA_CLASSIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Data Attributes</b></em>' containment reference list.
@@ -408,7 +509,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CLASS__DATA_ATTRIBUTES = 3;
+	int DATA_CLASS__DATA_ATTRIBUTES = DATA_CLASSIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Data Class</em>' class.
@@ -417,7 +518,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CLASS_FEATURE_COUNT = 4;
+	int DATA_CLASS_FEATURE_COUNT = DATA_CLASSIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ReferenceListViewActivityImpl <em>Reference List View Activity</em>}' class.
@@ -539,6 +640,70 @@ public interface GenandroidPackage extends EPackage {
 	int CLASS_DETAIL_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.StructuralFeatureImpl <em>Structural Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.StructuralFeatureImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getStructuralFeature()
+	 * @generated
+	 */
+	int STRUCTURAL_FEATURE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_FEATURE__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_FEATURE__DOCUMENTATION = NAMED_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_FEATURE__DERIVED = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Lowerbound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_FEATURE__LOWERBOUND = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_FEATURE__UPPER_BOUND = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Structural Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURAL_FEATURE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link genandroid.impl.DataAttributeImpl <em>Data Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -549,13 +714,49 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_ATTRIBUTE = 8;
 
 	/**
-	 * The feature id for the '<em><b>EAttribute</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ATTRIBUTE__EATTRIBUTE = 0;
+	int DATA_ATTRIBUTE__NAME = STRUCTURAL_FEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ATTRIBUTE__DOCUMENTATION = STRUCTURAL_FEATURE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ATTRIBUTE__DERIVED = STRUCTURAL_FEATURE__DERIVED;
+
+	/**
+	 * The feature id for the '<em><b>Lowerbound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ATTRIBUTE__LOWERBOUND = STRUCTURAL_FEATURE__LOWERBOUND;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ATTRIBUTE__UPPER_BOUND = STRUCTURAL_FEATURE__UPPER_BOUND;
 
 	/**
 	 * The feature id for the '<em><b>Storage</b></em>' attribute.
@@ -564,7 +765,16 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ATTRIBUTE__STORAGE = 1;
+	int DATA_ATTRIBUTE__STORAGE = STRUCTURAL_FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ATTRIBUTE__TYPE = STRUCTURAL_FEATURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Data Attribute</em>' class.
@@ -573,7 +783,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ATTRIBUTE_FEATURE_COUNT = 2;
+	int DATA_ATTRIBUTE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataReferenceImpl <em>Data Reference</em>}' class.
@@ -586,13 +796,49 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_REFERENCE = 9;
 
 	/**
-	 * The feature id for the '<em><b>EReference</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_REFERENCE__EREFERENCE = 0;
+	int DATA_REFERENCE__NAME = STRUCTURAL_FEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__DOCUMENTATION = STRUCTURAL_FEATURE__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__DERIVED = STRUCTURAL_FEATURE__DERIVED;
+
+	/**
+	 * The feature id for the '<em><b>Lowerbound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__LOWERBOUND = STRUCTURAL_FEATURE__LOWERBOUND;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__UPPER_BOUND = STRUCTURAL_FEATURE__UPPER_BOUND;
 
 	/**
 	 * The feature id for the '<em><b>Storage</b></em>' attribute.
@@ -601,7 +847,34 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_REFERENCE__STORAGE = 1;
+	int DATA_REFERENCE__STORAGE = STRUCTURAL_FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Containment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__CONTAINMENT = STRUCTURAL_FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Opposite</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__OPPOSITE = STRUCTURAL_FEATURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_REFERENCE__TYPE = STRUCTURAL_FEATURE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Data Reference</em>' class.
@@ -610,7 +883,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_REFERENCE_FEATURE_COUNT = 2;
+	int DATA_REFERENCE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.AttributeListViewActivityImpl <em>Attribute List View Activity</em>}' class.
@@ -696,6 +969,126 @@ public interface GenandroidPackage extends EPackage {
 	int PREFERENCE_VIEW_ACTIVITY_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.CustomViewActivityImpl <em>Custom View Activity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.CustomViewActivityImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getCustomViewActivity()
+	 * @generated
+	 */
+	int CUSTOM_VIEW_ACTIVITY = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Custom View Activity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link genandroid.impl.NativeDataClassImpl <em>Native Data Class</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.NativeDataClassImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getNativeDataClass()
+	 * @generated
+	 */
+	int NATIVE_DATA_CLASS = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_DATA_CLASS__NAME = DATA_CLASSIFIER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_DATA_CLASS__DOCUMENTATION = DATA_CLASSIFIER__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME = DATA_CLASSIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Native Data Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_DATA_CLASS_FEATURE_COUNT = DATA_CLASSIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link genandroid.impl.DataAssociationImpl <em>Data Association</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.DataAssociationImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getDataAssociation()
+	 * @generated
+	 */
+	int DATA_ASSOCIATION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ASSOCIATION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ASSOCIATION__DOCUMENTATION = NAMED_ELEMENT__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ASSOCIATION__REFERENCES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Association</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ASSOCIATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,7 +1096,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @see genandroid.impl.GenandroidPackageImpl#getstorageKind()
 	 * @generated
 	 */
-	int STORAGE_KIND = 14;
+	int STORAGE_KIND = 20;
 
 
 	/**
@@ -793,17 +1186,6 @@ public interface GenandroidPackage extends EPackage {
 	EClass getDataModel();
 
 	/**
-	 * Returns the meta object for the reference '{@link genandroid.DataModel#getRootClass <em>Root Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Root Class</em>'.
-	 * @see genandroid.DataModel#getRootClass()
-	 * @see #getDataModel()
-	 * @generated
-	 */
-	EReference getDataModel_RootClass();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link genandroid.DataModel#getDataClasses <em>Data Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -813,6 +1195,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDataModel_DataClasses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.DataModel#getDataAssociations <em>Data Associations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Associations</em>'.
+	 * @see genandroid.DataModel#getDataAssociations()
+	 * @see #getDataModel()
+	 * @generated
+	 */
+	EReference getDataModel_DataAssociations();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.ViewActivity <em>View Activity</em>}'.
@@ -886,17 +1279,6 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDataClass();
-
-	/**
-	 * Returns the meta object for the reference '{@link genandroid.DataClass#getEClass <em>EClass</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>EClass</em>'.
-	 * @see genandroid.DataClass#getEClass()
-	 * @see #getDataClass()
-	 * @generated
-	 */
-	EReference getDataClass_EClass();
 
 	/**
 	 * Returns the meta object for the attribute '{@link genandroid.DataClass#getStorage <em>Storage</em>}'.
@@ -1017,17 +1399,6 @@ public interface GenandroidPackage extends EPackage {
 	EClass getDataAttribute();
 
 	/**
-	 * Returns the meta object for the reference '{@link genandroid.DataAttribute#getEAttribute <em>EAttribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>EAttribute</em>'.
-	 * @see genandroid.DataAttribute#getEAttribute()
-	 * @see #getDataAttribute()
-	 * @generated
-	 */
-	EReference getDataAttribute_EAttribute();
-
-	/**
 	 * Returns the meta object for the attribute '{@link genandroid.DataAttribute#getStorage <em>Storage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1037,6 +1408,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataAttribute_Storage();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.DataAttribute#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see genandroid.DataAttribute#getType()
+	 * @see #getDataAttribute()
+	 * @generated
+	 */
+	EReference getDataAttribute_Type();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.DataReference <em>Data Reference</em>}'.
@@ -1049,17 +1431,6 @@ public interface GenandroidPackage extends EPackage {
 	EClass getDataReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link genandroid.DataReference#getEReference <em>EReference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>EReference</em>'.
-	 * @see genandroid.DataReference#getEReference()
-	 * @see #getDataReference()
-	 * @generated
-	 */
-	EReference getDataReference_EReference();
-
-	/**
 	 * Returns the meta object for the attribute '{@link genandroid.DataReference#getStorage <em>Storage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1069,6 +1440,39 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataReference_Storage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.DataReference#isContainment <em>Containment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Containment</em>'.
+	 * @see genandroid.DataReference#isContainment()
+	 * @see #getDataReference()
+	 * @generated
+	 */
+	EAttribute getDataReference_Containment();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.DataReference#getOpposite <em>Opposite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Opposite</em>'.
+	 * @see genandroid.DataReference#getOpposite()
+	 * @see #getDataReference()
+	 * @generated
+	 */
+	EReference getDataReference_Opposite();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.DataReference#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see genandroid.DataReference#getType()
+	 * @see #getDataReference()
+	 * @generated
+	 */
+	EReference getDataReference_Type();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.ListViewActivity <em>List View Activity</em>}'.
@@ -1164,6 +1568,143 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPreferenceViewActivity_Name();
+
+	/**
+	 * Returns the meta object for class '{@link genandroid.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see genandroid.NamedElement
+	 * @generated
+	 */
+	EClass getNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see genandroid.NamedElement#getName()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.NamedElement#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see genandroid.NamedElement#getDocumentation()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Documentation();
+
+	/**
+	 * Returns the meta object for class '{@link genandroid.StructuralFeature <em>Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Structural Feature</em>'.
+	 * @see genandroid.StructuralFeature
+	 * @generated
+	 */
+	EClass getStructuralFeature();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.StructuralFeature#getLowerbound <em>Lowerbound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lowerbound</em>'.
+	 * @see genandroid.StructuralFeature#getLowerbound()
+	 * @see #getStructuralFeature()
+	 * @generated
+	 */
+	EAttribute getStructuralFeature_Lowerbound();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.StructuralFeature#getUpperBound <em>Upper Bound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upper Bound</em>'.
+	 * @see genandroid.StructuralFeature#getUpperBound()
+	 * @see #getStructuralFeature()
+	 * @generated
+	 */
+	EAttribute getStructuralFeature_UpperBound();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.StructuralFeature#isDerived <em>Derived</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Derived</em>'.
+	 * @see genandroid.StructuralFeature#isDerived()
+	 * @see #getStructuralFeature()
+	 * @generated
+	 */
+	EAttribute getStructuralFeature_Derived();
+
+	/**
+	 * Returns the meta object for class '{@link genandroid.CustomViewActivity <em>Custom View Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Custom View Activity</em>'.
+	 * @see genandroid.CustomViewActivity
+	 * @generated
+	 */
+	EClass getCustomViewActivity();
+
+	/**
+	 * Returns the meta object for class '{@link genandroid.DataClassifier <em>Data Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Classifier</em>'.
+	 * @see genandroid.DataClassifier
+	 * @generated
+	 */
+	EClass getDataClassifier();
+
+	/**
+	 * Returns the meta object for class '{@link genandroid.NativeDataClass <em>Native Data Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Native Data Class</em>'.
+	 * @see genandroid.NativeDataClass
+	 * @generated
+	 */
+	EClass getNativeDataClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.NativeDataClass#getInstanceClassName <em>Instance Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Instance Class Name</em>'.
+	 * @see genandroid.NativeDataClass#getInstanceClassName()
+	 * @see #getNativeDataClass()
+	 * @generated
+	 */
+	EAttribute getNativeDataClass_InstanceClassName();
+
+	/**
+	 * Returns the meta object for class '{@link genandroid.DataAssociation <em>Data Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Association</em>'.
+	 * @see genandroid.DataAssociation
+	 * @generated
+	 */
+	EClass getDataAssociation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link genandroid.DataAssociation#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see genandroid.DataAssociation#getReferences()
+	 * @see #getDataAssociation()
+	 * @generated
+	 */
+	EReference getDataAssociation_References();
 
 	/**
 	 * Returns the meta object for enum '{@link genandroid.storageKind <em>storage Kind</em>}'.
@@ -1266,20 +1807,20 @@ public interface GenandroidPackage extends EPackage {
 		EClass DATA_MODEL = eINSTANCE.getDataModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Class</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_MODEL__ROOT_CLASS = eINSTANCE.getDataModel_RootClass();
-
-		/**
 		 * The meta object literal for the '<em><b>Data Classes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DATA_MODEL__DATA_CLASSES = eINSTANCE.getDataModel_DataClasses();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Associations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_MODEL__DATA_ASSOCIATIONS = eINSTANCE.getDataModel_DataAssociations();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.ViewActivityImpl <em>View Activity</em>}' class.
@@ -1344,14 +1885,6 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_CLASS = eINSTANCE.getDataClass();
-
-		/**
-		 * The meta object literal for the '<em><b>EClass</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_CLASS__ECLASS = eINSTANCE.getDataClass_EClass();
 
 		/**
 		 * The meta object literal for the '<em><b>Storage</b></em>' attribute feature.
@@ -1448,20 +1981,20 @@ public interface GenandroidPackage extends EPackage {
 		EClass DATA_ATTRIBUTE = eINSTANCE.getDataAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>EAttribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_ATTRIBUTE__EATTRIBUTE = eINSTANCE.getDataAttribute_EAttribute();
-
-		/**
 		 * The meta object literal for the '<em><b>Storage</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DATA_ATTRIBUTE__STORAGE = eINSTANCE.getDataAttribute_Storage();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_ATTRIBUTE__TYPE = eINSTANCE.getDataAttribute_Type();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataReferenceImpl <em>Data Reference</em>}' class.
@@ -1474,20 +2007,36 @@ public interface GenandroidPackage extends EPackage {
 		EClass DATA_REFERENCE = eINSTANCE.getDataReference();
 
 		/**
-		 * The meta object literal for the '<em><b>EReference</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_REFERENCE__EREFERENCE = eINSTANCE.getDataReference_EReference();
-
-		/**
 		 * The meta object literal for the '<em><b>Storage</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DATA_REFERENCE__STORAGE = eINSTANCE.getDataReference_Storage();
+
+		/**
+		 * The meta object literal for the '<em><b>Containment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_REFERENCE__CONTAINMENT = eINSTANCE.getDataReference_Containment();
+
+		/**
+		 * The meta object literal for the '<em><b>Opposite</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_REFERENCE__OPPOSITE = eINSTANCE.getDataReference_Opposite();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_REFERENCE__TYPE = eINSTANCE.getDataReference_Type();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.ListViewActivityImpl <em>List View Activity</em>}' class.
@@ -1568,6 +2117,122 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PREFERENCE_VIEW_ACTIVITY__NAME = eINSTANCE.getPreferenceViewActivity_Name();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.NamedElementImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__DOCUMENTATION = eINSTANCE.getNamedElement_Documentation();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.StructuralFeatureImpl <em>Structural Feature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.StructuralFeatureImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getStructuralFeature()
+		 * @generated
+		 */
+		EClass STRUCTURAL_FEATURE = eINSTANCE.getStructuralFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Lowerbound</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURAL_FEATURE__LOWERBOUND = eINSTANCE.getStructuralFeature_Lowerbound();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper Bound</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURAL_FEATURE__UPPER_BOUND = eINSTANCE.getStructuralFeature_UpperBound();
+
+		/**
+		 * The meta object literal for the '<em><b>Derived</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRUCTURAL_FEATURE__DERIVED = eINSTANCE.getStructuralFeature_Derived();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.CustomViewActivityImpl <em>Custom View Activity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.CustomViewActivityImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getCustomViewActivity()
+		 * @generated
+		 */
+		EClass CUSTOM_VIEW_ACTIVITY = eINSTANCE.getCustomViewActivity();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.DataClassifierImpl <em>Data Classifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.DataClassifierImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getDataClassifier()
+		 * @generated
+		 */
+		EClass DATA_CLASSIFIER = eINSTANCE.getDataClassifier();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.NativeDataClassImpl <em>Native Data Class</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.NativeDataClassImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getNativeDataClass()
+		 * @generated
+		 */
+		EClass NATIVE_DATA_CLASS = eINSTANCE.getNativeDataClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME = eINSTANCE.getNativeDataClass_InstanceClassName();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.DataAssociationImpl <em>Data Association</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.DataAssociationImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getDataAssociation()
+		 * @generated
+		 */
+		EClass DATA_ASSOCIATION = eINSTANCE.getDataAssociation();
+
+		/**
+		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_ASSOCIATION__REFERENCES = eINSTANCE.getDataAssociation_References();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.

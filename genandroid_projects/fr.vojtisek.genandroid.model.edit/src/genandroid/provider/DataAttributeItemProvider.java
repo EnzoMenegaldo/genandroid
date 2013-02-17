@@ -40,7 +40,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DataAttributeItemProvider
-	extends ItemProviderAdapter
+	extends StructuralFeatureItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -68,32 +68,10 @@ public class DataAttributeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEAttributePropertyDescriptor(object);
 			addStoragePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the EAttribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataAttribute_eAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataAttribute_eAttribute_feature", "_UI_DataAttribute_type"),
-				 GenandroidPackage.Literals.DATA_ATTRIBUTE__EATTRIBUTE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -119,6 +97,28 @@ public class DataAttributeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataAttribute_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataAttribute_type_feature", "_UI_DataAttribute_type"),
+				 GenandroidPackage.Literals.DATA_ATTRIBUTE__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns DataAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,25 +133,14 @@ public class DataAttributeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		storageKind labelValue = ((DataAttribute)object).getStorage();
-		StringBuilder result = new StringBuilder();
-		String label = labelValue == null ? null : labelValue.toString();
-		result.append(getString("_UI_DataAttribute_type"));
-		if(label == null || label.length() == 0)
-			result.append( " " + label);
-		if(((DataAttribute)object).getEAttribute() != null){
-			result.append(" ");
-			if(((DataAttribute)object).getEAttribute().getContainerClass() != null)
-				result.append(((DataAttribute)object).getEAttribute().getContainerClass().getName());
-			else if(((DataAttribute)object).getEAttribute().getEContainingClass() != null)
-				result.append(((DataAttribute)object).getEAttribute().getEContainingClass().getName());
-			result.append( "." +((DataAttribute)object).getEAttribute().getName());
-		}
-		return result.toString();
+		String label = ((DataAttribute)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataAttribute_type") :
+			getString("_UI_DataAttribute_type") + " " + label;
 	}
 
 	/**
@@ -183,17 +172,6 @@ public class DataAttributeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return GenandroidEditPlugin.INSTANCE;
 	}
 
 }

@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link genandroid.DataAttribute#getEAttribute <em>EAttribute</em>}</li>
  *   <li>{@link genandroid.DataAttribute#getStorage <em>Storage</em>}</li>
+ *   <li>{@link genandroid.DataAttribute#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,33 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DataAttribute extends EObject {
-	/**
-	 * Returns the value of the '<em><b>EAttribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>EAttribute</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EAttribute</em>' reference.
-	 * @see #setEAttribute(EAttribute)
-	 * @see genandroid.GenandroidPackage#getDataAttribute_EAttribute()
-	 * @model required="true"
-	 * @generated
-	 */
-	EAttribute getEAttribute();
-
-	/**
-	 * Sets the value of the '{@link genandroid.DataAttribute#getEAttribute <em>EAttribute</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>EAttribute</em>' reference.
-	 * @see #getEAttribute()
-	 * @generated
-	 */
-	void setEAttribute(EAttribute value);
-
+public interface DataAttribute extends StructuralFeature {
 	/**
 	 * Returns the value of the '<em><b>Storage</b></em>' attribute.
 	 * The default value is <code>"0"</code>.
@@ -82,5 +56,31 @@ public interface DataAttribute extends EObject {
 	 * @generated
 	 */
 	void setStorage(storageKind value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(NativeDataClass)
+	 * @see genandroid.GenandroidPackage#getDataAttribute_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	NativeDataClass getType();
+
+	/**
+	 * Sets the value of the '{@link genandroid.DataAttribute#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(NativeDataClass value);
 
 } // DataAttribute

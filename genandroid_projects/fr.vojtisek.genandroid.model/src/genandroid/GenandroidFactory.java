@@ -143,6 +143,51 @@ public interface GenandroidFactory extends EFactory {
 	PreferenceViewActivity createPreferenceViewActivity();
 
 	/**
+	 * Returns a new object of class '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Element</em>'.
+	 * @generated
+	 */
+	NamedElement createNamedElement();
+
+	/**
+	 * Returns a new object of class '<em>Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Structural Feature</em>'.
+	 * @generated
+	 */
+	StructuralFeature createStructuralFeature();
+
+	/**
+	 * Returns a new object of class '<em>Custom View Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Custom View Activity</em>'.
+	 * @generated
+	 */
+	CustomViewActivity createCustomViewActivity();
+
+	/**
+	 * Returns a new object of class '<em>Native Data Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Native Data Class</em>'.
+	 * @generated
+	 */
+	NativeDataClass createNativeDataClass();
+
+	/**
+	 * Returns a new object of class '<em>Data Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Association</em>'.
+	 * @generated
+	 */
+	DataAssociation createDataAssociation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

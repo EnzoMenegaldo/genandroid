@@ -74,6 +74,11 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 			case GenandroidPackage.ATTRIBUTE_LIST_VIEW_ACTIVITY: return createAttributeListViewActivity();
 			case GenandroidPackage.ELEMENT_VIEW_ACTIVITY: return createElementViewActivity();
 			case GenandroidPackage.PREFERENCE_VIEW_ACTIVITY: return createPreferenceViewActivity();
+			case GenandroidPackage.NAMED_ELEMENT: return createNamedElement();
+			case GenandroidPackage.STRUCTURAL_FEATURE: return createStructuralFeature();
+			case GenandroidPackage.CUSTOM_VIEW_ACTIVITY: return createCustomViewActivity();
+			case GenandroidPackage.NATIVE_DATA_CLASS: return createNativeDataClass();
+			case GenandroidPackage.DATA_ASSOCIATION: return createDataAssociation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -237,6 +242,56 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 	public PreferenceViewActivity createPreferenceViewActivity() {
 		PreferenceViewActivityImpl preferenceViewActivity = new PreferenceViewActivityImpl();
 		return preferenceViewActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedElement createNamedElement() {
+		NamedElementImpl namedElement = new NamedElementImpl();
+		return namedElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructuralFeature createStructuralFeature() {
+		StructuralFeatureImpl structuralFeature = new StructuralFeatureImpl();
+		return structuralFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CustomViewActivity createCustomViewActivity() {
+		CustomViewActivityImpl customViewActivity = new CustomViewActivityImpl();
+		return customViewActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NativeDataClass createNativeDataClass() {
+		NativeDataClassImpl nativeDataClass = new NativeDataClassImpl();
+		return nativeDataClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataAssociation createDataAssociation() {
+		DataAssociationImpl dataAssociation = new DataAssociationImpl();
+		return dataAssociation;
 	}
 
 	/**

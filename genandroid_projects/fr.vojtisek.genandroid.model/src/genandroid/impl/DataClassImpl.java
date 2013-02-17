@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link genandroid.impl.DataClassImpl#getEClass <em>EClass</em>}</li>
  *   <li>{@link genandroid.impl.DataClassImpl#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.impl.DataClassImpl#getDataReferences <em>Data References</em>}</li>
  *   <li>{@link genandroid.impl.DataClassImpl#getDataAttributes <em>Data Attributes</em>}</li>
@@ -41,17 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DataClassImpl extends EObjectImpl implements DataClass {
-	/**
-	 * The cached value of the '{@link #getEClass() <em>EClass</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass eClass;
-
+public class DataClassImpl extends DataClassifierImpl implements DataClass {
 	/**
 	 * The default value of the '{@link #getStorage() <em>Storage</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -109,44 +98,6 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	@Override
 	protected EClass eStaticClass() {
 		return GenandroidPackage.Literals.DATA_CLASS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEClass() {
-		if (eClass != null && eClass.eIsProxy()) {
-			InternalEObject oldEClass = (InternalEObject)eClass;
-			eClass = (EClass)eResolveProxy(oldEClass);
-			if (eClass != oldEClass) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.DATA_CLASS__ECLASS, oldEClass, eClass));
-			}
-		}
-		return eClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetEClass() {
-		return eClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEClass(EClass newEClass) {
-		EClass oldEClass = eClass;
-		eClass = newEClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.DATA_CLASS__ECLASS, oldEClass, eClass));
 	}
 
 	/**
@@ -218,9 +169,6 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_CLASS__ECLASS:
-				if (resolve) return getEClass();
-				return basicGetEClass();
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				return getStorage();
 			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:
@@ -240,9 +188,6 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_CLASS__ECLASS:
-				setEClass((EClass)newValue);
-				return;
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				setStorage((storageKind)newValue);
 				return;
@@ -266,9 +211,6 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_CLASS__ECLASS:
-				setEClass((EClass)null);
-				return;
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				setStorage(STORAGE_EDEFAULT);
 				return;
@@ -290,8 +232,6 @@ public class DataClassImpl extends EObjectImpl implements DataClass {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_CLASS__ECLASS:
-				return eClass != null;
 			case GenandroidPackage.DATA_CLASS__STORAGE:
 				return storage != STORAGE_EDEFAULT;
 			case GenandroidPackage.DATA_CLASS__DATA_REFERENCES:

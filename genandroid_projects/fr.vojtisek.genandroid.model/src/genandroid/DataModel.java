@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link genandroid.DataModel#getRootClass <em>Root Class</em>}</li>
  *   <li>{@link genandroid.DataModel#getDataClasses <em>Data Classes</em>}</li>
+ *   <li>{@link genandroid.DataModel#getDataAssociations <em>Data Associations</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,36 +28,10 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DataModel extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Root Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Root Class</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Class</em>' reference.
-	 * @see #setRootClass(EClass)
-	 * @see genandroid.GenandroidPackage#getDataModel_RootClass()
-	 * @model
-	 * @generated
-	 */
-	EClass getRootClass();
-
-	/**
-	 * Sets the value of the '{@link genandroid.DataModel#getRootClass <em>Root Class</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Class</em>' reference.
-	 * @see #getRootClass()
-	 * @generated
-	 */
-	void setRootClass(EClass value);
-
+public interface DataModel extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Data Classes</b></em>' containment reference list.
-	 * The list contents are of type {@link genandroid.DataClass}.
+	 * The list contents are of type {@link genandroid.DataClassifier}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Data Classes</em>' containment reference list isn't clear,
@@ -69,6 +43,22 @@ public interface DataModel extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DataClass> getDataClasses();
+	EList<DataClassifier> getDataClasses();
+
+	/**
+	 * Returns the value of the '<em><b>Data Associations</b></em>' containment reference list.
+	 * The list contents are of type {@link genandroid.DataAssociation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Associations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Associations</em>' containment reference list.
+	 * @see genandroid.GenandroidPackage#getDataModel_DataAssociations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataAssociation> getDataAssociations();
 
 } // DataModel

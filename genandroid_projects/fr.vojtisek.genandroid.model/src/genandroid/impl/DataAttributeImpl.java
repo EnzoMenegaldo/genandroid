@@ -8,6 +8,7 @@ package genandroid.impl;
 
 import genandroid.DataAttribute;
 import genandroid.GenandroidPackage;
+import genandroid.NativeDataClass;
 import genandroid.storageKind;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,24 +27,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link genandroid.impl.DataAttributeImpl#getEAttribute <em>EAttribute</em>}</li>
  *   <li>{@link genandroid.impl.DataAttributeImpl#getStorage <em>Storage</em>}</li>
+ *   <li>{@link genandroid.impl.DataAttributeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
-	/**
-	 * The cached value of the '{@link #getEAttribute() <em>EAttribute</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected EAttribute eAttribute;
-
+public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttribute {
 	/**
 	 * The default value of the '{@link #getStorage() <em>Storage</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -65,6 +56,16 @@ public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
 	protected storageKind storage = STORAGE_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected NativeDataClass type;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -81,44 +82,6 @@ public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
 	@Override
 	protected EClass eStaticClass() {
 		return GenandroidPackage.Literals.DATA_ATTRIBUTE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEAttribute() {
-		if (eAttribute != null && eAttribute.eIsProxy()) {
-			InternalEObject oldEAttribute = (InternalEObject)eAttribute;
-			eAttribute = (EAttribute)eResolveProxy(oldEAttribute);
-			if (eAttribute != oldEAttribute) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.DATA_ATTRIBUTE__EATTRIBUTE, oldEAttribute, eAttribute));
-			}
-		}
-		return eAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute basicGetEAttribute() {
-		return eAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEAttribute(EAttribute newEAttribute) {
-		EAttribute oldEAttribute = eAttribute;
-		eAttribute = newEAttribute;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.DATA_ATTRIBUTE__EATTRIBUTE, oldEAttribute, eAttribute));
 	}
 
 	/**
@@ -147,14 +110,52 @@ public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NativeDataClass getType() {
+		if (type != null && type.eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (NativeDataClass)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.DATA_ATTRIBUTE__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NativeDataClass basicGetType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(NativeDataClass newType) {
+		NativeDataClass oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.DATA_ATTRIBUTE__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_ATTRIBUTE__EATTRIBUTE:
-				if (resolve) return getEAttribute();
-				return basicGetEAttribute();
 			case GenandroidPackage.DATA_ATTRIBUTE__STORAGE:
 				return getStorage();
+			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,11 +168,11 @@ public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_ATTRIBUTE__EATTRIBUTE:
-				setEAttribute((EAttribute)newValue);
-				return;
 			case GenandroidPackage.DATA_ATTRIBUTE__STORAGE:
 				setStorage((storageKind)newValue);
+				return;
+			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
+				setType((NativeDataClass)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,11 +186,11 @@ public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_ATTRIBUTE__EATTRIBUTE:
-				setEAttribute((EAttribute)null);
-				return;
 			case GenandroidPackage.DATA_ATTRIBUTE__STORAGE:
 				setStorage(STORAGE_EDEFAULT);
+				return;
+			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
+				setType((NativeDataClass)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -203,10 +204,10 @@ public class DataAttributeImpl extends EObjectImpl implements DataAttribute {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_ATTRIBUTE__EATTRIBUTE:
-				return eAttribute != null;
 			case GenandroidPackage.DATA_ATTRIBUTE__STORAGE:
 				return storage != STORAGE_EDEFAULT;
+			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}

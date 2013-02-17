@@ -6,6 +6,8 @@
  */
 package genandroid.impl;
 
+import genandroid.DataAssociation;
+import genandroid.DataClassifier;
 import genandroid.DataAttribute;
 import genandroid.DataClass;
 import genandroid.DataModel;
@@ -35,24 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link genandroid.impl.DataModelImpl#getRootClass <em>Root Class</em>}</li>
  *   <li>{@link genandroid.impl.DataModelImpl#getDataClasses <em>Data Classes</em>}</li>
+ *   <li>{@link genandroid.impl.DataModelImpl#getDataAssociations <em>Data Associations</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DataModelImpl extends EObjectImpl implements DataModel {
-	/**
-	 * The cached value of the '{@link #getRootClass() <em>Root Class</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRootClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass rootClass;
-
+public class DataModelImpl extends NamedElementImpl implements DataModel {
 	/**
 	 * The cached value of the '{@link #getDataClasses() <em>Data Classes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -61,7 +53,17 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DataClass> dataClasses;
+	protected EList<DataClassifier> dataClasses;
+
+	/**
+	 * The cached value of the '{@link #getDataAssociations() <em>Data Associations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataAssociations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataAssociation> dataAssociations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,49 +89,23 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRootClass() {
-		if (rootClass != null && rootClass.eIsProxy()) {
-			InternalEObject oldRootClass = (InternalEObject)rootClass;
-			rootClass = (EClass)eResolveProxy(oldRootClass);
-			if (rootClass != oldRootClass) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.DATA_MODEL__ROOT_CLASS, oldRootClass, rootClass));
-			}
-		}
-		return rootClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass basicGetRootClass() {
-		return rootClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRootClass(EClass newRootClass) {
-		EClass oldRootClass = rootClass;
-		rootClass = newRootClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.DATA_MODEL__ROOT_CLASS, oldRootClass, rootClass));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DataClass> getDataClasses() {
+	public EList<DataClassifier> getDataClasses() {
 		if (dataClasses == null) {
-			dataClasses = new EObjectContainmentEList<DataClass>(DataClass.class, this, GenandroidPackage.DATA_MODEL__DATA_CLASSES);
+			dataClasses = new EObjectContainmentEList<DataClassifier>(DataClassifier.class, this, GenandroidPackage.DATA_MODEL__DATA_CLASSES);
 		}
 		return dataClasses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataAssociation> getDataAssociations() {
+		if (dataAssociations == null) {
+			dataAssociations = new EObjectContainmentEList<DataAssociation>(DataAssociation.class, this, GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS);
+		}
+		return dataAssociations;
 	}
 
 	/**
@@ -142,6 +118,8 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 		switch (featureID) {
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
 				return ((InternalEList<?>)getDataClasses()).basicRemove(otherEnd, msgs);
+			case GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS:
+				return ((InternalEList<?>)getDataAssociations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -154,11 +132,10 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_MODEL__ROOT_CLASS:
-				if (resolve) return getRootClass();
-				return basicGetRootClass();
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
 				return getDataClasses();
+			case GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS:
+				return getDataAssociations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,12 +149,13 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_MODEL__ROOT_CLASS:
-				setRootClass((EClass)newValue);
-				return;
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
 				getDataClasses().clear();
-				getDataClasses().addAll((Collection<? extends DataClass>)newValue);
+				getDataClasses().addAll((Collection<? extends DataClassifier>)newValue);
+				return;
+			case GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS:
+				getDataAssociations().clear();
+				getDataAssociations().addAll((Collection<? extends DataAssociation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,11 +169,11 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_MODEL__ROOT_CLASS:
-				setRootClass((EClass)null);
-				return;
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
 				getDataClasses().clear();
+				return;
+			case GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS:
+				getDataAssociations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -209,10 +187,10 @@ public class DataModelImpl extends EObjectImpl implements DataModel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.DATA_MODEL__ROOT_CLASS:
-				return rootClass != null;
 			case GenandroidPackage.DATA_MODEL__DATA_CLASSES:
 				return dataClasses != null && !dataClasses.isEmpty();
+			case GenandroidPackage.DATA_MODEL__DATA_ASSOCIATIONS:
+				return dataAssociations != null && !dataAssociations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

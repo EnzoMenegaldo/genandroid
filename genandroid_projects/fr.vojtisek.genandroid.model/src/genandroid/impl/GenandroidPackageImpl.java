@@ -10,8 +10,11 @@ import genandroid.AndroidProject;
 import genandroid.AttributeListViewActivity;
 import genandroid.ClassDetail;
 import genandroid.ClassListViewActivity;
+import genandroid.CustomViewActivity;
+import genandroid.DataAssociation;
 import genandroid.DataAttribute;
 import genandroid.DataClass;
+import genandroid.DataClassifier;
 import genandroid.DataModel;
 import genandroid.DataReference;
 import genandroid.EditableElementViewActivity;
@@ -19,8 +22,11 @@ import genandroid.ElementViewActivity;
 import genandroid.GenandroidFactory;
 import genandroid.GenandroidPackage;
 import genandroid.ListViewActivity;
+import genandroid.NamedElement;
+import genandroid.NativeDataClass;
 import genandroid.PreferenceViewActivity;
 import genandroid.ReferenceListViewActivity;
+import genandroid.StructuralFeature;
 import genandroid.ViewActivity;
 import genandroid.storageKind;
 
@@ -137,6 +143,48 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	private EClass preferenceViewActivityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass structuralFeatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass customViewActivityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataClassifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nativeDataClassEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataAssociationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -286,7 +334,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataModel_RootClass() {
+	public EReference getDataModel_DataClasses() {
 		return (EReference)dataModelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -295,7 +343,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataModel_DataClasses() {
+	public EReference getDataModel_DataAssociations() {
 		return (EReference)dataModelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -367,17 +415,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataClass_EClass() {
-		return (EReference)dataClassEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDataClass_Storage() {
-		return (EAttribute)dataClassEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)dataClassEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -386,7 +425,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	public EReference getDataClass_DataReferences() {
-		return (EReference)dataClassEClass.getEStructuralFeatures().get(2);
+		return (EReference)dataClassEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -395,7 +434,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	public EReference getDataClass_DataAttributes() {
-		return (EReference)dataClassEClass.getEStructuralFeatures().get(3);
+		return (EReference)dataClassEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -475,8 +514,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataAttribute_EAttribute() {
-		return (EReference)dataAttributeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDataAttribute_Storage() {
+		return (EAttribute)dataAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -484,8 +523,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataAttribute_Storage() {
-		return (EAttribute)dataAttributeEClass.getEStructuralFeatures().get(1);
+	public EReference getDataAttribute_Type() {
+		return (EReference)dataAttributeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -502,8 +541,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataReference_EReference() {
-		return (EReference)dataReferenceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDataReference_Storage() {
+		return (EAttribute)dataReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -511,8 +550,26 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataReference_Storage() {
+	public EAttribute getDataReference_Containment() {
 		return (EAttribute)dataReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataReference_Opposite() {
+		return (EReference)dataReferenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataReference_Type() {
+		return (EReference)dataReferenceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -601,6 +658,123 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNamedElement() {
+		return namedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedElement_Documentation() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStructuralFeature() {
+		return structuralFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructuralFeature_Lowerbound() {
+		return (EAttribute)structuralFeatureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructuralFeature_UpperBound() {
+		return (EAttribute)structuralFeatureEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructuralFeature_Derived() {
+		return (EAttribute)structuralFeatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCustomViewActivity() {
+		return customViewActivityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataClassifier() {
+		return dataClassifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNativeDataClass() {
+		return nativeDataClassEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNativeDataClass_InstanceClassName() {
+		return (EAttribute)nativeDataClassEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataAssociation() {
+		return dataAssociationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataAssociation_References() {
+		return (EReference)dataAssociationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getstorageKind() {
 		return storageKindEEnum;
 	}
@@ -642,8 +816,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(androidProjectEClass, ANDROID_PROJECT__PREFERENCE_VIEW);
 
 		dataModelEClass = createEClass(DATA_MODEL);
-		createEReference(dataModelEClass, DATA_MODEL__ROOT_CLASS);
 		createEReference(dataModelEClass, DATA_MODEL__DATA_CLASSES);
+		createEReference(dataModelEClass, DATA_MODEL__DATA_ASSOCIATIONS);
 
 		viewActivityEClass = createEClass(VIEW_ACTIVITY);
 		createEAttribute(viewActivityEClass, VIEW_ACTIVITY__NAME);
@@ -655,7 +829,6 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL);
 
 		dataClassEClass = createEClass(DATA_CLASS);
-		createEReference(dataClassEClass, DATA_CLASS__ECLASS);
 		createEAttribute(dataClassEClass, DATA_CLASS__STORAGE);
 		createEReference(dataClassEClass, DATA_CLASS__DATA_REFERENCES);
 		createEReference(dataClassEClass, DATA_CLASS__DATA_ATTRIBUTES);
@@ -670,12 +843,14 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(classDetailEClass, CLASS_DETAIL__SECONDARY_ATTRIBUTES);
 
 		dataAttributeEClass = createEClass(DATA_ATTRIBUTE);
-		createEReference(dataAttributeEClass, DATA_ATTRIBUTE__EATTRIBUTE);
 		createEAttribute(dataAttributeEClass, DATA_ATTRIBUTE__STORAGE);
+		createEReference(dataAttributeEClass, DATA_ATTRIBUTE__TYPE);
 
 		dataReferenceEClass = createEClass(DATA_REFERENCE);
-		createEReference(dataReferenceEClass, DATA_REFERENCE__EREFERENCE);
 		createEAttribute(dataReferenceEClass, DATA_REFERENCE__STORAGE);
+		createEAttribute(dataReferenceEClass, DATA_REFERENCE__CONTAINMENT);
+		createEReference(dataReferenceEClass, DATA_REFERENCE__OPPOSITE);
+		createEReference(dataReferenceEClass, DATA_REFERENCE__TYPE);
 
 		listViewActivityEClass = createEClass(LIST_VIEW_ACTIVITY);
 		createEReference(listViewActivityEClass, LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION);
@@ -689,6 +864,25 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		preferenceViewActivityEClass = createEClass(PREFERENCE_VIEW_ACTIVITY);
 		createEAttribute(preferenceViewActivityEClass, PREFERENCE_VIEW_ACTIVITY__NAME);
+
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__DOCUMENTATION);
+
+		structuralFeatureEClass = createEClass(STRUCTURAL_FEATURE);
+		createEAttribute(structuralFeatureEClass, STRUCTURAL_FEATURE__DERIVED);
+		createEAttribute(structuralFeatureEClass, STRUCTURAL_FEATURE__LOWERBOUND);
+		createEAttribute(structuralFeatureEClass, STRUCTURAL_FEATURE__UPPER_BOUND);
+
+		customViewActivityEClass = createEClass(CUSTOM_VIEW_ACTIVITY);
+
+		dataClassifierEClass = createEClass(DATA_CLASSIFIER);
+
+		nativeDataClassEClass = createEClass(NATIVE_DATA_CLASS);
+		createEAttribute(nativeDataClassEClass, NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME);
+
+		dataAssociationEClass = createEClass(DATA_ASSOCIATION);
+		createEReference(dataAssociationEClass, DATA_ASSOCIATION__REFERENCES);
 
 		// Create enums
 		storageKindEEnum = createEEnum(STORAGE_KIND);
@@ -725,12 +919,21 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		dataModelEClass.getESuperTypes().add(this.getNamedElement());
 		editableElementViewActivityEClass.getESuperTypes().add(this.getElementViewActivity());
 		classListViewActivityEClass.getESuperTypes().add(this.getListViewActivity());
+		dataClassEClass.getESuperTypes().add(this.getDataClassifier());
 		referenceListViewActivityEClass.getESuperTypes().add(this.getClassListViewActivity());
+		dataAttributeEClass.getESuperTypes().add(this.getStructuralFeature());
+		dataReferenceEClass.getESuperTypes().add(this.getStructuralFeature());
 		listViewActivityEClass.getESuperTypes().add(this.getViewActivity());
 		attributeListViewActivityEClass.getESuperTypes().add(this.getListViewActivity());
 		elementViewActivityEClass.getESuperTypes().add(this.getViewActivity());
+		structuralFeatureEClass.getESuperTypes().add(this.getNamedElement());
+		customViewActivityEClass.getESuperTypes().add(this.getViewActivity());
+		dataClassifierEClass.getESuperTypes().add(this.getNamedElement());
+		nativeDataClassEClass.getESuperTypes().add(this.getDataClassifier());
+		dataAssociationEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(androidProjectEClass, AndroidProject.class, "AndroidProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -742,8 +945,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getAndroidProject_PreferenceView(), this.getPreferenceViewActivity(), null, "preferenceView", null, 0, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataModel_RootClass(), theEcorePackage.getEClass(), null, "rootClass", null, 0, 1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataModel_DataClasses(), this.getDataClass(), null, "dataClasses", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataModel_DataClasses(), this.getDataClassifier(), null, "dataClasses", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataModel_DataAssociations(), this.getDataAssociation(), null, "dataAssociations", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewActivityEClass, ViewActivity.class, "ViewActivity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewActivity_Name(), theEcorePackage.getEString(), "name", null, 1, 1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -755,7 +958,6 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getClassListViewActivity_PresentedDetail(), this.getClassDetail(), null, "presentedDetail", null, 0, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataClassEClass, DataClass.class, "DataClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataClass_EClass(), theEcorePackage.getEClass(), null, "eClass", null, 1, 1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataClass_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataClass_DataReferences(), this.getDataReference(), null, "dataReferences", null, 0, -1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataClass_DataAttributes(), this.getDataAttribute(), null, "dataAttributes", null, 0, -1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -770,12 +972,14 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getClassDetail_SecondaryAttributes(), this.getDataAttribute(), null, "secondaryAttributes", null, 0, -1, ClassDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataAttributeEClass, DataAttribute.class, "DataAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataAttribute_EAttribute(), theEcorePackage.getEAttribute(), null, "eAttribute", null, 1, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataAttribute_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataAttribute_Type(), this.getNativeDataClass(), null, "type", null, 1, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataReferenceEClass, DataReference.class, "DataReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataReference_EReference(), theEcorePackage.getEReference(), null, "eReference", null, 1, 1, DataReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataReference_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataReference_Containment(), theEcorePackage.getEBoolean(), "containment", null, 0, 1, DataReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataReference_Opposite(), this.getDataAssociation(), this.getDataAssociation_References(), "opposite", null, 0, 1, DataReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataReference_Type(), this.getDataClass(), null, "type", null, 1, 1, DataReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(listViewActivityEClass, ListViewActivity.class, "ListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListViewActivity_SelectItemAction(), this.getViewActivity(), null, "selectItemAction", null, 0, 1, ListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -790,11 +994,31 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(preferenceViewActivityEClass, PreferenceViewActivity.class, "PreferenceViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPreferenceViewActivity_Name(), theEcorePackage.getEString(), "name", "Preferences", 1, 1, PreferenceViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), theEcorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedElement_Documentation(), theEcorePackage.getEString(), "documentation", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(structuralFeatureEClass, StructuralFeature.class, "StructuralFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStructuralFeature_Derived(), theEcorePackage.getEBoolean(), "derived", null, 0, 1, StructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStructuralFeature_Lowerbound(), theEcorePackage.getEInt(), "lowerbound", null, 0, 1, StructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStructuralFeature_UpperBound(), theEcorePackage.getEInt(), "upperBound", "1", 0, 1, StructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(customViewActivityEClass, CustomViewActivity.class, "CustomViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataClassifierEClass, DataClassifier.class, "DataClassifier", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(nativeDataClassEClass, NativeDataClass.class, "NativeDataClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNativeDataClass_InstanceClassName(), theEcorePackage.getEString(), "instanceClassName", null, 0, 1, NativeDataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataAssociationEClass, DataAssociation.class, "DataAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataAssociation_References(), this.getDataReference(), this.getDataReference_Opposite(), "references", null, 2, 2, DataAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(storageKindEEnum, storageKind.class, "storageKind");
 		addEEnumLiteral(storageKindEEnum, storageKind.SQ_LITE);
 		addEEnumLiteral(storageKindEEnum, storageKind.XML);
 		addEEnumLiteral(storageKindEEnum, storageKind.ZIPPED_XML);
+		addEEnumLiteral(storageKindEEnum, storageKind.FILE);
 
 		// Create resource
 		createResource(eNS_URI);
