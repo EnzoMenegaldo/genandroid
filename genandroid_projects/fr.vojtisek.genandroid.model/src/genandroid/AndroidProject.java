@@ -146,26 +146,26 @@ public interface AndroidProject extends EObject {
 	EList<ClassDetail> getClassDetails();
 
 	/**
-	 * Returns the value of the '<em><b>Preference View</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Preference View</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Preference View</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Preference View</em>' containment reference.
+	 * @return the value of the '<em>Preference View</em>' reference.
 	 * @see #setPreferenceView(PreferenceViewActivity)
 	 * @see genandroid.GenandroidPackage#getAndroidProject_PreferenceView()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	PreferenceViewActivity getPreferenceView();
 
 	/**
-	 * Sets the value of the '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}' containment reference.
+	 * Sets the value of the '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Preference View</em>' containment reference.
+	 * @param value the new value of the '<em>Preference View</em>' reference.
 	 * @see #getPreferenceView()
 	 * @generated
 	 */

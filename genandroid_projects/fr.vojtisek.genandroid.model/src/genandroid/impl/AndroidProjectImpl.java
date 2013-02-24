@@ -123,7 +123,7 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	protected EList<ClassDetail> classDetails;
 
 	/**
-	 * The cached value of the '{@link #getPreferenceView() <em>Preference View</em>}' containment reference.
+	 * The cached value of the '{@link #getPreferenceView() <em>Preference View</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPreferenceView()
@@ -306,6 +306,14 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * @generated
 	 */
 	public PreferenceViewActivity getPreferenceView() {
+		if (preferenceView != null && preferenceView.eIsProxy()) {
+			InternalEObject oldPreferenceView = (InternalEObject)preferenceView;
+			preferenceView = (PreferenceViewActivity)eResolveProxy(oldPreferenceView);
+			if (preferenceView != oldPreferenceView) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, oldPreferenceView, preferenceView));
+			}
+		}
 		return preferenceView;
 	}
 
@@ -314,14 +322,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPreferenceView(PreferenceViewActivity newPreferenceView, NotificationChain msgs) {
-		PreferenceViewActivity oldPreferenceView = preferenceView;
-		preferenceView = newPreferenceView;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, oldPreferenceView, newPreferenceView);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public PreferenceViewActivity basicGetPreferenceView() {
+		return preferenceView;
 	}
 
 	/**
@@ -330,17 +332,10 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * @generated
 	 */
 	public void setPreferenceView(PreferenceViewActivity newPreferenceView) {
-		if (newPreferenceView != preferenceView) {
-			NotificationChain msgs = null;
-			if (preferenceView != null)
-				msgs = ((InternalEObject)preferenceView).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, null, msgs);
-			if (newPreferenceView != null)
-				msgs = ((InternalEObject)newPreferenceView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, null, msgs);
-			msgs = basicSetPreferenceView(newPreferenceView, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, newPreferenceView, newPreferenceView));
+		PreferenceViewActivity oldPreferenceView = preferenceView;
+		preferenceView = newPreferenceView;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW, oldPreferenceView, preferenceView));
 	}
 
 	/**
@@ -428,8 +423,6 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return ((InternalEList<?>)getViewActivities()).basicRemove(otherEnd, msgs);
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 				return ((InternalEList<?>)getClassDetails()).basicRemove(otherEnd, msgs);
-			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
-				return basicSetPreferenceView(null, msgs);
 			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
 				return ((InternalEList<?>)getBackgroundActivities()).basicRemove(otherEnd, msgs);
 		}
@@ -455,7 +448,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 				return getClassDetails();
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
-				return getPreferenceView();
+				if (resolve) return getPreferenceView();
+				return basicGetPreferenceView();
 			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
 				return getBackgroundActivities();
 			case GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW:

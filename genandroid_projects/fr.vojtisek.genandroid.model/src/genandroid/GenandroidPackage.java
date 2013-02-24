@@ -116,7 +116,7 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT__CLASS_DETAILS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Preference View</b></em>' containment reference.
+	 * The feature id for the '<em><b>Preference View</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1301,10 +1301,10 @@ public interface GenandroidPackage extends EPackage {
 	EReference getAndroidProject_ClassDetails();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}'.
+	 * Returns the meta object for the reference '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Preference View</em>'.
+	 * @return the meta object for the reference '<em>Preference View</em>'.
 	 * @see genandroid.AndroidProject#getPreferenceView()
 	 * @see #getAndroidProject()
 	 * @generated
@@ -1979,7 +1979,7 @@ public interface GenandroidPackage extends EPackage {
 		EReference ANDROID_PROJECT__CLASS_DETAILS = eINSTANCE.getAndroidProject_ClassDetails();
 
 		/**
-		 * The meta object literal for the '<em><b>Preference View</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Preference View</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

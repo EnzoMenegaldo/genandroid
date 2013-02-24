@@ -13,8 +13,7 @@
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classDetails" upperBound="-1"
         eType="#//ClassDetail" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preferenceView" eType="#//PreferenceViewActivity"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preferenceView" eType="#//PreferenceViewActivity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundActivities" upperBound="-1"
         eType="#//BackgroundActivity" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="welcomeView" lowerBound="1"
