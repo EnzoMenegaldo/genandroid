@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link genandroid.ViewActivity#getName <em>Name</em>}</li>
+ *   <li>{@link genandroid.ViewActivity#getAccessibleViews <em>Accessible Views</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,4 +53,20 @@ public interface ViewActivity extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Accessible Views</b></em>' reference list.
+	 * The list contents are of type {@link genandroid.ViewActivity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Accessible Views</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Accessible Views</em>' reference list.
+	 * @see genandroid.GenandroidPackage#getViewActivity_AccessibleViews()
+	 * @model
+	 * @generated
+	 */
+	EList<ViewActivity> getAccessibleViews();
 } // ViewActivity

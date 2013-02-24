@@ -6,34 +6,30 @@
  */
 package genandroid.impl;
 
+import genandroid.BackgroundActivity;
 import genandroid.GenandroidPackage;
-import genandroid.PreferenceViewActivity;
-import genandroid.ViewActivity;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>View Activity</b></em>'.
+ * An implementation of the model object '<em><b>Background Activity</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link genandroid.impl.ViewActivityImpl#getName <em>Name</em>}</li>
- *   <li>{@link genandroid.impl.ViewActivityImpl#getAccessibleViews <em>Accessible Views</em>}</li>
+ *   <li>{@link genandroid.impl.BackgroundActivityImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivity {
+public class BackgroundActivityImpl extends EObjectImpl implements BackgroundActivity {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -43,6 +39,7 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,21 +51,11 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAccessibleViews() <em>Accessible Views</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAccessibleViews()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ViewActivity> accessibleViews;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ViewActivityImpl() {
+	protected BackgroundActivityImpl() {
 		super();
 	}
 
@@ -79,7 +66,7 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return GenandroidPackage.Literals.VIEW_ACTIVITY;
+		return GenandroidPackage.Literals.BACKGROUND_ACTIVITY;
 	}
 
 	/**
@@ -100,19 +87,7 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.VIEW_ACTIVITY__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ViewActivity> getAccessibleViews() {
-		if (accessibleViews == null) {
-			accessibleViews = new EObjectResolvingEList<ViewActivity>(ViewActivity.class, this, GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS);
-		}
-		return accessibleViews;
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.BACKGROUND_ACTIVITY__NAME, oldName, name));
 	}
 
 	/**
@@ -123,10 +98,8 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
+			case GenandroidPackage.BACKGROUND_ACTIVITY__NAME:
 				return getName();
-			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
-				return getAccessibleViews();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,16 +109,11 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
+			case GenandroidPackage.BACKGROUND_ACTIVITY__NAME:
 				setName((String)newValue);
-				return;
-			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
-				getAccessibleViews().clear();
-				getAccessibleViews().addAll((Collection<? extends ViewActivity>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -159,11 +127,8 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
+			case GenandroidPackage.BACKGROUND_ACTIVITY__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
-				getAccessibleViews().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -177,10 +142,8 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
+			case GenandroidPackage.BACKGROUND_ACTIVITY__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
-				return accessibleViews != null && !accessibleViews.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -201,4 +164,4 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 		return result.toString();
 	}
 
-} //ViewActivityImpl
+} //BackgroundActivityImpl

@@ -188,6 +188,15 @@ public interface GenandroidFactory extends EFactory {
 	DataAssociation createDataAssociation();
 
 	/**
+	 * Returns a new object of class '<em>Background Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Background Activity</em>'.
+	 * @generated
+	 */
+	BackgroundActivity createBackgroundActivity();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

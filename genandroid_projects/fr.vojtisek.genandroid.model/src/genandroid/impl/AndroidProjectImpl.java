@@ -7,6 +7,7 @@
 package genandroid.impl;
 
 import genandroid.AndroidProject;
+import genandroid.BackgroundActivity;
 import genandroid.ClassDetail;
 import genandroid.DataModel;
 import genandroid.GenandroidPackage;
@@ -42,6 +43,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getPackagePrefix <em>Package Prefix</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getClassDetails <em>Class Details</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getPreferenceView <em>Preference View</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getBackgroundActivities <em>Background Activities</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getWelcomeView <em>Welcome View</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getFileHeader <em>File Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,6 +131,46 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * @ordered
 	 */
 	protected PreferenceViewActivity preferenceView;
+
+	/**
+	 * The cached value of the '{@link #getBackgroundActivities() <em>Background Activities</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackgroundActivities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BackgroundActivity> backgroundActivities;
+
+	/**
+	 * The cached value of the '{@link #getWelcomeView() <em>Welcome View</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWelcomeView()
+	 * @generated
+	 * @ordered
+	 */
+	protected ViewActivity welcomeView;
+
+	/**
+	 * The default value of the '{@link #getFileHeader() <em>File Header</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFileHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FILE_HEADER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFileHeader() <em>File Header</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFileHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected String fileHeader = FILE_HEADER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -304,6 +348,77 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BackgroundActivity> getBackgroundActivities() {
+		if (backgroundActivities == null) {
+			backgroundActivities = new EObjectContainmentEList<BackgroundActivity>(BackgroundActivity.class, this, GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES);
+		}
+		return backgroundActivities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewActivity getWelcomeView() {
+		if (welcomeView != null && welcomeView.eIsProxy()) {
+			InternalEObject oldWelcomeView = (InternalEObject)welcomeView;
+			welcomeView = (ViewActivity)eResolveProxy(oldWelcomeView);
+			if (welcomeView != oldWelcomeView) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW, oldWelcomeView, welcomeView));
+			}
+		}
+		return welcomeView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewActivity basicGetWelcomeView() {
+		return welcomeView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWelcomeView(ViewActivity newWelcomeView) {
+		ViewActivity oldWelcomeView = welcomeView;
+		welcomeView = newWelcomeView;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW, oldWelcomeView, welcomeView));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFileHeader() {
+		return fileHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFileHeader(String newFileHeader) {
+		String oldFileHeader = fileHeader;
+		fileHeader = newFileHeader;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__FILE_HEADER, oldFileHeader, fileHeader));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -315,6 +430,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return ((InternalEList<?>)getClassDetails()).basicRemove(otherEnd, msgs);
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
 				return basicSetPreferenceView(null, msgs);
+			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
+				return ((InternalEList<?>)getBackgroundActivities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -339,6 +456,13 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return getClassDetails();
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
 				return getPreferenceView();
+			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
+				return getBackgroundActivities();
+			case GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW:
+				if (resolve) return getWelcomeView();
+				return basicGetWelcomeView();
+			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
+				return getFileHeader();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -372,6 +496,16 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
 				setPreferenceView((PreferenceViewActivity)newValue);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
+				getBackgroundActivities().clear();
+				getBackgroundActivities().addAll((Collection<? extends BackgroundActivity>)newValue);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW:
+				setWelcomeView((ViewActivity)newValue);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
+				setFileHeader((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,6 +536,15 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
 				setPreferenceView((PreferenceViewActivity)null);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
+				getBackgroundActivities().clear();
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW:
+				setWelcomeView((ViewActivity)null);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
+				setFileHeader(FILE_HEADER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -426,6 +569,12 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 				return classDetails != null && !classDetails.isEmpty();
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
 				return preferenceView != null;
+			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
+				return backgroundActivities != null && !backgroundActivities.isEmpty();
+			case GenandroidPackage.ANDROID_PROJECT__WELCOME_VIEW:
+				return welcomeView != null;
+			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
+				return FILE_HEADER_EDEFAULT == null ? fileHeader != null : !FILE_HEADER_EDEFAULT.equals(fileHeader);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -444,6 +593,8 @@ public class AndroidProjectImpl extends EObjectImpl implements AndroidProject {
 		result.append(name);
 		result.append(", packagePrefix: ");
 		result.append(packagePrefix);
+		result.append(", fileHeader: ");
+		result.append(fileHeader);
 		result.append(')');
 		return result.toString();
 	}

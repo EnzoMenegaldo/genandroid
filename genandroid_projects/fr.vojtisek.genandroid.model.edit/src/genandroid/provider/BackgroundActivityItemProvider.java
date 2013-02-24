@@ -7,8 +7,9 @@
 package genandroid.provider;
 
 
+import genandroid.BackgroundActivity;
 import genandroid.GenandroidPackage;
-import genandroid.ViewActivity;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -29,12 +30,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link genandroid.ViewActivity} object.
+ * This is the item provider adapter for a {@link genandroid.BackgroundActivity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewActivityItemProvider
+public class BackgroundActivityItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +49,7 @@ public class ViewActivityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ViewActivityItemProvider(AdapterFactory adapterFactory) {
+	public BackgroundActivityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,7 +65,6 @@ public class ViewActivityItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addAccessibleViewsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,9 +80,9 @@ public class ViewActivityItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ViewActivity_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ViewActivity_name_feature", "_UI_ViewActivity_type"),
-				 GenandroidPackage.Literals.VIEW_ACTIVITY__NAME,
+				 getString("_UI_BackgroundActivity_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BackgroundActivity_name_feature", "_UI_BackgroundActivity_type"),
+				 GenandroidPackage.Literals.BACKGROUND_ACTIVITY__NAME,
 				 true,
 				 false,
 				 false,
@@ -92,25 +92,14 @@ public class ViewActivityItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Accessible Views feature.
+	 * This returns BackgroundActivity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAccessibleViewsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ViewActivity_accessibleViews_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ViewActivity_accessibleViews_feature", "_UI_ViewActivity_type"),
-				 GenandroidPackage.Literals.VIEW_ACTIVITY__ACCESSIBLE_VIEWS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BackgroundActivity"));
 	}
 
 	/**
@@ -121,10 +110,10 @@ public class ViewActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ViewActivity)object).getName();
+		String label = ((BackgroundActivity)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ViewActivity_type") :
-			getString("_UI_ViewActivity_type") + " " + label;
+			getString("_UI_BackgroundActivity_type") :
+			getString("_UI_BackgroundActivity_type") + " " + label;
 	}
 
 	/**
@@ -138,8 +127,8 @@ public class ViewActivityItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ViewActivity.class)) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
+		switch (notification.getFeatureID(BackgroundActivity.class)) {
+			case GenandroidPackage.BACKGROUND_ACTIVITY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

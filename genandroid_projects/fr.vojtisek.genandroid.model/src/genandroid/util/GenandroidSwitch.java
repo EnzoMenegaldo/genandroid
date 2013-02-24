@@ -169,6 +169,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.PREFERENCE_VIEW_ACTIVITY: {
 				PreferenceViewActivity preferenceViewActivity = (PreferenceViewActivity)theEObject;
 				T result = casePreferenceViewActivity(preferenceViewActivity);
+				if (result == null) result = caseViewActivity(preferenceViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +212,12 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				DataAssociation dataAssociation = (DataAssociation)theEObject;
 				T result = caseDataAssociation(dataAssociation);
 				if (result == null) result = caseNamedElement(dataAssociation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GenandroidPackage.BACKGROUND_ACTIVITY: {
+				BackgroundActivity backgroundActivity = (BackgroundActivity)theEObject;
+				T result = caseBackgroundActivity(backgroundActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -515,6 +522,21 @@ public class GenandroidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataAssociation(DataAssociation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Background Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Background Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBackgroundActivity(BackgroundActivity object) {
 		return null;
 	}
 

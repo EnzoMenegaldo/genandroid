@@ -125,13 +125,40 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT__PREFERENCE_VIEW = 5;
 
 	/**
+	 * The feature id for the '<em><b>Background Activities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__BACKGROUND_ACTIVITIES = 6;
+
+	/**
+	 * The feature id for the '<em><b>Welcome View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__WELCOME_VIEW = 7;
+
+	/**
+	 * The feature id for the '<em><b>File Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__FILE_HEADER = 8;
+
+	/**
 	 * The number of structural features of the '<em>Android Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT_FEATURE_COUNT = 6;
+	int ANDROID_PROJECT_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -245,13 +272,22 @@ public interface GenandroidPackage extends EPackage {
 	int VIEW_ACTIVITY__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ACTIVITY__ACCESSIBLE_VIEWS = 1;
+
+	/**
 	 * The number of structural features of the '<em>View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_ACTIVITY_FEATURE_COUNT = 1;
+	int VIEW_ACTIVITY_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ElementViewActivityImpl <em>Element View Activity</em>}' class.
@@ -271,6 +307,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -310,6 +355,15 @@ public interface GenandroidPackage extends EPackage {
 	int EDITABLE_ELEMENT_VIEW_ACTIVITY__NAME = ELEMENT_VIEW_ACTIVITY__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITABLE_ELEMENT_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = ELEMENT_VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -347,6 +401,15 @@ public interface GenandroidPackage extends EPackage {
 	int LIST_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
+
+	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -382,6 +445,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_LIST_VIEW_ACTIVITY__NAME = LIST_VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -538,6 +610,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY__NAME = CLASS_LIST_VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = CLASS_LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -905,6 +986,15 @@ public interface GenandroidPackage extends EPackage {
 	int ATTRIBUTE_LIST_VIEW_ACTIVITY__NAME = LIST_VIEW_ACTIVITY__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = LIST_VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
+
+	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -957,7 +1047,16 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCE_VIEW_ACTIVITY__NAME = 0;
+	int PREFERENCE_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREFERENCE_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
 
 	/**
 	 * The number of structural features of the '<em>Preference View Activity</em>' class.
@@ -966,7 +1065,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCE_VIEW_ACTIVITY_FEATURE_COUNT = 1;
+	int PREFERENCE_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.CustomViewActivityImpl <em>Custom View Activity</em>}' class.
@@ -986,6 +1085,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CUSTOM_VIEW_ACTIVITY__NAME = VIEW_ACTIVITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Accessible Views</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_VIEW_ACTIVITY__ACCESSIBLE_VIEWS = VIEW_ACTIVITY__ACCESSIBLE_VIEWS;
 
 	/**
 	 * The number of structural features of the '<em>Custom View Activity</em>' class.
@@ -1089,6 +1197,34 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_ASSOCIATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.BackgroundActivityImpl <em>Background Activity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.BackgroundActivityImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getBackgroundActivity()
+	 * @generated
+	 */
+	int BACKGROUND_ACTIVITY = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_ACTIVITY__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Background Activity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_ACTIVITY_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1096,7 +1232,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @see genandroid.impl.GenandroidPackageImpl#getstorageKind()
 	 * @generated
 	 */
-	int STORAGE_KIND = 20;
+	int STORAGE_KIND = 21;
 
 
 	/**
@@ -1176,6 +1312,39 @@ public interface GenandroidPackage extends EPackage {
 	EReference getAndroidProject_PreferenceView();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.AndroidProject#getBackgroundActivities <em>Background Activities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Background Activities</em>'.
+	 * @see genandroid.AndroidProject#getBackgroundActivities()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EReference getAndroidProject_BackgroundActivities();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.AndroidProject#getWelcomeView <em>Welcome View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Welcome View</em>'.
+	 * @see genandroid.AndroidProject#getWelcomeView()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EReference getAndroidProject_WelcomeView();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.AndroidProject#getFileHeader <em>File Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Header</em>'.
+	 * @see genandroid.AndroidProject#getFileHeader()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EAttribute getAndroidProject_FileHeader();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataModel <em>Data Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1227,6 +1396,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getViewActivity_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link genandroid.ViewActivity#getAccessibleViews <em>Accessible Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Accessible Views</em>'.
+	 * @see genandroid.ViewActivity#getAccessibleViews()
+	 * @see #getViewActivity()
+	 * @generated
+	 */
+	EReference getViewActivity_AccessibleViews();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.EditableElementViewActivity <em>Editable Element View Activity</em>}'.
@@ -1559,17 +1739,6 @@ public interface GenandroidPackage extends EPackage {
 	EClass getPreferenceViewActivity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link genandroid.PreferenceViewActivity#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see genandroid.PreferenceViewActivity#getName()
-	 * @see #getPreferenceViewActivity()
-	 * @generated
-	 */
-	EAttribute getPreferenceViewActivity_Name();
-
-	/**
 	 * Returns the meta object for class '{@link genandroid.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1707,6 +1876,27 @@ public interface GenandroidPackage extends EPackage {
 	EReference getDataAssociation_References();
 
 	/**
+	 * Returns the meta object for class '{@link genandroid.BackgroundActivity <em>Background Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Background Activity</em>'.
+	 * @see genandroid.BackgroundActivity
+	 * @generated
+	 */
+	EClass getBackgroundActivity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.BackgroundActivity#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see genandroid.BackgroundActivity#getName()
+	 * @see #getBackgroundActivity()
+	 * @generated
+	 */
+	EAttribute getBackgroundActivity_Name();
+
+	/**
 	 * Returns the meta object for enum '{@link genandroid.storageKind <em>storage Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1797,6 +1987,30 @@ public interface GenandroidPackage extends EPackage {
 		EReference ANDROID_PROJECT__PREFERENCE_VIEW = eINSTANCE.getAndroidProject_PreferenceView();
 
 		/**
+		 * The meta object literal for the '<em><b>Background Activities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANDROID_PROJECT__BACKGROUND_ACTIVITIES = eINSTANCE.getAndroidProject_BackgroundActivities();
+
+		/**
+		 * The meta object literal for the '<em><b>Welcome View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANDROID_PROJECT__WELCOME_VIEW = eINSTANCE.getAndroidProject_WelcomeView();
+
+		/**
+		 * The meta object literal for the '<em><b>File Header</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANDROID_PROJECT__FILE_HEADER = eINSTANCE.getAndroidProject_FileHeader();
+
+		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1839,6 +2053,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIEW_ACTIVITY__NAME = eINSTANCE.getViewActivity_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Accessible Views</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW_ACTIVITY__ACCESSIBLE_VIEWS = eINSTANCE.getViewActivity_AccessibleViews();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.EditableElementViewActivityImpl <em>Editable Element View Activity</em>}' class.
@@ -2111,14 +2333,6 @@ public interface GenandroidPackage extends EPackage {
 		EClass PREFERENCE_VIEW_ACTIVITY = eINSTANCE.getPreferenceViewActivity();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PREFERENCE_VIEW_ACTIVITY__NAME = eINSTANCE.getPreferenceViewActivity_Name();
-
-		/**
 		 * The meta object literal for the '{@link genandroid.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2233,6 +2447,24 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_ASSOCIATION__REFERENCES = eINSTANCE.getDataAssociation_References();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.BackgroundActivityImpl <em>Background Activity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.BackgroundActivityImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getBackgroundActivity()
+		 * @generated
+		 */
+		EClass BACKGROUND_ACTIVITY = eINSTANCE.getBackgroundActivity();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BACKGROUND_ACTIVITY__NAME = eINSTANCE.getBackgroundActivity_Name();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.

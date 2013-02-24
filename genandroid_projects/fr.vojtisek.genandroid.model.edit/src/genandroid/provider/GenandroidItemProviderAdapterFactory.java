@@ -490,6 +490,29 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.BackgroundActivity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BackgroundActivityItemProvider backgroundActivityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.BackgroundActivity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBackgroundActivityAdapter() {
+		if (backgroundActivityItemProvider == null) {
+			backgroundActivityItemProvider = new BackgroundActivityItemProvider(this);
+		}
+
+		return backgroundActivityItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,6 +629,7 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 		if (customViewActivityItemProvider != null) customViewActivityItemProvider.dispose();
 		if (nativeDataClassItemProvider != null) nativeDataClassItemProvider.dispose();
 		if (dataAssociationItemProvider != null) dataAssociationItemProvider.dispose();
+		if (backgroundActivityItemProvider != null) backgroundActivityItemProvider.dispose();
 	}
 
 }

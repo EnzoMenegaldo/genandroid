@@ -24,6 +24,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link genandroid.AndroidProject#getPackagePrefix <em>Package Prefix</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getClassDetails <em>Class Details</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}</li>
+ *   <li>{@link genandroid.AndroidProject#getBackgroundActivities <em>Background Activities</em>}</li>
+ *   <li>{@link genandroid.AndroidProject#getWelcomeView <em>Welcome View</em>}</li>
+ *   <li>{@link genandroid.AndroidProject#getFileHeader <em>File Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -167,5 +170,73 @@ public interface AndroidProject extends EObject {
 	 * @generated
 	 */
 	void setPreferenceView(PreferenceViewActivity value);
+
+	/**
+	 * Returns the value of the '<em><b>Background Activities</b></em>' containment reference list.
+	 * The list contents are of type {@link genandroid.BackgroundActivity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Background Activities</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Background Activities</em>' containment reference list.
+	 * @see genandroid.GenandroidPackage#getAndroidProject_BackgroundActivities()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BackgroundActivity> getBackgroundActivities();
+
+	/**
+	 * Returns the value of the '<em><b>Welcome View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Welcome View</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Welcome View</em>' reference.
+	 * @see #setWelcomeView(ViewActivity)
+	 * @see genandroid.GenandroidPackage#getAndroidProject_WelcomeView()
+	 * @model required="true"
+	 * @generated
+	 */
+	ViewActivity getWelcomeView();
+
+	/**
+	 * Sets the value of the '{@link genandroid.AndroidProject#getWelcomeView <em>Welcome View</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Welcome View</em>' reference.
+	 * @see #getWelcomeView()
+	 * @generated
+	 */
+	void setWelcomeView(ViewActivity value);
+
+	/**
+	 * Returns the value of the '<em><b>File Header</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>File Header</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>File Header</em>' attribute.
+	 * @see #setFileHeader(String)
+	 * @see genandroid.GenandroidPackage#getAndroidProject_FileHeader()
+	 * @model
+	 * @generated
+	 */
+	String getFileHeader();
+
+	/**
+	 * Sets the value of the '{@link genandroid.AndroidProject#getFileHeader <em>File Header</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>File Header</em>' attribute.
+	 * @see #getFileHeader()
+	 * @generated
+	 */
+	void setFileHeader(String value);
 
 } // AndroidProject

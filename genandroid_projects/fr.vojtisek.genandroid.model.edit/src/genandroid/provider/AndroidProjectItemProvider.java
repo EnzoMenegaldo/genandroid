@@ -69,6 +69,8 @@ public class AndroidProjectItemProvider
 
 			addNamePropertyDescriptor(object);
 			addPackagePrefixPropertyDescriptor(object);
+			addWelcomeViewPropertyDescriptor(object);
+			addFileHeaderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -118,6 +120,50 @@ public class AndroidProjectItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Welcome View feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWelcomeViewPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AndroidProject_welcomeView_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_welcomeView_feature", "_UI_AndroidProject_type"),
+				 GenandroidPackage.Literals.ANDROID_PROJECT__WELCOME_VIEW,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the File Header feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFileHeaderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AndroidProject_fileHeader_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_fileHeader_feature", "_UI_AndroidProject_type"),
+				 GenandroidPackage.Literals.ANDROID_PROJECT__FILE_HEADER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -133,6 +179,7 @@ public class AndroidProjectItemProvider
 			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__VIEW_ACTIVITIES);
 			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__CLASS_DETAILS);
 			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__PREFERENCE_VIEW);
+			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__BACKGROUND_ACTIVITIES);
 		}
 		return childrenFeatures;
 	}
@@ -189,12 +236,14 @@ public class AndroidProjectItemProvider
 		switch (notification.getFeatureID(AndroidProject.class)) {
 			case GenandroidPackage.ANDROID_PROJECT__NAME:
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
+			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GenandroidPackage.ANDROID_PROJECT__DATA_MODEL:
 			case GenandroidPackage.ANDROID_PROJECT__VIEW_ACTIVITIES:
 			case GenandroidPackage.ANDROID_PROJECT__CLASS_DETAILS:
 			case GenandroidPackage.ANDROID_PROJECT__PREFERENCE_VIEW:
+			case GenandroidPackage.ANDROID_PROJECT__BACKGROUND_ACTIVITIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -250,6 +299,11 @@ public class AndroidProjectItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GenandroidPackage.Literals.ANDROID_PROJECT__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createPreferenceViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.ANDROID_PROJECT__VIEW_ACTIVITIES,
 				 GenandroidFactory.eINSTANCE.createCustomViewActivity()));
 
 		newChildDescriptors.add
@@ -261,6 +315,34 @@ public class AndroidProjectItemProvider
 			(createChildParameter
 				(GenandroidPackage.Literals.ANDROID_PROJECT__PREFERENCE_VIEW,
 				 GenandroidFactory.eINSTANCE.createPreferenceViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.ANDROID_PROJECT__BACKGROUND_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createBackgroundActivity()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == GenandroidPackage.Literals.ANDROID_PROJECT__VIEW_ACTIVITIES ||
+			childFeature == GenandroidPackage.Literals.ANDROID_PROJECT__PREFERENCE_VIEW;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

@@ -19,6 +19,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/packagePrefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/classDetails"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/preferenceView"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/backgroundActivities"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/welcomeView"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/fileHeader"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataModel/dataClasses"/>
@@ -26,6 +29,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="genandroid.ecore#//ViewActivity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ViewActivity/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ViewActivity/accessibleViews"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//EditableElementViewActivity"/>
     <genClasses ecoreClass="genandroid.ecore#//ClassListViewActivity">
@@ -66,9 +70,7 @@
     <genClasses ecoreClass="genandroid.ecore#//ElementViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ElementViewActivity/element"/>
     </genClasses>
-    <genClasses ecoreClass="genandroid.ecore#//PreferenceViewActivity">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//PreferenceViewActivity/name"/>
-    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//PreferenceViewActivity"/>
     <genClasses ecoreClass="genandroid.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//NamedElement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//NamedElement/documentation"/>
@@ -85,6 +87,9 @@
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataAssociation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataAssociation/references"/>
+    </genClasses>
+    <genClasses ecoreClass="genandroid.ecore#//BackgroundActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//BackgroundActivity/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
