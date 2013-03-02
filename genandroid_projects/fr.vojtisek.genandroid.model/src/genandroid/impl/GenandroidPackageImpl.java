@@ -287,17 +287,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAndroidProject_Name() {
-		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getAndroidProject_DataModel() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(1);
+		return (EReference)androidProjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -306,7 +297,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	public EAttribute getAndroidProject_PackagePrefix() {
-		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -315,7 +306,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	public EAttribute getAndroidProject_FileHeader() {
-		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -324,7 +315,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	public EReference getAndroidProject_PresentationModel() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(4);
+		return (EReference)androidProjectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -368,8 +359,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getViewActivity_Name() {
-		return (EAttribute)viewActivityEClass.getEStructuralFeatures().get(0);
+	public EReference getViewActivity_AccessibleViews() {
+		return (EReference)viewActivityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -377,7 +368,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViewActivity_AccessibleViews() {
+	public EReference getViewActivity_TriggerableBackgroundActivities() {
 		return (EReference)viewActivityEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -791,15 +782,6 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBackgroundActivity_Name() {
-		return (EAttribute)backgroundActivityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPresentationModel() {
 		return presentationModelEClass;
 	}
@@ -887,7 +869,6 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		// Create classes and their features
 		androidProjectEClass = createEClass(ANDROID_PROJECT);
-		createEAttribute(androidProjectEClass, ANDROID_PROJECT__NAME);
 		createEReference(androidProjectEClass, ANDROID_PROJECT__DATA_MODEL);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__PACKAGE_PREFIX);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__FILE_HEADER);
@@ -898,8 +879,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(dataModelEClass, DATA_MODEL__DATA_ASSOCIATIONS);
 
 		viewActivityEClass = createEClass(VIEW_ACTIVITY);
-		createEAttribute(viewActivityEClass, VIEW_ACTIVITY__NAME);
 		createEReference(viewActivityEClass, VIEW_ACTIVITY__ACCESSIBLE_VIEWS);
+		createEReference(viewActivityEClass, VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES);
 
 		editableElementViewActivityEClass = createEClass(EDITABLE_ELEMENT_VIEW_ACTIVITY);
 
@@ -963,7 +944,6 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(dataAssociationEClass, DATA_ASSOCIATION__REFERENCES);
 
 		backgroundActivityEClass = createEClass(BACKGROUND_ACTIVITY);
-		createEAttribute(backgroundActivityEClass, BACKGROUND_ACTIVITY__NAME);
 
 		presentationModelEClass = createEClass(PRESENTATION_MODEL);
 		createEReference(presentationModelEClass, PRESENTATION_MODEL__VIEW_ACTIVITIES);
@@ -1007,7 +987,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		androidProjectEClass.getESuperTypes().add(this.getNamedElement());
 		dataModelEClass.getESuperTypes().add(this.getNamedElement());
+		viewActivityEClass.getESuperTypes().add(this.getNamedElement());
 		editableElementViewActivityEClass.getESuperTypes().add(this.getElementViewActivity());
 		classListViewActivityEClass.getESuperTypes().add(this.getListViewActivity());
 		dataClassEClass.getESuperTypes().add(this.getDataClassifier());
@@ -1023,10 +1005,10 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		dataClassifierEClass.getESuperTypes().add(this.getNamedElement());
 		nativeDataClassEClass.getESuperTypes().add(this.getDataClassifier());
 		dataAssociationEClass.getESuperTypes().add(this.getNamedElement());
+		backgroundActivityEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(androidProjectEClass, AndroidProject.class, "AndroidProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAndroidProject_Name(), ecorePackage.getEString(), "name", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAndroidProject_DataModel(), this.getDataModel(), null, "dataModel", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndroidProject_PackagePrefix(), theEcorePackage.getEString(), "packagePrefix", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndroidProject_FileHeader(), theEcorePackage.getEString(), "fileHeader", null, 0, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1037,8 +1019,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getDataModel_DataAssociations(), this.getDataAssociation(), null, "dataAssociations", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewActivityEClass, ViewActivity.class, "ViewActivity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getViewActivity_Name(), theEcorePackage.getEString(), "name", null, 1, 1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViewActivity_AccessibleViews(), this.getViewActivity(), null, "accessibleViews", null, 0, -1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViewActivity_TriggerableBackgroundActivities(), this.getBackgroundActivity(), null, "triggerableBackgroundActivities", null, 0, -1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editableElementViewActivityEClass, EditableElementViewActivity.class, "EditableElementViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1102,7 +1084,6 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getDataAssociation_References(), this.getDataReference(), this.getDataReference_Opposite(), "references", null, 2, 2, DataAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(backgroundActivityEClass, BackgroundActivity.class, "BackgroundActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBackgroundActivity_Name(), theEcorePackage.getEString(), "name", null, 1, 1, BackgroundActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(presentationModelEClass, PresentationModel.class, "PresentationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPresentationModel_ViewActivities(), this.getViewActivity(), null, "viewActivities", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -6,6 +6,7 @@
  */
 package genandroid.impl;
 
+import genandroid.BackgroundActivity;
 import genandroid.GenandroidPackage;
 import genandroid.PreferenceViewActivity;
 import genandroid.ViewActivity;
@@ -26,33 +27,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link genandroid.impl.ViewActivityImpl#getName <em>Name</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getAccessibleViews <em>Accessible Views</em>}</li>
+ *   <li>{@link genandroid.impl.ViewActivityImpl#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivity {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public abstract class ViewActivityImpl extends NamedElementImpl implements ViewActivity {
 	/**
 	 * The cached value of the '{@link #getAccessibleViews() <em>Accessible Views</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -62,6 +44,16 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 * @ordered
 	 */
 	protected EList<ViewActivity> accessibleViews;
+
+	/**
+	 * The cached value of the '{@link #getTriggerableBackgroundActivities() <em>Triggerable Background Activities</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTriggerableBackgroundActivities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BackgroundActivity> triggerableBackgroundActivities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,27 +79,6 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.VIEW_ACTIVITY__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ViewActivity> getAccessibleViews() {
 		if (accessibleViews == null) {
 			accessibleViews = new EObjectResolvingEList<ViewActivity>(ViewActivity.class, this, GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS);
@@ -120,13 +91,25 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BackgroundActivity> getTriggerableBackgroundActivities() {
+		if (triggerableBackgroundActivities == null) {
+			triggerableBackgroundActivities = new EObjectResolvingEList<BackgroundActivity>(BackgroundActivity.class, this, GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES);
+		}
+		return triggerableBackgroundActivities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
-				return getName();
 			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
 				return getAccessibleViews();
+			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
+				return getTriggerableBackgroundActivities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -140,12 +123,13 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
-				setName((String)newValue);
-				return;
 			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
 				getAccessibleViews().clear();
 				getAccessibleViews().addAll((Collection<? extends ViewActivity>)newValue);
+				return;
+			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
+				getTriggerableBackgroundActivities().clear();
+				getTriggerableBackgroundActivities().addAll((Collection<? extends BackgroundActivity>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -159,11 +143,11 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
 				getAccessibleViews().clear();
+				return;
+			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
+				getTriggerableBackgroundActivities().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -177,28 +161,12 @@ public abstract class ViewActivityImpl extends EObjectImpl implements ViewActivi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GenandroidPackage.VIEW_ACTIVITY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GenandroidPackage.VIEW_ACTIVITY__ACCESSIBLE_VIEWS:
 				return accessibleViews != null && !accessibleViews.isEmpty();
+			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
+				return triggerableBackgroundActivities != null && !triggerableBackgroundActivities.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ViewActivityImpl

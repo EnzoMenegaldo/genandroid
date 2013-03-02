@@ -73,6 +73,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.ANDROID_PROJECT: {
 				AndroidProject androidProject = (AndroidProject)theEObject;
 				T result = caseAndroidProject(androidProject);
+				if (result == null) result = caseNamedElement(androidProject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -86,6 +87,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.VIEW_ACTIVITY: {
 				ViewActivity viewActivity = (ViewActivity)theEObject;
 				T result = caseViewActivity(viewActivity);
+				if (result == null) result = caseNamedElement(viewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,6 +96,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				T result = caseEditableElementViewActivity(editableElementViewActivity);
 				if (result == null) result = caseElementViewActivity(editableElementViewActivity);
 				if (result == null) result = caseViewActivity(editableElementViewActivity);
+				if (result == null) result = caseNamedElement(editableElementViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -102,6 +105,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				T result = caseClassListViewActivity(classListViewActivity);
 				if (result == null) result = caseListViewActivity(classListViewActivity);
 				if (result == null) result = caseViewActivity(classListViewActivity);
+				if (result == null) result = caseNamedElement(classListViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +123,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				if (result == null) result = caseClassListViewActivity(referenceListViewActivity);
 				if (result == null) result = caseListViewActivity(referenceListViewActivity);
 				if (result == null) result = caseViewActivity(referenceListViewActivity);
+				if (result == null) result = caseNamedElement(referenceListViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +153,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				ListViewActivity listViewActivity = (ListViewActivity)theEObject;
 				T result = caseListViewActivity(listViewActivity);
 				if (result == null) result = caseViewActivity(listViewActivity);
+				if (result == null) result = caseNamedElement(listViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,6 +162,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				T result = caseAttributeListViewActivity(attributeListViewActivity);
 				if (result == null) result = caseListViewActivity(attributeListViewActivity);
 				if (result == null) result = caseViewActivity(attributeListViewActivity);
+				if (result == null) result = caseNamedElement(attributeListViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +170,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				ElementViewActivity elementViewActivity = (ElementViewActivity)theEObject;
 				T result = caseElementViewActivity(elementViewActivity);
 				if (result == null) result = caseViewActivity(elementViewActivity);
+				if (result == null) result = caseNamedElement(elementViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,6 +178,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				PreferenceViewActivity preferenceViewActivity = (PreferenceViewActivity)theEObject;
 				T result = casePreferenceViewActivity(preferenceViewActivity);
 				if (result == null) result = caseViewActivity(preferenceViewActivity);
+				if (result == null) result = caseNamedElement(preferenceViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -190,6 +199,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				CustomViewActivity customViewActivity = (CustomViewActivity)theEObject;
 				T result = caseCustomViewActivity(customViewActivity);
 				if (result == null) result = caseViewActivity(customViewActivity);
+				if (result == null) result = caseNamedElement(customViewActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,6 +228,7 @@ public class GenandroidSwitch<T> extends Switch<T> {
 			case GenandroidPackage.BACKGROUND_ACTIVITY: {
 				BackgroundActivity backgroundActivity = (BackgroundActivity)theEObject;
 				T result = caseBackgroundActivity(backgroundActivity);
+				if (result == null) result = caseNamedElement(backgroundActivity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

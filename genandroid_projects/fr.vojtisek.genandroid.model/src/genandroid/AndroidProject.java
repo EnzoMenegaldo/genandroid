@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link genandroid.AndroidProject#getName <em>Name</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getDataModel <em>Data Model</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getPackagePrefix <em>Package Prefix</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getFileHeader <em>File Header</em>}</li>
@@ -30,33 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface AndroidProject extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see genandroid.GenandroidPackage#getAndroidProject_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link genandroid.AndroidProject#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface AndroidProject extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Data Model</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -3,6 +3,7 @@
 
 [import fr::vojtisek::genandroid::acceleo::files::generateMain_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
+[import fr::vojtisek::genandroid::acceleo::files::generateYUMLActivityDiagram/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClassXMLParser/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewActivity_Class/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewAdapter/]
@@ -54,6 +55,8 @@
 			[/if]
 		[/for]
 	[/if]
+
+	[anAndroidProject.presentationModel.generateYUMLActivityDiagram()/]
 	[comment][for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 		[if(aDataClassifer.oclIsKindOf(DataClass))]
 			[aDataClassifer.oclAsType(DataClass).generateDataClassFile()/] 

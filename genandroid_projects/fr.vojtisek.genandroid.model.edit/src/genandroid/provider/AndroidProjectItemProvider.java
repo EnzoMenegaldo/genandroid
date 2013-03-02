@@ -39,7 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class AndroidProjectItemProvider
-	extends ItemProviderAdapter
+	extends NamedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -67,33 +67,10 @@ public class AndroidProjectItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addPackagePrefixPropertyDescriptor(object);
 			addFileHeaderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AndroidProject_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_name_feature", "_UI_AndroidProject_type"),
-				 GenandroidPackage.Literals.ANDROID_PROJECT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -208,7 +185,6 @@ public class AndroidProjectItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AndroidProject.class)) {
-			case GenandroidPackage.ANDROID_PROJECT__NAME:
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
 			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -241,17 +217,6 @@ public class AndroidProjectItemProvider
 			(createChildParameter
 				(GenandroidPackage.Literals.ANDROID_PROJECT__PRESENTATION_MODEL,
 				 GenandroidFactory.eINSTANCE.createPresentationModel()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return GenandroidEditPlugin.INSTANCE;
 	}
 
 }

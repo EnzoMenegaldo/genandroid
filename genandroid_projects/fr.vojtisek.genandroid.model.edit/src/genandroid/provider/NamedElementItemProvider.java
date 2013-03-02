@@ -107,7 +107,7 @@ public class NamedElementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_documentation_feature", "_UI_NamedElement_type"),
 				 GenandroidPackage.Literals.NAMED_ELEMENT__DOCUMENTATION,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
