@@ -197,6 +197,15 @@ public interface GenandroidFactory extends EFactory {
 	BackgroundActivity createBackgroundActivity();
 
 	/**
+	 * Returns a new object of class '<em>Presentation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Presentation Model</em>'.
+	 * @generated
+	 */
+	PresentationModel createPresentationModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

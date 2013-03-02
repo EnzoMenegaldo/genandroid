@@ -156,6 +156,10 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 				return createBackgroundActivityAdapter();
 			}
 			@Override
+			public Adapter casePresentationModel(PresentationModel object) {
+				return createPresentationModelAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -466,6 +470,20 @@ public class GenandroidAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBackgroundActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link genandroid.PresentationModel <em>Presentation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see genandroid.PresentationModel
+	 * @generated
+	 */
+	public Adapter createPresentationModelAdapter() {
 		return null;
 	}
 

@@ -513,6 +513,29 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link genandroid.PresentationModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PresentationModelItemProvider presentationModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link genandroid.PresentationModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPresentationModelAdapter() {
+		if (presentationModelItemProvider == null) {
+			presentationModelItemProvider = new PresentationModelItemProvider(this);
+		}
+
+		return presentationModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,6 +653,7 @@ public class GenandroidItemProviderAdapterFactory extends GenandroidAdapterFacto
 		if (nativeDataClassItemProvider != null) nativeDataClassItemProvider.dispose();
 		if (dataAssociationItemProvider != null) dataAssociationItemProvider.dispose();
 		if (backgroundActivityItemProvider != null) backgroundActivityItemProvider.dispose();
+		if (presentationModelItemProvider != null) presentationModelItemProvider.dispose();
 	}
 
 }

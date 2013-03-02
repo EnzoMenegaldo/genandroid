@@ -20,13 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link genandroid.AndroidProject#getName <em>Name</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getDataModel <em>Data Model</em>}</li>
- *   <li>{@link genandroid.AndroidProject#getViewActivities <em>View Activities</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getPackagePrefix <em>Package Prefix</em>}</li>
- *   <li>{@link genandroid.AndroidProject#getClassDetails <em>Class Details</em>}</li>
- *   <li>{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}</li>
- *   <li>{@link genandroid.AndroidProject#getBackgroundActivities <em>Background Activities</em>}</li>
- *   <li>{@link genandroid.AndroidProject#getWelcomeView <em>Welcome View</em>}</li>
  *   <li>{@link genandroid.AndroidProject#getFileHeader <em>File Header</em>}</li>
+ *   <li>{@link genandroid.AndroidProject#getPresentationModel <em>Presentation Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,22 +84,6 @@ public interface AndroidProject extends EObject {
 	void setDataModel(DataModel value);
 
 	/**
-	 * Returns the value of the '<em><b>View Activities</b></em>' containment reference list.
-	 * The list contents are of type {@link genandroid.ViewActivity}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>View Activities</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>View Activities</em>' containment reference list.
-	 * @see genandroid.GenandroidPackage#getAndroidProject_ViewActivities()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ViewActivity> getViewActivities();
-
-	/**
 	 * Returns the value of the '<em><b>Package Prefix</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -130,90 +110,6 @@ public interface AndroidProject extends EObject {
 	void setPackagePrefix(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Class Details</b></em>' containment reference list.
-	 * The list contents are of type {@link genandroid.ClassDetail}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Class Details</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Class Details</em>' containment reference list.
-	 * @see genandroid.GenandroidPackage#getAndroidProject_ClassDetails()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ClassDetail> getClassDetails();
-
-	/**
-	 * Returns the value of the '<em><b>Preference View</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Preference View</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Preference View</em>' reference.
-	 * @see #setPreferenceView(PreferenceViewActivity)
-	 * @see genandroid.GenandroidPackage#getAndroidProject_PreferenceView()
-	 * @model
-	 * @generated
-	 */
-	PreferenceViewActivity getPreferenceView();
-
-	/**
-	 * Sets the value of the '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Preference View</em>' reference.
-	 * @see #getPreferenceView()
-	 * @generated
-	 */
-	void setPreferenceView(PreferenceViewActivity value);
-
-	/**
-	 * Returns the value of the '<em><b>Background Activities</b></em>' containment reference list.
-	 * The list contents are of type {@link genandroid.BackgroundActivity}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Background Activities</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Background Activities</em>' containment reference list.
-	 * @see genandroid.GenandroidPackage#getAndroidProject_BackgroundActivities()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BackgroundActivity> getBackgroundActivities();
-
-	/**
-	 * Returns the value of the '<em><b>Welcome View</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Welcome View</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Welcome View</em>' reference.
-	 * @see #setWelcomeView(ViewActivity)
-	 * @see genandroid.GenandroidPackage#getAndroidProject_WelcomeView()
-	 * @model required="true"
-	 * @generated
-	 */
-	ViewActivity getWelcomeView();
-
-	/**
-	 * Sets the value of the '{@link genandroid.AndroidProject#getWelcomeView <em>Welcome View</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Welcome View</em>' reference.
-	 * @see #getWelcomeView()
-	 * @generated
-	 */
-	void setWelcomeView(ViewActivity value);
-
-	/**
 	 * Returns the value of the '<em><b>File Header</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -238,5 +134,31 @@ public interface AndroidProject extends EObject {
 	 * @generated
 	 */
 	void setFileHeader(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Presentation Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Presentation Model</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Presentation Model</em>' containment reference.
+	 * @see #setPresentationModel(PresentationModel)
+	 * @see genandroid.GenandroidPackage#getAndroidProject_PresentationModel()
+	 * @model containment="true"
+	 * @generated
+	 */
+	PresentationModel getPresentationModel();
+
+	/**
+	 * Sets the value of the '{@link genandroid.AndroidProject#getPresentationModel <em>Presentation Model</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Presentation Model</em>' containment reference.
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	void setPresentationModel(PresentationModel value);
 
 } // AndroidProject

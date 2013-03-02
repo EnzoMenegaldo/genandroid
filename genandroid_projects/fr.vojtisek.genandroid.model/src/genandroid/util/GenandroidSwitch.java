@@ -221,6 +221,12 @@ public class GenandroidSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GenandroidPackage.PRESENTATION_MODEL: {
+				PresentationModel presentationModel = (PresentationModel)theEObject;
+				T result = casePresentationModel(presentationModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -537,6 +543,21 @@ public class GenandroidSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBackgroundActivity(BackgroundActivity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Presentation Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Presentation Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePresentationModel(PresentationModel object) {
 		return null;
 	}
 

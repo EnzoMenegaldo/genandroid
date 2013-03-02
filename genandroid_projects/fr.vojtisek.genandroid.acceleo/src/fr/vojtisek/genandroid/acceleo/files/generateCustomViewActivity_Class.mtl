@@ -1,0 +1,100 @@
+[comment encoding = UTF-8 /]
+[module generateCustomViewActivity_Class('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+[import fr::vojtisek::genandroid::acceleo::common::commonActivityTemplate/]
+
+[template public generateCustomViewActivity_Class(aCustomViewActivity : CustomViewActivity)]
+
+[file ('/src/'+aCustomViewActivity.packagePrefixFolder()+'/activities/'+aCustomViewActivity.name+'_CustomViewActivity.java', false, 'UTF-8')]
+/* [aCustomViewActivity.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
+package [aCustomViewActivity.packagePrefix()/].activities;
+
+
+import [aCustomViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
+import [aCustomViewActivity.packagePrefix()/].R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+[if (aCustomViewActivity = aCustomViewActivity.eContainer(PresentationModel).welcomeView and
+	(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
+import android.preference.PreferenceManager;
+[/if]
+
+public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>{
+	
+	/** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+		[if (aCustomViewActivity = aCustomViewActivity.eContainer(PresentationModel).welcomeView and
+			(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
+			PreferenceManager.setDefaultValues(this, R.xml.[aCustomViewActivity.eContainer(PresentationModel).preferenceView.name.toLower()/], false);
+		[/if]
+        setContentView(R.layout.[aCustomViewActivity.name.toLower()/]_customview);
+        //[protected ('onCreate')]
+		//[/protected]
+    }
+    
+    @Override
+	protected void onResume() {
+		super.onResume();
+		refreshScreenData();
+		//[protected ('onResume')]
+		//[/protected]
+	}
+    //[protected ('additional code')]
+	public void onClickBtnSample(View view){
+		showToast("sample button pressed. \nPlease customize ;-)");
+    }
+	//[/protected]
+
+    /** refresh screen from data 
+     */
+    private void refreshScreenData() {
+    	//[protected ('action when refreshing the screen')]
+		//[/protected]
+	}
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+		// add options in the menu
+		[aCustomViewActivity.addPreferenceInMenu()/]
+		//[protected ('additional onCreateOptionsMenu')]
+
+		//[/protected]
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	// behavior of option menu
+        switch (item.getItemId()) {
+		[aCustomViewActivity.addPreferenceMenuAction()/]
+		//[protected ('additional menu action')]
+
+		//[/protected]
+        }
+        return false;
+    }
+
+	private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+}
+[/file]
+[/template]
+

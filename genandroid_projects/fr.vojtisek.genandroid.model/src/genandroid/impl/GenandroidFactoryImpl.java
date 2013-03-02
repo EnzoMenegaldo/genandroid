@@ -80,6 +80,7 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 			case GenandroidPackage.NATIVE_DATA_CLASS: return createNativeDataClass();
 			case GenandroidPackage.DATA_ASSOCIATION: return createDataAssociation();
 			case GenandroidPackage.BACKGROUND_ACTIVITY: return createBackgroundActivity();
+			case GenandroidPackage.PRESENTATION_MODEL: return createPresentationModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -303,6 +304,16 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 	public BackgroundActivity createBackgroundActivity() {
 		BackgroundActivityImpl backgroundActivity = new BackgroundActivityImpl();
 		return backgroundActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PresentationModel createPresentationModel() {
+		PresentationModelImpl presentationModel = new PresentationModelImpl();
+		return presentationModel;
 	}
 
 	/**

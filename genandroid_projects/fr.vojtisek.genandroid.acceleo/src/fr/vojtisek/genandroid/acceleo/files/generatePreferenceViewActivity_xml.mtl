@@ -28,7 +28,7 @@
             android:key="temperature_unit"
             android:title="@string/temperature_unit_prompt"
             android:summary="@string/temperature_unit_summary"
-            android:defaultValue="°C"
+            android:defaultValue="Â°C"
             android:entries="@array/temperature_units_array"
             android:entryValues="@array/temperature_units_arrayvalues"
         />  

@@ -26,6 +26,7 @@ import genandroid.ListViewActivity;
 import genandroid.NamedElement;
 import genandroid.NativeDataClass;
 import genandroid.PreferenceViewActivity;
+import genandroid.PresentationModel;
 import genandroid.ReferenceListViewActivity;
 import genandroid.StructuralFeature;
 import genandroid.ViewActivity;
@@ -199,6 +200,13 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass presentationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum storageKindEEnum = null;
 
 	/**
@@ -297,53 +305,8 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAndroidProject_ViewActivities() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAndroidProject_PackagePrefix() {
-		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAndroidProject_ClassDetails() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAndroidProject_PreferenceView() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAndroidProject_BackgroundActivities() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAndroidProject_WelcomeView() {
-		return (EReference)androidProjectEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -352,7 +315,16 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * @generated
 	 */
 	public EAttribute getAndroidProject_FileHeader() {
-		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)androidProjectEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAndroidProject_PresentationModel() {
+		return (EReference)androidProjectEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -828,6 +800,60 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPresentationModel() {
+		return presentationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPresentationModel_ViewActivities() {
+		return (EReference)presentationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPresentationModel_PreferenceView() {
+		return (EReference)presentationModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPresentationModel_ClassDetails() {
+		return (EReference)presentationModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPresentationModel_WelcomeView() {
+		return (EReference)presentationModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPresentationModel_BackgroundActivities() {
+		return (EReference)presentationModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getstorageKind() {
 		return storageKindEEnum;
 	}
@@ -863,13 +889,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		androidProjectEClass = createEClass(ANDROID_PROJECT);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__NAME);
 		createEReference(androidProjectEClass, ANDROID_PROJECT__DATA_MODEL);
-		createEReference(androidProjectEClass, ANDROID_PROJECT__VIEW_ACTIVITIES);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__PACKAGE_PREFIX);
-		createEReference(androidProjectEClass, ANDROID_PROJECT__CLASS_DETAILS);
-		createEReference(androidProjectEClass, ANDROID_PROJECT__PREFERENCE_VIEW);
-		createEReference(androidProjectEClass, ANDROID_PROJECT__BACKGROUND_ACTIVITIES);
-		createEReference(androidProjectEClass, ANDROID_PROJECT__WELCOME_VIEW);
 		createEAttribute(androidProjectEClass, ANDROID_PROJECT__FILE_HEADER);
+		createEReference(androidProjectEClass, ANDROID_PROJECT__PRESENTATION_MODEL);
 
 		dataModelEClass = createEClass(DATA_MODEL);
 		createEReference(dataModelEClass, DATA_MODEL__DATA_CLASSES);
@@ -943,6 +965,13 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		backgroundActivityEClass = createEClass(BACKGROUND_ACTIVITY);
 		createEAttribute(backgroundActivityEClass, BACKGROUND_ACTIVITY__NAME);
 
+		presentationModelEClass = createEClass(PRESENTATION_MODEL);
+		createEReference(presentationModelEClass, PRESENTATION_MODEL__VIEW_ACTIVITIES);
+		createEReference(presentationModelEClass, PRESENTATION_MODEL__PREFERENCE_VIEW);
+		createEReference(presentationModelEClass, PRESENTATION_MODEL__CLASS_DETAILS);
+		createEReference(presentationModelEClass, PRESENTATION_MODEL__WELCOME_VIEW);
+		createEReference(presentationModelEClass, PRESENTATION_MODEL__BACKGROUND_ACTIVITIES);
+
 		// Create enums
 		storageKindEEnum = createEEnum(STORAGE_KIND);
 	}
@@ -999,13 +1028,9 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(androidProjectEClass, AndroidProject.class, "AndroidProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAndroidProject_Name(), ecorePackage.getEString(), "name", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAndroidProject_DataModel(), this.getDataModel(), null, "dataModel", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAndroidProject_ViewActivities(), this.getViewActivity(), null, "viewActivities", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndroidProject_PackagePrefix(), theEcorePackage.getEString(), "packagePrefix", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAndroidProject_ClassDetails(), this.getClassDetail(), null, "classDetails", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAndroidProject_PreferenceView(), this.getPreferenceViewActivity(), null, "preferenceView", null, 0, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAndroidProject_BackgroundActivities(), this.getBackgroundActivity(), null, "backgroundActivities", null, 0, -1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAndroidProject_WelcomeView(), this.getViewActivity(), null, "welcomeView", null, 1, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAndroidProject_FileHeader(), theEcorePackage.getEString(), "fileHeader", null, 0, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAndroidProject_PresentationModel(), this.getPresentationModel(), null, "presentationModel", null, 0, 1, AndroidProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataModelEClass, DataModel.class, "DataModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataModel_DataClasses(), this.getDataClassifier(), null, "dataClasses", null, 0, -1, DataModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1078,6 +1103,13 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		initEClass(backgroundActivityEClass, BackgroundActivity.class, "BackgroundActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBackgroundActivity_Name(), theEcorePackage.getEString(), "name", null, 1, 1, BackgroundActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(presentationModelEClass, PresentationModel.class, "PresentationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPresentationModel_ViewActivities(), this.getViewActivity(), null, "viewActivities", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPresentationModel_PreferenceView(), this.getPreferenceViewActivity(), null, "preferenceView", null, 0, 1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPresentationModel_ClassDetails(), this.getClassDetail(), null, "classDetails", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPresentationModel_WelcomeView(), this.getViewActivity(), null, "welcomeView", null, 1, 1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPresentationModel_BackgroundActivities(), this.getBackgroundActivity(), null, "backgroundActivities", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(storageKindEEnum, storageKind.class, "storageKind");

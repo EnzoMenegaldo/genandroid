@@ -6,6 +6,7 @@
 
 [file ('/res/values/'.concat(aPreferenceViewActivity.name.toLower()).concat('_strings.xml'), false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Resource Strings specific to [aPreferenceViewActivity.name.toLower()/] Preference View -->
 <resources>
     <!--[protected ('protected')]
 		-->
@@ -30,8 +31,8 @@
         <item name="celcius">Celcius</item>
         <item name="fahrenheit">Fahrenheit</item>
     </string-array><string-array name="temperature_units_arrayvalues">
-        <item name="celcius">°C</item>
-        <item name="fahrenheit">°F</item>
+        <item name="celcius">Â°C</item>
+        <item name="fahrenheit">Â°F</item>
     </string-array>
     
     <string name="presentation_category">Presentation category</string>

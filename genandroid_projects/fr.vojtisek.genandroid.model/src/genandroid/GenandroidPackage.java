@@ -89,58 +89,13 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT__DATA_MODEL = 1;
 
 	/**
-	 * The feature id for the '<em><b>View Activities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANDROID_PROJECT__VIEW_ACTIVITIES = 2;
-
-	/**
 	 * The feature id for the '<em><b>Package Prefix</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT__PACKAGE_PREFIX = 3;
-
-	/**
-	 * The feature id for the '<em><b>Class Details</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANDROID_PROJECT__CLASS_DETAILS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Preference View</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANDROID_PROJECT__PREFERENCE_VIEW = 5;
-
-	/**
-	 * The feature id for the '<em><b>Background Activities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANDROID_PROJECT__BACKGROUND_ACTIVITIES = 6;
-
-	/**
-	 * The feature id for the '<em><b>Welcome View</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANDROID_PROJECT__WELCOME_VIEW = 7;
+	int ANDROID_PROJECT__PACKAGE_PREFIX = 2;
 
 	/**
 	 * The feature id for the '<em><b>File Header</b></em>' attribute.
@@ -149,7 +104,16 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT__FILE_HEADER = 8;
+	int ANDROID_PROJECT__FILE_HEADER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Presentation Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__PRESENTATION_MODEL = 4;
 
 	/**
 	 * The number of structural features of the '<em>Android Project</em>' class.
@@ -158,7 +122,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT_FEATURE_COUNT = 9;
+	int ANDROID_PROJECT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -1225,6 +1189,70 @@ public interface GenandroidPackage extends EPackage {
 	int BACKGROUND_ACTIVITY_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link genandroid.impl.PresentationModelImpl <em>Presentation Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see genandroid.impl.PresentationModelImpl
+	 * @see genandroid.impl.GenandroidPackageImpl#getPresentationModel()
+	 * @generated
+	 */
+	int PRESENTATION_MODEL = 21;
+
+	/**
+	 * The feature id for the '<em><b>View Activities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_MODEL__VIEW_ACTIVITIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Preference View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_MODEL__PREFERENCE_VIEW = 1;
+
+	/**
+	 * The feature id for the '<em><b>Class Details</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_MODEL__CLASS_DETAILS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Welcome View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_MODEL__WELCOME_VIEW = 3;
+
+	/**
+	 * The feature id for the '<em><b>Background Activities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_MODEL__BACKGROUND_ACTIVITIES = 4;
+
+	/**
+	 * The number of structural features of the '<em>Presentation Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESENTATION_MODEL_FEATURE_COUNT = 5;
+
+	/**
 	 * The meta object id for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1232,7 +1260,7 @@ public interface GenandroidPackage extends EPackage {
 	 * @see genandroid.impl.GenandroidPackageImpl#getstorageKind()
 	 * @generated
 	 */
-	int STORAGE_KIND = 21;
+	int STORAGE_KIND = 22;
 
 
 	/**
@@ -1268,17 +1296,6 @@ public interface GenandroidPackage extends EPackage {
 	EReference getAndroidProject_DataModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link genandroid.AndroidProject#getViewActivities <em>View Activities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>View Activities</em>'.
-	 * @see genandroid.AndroidProject#getViewActivities()
-	 * @see #getAndroidProject()
-	 * @generated
-	 */
-	EReference getAndroidProject_ViewActivities();
-
-	/**
 	 * Returns the meta object for the attribute '{@link genandroid.AndroidProject#getPackagePrefix <em>Package Prefix</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1290,50 +1307,6 @@ public interface GenandroidPackage extends EPackage {
 	EAttribute getAndroidProject_PackagePrefix();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link genandroid.AndroidProject#getClassDetails <em>Class Details</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Class Details</em>'.
-	 * @see genandroid.AndroidProject#getClassDetails()
-	 * @see #getAndroidProject()
-	 * @generated
-	 */
-	EReference getAndroidProject_ClassDetails();
-
-	/**
-	 * Returns the meta object for the reference '{@link genandroid.AndroidProject#getPreferenceView <em>Preference View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Preference View</em>'.
-	 * @see genandroid.AndroidProject#getPreferenceView()
-	 * @see #getAndroidProject()
-	 * @generated
-	 */
-	EReference getAndroidProject_PreferenceView();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link genandroid.AndroidProject#getBackgroundActivities <em>Background Activities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Background Activities</em>'.
-	 * @see genandroid.AndroidProject#getBackgroundActivities()
-	 * @see #getAndroidProject()
-	 * @generated
-	 */
-	EReference getAndroidProject_BackgroundActivities();
-
-	/**
-	 * Returns the meta object for the reference '{@link genandroid.AndroidProject#getWelcomeView <em>Welcome View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Welcome View</em>'.
-	 * @see genandroid.AndroidProject#getWelcomeView()
-	 * @see #getAndroidProject()
-	 * @generated
-	 */
-	EReference getAndroidProject_WelcomeView();
-
-	/**
 	 * Returns the meta object for the attribute '{@link genandroid.AndroidProject#getFileHeader <em>File Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1343,6 +1316,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAndroidProject_FileHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link genandroid.AndroidProject#getPresentationModel <em>Presentation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Presentation Model</em>'.
+	 * @see genandroid.AndroidProject#getPresentationModel()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EReference getAndroidProject_PresentationModel();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.DataModel <em>Data Model</em>}'.
@@ -1897,6 +1881,71 @@ public interface GenandroidPackage extends EPackage {
 	EAttribute getBackgroundActivity_Name();
 
 	/**
+	 * Returns the meta object for class '{@link genandroid.PresentationModel <em>Presentation Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Presentation Model</em>'.
+	 * @see genandroid.PresentationModel
+	 * @generated
+	 */
+	EClass getPresentationModel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.PresentationModel#getViewActivities <em>View Activities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>View Activities</em>'.
+	 * @see genandroid.PresentationModel#getViewActivities()
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	EReference getPresentationModel_ViewActivities();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.PresentationModel#getPreferenceView <em>Preference View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Preference View</em>'.
+	 * @see genandroid.PresentationModel#getPreferenceView()
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	EReference getPresentationModel_PreferenceView();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.PresentationModel#getClassDetails <em>Class Details</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Class Details</em>'.
+	 * @see genandroid.PresentationModel#getClassDetails()
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	EReference getPresentationModel_ClassDetails();
+
+	/**
+	 * Returns the meta object for the reference '{@link genandroid.PresentationModel#getWelcomeView <em>Welcome View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Welcome View</em>'.
+	 * @see genandroid.PresentationModel#getWelcomeView()
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	EReference getPresentationModel_WelcomeView();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link genandroid.PresentationModel#getBackgroundActivities <em>Background Activities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Background Activities</em>'.
+	 * @see genandroid.PresentationModel#getBackgroundActivities()
+	 * @see #getPresentationModel()
+	 * @generated
+	 */
+	EReference getPresentationModel_BackgroundActivities();
+
+	/**
 	 * Returns the meta object for enum '{@link genandroid.storageKind <em>storage Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1955,14 +2004,6 @@ public interface GenandroidPackage extends EPackage {
 		EReference ANDROID_PROJECT__DATA_MODEL = eINSTANCE.getAndroidProject_DataModel();
 
 		/**
-		 * The meta object literal for the '<em><b>View Activities</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANDROID_PROJECT__VIEW_ACTIVITIES = eINSTANCE.getAndroidProject_ViewActivities();
-
-		/**
 		 * The meta object literal for the '<em><b>Package Prefix</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1971,44 +2012,20 @@ public interface GenandroidPackage extends EPackage {
 		EAttribute ANDROID_PROJECT__PACKAGE_PREFIX = eINSTANCE.getAndroidProject_PackagePrefix();
 
 		/**
-		 * The meta object literal for the '<em><b>Class Details</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANDROID_PROJECT__CLASS_DETAILS = eINSTANCE.getAndroidProject_ClassDetails();
-
-		/**
-		 * The meta object literal for the '<em><b>Preference View</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANDROID_PROJECT__PREFERENCE_VIEW = eINSTANCE.getAndroidProject_PreferenceView();
-
-		/**
-		 * The meta object literal for the '<em><b>Background Activities</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANDROID_PROJECT__BACKGROUND_ACTIVITIES = eINSTANCE.getAndroidProject_BackgroundActivities();
-
-		/**
-		 * The meta object literal for the '<em><b>Welcome View</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANDROID_PROJECT__WELCOME_VIEW = eINSTANCE.getAndroidProject_WelcomeView();
-
-		/**
 		 * The meta object literal for the '<em><b>File Header</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ANDROID_PROJECT__FILE_HEADER = eINSTANCE.getAndroidProject_FileHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Presentation Model</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANDROID_PROJECT__PRESENTATION_MODEL = eINSTANCE.getAndroidProject_PresentationModel();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
@@ -2465,6 +2482,56 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BACKGROUND_ACTIVITY__NAME = eINSTANCE.getBackgroundActivity_Name();
+
+		/**
+		 * The meta object literal for the '{@link genandroid.impl.PresentationModelImpl <em>Presentation Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see genandroid.impl.PresentationModelImpl
+		 * @see genandroid.impl.GenandroidPackageImpl#getPresentationModel()
+		 * @generated
+		 */
+		EClass PRESENTATION_MODEL = eINSTANCE.getPresentationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>View Activities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRESENTATION_MODEL__VIEW_ACTIVITIES = eINSTANCE.getPresentationModel_ViewActivities();
+
+		/**
+		 * The meta object literal for the '<em><b>Preference View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRESENTATION_MODEL__PREFERENCE_VIEW = eINSTANCE.getPresentationModel_PreferenceView();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Details</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRESENTATION_MODEL__CLASS_DETAILS = eINSTANCE.getPresentationModel_ClassDetails();
+
+		/**
+		 * The meta object literal for the '<em><b>Welcome View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRESENTATION_MODEL__WELCOME_VIEW = eINSTANCE.getPresentationModel_WelcomeView();
+
+		/**
+		 * The meta object literal for the '<em><b>Background Activities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRESENTATION_MODEL__BACKGROUND_ACTIVITIES = eINSTANCE.getPresentationModel_BackgroundActivities();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.storageKind <em>storage Kind</em>}' enum.

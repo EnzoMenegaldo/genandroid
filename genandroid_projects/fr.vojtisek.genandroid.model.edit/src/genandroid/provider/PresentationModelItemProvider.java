@@ -7,9 +7,9 @@
 package genandroid.provider;
 
 
-import genandroid.AndroidProject;
 import genandroid.GenandroidFactory;
 import genandroid.GenandroidPackage;
+import genandroid.PresentationModel;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,17 +28,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link genandroid.AndroidProject} object.
+ * This is the item provider adapter for a {@link genandroid.PresentationModel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AndroidProjectItemProvider
+public class PresentationModelItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +51,7 @@ public class AndroidProjectItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AndroidProjectItemProvider(AdapterFactory adapterFactory) {
+	public PresentationModelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,75 +66,52 @@ public class AndroidProjectItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addPackagePrefixPropertyDescriptor(object);
-			addFileHeaderPropertyDescriptor(object);
+			addPreferenceViewPropertyDescriptor(object);
+			addWelcomeViewPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Preference View feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addPreferenceViewPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AndroidProject_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_name_feature", "_UI_AndroidProject_type"),
-				 GenandroidPackage.Literals.ANDROID_PROJECT__NAME,
+				 getString("_UI_PresentationModel_preferenceView_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PresentationModel_preferenceView_feature", "_UI_PresentationModel_type"),
+				 GenandroidPackage.Literals.PRESENTATION_MODEL__PREFERENCE_VIEW,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Package Prefix feature.
+	 * This adds a property descriptor for the Welcome View feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPackagePrefixPropertyDescriptor(Object object) {
+	protected void addWelcomeViewPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AndroidProject_packagePrefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_packagePrefix_feature", "_UI_AndroidProject_type"),
-				 GenandroidPackage.Literals.ANDROID_PROJECT__PACKAGE_PREFIX,
+				 getString("_UI_PresentationModel_welcomeView_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PresentationModel_welcomeView_feature", "_UI_PresentationModel_type"),
+				 GenandroidPackage.Literals.PRESENTATION_MODEL__WELCOME_VIEW,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Header feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileHeaderPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AndroidProject_fileHeader_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_fileHeader_feature", "_UI_AndroidProject_type"),
-				 GenandroidPackage.Literals.ANDROID_PROJECT__FILE_HEADER,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -152,8 +128,9 @@ public class AndroidProjectItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__DATA_MODEL);
-			childrenFeatures.add(GenandroidPackage.Literals.ANDROID_PROJECT__PRESENTATION_MODEL);
+			childrenFeatures.add(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES);
+			childrenFeatures.add(GenandroidPackage.Literals.PRESENTATION_MODEL__CLASS_DETAILS);
+			childrenFeatures.add(GenandroidPackage.Literals.PRESENTATION_MODEL__BACKGROUND_ACTIVITIES);
 		}
 		return childrenFeatures;
 	}
@@ -172,14 +149,14 @@ public class AndroidProjectItemProvider
 	}
 
 	/**
-	 * This returns AndroidProject.gif.
+	 * This returns PresentationModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AndroidProject"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PresentationModel"));
 	}
 
 	/**
@@ -190,10 +167,7 @@ public class AndroidProjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AndroidProject)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_AndroidProject_type") :
-			getString("_UI_AndroidProject_type") + " " + label;
+		return getString("_UI_PresentationModel_type");
 	}
 
 	/**
@@ -207,14 +181,10 @@ public class AndroidProjectItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AndroidProject.class)) {
-			case GenandroidPackage.ANDROID_PROJECT__NAME:
-			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
-			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case GenandroidPackage.ANDROID_PROJECT__DATA_MODEL:
-			case GenandroidPackage.ANDROID_PROJECT__PRESENTATION_MODEL:
+		switch (notification.getFeatureID(PresentationModel.class)) {
+			case GenandroidPackage.PRESENTATION_MODEL__VIEW_ACTIVITIES:
+			case GenandroidPackage.PRESENTATION_MODEL__CLASS_DETAILS:
+			case GenandroidPackage.PRESENTATION_MODEL__BACKGROUND_ACTIVITIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -234,13 +204,53 @@ public class AndroidProjectItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GenandroidPackage.Literals.ANDROID_PROJECT__DATA_MODEL,
-				 GenandroidFactory.eINSTANCE.createDataModel()));
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createElementViewActivity()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GenandroidPackage.Literals.ANDROID_PROJECT__PRESENTATION_MODEL,
-				 GenandroidFactory.eINSTANCE.createPresentationModel()));
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createEditableElementViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createListViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createClassListViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createReferenceListViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createAttributeListViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createPreferenceViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__VIEW_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createCustomViewActivity()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__CLASS_DETAILS,
+				 GenandroidFactory.eINSTANCE.createClassDetail()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GenandroidPackage.Literals.PRESENTATION_MODEL__BACKGROUND_ACTIVITIES,
+				 GenandroidFactory.eINSTANCE.createBackgroundActivity()));
 	}
 
 	/**
