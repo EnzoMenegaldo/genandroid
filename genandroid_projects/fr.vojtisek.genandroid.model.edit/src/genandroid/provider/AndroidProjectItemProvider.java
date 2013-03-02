@@ -156,7 +156,7 @@ public class AndroidProjectItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_fileHeader_feature", "_UI_AndroidProject_type"),
 				 GenandroidPackage.Literals.ANDROID_PROJECT__FILE_HEADER,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
