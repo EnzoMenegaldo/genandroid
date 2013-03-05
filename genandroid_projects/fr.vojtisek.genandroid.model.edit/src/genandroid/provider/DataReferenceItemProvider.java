@@ -8,6 +8,7 @@ package genandroid.provider;
 
 
 import genandroid.DataAttribute;
+import genandroid.DataClass;
 import genandroid.DataReference;
 import genandroid.GenandroidPackage;
 import genandroid.storageKind;
@@ -177,14 +178,17 @@ public class DataReferenceItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getString("_UI_DataReference_type"));
 		String label = ((DataReference)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DataReference_type") :
-			getString("_UI_DataReference_type") + " " + label;
+		if(label != null && label.length() > 0) sb.append(label);
+		String from = ((DataClass)((DataReference)object).eContainer()).getName();
+		if(from != null && from.length() > 0) sb.append (" from "+from);
+		return sb.toString();
 	}
 
 	/**

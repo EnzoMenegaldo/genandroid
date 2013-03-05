@@ -133,14 +133,17 @@ public class DataAttributeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getString("_UI_DataAttribute_type"));
 		String label = ((DataAttribute)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DataAttribute_type") :
-			getString("_UI_DataAttribute_type") + " " + label;
+		if(label != null && label.length() > 0) sb.append(label);
+		String from = ((DataClass)((DataAttribute)object).eContainer()).getName();
+		if(from != null && from.length() > 0) sb.append (" from "+from);
+		return sb.toString();
 	}
 
 	/**
