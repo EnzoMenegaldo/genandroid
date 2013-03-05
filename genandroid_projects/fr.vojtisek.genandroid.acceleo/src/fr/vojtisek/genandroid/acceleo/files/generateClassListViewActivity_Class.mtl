@@ -57,7 +57,7 @@ public class [aClassListViewActivity.name/]ClassListViewActivity extends OrmLite
         showToast(dateFormatter.format(((DiveEntry)view.getTag()).getDate()));
 		*/
 		[if(selectItemAction <> null)]
-        Intent toDetailView = new Intent(this, [selectItemAction.name/]ElementViewActivity.class);
+        Intent toDetailView = new Intent(this, [selectItemAction.name/]_ElementViewActivity.class);
         Bundle b = new Bundle();
         b.putInt("[aClassListViewActivity.listedElement.name.toLower()/]Id", (([aClassListViewActivity.listedElement.name/])view.getTag()).getId());
 		toDetailView.putExtras(b);
