@@ -1,0 +1,99 @@
+[comment encoding = UTF-8 /]
+[module generateBackgroundActivity('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+[import fr::vojtisek::genandroid::acceleo::common::commonActivityTemplate/]
+
+[template public generateBackgroundActivity(aBackgroundActivity : BackgroundActivity)]
+
+[file ('/src/'+aBackgroundActivity.packagePrefixFolder()+'/async/'+aBackgroundActivity.name+'_BgActivity.java', false, 'UTF-8')]
+/* [aBackgroundActivity.eContainer(AndroidProject).fileHeader/] */
+package [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].async;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].datamodel.OrmLiteDBHelper;
+// [protected ('additional imports')]
+// [/protected]
+
+public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,Integer, Integer>{
+	private static final String LOG_TAG = [aBackgroundActivity.name/]_BgActivity.class.getCanonicalName();
+	
+	
+    private NotificationHelper mNotificationHelper;
+    private OrmLiteDBHelper dbHelper;
+    
+    // [protected ('additional attribute declarations')]
+	// [/protected]
+    
+	/** constructor */
+    public [aBackgroundActivity.name/]_BgActivity(Context context, OrmLiteDBHelper dbHelper){
+        mNotificationHelper = new NotificationHelper(context);
+        this.dbHelper = dbHelper;
+    }
+
+    protected void onPreExecute(){
+        //Create the notification in the statusbar
+        mNotificationHelper.createNotification();
+    }
+
+    @Override
+    protected Integer doInBackground(String... arg0) {
+    	
+
+		// [protected ('initialization of the task')]
+		// do the initializatio of the task here
+		// once done, you should indicates to the notificationHelper how many item will be processed
+		//mNotificationHelper.setMaxNbPages(maxNbPages.toString());
+		// [/protected]
+    	
+    	// [protected ('main loop of task')]
+		// This is where we would do the actual job
+		// you should indicates the progression using publishProgress()
+		for (int i=10;i<=100;i += 10)
+            {
+                try {
+					// simply sleep for one second
+                    Thread.sleep(1000);
+                    publishProgress(i);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+		// [/protected]
+        
+		// [protected ('end of task')]
+		// return the number of item processed
+        return 100;
+		// [/protected]
+    }
+    protected void onProgressUpdate(Integer... progress) {
+        //This method runs on the UI thread, it receives progress updates
+        //from the background thread and publishes them to the status bar
+        mNotificationHelper.progressUpdate(progress['['/]0]);
+    }
+    protected void onPostExecute(Integer result)    {
+        //The task is complete, tell the status bar about it
+        mNotificationHelper.completed();
+    }
+
+    
+    // [protected ('additional operations')]
+	
+	// [/protected]
+    
+	
+}
+[/file]
+[/template]
+

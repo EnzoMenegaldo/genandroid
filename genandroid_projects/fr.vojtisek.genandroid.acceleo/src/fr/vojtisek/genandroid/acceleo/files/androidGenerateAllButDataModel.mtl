@@ -5,7 +5,7 @@
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClass/]
 [import fr::vojtisek::genandroid::acceleo::files::generateYUMLActivityDiagram/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDataClassXMLParser/]
-[import fr::vojtisek::genandroid::acceleo::files::generateClassListViewActivity_Class/]
+[import fr::vojtisek::genandroid::acceleo::files::generateClassListViewActivity/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListViewAdapter/]
 [import fr::vojtisek::genandroid::acceleo::files::generateClassListView_layout/]
 [import fr::vojtisek::genandroid::acceleo::files::generateElementViewActivity_Class/]
@@ -19,6 +19,8 @@
 [import fr::vojtisek::genandroid::acceleo::files::generatePreferenceViewActivity/]
 [import fr::vojtisek::genandroid::acceleo::files::generatePreferenceViewActivity_xml/]
 [import fr::vojtisek::genandroid::acceleo::files::generatePreferenceViewActivity_strings/]
+[import fr::vojtisek::genandroid::acceleo::files::generateBackgroundActivity/]
+[import fr::vojtisek::genandroid::acceleo::files::generateNotificationHelper/]
 
 [import fr::vojtisek::genandroid::acceleo::files::generateAndroidManifest/]
 [comment][import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
@@ -54,6 +56,12 @@
 				
 			[/if]
 		[/for]
+		[for(aBackGroundActivity : BackgroundActivity | anAndroidProject.presentationModel.backgroundActivities)]
+			[aBackGroundActivity.generateBackgroundActivity()/]
+		[/for]
+		[if(anAndroidProject.presentationModel.backgroundActivities->size() > 0)]
+			[anAndroidProject.generateNotificationHelper()/]
+		[/if]
 	[/if]
 
 	[anAndroidProject.presentationModel.generateYUMLActivityDiagram()/]
