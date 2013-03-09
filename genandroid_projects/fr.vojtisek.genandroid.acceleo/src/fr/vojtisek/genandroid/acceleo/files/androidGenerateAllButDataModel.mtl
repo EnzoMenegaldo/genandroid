@@ -20,6 +20,7 @@
 [import fr::vojtisek::genandroid::acceleo::files::generatePreferenceViewActivity_xml/]
 [import fr::vojtisek::genandroid::acceleo::files::generatePreferenceViewActivity_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateBackgroundActivity/]
+[import fr::vojtisek::genandroid::acceleo::files::generateBackgroundActivity_strings/]
 [import fr::vojtisek::genandroid::acceleo::files::generateNotificationHelper/]
 
 [import fr::vojtisek::genandroid::acceleo::files::generateAndroidManifest/]
@@ -58,6 +59,7 @@
 		[/for]
 		[for(aBackGroundActivity : BackgroundActivity | anAndroidProject.presentationModel.backgroundActivities)]
 			[aBackGroundActivity.generateBackgroundActivity()/]
+			[aBackGroundActivity.generateBackgroundActivity_strings()/]
 		[/for]
 		[if(anAndroidProject.presentationModel.backgroundActivities->size() > 0)]
 			[anAndroidProject.generateNotificationHelper()/]

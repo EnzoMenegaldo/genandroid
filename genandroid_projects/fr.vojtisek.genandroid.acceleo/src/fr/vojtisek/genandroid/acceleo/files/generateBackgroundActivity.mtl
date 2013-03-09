@@ -22,6 +22,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].datamodel.OrmLiteDBHelper;
+import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].R;
 // [protected ('additional imports')]
 // [/protected]
 
@@ -37,7 +38,9 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
     
 	/** constructor */
     public [aBackgroundActivity.name/]_BgActivity(Context context, OrmLiteDBHelper dbHelper){
-        mNotificationHelper = new NotificationHelper(context);
+		String initialTickerText = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_initialTickerText);
+		String notificationTitle = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_notificationTitle);
+        mNotificationHelper = new NotificationHelper(context, initialTickerText, notificationTitle);
         this.dbHelper = dbHelper;
     }
 
