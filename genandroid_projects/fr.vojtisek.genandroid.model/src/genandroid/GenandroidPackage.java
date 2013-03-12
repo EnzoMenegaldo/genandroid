@@ -939,13 +939,22 @@ public interface GenandroidPackage extends EPackage {
 	int DATA_ATTRIBUTE__TYPE = STRUCTURAL_FEATURE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Simple Xml Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_ATTRIBUTE__SIMPLE_XML_TYPE = STRUCTURAL_FEATURE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Data Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_ATTRIBUTE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 2;
+	int DATA_ATTRIBUTE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataReferenceImpl <em>Data Reference</em>}' class.
@@ -1754,6 +1763,17 @@ public interface GenandroidPackage extends EPackage {
 	EReference getDataAttribute_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.DataAttribute#isSimpleXmlType <em>Simple Xml Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Simple Xml Type</em>'.
+	 * @see genandroid.DataAttribute#isSimpleXmlType()
+	 * @see #getDataAttribute()
+	 * @generated
+	 */
+	EAttribute getDataAttribute_SimpleXmlType();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataReference <em>Data Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2384,6 +2404,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_ATTRIBUTE__TYPE = eINSTANCE.getDataAttribute_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Simple Xml Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_ATTRIBUTE__SIMPLE_XML_TYPE = eINSTANCE.getDataAttribute_SimpleXmlType();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataReferenceImpl <em>Data Reference</em>}' class.

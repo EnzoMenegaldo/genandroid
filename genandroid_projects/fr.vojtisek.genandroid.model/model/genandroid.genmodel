@@ -48,6 +48,7 @@
     <genClasses ecoreClass="genandroid.ecore#//DataAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataAttribute/storage"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataAttribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataAttribute/simpleXmlType"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataReference/storage"/>

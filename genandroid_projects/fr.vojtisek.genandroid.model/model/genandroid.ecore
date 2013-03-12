@@ -54,6 +54,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storage" lowerBound="1"
         eType="#//storageKind" defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//NativeDataClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleXmlType" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An attribute of simple kind, will be serialized in a simple attribute rather that in dedicated tag"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataReference" eSuperTypes="#//StructuralFeature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storage" lowerBound="1"

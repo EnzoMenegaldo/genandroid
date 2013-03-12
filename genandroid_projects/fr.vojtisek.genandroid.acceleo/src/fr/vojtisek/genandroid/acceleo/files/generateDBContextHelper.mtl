@@ -29,8 +29,10 @@ public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
 		[/if]
 	[/for]
 	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
 	//public RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
 	public Dao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
+		[/if]
 	[/for]
 
 	

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link genandroid.DataAttribute#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.DataAttribute#getType <em>Type</em>}</li>
+ *   <li>{@link genandroid.DataAttribute#isSimpleXmlType <em>Simple Xml Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +83,31 @@ public interface DataAttribute extends StructuralFeature {
 	 * @generated
 	 */
 	void setType(NativeDataClass value);
+
+	/**
+	 * Returns the value of the '<em><b>Simple Xml Type</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * An attribute of simple kind, will be serialized in a simple attribute rather that in dedicated tag
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Simple Xml Type</em>' attribute.
+	 * @see #setSimpleXmlType(boolean)
+	 * @see genandroid.GenandroidPackage#getDataAttribute_SimpleXmlType()
+	 * @model default=""
+	 * @generated
+	 */
+	boolean isSimpleXmlType();
+
+	/**
+	 * Sets the value of the '{@link genandroid.DataAttribute#isSimpleXmlType <em>Simple Xml Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Simple Xml Type</em>' attribute.
+	 * @see #isSimpleXmlType()
+	 * @generated
+	 */
+	void setSimpleXmlType(boolean value);
 
 } // DataAttribute

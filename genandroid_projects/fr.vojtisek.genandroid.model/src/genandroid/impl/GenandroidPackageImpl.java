@@ -539,6 +539,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataAttribute_SimpleXmlType() {
+		return (EAttribute)dataAttributeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataReference() {
 		return dataReferenceEClass;
 	}
@@ -905,6 +914,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		dataAttributeEClass = createEClass(DATA_ATTRIBUTE);
 		createEAttribute(dataAttributeEClass, DATA_ATTRIBUTE__STORAGE);
 		createEReference(dataAttributeEClass, DATA_ATTRIBUTE__TYPE);
+		createEAttribute(dataAttributeEClass, DATA_ATTRIBUTE__SIMPLE_XML_TYPE);
 
 		dataReferenceEClass = createEClass(DATA_REFERENCE);
 		createEAttribute(dataReferenceEClass, DATA_REFERENCE__STORAGE);
@@ -1045,6 +1055,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(dataAttributeEClass, DataAttribute.class, "DataAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataAttribute_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataAttribute_Type(), this.getNativeDataClass(), null, "type", null, 1, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataAttribute_SimpleXmlType(), theEcorePackage.getEBoolean(), "simpleXmlType", "", 0, 1, DataAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataReferenceEClass, DataReference.class, "DataReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataReference_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

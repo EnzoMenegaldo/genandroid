@@ -70,6 +70,7 @@ public class DataAttributeItemProvider
 
 			addStoragePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addSimpleXmlTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class DataAttributeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Simple Xml Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSimpleXmlTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataAttribute_simpleXmlType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataAttribute_simpleXmlType_feature", "_UI_DataAttribute_type"),
+				 GenandroidPackage.Literals.DATA_ATTRIBUTE__SIMPLE_XML_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns DataAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,6 +182,7 @@ public class DataAttributeItemProvider
 
 		switch (notification.getFeatureID(DataAttribute.class)) {
 			case GenandroidPackage.DATA_ATTRIBUTE__STORAGE:
+			case GenandroidPackage.DATA_ATTRIBUTE__SIMPLE_XML_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

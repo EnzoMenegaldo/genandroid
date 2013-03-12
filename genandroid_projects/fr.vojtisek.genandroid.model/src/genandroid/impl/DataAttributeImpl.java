@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link genandroid.impl.DataAttributeImpl#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.impl.DataAttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link genandroid.impl.DataAttributeImpl#isSimpleXmlType <em>Simple Xml Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,6 +65,26 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 	 * @ordered
 	 */
 	protected NativeDataClass type;
+
+	/**
+	 * The default value of the '{@link #isSimpleXmlType() <em>Simple Xml Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSimpleXmlType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SIMPLE_XML_TYPE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSimpleXmlType() <em>Simple Xml Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSimpleXmlType()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean simpleXmlType = SIMPLE_XML_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,27 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSimpleXmlType() {
+		return simpleXmlType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSimpleXmlType(boolean newSimpleXmlType) {
+		boolean oldSimpleXmlType = simpleXmlType;
+		simpleXmlType = newSimpleXmlType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.DATA_ATTRIBUTE__SIMPLE_XML_TYPE, oldSimpleXmlType, simpleXmlType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -156,6 +198,8 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
+			case GenandroidPackage.DATA_ATTRIBUTE__SIMPLE_XML_TYPE:
+				return isSimpleXmlType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,6 +217,9 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 				return;
 			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
 				setType((NativeDataClass)newValue);
+				return;
+			case GenandroidPackage.DATA_ATTRIBUTE__SIMPLE_XML_TYPE:
+				setSimpleXmlType((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,6 +239,9 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
 				setType((NativeDataClass)null);
 				return;
+			case GenandroidPackage.DATA_ATTRIBUTE__SIMPLE_XML_TYPE:
+				setSimpleXmlType(SIMPLE_XML_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,6 +258,8 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 				return storage != STORAGE_EDEFAULT;
 			case GenandroidPackage.DATA_ATTRIBUTE__TYPE:
 				return type != null;
+			case GenandroidPackage.DATA_ATTRIBUTE__SIMPLE_XML_TYPE:
+				return simpleXmlType != SIMPLE_XML_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -224,6 +276,8 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (storage: ");
 		result.append(storage);
+		result.append(", simpleXmlType: ");
+		result.append(simpleXmlType);
 		result.append(')');
 		return result.toString();
 	}
