@@ -5,7 +5,7 @@
 
 [template public generateClassListViewActivity_Class(aClassListViewActivity : ClassListViewActivity)]
 
-[file ('/src/'+aClassListViewActivity.packagePrefixFolder()+'/activities/'+aClassListViewActivity.name+'ClassListViewActivity.java', false, 'UTF-8')]
+[file ('/src/'+aClassListViewActivity.packagePrefixFolder()+'/activities/'+aClassListViewActivity.name+'_ClassListViewActivity.java', false, 'UTF-8')]
 /* [aClassListViewActivity.eContainer(AndroidProject).fileHeader/] */
 package [aClassListViewActivity.packagePrefix()/].activities;
 
@@ -27,7 +27,7 @@ import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
 
-public class [aClassListViewActivity.name/]ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener{
+public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener{
 	
 
 	public void onCreate(Bundle bundle) {
@@ -40,7 +40,7 @@ public class [aClassListViewActivity.name/]ClassListViewActivity extends OrmLite
 		[else]
         list.setClickable(false);
 		[/if]
-        [aClassListViewActivity.name/]Adapter adapter = new [aClassListViewActivity.name/]Adapter(this, getHelper().get[aClassListViewActivity.listedElement.name/]Dao());
+        [aClassListViewActivity.name/]_Adapter adapter = new [aClassListViewActivity.name/]_Adapter(this, getHelper().get[aClassListViewActivity.listedElement.name/]Dao());
 
         
         list.setOnItemClickListener(this);
