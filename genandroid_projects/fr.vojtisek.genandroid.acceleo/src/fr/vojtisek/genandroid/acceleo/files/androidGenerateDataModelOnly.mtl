@@ -20,6 +20,7 @@
 
 [import fr::vojtisek::genandroid::acceleo::files::generateAndroidManifest/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDBContextHelper/]
+[import fr::vojtisek::genandroid::acceleo::files::generateXMLHelper/]
 [comment][import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
 [import fr::vojtisek::genandroid::acceleo::files::generateSQLiteDAOHelper/][/comment]
 [import fr::vojtisek::genandroid::acceleo::files::generateOrmLiteDBHelper/]
@@ -43,5 +44,6 @@
 	[/for]
 	[anAndroidProject.dataModel.generateYUMLClassDiagram()/]
 	[anAndroidProject.generateDBContextHelper()/]	
+	[anAndroidProject.generateXMLHelper()/]
 	
 [/template]

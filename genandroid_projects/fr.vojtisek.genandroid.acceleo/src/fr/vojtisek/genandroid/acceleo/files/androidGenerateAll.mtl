@@ -27,6 +27,7 @@
 
 [import fr::vojtisek::genandroid::acceleo::files::generateAndroidManifest/]
 [import fr::vojtisek::genandroid::acceleo::files::generateDBContextHelper/]
+[import fr::vojtisek::genandroid::acceleo::files::generateXMLHelper/]
 [comment][import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
 [import fr::vojtisek::genandroid::acceleo::files::generateSQLiteDAOHelper/][/comment]
 [import fr::vojtisek::genandroid::acceleo::files::generateOrmLiteDBHelper/]
@@ -87,6 +88,7 @@
 	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
 	[anAndroidProject.generateDBContextHelper()/]	
 	[anAndroidProject.generateOrmLiteDBHelper()/]	
+	[anAndroidProject.generateXMLHelper()/]	
 	[anAndroidProject.generateAndroidManifest()/]	
 	[anAndroidProject.generateMain_strings()/]
 	[if(not anAndroidProject.presentationModel.oclIsUndefined() and not anAndroidProject.presentationModel.preferenceView.oclIsUndefined())]
