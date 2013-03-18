@@ -9,9 +9,12 @@
 package [aDataClass.packagePrefix()/].datamodel.xml;
 
 import org.xml.sax.helpers.DefaultHandler;
-
+//[protected ('additional import for '+aDataClass.name.toUpperFirst()+'XMLParser')]
+//[/protected]
 public class [aDataClass.name.toUpperFirst()/]XMLParser extends DefaultHandler{
 
+//[protected ('additional code for '+aDataClass.name.toUpperFirst()+'XMLParser')]
+//[/protected]
 	
 }
 [/file]
