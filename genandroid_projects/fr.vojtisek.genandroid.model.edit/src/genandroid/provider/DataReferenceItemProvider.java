@@ -185,7 +185,7 @@ public class DataReferenceItemProvider
 		StringBuilder sb = new StringBuilder();
 		sb.append(getString("_UI_DataReference_type"));
 		String label = ((DataReference)object).getName();
-		if(label != null && label.length() > 0) sb.append(label);
+		if(label != null && label.length() > 0) sb.append(" "+label);
 		String from = ((DataClass)((DataReference)object).eContainer()).getName();
 		if(from != null && from.length() > 0) sb.append (" from "+from);
 		return sb.toString();
