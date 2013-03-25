@@ -163,7 +163,7 @@ public class DataAttributeItemProvider
 		StringBuilder sb = new StringBuilder();
 		sb.append(getString("_UI_DataAttribute_type"));
 		String label = ((DataAttribute)object).getName();
-		if(label != null && label.length() > 0) sb.append(label);
+		if(label != null && label.length() > 0) sb.append(" "+label);
 		String from = ((DataClass)((DataAttribute)object).eContainer()).getName();
 		if(from != null && from.length() > 0) sb.append (" from "+from);
 		return sb.toString();

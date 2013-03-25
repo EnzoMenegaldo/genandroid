@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Collection;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import [aDataClass.packagePrefix()/].datamodel.associations.*;
 
 // [protected ('additional import for '.concat(aDataClass.name))]
@@ -211,7 +213,11 @@ public class [aDataClass.name.toUpperFirst()/] {
 		sb.append(" ");
     	sb.append(XML_ATT_[att.name.toUpper()/]);
     	sb.append("=\"");
+			[if (att.type.instanceClassName = 'java.lang.String')]
+		sb.append(StringEscapeUtils.escapeXml(this.[att.name.toLowerFirst()/]));
+			[else]
 		sb.append(this.[att.name.toLowerFirst()/]);
+			[/if]
     	sb.append("\" ");
 		[/if]
 	[/for]
@@ -220,7 +226,11 @@ public class [aDataClass.name.toUpperFirst()/] {
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
 		[if (att.upperBound = 1 and not att.simpleXmlType)]
 		sb.append("\n"+indent+"\t<"+XML_ATT_[att.name.toUpper()/]+">");
+			[if (att.type.instanceClassName = 'java.lang.String')]
+		sb.append(StringEscapeUtils.escapeXml(this.[att.name.toLowerFirst()/]));
+			[else]
 		sb.append(this.[att.name.toLowerFirst()/]);
+			[/if]
     	sb.append("</"+XML_ATT_[att.name.toUpper()/]+">");
 		[/if]
 	[/for]
