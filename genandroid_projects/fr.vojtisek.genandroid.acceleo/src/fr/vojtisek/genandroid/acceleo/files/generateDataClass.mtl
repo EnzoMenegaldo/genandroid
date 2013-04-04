@@ -247,17 +247,21 @@ public class [aDataClass.name.toUpperFirst()/] {
 		[else]
 			[if(not ref.opposite.oclIsUndefined() and ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().upperBound=1)]							
 				[if(not ref.containment)]
-		for([ref.type.name.toUpperFirst()/] ref : this.[ref.name.toLowerFirst()/]){
-				
-    		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
-    		sb.append(ref._id);
-        	sb.append("\"/>");
-    	}		
+		if(this.[ref.name.toLowerFirst()/] != null){
+			for([ref.type.name.toUpperFirst()/] ref : this.[ref.name.toLowerFirst()/]){
+					
+	    		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
+	    		sb.append(ref._id);
+	        	sb.append("\"/>");
+	    	}		
+		}
 				[else]
 		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
-		for([ref.type.name.toUpperFirst()/] ref : this.[ref.name.toLowerFirst()/]){
-			sb.append("\n"+ref.toXML(indent+"\t\t", contextDB));
-    	}
+		if(this.[ref.name.toLowerFirst()/] != null){
+			for([ref.type.name.toUpperFirst()/] ref : this.[ref.name.toLowerFirst()/]){
+				sb.append("\n"+ref.toXML(indent+"\t\t", contextDB));
+	    	}
+		}
 		sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");		
 				[/if]
 			[else]		

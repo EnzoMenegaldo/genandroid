@@ -46,14 +46,33 @@ public class XMLHelper {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<[anAndroidProject.dataModel.name.toUpper()/]>");
 		[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
-			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses->select(cl | not containedClasses->includes(cl) ))] 
+			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 				[if(aDataClassifer.oclIsKindOf(DataClass))]
 		sb.append("\n\t<[aDataClassifer.name.toUpper()/]S>");
 		try {	
 			List<[aDataClassifer.name.toUpperFirst()/]> [aDataClassifer.name.toLowerFirst()/]s = dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.queryForAll();
 			for([aDataClassifer.name.toUpperFirst()/]  [aDataClassifer.name.toLowerFirst()/] : [aDataClassifer.name.toLowerFirst()/]s){
-				sb.append("\n");
-				sb.append([aDataClassifer.name.toLowerFirst()/].toXML("\t\t", dbContext));
+				// TODO find if contained by another element, if not put it there
+				[if(containedClasses->includes(aDataClassifer))]
+				boolean isContained = false;
+					[let containingReferences : Sequence(DataReference) = anAndroidProject.dataModel.dataAssociations
+						->select(assoc |  (assoc.references->first().type = aDataClassifer and assoc.references->first().containment) 
+										or (assoc.references->last().type = aDataClassifer and assoc.references->last().containment))
+						->collect(assoc |assoc.references)->select(ref |ref.type <> aDataClassifer and ref.upperBound = 1) ]
+						[for (aRef : DataReference | containingReferences)]
+				if([aDataClassifer.name.toLowerFirst()/].get[aRef.name.toUpperFirst()/]() != null){
+					isContained = true;
+				}
+						[/for]
+					[/let]				
+				if(!isContained){
+					sb.append("\n");
+					sb.append([aDataClassifer.name.toLowerFirst()/].toXML("\t\t", dbContext));
+				}
+				[else]
+					sb.append("\n");
+					sb.append([aDataClassifer.name.toLowerFirst()/].toXML("\t\t", dbContext));
+				[/if]
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
