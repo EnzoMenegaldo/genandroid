@@ -6,9 +6,9 @@
 
 [file ('/res/values/'+aCustomViewActivity.name.toLower()+'_customview_strings.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Resource Strings speifc to [aCustomViewActivity.name.toLower()/] Custom View -->
+<!-- Resource Strings specific to [aCustomViewActivity.name.toLower()/] Custom View -->
 <resources>	
-	<!--[protected ('customView_strings')]
+	<!--[protected ('customView_strings'.concat(aCustomViewActivity.name.toLower()))]
 	-->
 	<!-- freely add here the desired resource String for your custom view -->
 	<string name="[aCustomViewActivity.name.toLower()/]_customview_sample_btn_label">SampleButton</string>

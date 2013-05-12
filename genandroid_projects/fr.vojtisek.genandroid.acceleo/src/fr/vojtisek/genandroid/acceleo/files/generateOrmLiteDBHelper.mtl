@@ -128,6 +128,23 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	[/for]
 	}
 
+	
+	/**
+     *
+     */
+	public [aAndroidProject.dataModel.name.toUpperFirst()/]Helper get[aAndroidProject.dataModel.name.toUpperFirst()/]Helper(){
+		[aAndroidProject.dataModel.name.toUpperFirst()/]Helper helper = new [aAndroidProject.dataModel.name.toUpperFirst()/]Helper();
+		try{
+	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
+		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
+			helper.[aDataClass.name.toLowerFirst()/]Dao = getDao([aDataClass.name.toUpperFirst()/].class);
+		[/if]
+	[/for]
+		} catch (SQLException e) {
+			Log.e(OrmLiteDBHelper.class.getName(), "Can't get ", e);
+		}
+		return helper;
+	}
 }
 [/file]
 [/template]

@@ -8,10 +8,123 @@
 /* [aDataClass.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
 package [aDataClass.packagePrefix()/].datamodel.xml;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
+import [aDataClass.packagePrefix()/].datamodel.associations.*;
+import [aDataClass.packagePrefix()/].datamodel.*;
 //[protected ('additional import for '+aDataClass.name.toUpperFirst()+'XMLParser')]
 //[/protected]
 public class [aDataClass.name.toUpperFirst()/]XMLParser extends DefaultHandler{
+
+	private XMLReader reader;
+    private DefaultHandler parentHandler;
+    private [aDataClass.name.toUpperFirst()/] current[aDataClass.name.toUpperFirst()/];
+    private StringBuilder content;
+
+ 	public [aDataClass.name.toUpperFirst()/]XMLParser(XMLReader reader, DefaultHandler parentHandler) {
+        this.reader = reader;
+        this.parentHandler = parentHandler;
+        this.content = new StringBuilder();
+    }
+
+	// characters can be called multiple times per element so aggregate the content in a StringBuilder
+    public void characters(char['['/]] ch, int start, int length) throws SAXException {
+        content.append(ch, start, length);
+    }
+
+    public void startElement(String uri, String localName, String name, Attributes attributes) throws SAXException {
+		if(name.equals([aDataClass.name.toUpperFirst()/].XML_[aDataClass.name.toUpper()/])){
+
+        	this.current[aDataClass.name.toUpperFirst()/] = new [aDataClass.name.toUpperFirst()/]();			
+			// deal with simple DataAttribute
+	[for (att : DataAttribute | aDataClass.dataAttributes)]
+		[if (att.upperBound = 1 and att.simpleXmlType)]
+    		[if (att.type.instanceClassName = 'java.lang.String')]
+			this.current[aDataClass.name.toUpperFirst()/].set[att.name.toUpperFirst()/](attributes.getValue([aDataClass.name.toUpperFirst()/].XML_ATT_[att.name.toUpper()/]));
+			[else]
+			// TODO this.current[aDataClass.name.toUpperFirst()/].set[att.name.toUpperFirst()/](attributes.getValue([aDataClass.name.toUpperFirst()/].XML_ATT_[att.name.toUpper()/]));			
+			[/if]
+		[/if]
+	[/for]
+		}
+		// reset content for current element (mixed content XML syntax not allowed)
+        content.setLength(0);
+	
+    }
+
+    public void endElement(String uri, String localName, String name) throws SAXException {
+		if(name.equals([aDataClass.name.toUpperFirst()/].XML_[aDataClass.name.toUpper()/])){
+			// TODO store in the parent or database
+		}
+		// deal with not simple DataAttribute
+	[for (att : DataAttribute | aDataClass.dataAttributes)]
+		[if (att.upperBound = 1 and not att.simpleXmlType)]
+		else if (name.equals([aDataClass.name.toUpperFirst()/].XML_ATT_[att.name.toUpper()/])) {
+			[if (att.type.instanceClassName = 'java.lang.String')]
+			this.current[aDataClass.name.toUpperFirst()/].set[att.name.toUpperFirst()/](content.toString());
+			[else]
+			// TODO this.current[aDataClass.name.toUpperFirst()/].set[att.name.toUpperFirst()/](content.toString());
+			[/if]
+    	}
+		[/if]
+	[/for]    
+	[for (ref : DataReference | aDataClass.dataReferences)]
+		[if (ref.upperBound = 1 )]
+			[if(ref.opposite.oclIsUndefined() or not ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().containment)]
+		//TODO deal with one 2 one reference
+		// if(this.[ref.name.toLowerFirst()/]!= null){
+		//	sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
+		//	sb.append(this.[ref.name.toLowerFirst()/]);
+	    //	sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
+		//}
+			[/if]
+		[else]
+			[if(not ref.opposite.oclIsUndefined() and ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().upperBound=1)]							
+				[if(not ref.containment)]
+		//TODO deal with many 2 one cross reference (no containment)
+		// if(this.[ref.name.toLowerFirst()/] != null){
+		//	for([ref.type.name.toUpperFirst()/] ref : this.[ref.name.toLowerFirst()/]){
+	    //		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
+	    //		sb.append(ref._id);
+	    //   	sb.append("\"/>");
+	    //	}		
+		//}
+				[else]
+		// deal with many 2 one contained reference
+		//sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
+		//if(this.[ref.name.toLowerFirst()/] != null){
+		//	for([ref.type.name.toUpperFirst()/] ref : this.[ref.name.toLowerFirst()/]){
+		//		sb.append("\n"+ref.toXML(indent+"\t\t", contextDB));
+	    //	}
+		//}
+		//sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");		
+				[/if]
+			[else]
+				[if(not ref.containment)]
+			// TODO deal with multiple cross reference 
+			//for([ref.type.name.toUpperFirst()/] ref : this.lookup[ref.name.toUpperFirst()/](contextDB)){
+	    	//	sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
+	    	//	sb.append(ref._id);
+	        //	sb.append("\"/>");
+	    	//}
+				[else]
+			// TODO deal with nested multiple contained reference
+			//sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
+			//for([ref.type.name.toUpperFirst()/] ref : this.lookup[ref.name.toUpperFirst()/](contextDB)){
+			//	sb.append("\n"+ref.toXML(indent+"\t", contextDB));				
+	    	//}
+			//sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
+				[/if]	
+			[/if]
+		[/if]
+	[/for]
+		else if (name.equals("[aDataClass.name.toUpper()/]S")) {            
+            // Switch handler back to our parent
+            reader.setContentHandler(parentHandler);
+        }
+    }
 
 //[protected ('additional code for '+aDataClass.name.toUpperFirst()+'XMLParser')]
 //[/protected]

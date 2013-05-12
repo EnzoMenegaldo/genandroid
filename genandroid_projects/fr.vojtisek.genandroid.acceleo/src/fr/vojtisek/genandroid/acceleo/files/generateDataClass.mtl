@@ -240,7 +240,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[if(ref.opposite.oclIsUndefined() or not ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().containment)]
 		if(this.[ref.name.toLowerFirst()/]!= null){
 			sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
-			sb.append(this.[ref.name.toLowerFirst()/]);
+			sb.append(this.[ref.name.toLowerFirst()/].getId());
 	    	sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
 		}
 			[/if]
@@ -266,20 +266,20 @@ public class [aDataClass.name.toUpperFirst()/] {
 				[/if]
 			[else]		
 		try{
-			[if(not ref.containment)]
+				[if(not ref.containment)]
 			for([ref.type.name.toUpperFirst()/] ref : this.lookup[ref.name.toUpperFirst()/](contextDB)){
 	    		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
 	    		sb.append(ref._id);
 	        	sb.append("\"/>");
 				
 	    	}
-			[else]
+				[else]
 			sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
 			for([ref.type.name.toUpperFirst()/] ref : this.lookup[ref.name.toUpperFirst()/](contextDB)){
 				sb.append("\n"+ref.toXML(indent+"\t", contextDB));				
 	    	}
 			sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
-			[/if]
+				[/if]
 		}
 		catch(SQLException e){};	
 			[/if]

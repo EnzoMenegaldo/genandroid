@@ -1,0 +1,191 @@
+[comment encoding = UTF-8 /]
+[module generateXMLParser('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateXMLParser(anAndroidProject : AndroidProject)]
+
+[file ('/src/'+anAndroidProject.packagePrefixFolder()+'/datamodel/xml/'+anAndroidProject.dataModel.name.toUpperFirst()+'XMLParser.java', false, 'UTF-8')]
+/* [anAndroidProject.fileHeader/] */
+package [anAndroidProject.packagePrefix/].datamodel.xml;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import [anAndroidProject.packagePrefix/].datamodel.associations.*;
+import [anAndroidProject.packagePrefix/].datamodel.*;
+// [protected ('additional import for '+anAndroidProject.dataModel.name.toUpperFirst()+'XMLParser')]
+// [/protected]
+
+/**
+ * Root Sax XML DefaultHandler for parsing the datamodel [anAndroidProject.dataModel.name/]
+ */
+public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
+	// [protected ('additional handler code 1')]
+	// [/protected]
+	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+			[if(aDataClassifer.oclIsKindOf(DataClass))]
+	List<[aDataClassifer.name.toUpperFirst()/]> [aDataClassifer.name.toLowerFirst()/]s = new ArrayList<[aDataClassifer.name.toUpperFirst()/]>();
+			[/if]
+		[/for]
+		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+			[if(aDataClassifer.oclIsKindOf(DataClass))]
+	Hashtable<String, [aDataClassifer.name.toUpperFirst()/]> xmlId2[aDataClassifer.name.toUpperFirst()/] = new Hashtable<String, [aDataClassifer.name.toUpperFirst()/]>();
+			[/if]
+		[/for]
+	[/let]
+
+	// We don't use namespaces
+    private static final String ns = null;
+
+    public [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser() {
+        
+    }
+
+	public void parse(InputStream in) throws XmlPullParserException, IOException {
+        try {
+            XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
+            parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+            parser.setInput(in, null);
+            parser.nextTag();
+            read[anAndroidProject.dataModel.name.toUpperFirst()/](parser);
+        } finally {
+            in.close();
+        }
+    }
+
+	private void read[anAndroidProject.dataModel.name.toUpperFirst()/](XmlPullParser parser)  throws XmlPullParserException, IOException{
+		parser.require(XmlPullParser.START_TAG, ns, "[anAndroidProject.dataModel.name.toUpper()/]");
+	    while (parser.next() != XmlPullParser.END_TAG) {
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        String name = parser.getName();
+		[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+				[if(aDataClassifer.oclIsKindOf(DataClass))]
+		 	if (name.equals("[aDataClassifer.name.toUpper()/]S")) {
+	            [aDataClassifer.name.toLowerFirst()/]s = read[aDataClassifer.name.toUpperFirst()/]s(parser);
+	        } else 
+				[/if]
+			[/for]
+		[/let]
+			{
+	            skip(parser);
+	        }
+	    }
+		
+	}
+
+	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+			[if(aDataClassifer.oclIsKindOf(DataClass))]
+	List<[aDataClassifer.name.toUpperFirst()/]> read[aDataClassifer.name.toUpperFirst()/]s(XmlPullParser parser)  throws XmlPullParserException, IOException{
+		List<[aDataClassifer.name.toUpperFirst()/]> entries = new ArrayList<[aDataClassifer.name.toUpperFirst()/]>();
+		parser.require(XmlPullParser.START_TAG, ns, "[aDataClassifer.name.toUpper()/]S");
+	    while (parser.next() != XmlPullParser.END_TAG) {
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        String name = parser.getName();
+			if (name.equals("[aDataClassifer.name.toUpper()/]")) {
+	            entries.add(read[aDataClassifer.name.toUpperFirst()/](parser));
+	        } else {
+	            skip(parser);
+	        }
+	    }
+		return entries;
+	}
+			[/if]
+		[/for]
+	[/let]
+
+	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+			[if(aDataClassifer.oclIsKindOf(DataClass))]
+	[aDataClassifer.name.toUpperFirst()/] read[aDataClassifer.name.toUpperFirst()/](XmlPullParser parser)  throws XmlPullParserException, IOException{
+		[aDataClassifer.name.toUpperFirst()/] result = new [aDataClassifer.name.toUpperFirst()/]();
+
+		parser.require(XmlPullParser.START_TAG, ns, "[aDataClassifer.name.toUpper()/]");
+    	String tag = parser.getName();
+    			
+    	xmlId2[aDataClassifer.name.toUpperFirst()/].put(parser.getAttributeValue(null, "id"),result);		
+				[for (att : DataAttribute | aDataClassifer.oclAsType(DataClass).dataAttributes)]
+					[if (att.upperBound = 1 and att.simpleXmlType)]
+						[if (att.type.instanceClassName = 'java.lang.String')]
+		result.set[att.name.toUpperFirst()/](parser.getAttributeValue(null, "[att.name/]"));
+						[else]
+		// TODO [att.name.toLowerFirst()/] = parser.getAttributeValue(null, "[att.name.toUpper()/]");
+						[/if]
+					[/if]
+				[/for]
+		while (parser.next() != XmlPullParser.END_TAG) {
+	        if (parser.getEventType() != XmlPullParser.START_TAG) {
+	            continue;
+	        }
+	        String name = parser.getName();
+				[for (att : DataAttribute | aDataClassifer.oclAsType(DataClass).dataAttributes)]
+					[if (att.upperBound = 1 and not att.simpleXmlType)]
+						[if (att.type.instanceClassName = 'java.lang.String')]
+			if (name.equals("[att.name.toUpper()/]")) {
+				parser.require(XmlPullParser.START_TAG, ns, "[att.name.toUpper()/]");
+	            result.set[att.name.toUpperFirst()/](readText(parser));
+				parser.require(XmlPullParser.END_TAG, ns, "[att.name.toUpper()/]");
+	        } else
+						[else]
+			//TODO if (name.equals("[att.name.toUpper()/]")) {
+	        //    title = readTitle(parser);
+	        //} else	
+						[/if]
+					[/if]
+				[/for]
+	        {
+	            skip(parser);
+	        }
+	    }
+
+		return result;
+	}
+			[/if]
+		[/for]
+	[/let]
+
+	private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
+	    String result = "";
+	    if (parser.next() == XmlPullParser.TEXT) {
+	        result = parser.getText();
+	        parser.nextTag();
+	    }
+	    return result;
+	}
+
+	private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
+	    if (parser.getEventType() != XmlPullParser.START_TAG) {
+	        throw new IllegalStateException();
+	    }
+	    int depth = 1;
+	    while (depth != 0) {
+	        switch (parser.next()) {
+	        case XmlPullParser.END_TAG:
+	            depth--;
+	            break;
+	        case XmlPullParser.START_TAG:
+	            depth++;
+	            break;
+	        }
+	    }
+	}
+
+	// [protected ('additional handler code 2')]
+	// [/protected]
+}
+[/file]
+[/template]
+

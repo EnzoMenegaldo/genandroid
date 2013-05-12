@@ -21,6 +21,17 @@
 [att.type.instanceClassName/] [att.name.toLowerFirst()/]
 [/template]
 
+[template public allDataClassDaoParam (aDataModel : DataModel) ]
+[aDataModel.dataClasses.oneDataClassDaoParam()->sep(', ')/]
+[/template]
+[template public oneDataClassDaoParam (cl : DataClassifier) ]
+Dao<[cl.name.toUpperFirst()/], Integer> [cl.name.toLowerFirst()/]Dao
+[/template]
+
+[template public oneAssocDaoParam (assoc : DataAssociation) ]
+Dao<[assoc.name/], Integer> [assoc.name.toLowerFirst()/]Dao
+[/template]
+
 [template public allEReferencesParam (anEClass : DataClass) ]
 [anEClass.dataReferences.oneEReferenceParam()->sep(', ')/]
 [/template]

@@ -39,6 +39,26 @@ public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
 	public [aAndroidProject.dataModel.name.toUpperFirst()/]Helper(){
 	}
 
+	public [aAndroidProject.dataModel.name.toUpperFirst()/]Helper(
+		[aAndroidProject.dataModel.dataClasses->selectByKind(DataClass).oneDataClassDaoParam()->sep(',\n\t\t')/]
+		[if(aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)->size() <> 0)],
+		[/if]
+		[aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1).oneAssocDaoParam()->sep(',\n\t\t')/]
+	){
+	[for (classifier : DataClassifier | aAndroidProject.dataModel.dataClasses)]
+		[if(classifier.oclIsKindOf(DataClass))]
+		this.[classifier.name.toLowerFirst()/]Dao = [classifier.name.toLowerFirst()/]Dao;
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		[assoc.name.toLowerFirst()/]Dao = [assoc.name.toLowerFirst()/]Dao;
+		[/if]
+	[/for]
+	}
+
+	
+
 }
 [/file]
 [/template]
