@@ -29,6 +29,10 @@ import android.widget.Toast;
 
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
+//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter imports')]
+// additional imports
+//[/protected]
+
 public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter{
 	
 private Context context;
@@ -95,6 +99,10 @@ private Context context;
         LinearLayout llRow = (LinearLayout)convertView.findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listviewrow);
         llRow.setTag(entry);
         
+		// [protected ('protected additional '+aClassListViewActivity.name+'_Adapter getView code')]
+		//	additional code
+		// [/protected]
+
         return convertView;
 
 	}

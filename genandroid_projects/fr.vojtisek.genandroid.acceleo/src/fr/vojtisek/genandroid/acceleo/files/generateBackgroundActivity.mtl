@@ -32,6 +32,7 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
 	
     private NotificationHelper mNotificationHelper;
     private OrmLiteDBHelper dbHelper;
+    private Context context;
     
     // [protected ('additional attribute declarations')]
 	// [/protected]
@@ -42,6 +43,7 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
 		String notificationTitle = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_notificationTitle);
         mNotificationHelper = new NotificationHelper(context, initialTickerText, notificationTitle);
         this.dbHelper = dbHelper;
+		this.context = context;
     }
 
     protected void onPreExecute(){
