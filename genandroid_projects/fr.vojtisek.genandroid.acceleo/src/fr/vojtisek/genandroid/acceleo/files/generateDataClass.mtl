@@ -137,7 +137,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	// [/protected]
 	
 	public [aDataClass.name.toUpperFirst()/]() {} // needed by ormlite
-	public [aDataClass.name.toUpperFirst()/]([aDataClass.allEAttributesParam()/]) {
+	public [aDataClass.name.toUpperFirst()/]([aDataClass.allNonDerivedEAttributesParam()/]) {
 		super();
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
 		[if (att.upperBound = 1)]
@@ -209,7 +209,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 		sb.append(this._id);
     	sb.append("\" ");
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
-		[if (att.upperBound = 1 and att.simpleXmlType)]
+		[if (att.upperBound = 1 and att.simpleXmlType and not att.derived)]
 		sb.append(" ");
     	sb.append(XML_ATT_[att.name.toUpper()/]);
     	sb.append("=\"");
@@ -224,7 +224,7 @@ public class [aDataClass.name.toUpperFirst()/] {
     	sb.append(">");
 
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
-		[if (att.upperBound = 1 and not att.simpleXmlType)]
+		[if (att.upperBound = 1 and not att.simpleXmlType  and not att.derived)]
 		sb.append("\n"+indent+"\t<"+XML_ATT_[att.name.toUpper()/]+">");
 			[if (att.type.instanceClassName = 'java.lang.String')]
 		sb.append(StringEscapeUtils.escapeXml(this.[att.name.toLowerFirst()/]));

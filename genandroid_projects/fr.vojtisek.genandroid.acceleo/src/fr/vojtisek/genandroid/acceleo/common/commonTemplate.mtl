@@ -16,6 +16,9 @@
 [template public allEAttributesParam (anEClass : DataClass) ]
 [anEClass.dataAttributes.oneEAttributeParam()->sep(', ')/]
 [/template]
+[template public allNonDerivedEAttributesParam (anEClass : DataClass) ]
+[anEClass.dataAttributes->select(d | not d.derived).oneEAttributeParam()->sep(', ')/]
+[/template]
 
 [template public oneEAttributeParam (att : DataAttribute) ]
 [att.type.instanceClassName/] [att.name.toLowerFirst()/]
