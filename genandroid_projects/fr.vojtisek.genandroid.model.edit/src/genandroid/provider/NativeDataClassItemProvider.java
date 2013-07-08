@@ -62,6 +62,7 @@ public class NativeDataClassItemProvider
 			super.getPropertyDescriptors(object);
 
 			addInstanceClassNamePropertyDescriptor(object);
+			addDatabaseTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,6 +81,28 @@ public class NativeDataClassItemProvider
 				 getString("_UI_NativeDataClass_instanceClassName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NativeDataClass_instanceClassName_feature", "_UI_NativeDataClass_type"),
 				 GenandroidPackage.Literals.NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Database Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatabaseTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NativeDataClass_databaseType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NativeDataClass_databaseType_feature", "_UI_NativeDataClass_type"),
+				 GenandroidPackage.Literals.NATIVE_DATA_CLASS__DATABASE_TYPE,
 				 true,
 				 false,
 				 false,
@@ -126,6 +149,7 @@ public class NativeDataClassItemProvider
 
 		switch (notification.getFeatureID(NativeDataClass.class)) {
 			case GenandroidPackage.NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME:
+			case GenandroidPackage.NATIVE_DATA_CLASS__DATABASE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

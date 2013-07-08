@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="genandroid"
-    nsURI="http://genandroid/1.0" nsPrefix="genandroid">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="genandroid" nsURI="http://genandroid/1.0" nsPrefix="genandroid">
   <eClassifiers xsi:type="ecore:EClass" name="AndroidProject" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataModel" lowerBound="1"
         eType="#//DataModel" containment="true"/>
@@ -102,6 +100,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataClassifier" abstract="true" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="NativeDataClass" eSuperTypes="#//DataClassifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceClassName" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataAssociation" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" lowerBound="2"

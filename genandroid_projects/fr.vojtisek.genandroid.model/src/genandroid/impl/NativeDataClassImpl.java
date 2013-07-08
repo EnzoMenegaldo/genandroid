@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link genandroid.impl.NativeDataClassImpl#getInstanceClassName <em>Instance Class Name</em>}</li>
+ *   <li>{@link genandroid.impl.NativeDataClassImpl#getDatabaseType <em>Database Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +49,26 @@ public class NativeDataClassImpl extends DataClassifierImpl implements NativeDat
 	 * @ordered
 	 */
 	protected String instanceClassName = INSTANCE_CLASS_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDatabaseType() <em>Database Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DATABASE_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDatabaseType() <em>Database Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabaseType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String databaseType = DATABASE_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,11 +115,34 @@ public class NativeDataClassImpl extends DataClassifierImpl implements NativeDat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDatabaseType() {
+		return databaseType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatabaseType(String newDatabaseType) {
+		String oldDatabaseType = databaseType;
+		databaseType = newDatabaseType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.NATIVE_DATA_CLASS__DATABASE_TYPE, oldDatabaseType, databaseType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GenandroidPackage.NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME:
 				return getInstanceClassName();
+			case GenandroidPackage.NATIVE_DATA_CLASS__DATABASE_TYPE:
+				return getDatabaseType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,6 +157,9 @@ public class NativeDataClassImpl extends DataClassifierImpl implements NativeDat
 		switch (featureID) {
 			case GenandroidPackage.NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME:
 				setInstanceClassName((String)newValue);
+				return;
+			case GenandroidPackage.NATIVE_DATA_CLASS__DATABASE_TYPE:
+				setDatabaseType((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,6 +176,9 @@ public class NativeDataClassImpl extends DataClassifierImpl implements NativeDat
 			case GenandroidPackage.NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME:
 				setInstanceClassName(INSTANCE_CLASS_NAME_EDEFAULT);
 				return;
+			case GenandroidPackage.NATIVE_DATA_CLASS__DATABASE_TYPE:
+				setDatabaseType(DATABASE_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -143,6 +193,8 @@ public class NativeDataClassImpl extends DataClassifierImpl implements NativeDat
 		switch (featureID) {
 			case GenandroidPackage.NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME:
 				return INSTANCE_CLASS_NAME_EDEFAULT == null ? instanceClassName != null : !INSTANCE_CLASS_NAME_EDEFAULT.equals(instanceClassName);
+			case GenandroidPackage.NATIVE_DATA_CLASS__DATABASE_TYPE:
+				return DATABASE_TYPE_EDEFAULT == null ? databaseType != null : !DATABASE_TYPE_EDEFAULT.equals(databaseType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -159,6 +211,8 @@ public class NativeDataClassImpl extends DataClassifierImpl implements NativeDat
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (instanceClassName: ");
 		result.append(instanceClassName);
+		result.append(", databaseType: ");
+		result.append(databaseType);
 		result.append(')');
 		return result.toString();
 	}

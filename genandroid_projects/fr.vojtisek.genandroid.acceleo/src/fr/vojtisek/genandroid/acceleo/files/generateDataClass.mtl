@@ -52,7 +52,11 @@ public class [aDataClass.name.toUpperFirst()/] {
 		[/if]
 		[if (att.upperBound = 1)]
 			[if (att.storage = storageKind::SQLite)] 
+				[if (att.type.databaseType.oclIsUndefined())]
 	@DatabaseField
+				[else]
+	@DatabaseField(dataType = [att.type.databaseType/])
+				[/if]
 			[/if]
 	protected [att.oneEAttributeParam()/];
 		[else]
@@ -140,7 +144,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	public [aDataClass.name.toUpperFirst()/]([aDataClass.allNonDerivedEAttributesParam()/]) {
 		super();
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
-		[if (att.upperBound = 1)]
+		[if (att.upperBound = 1 and not att.derived)]
 		this.[att.name.toLowerFirst()/] = [att.name.toLowerFirst()/];
 		[/if]
 	[/for]

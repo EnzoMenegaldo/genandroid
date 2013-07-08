@@ -367,6 +367,10 @@
           <element xmi:type="ecore:EAttribute" href="genandroid.ecore#//NativeDataClass/instanceClassName"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_BB2fcXg7EeKjO9hO-NhLHQ"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_nqvekOfKEeKpF8uNYgKDGQ" type="2001">
+          <element xmi:type="ecore:EAttribute" href="genandroid.ecore#//NativeDataClass/databaseType"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nqvekefKEeKpF8uNYgKDGQ"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_6dwydXhdEeK8iuTEAtr-vg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_6dwydnhdEeK8iuTEAtr-vg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_6dwyd3hdEeK8iuTEAtr-vg"/>
@@ -713,7 +717,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_ighmoYNoEeKpPpyhv5xw2g" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_ighmooNoEeKpPpyhv5xw2g" fontName="Segoe UI"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ighmo4NoEeKpPpyhv5xw2g" points="[1, -24, -147, 401]$[1, -139, -147, 286]$[-101, -139, -249, 286]$[-101, -389, -249, 36]$[142, -389, -6, 36]$[142, -408, -6, 17]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ighmo4NoEeKpPpyhv5xw2g" points="[-14, -20, -88, 501]$[-14, -130, -88, 391]$[-120, -130, -194, 391]$[-120, -466, -194, 55]$[83, -466, 9, 55]$[83, -504, 9, 17]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_igl4EINoEeKpPpyhv5xw2g" id="(0.14705882352941177,0.75)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_o6yUUINoEeKpPpyhv5xw2g" type="3003" source="_wUMF0FTjEeGWJr_Pecb3jg" target="_ixDFUHg4EeKjO9hO-NhLHQ">

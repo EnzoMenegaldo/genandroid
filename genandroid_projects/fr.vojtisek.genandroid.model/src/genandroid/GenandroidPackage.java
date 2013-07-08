@@ -1286,13 +1286,22 @@ public interface GenandroidPackage extends EPackage {
 	int NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME = DATA_CLASSIFIER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Database Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_DATA_CLASS__DATABASE_TYPE = DATA_CLASSIFIER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Native Data Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_DATA_CLASS_FEATURE_COUNT = DATA_CLASSIFIER_FEATURE_COUNT + 1;
+	int NATIVE_DATA_CLASS_FEATURE_COUNT = DATA_CLASSIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataAssociationImpl <em>Data Association</em>}' class.
@@ -2028,6 +2037,17 @@ public interface GenandroidPackage extends EPackage {
 	EAttribute getNativeDataClass_InstanceClassName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.NativeDataClass#getDatabaseType <em>Database Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Database Type</em>'.
+	 * @see genandroid.NativeDataClass#getDatabaseType()
+	 * @see #getNativeDataClass()
+	 * @generated
+	 */
+	EAttribute getNativeDataClass_DatabaseType();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataAssociation <em>Data Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2624,6 +2644,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME = eINSTANCE.getNativeDataClass_InstanceClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>Database Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NATIVE_DATA_CLASS__DATABASE_TYPE = eINSTANCE.getNativeDataClass_DatabaseType();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataAssociationImpl <em>Data Association</em>}' class.

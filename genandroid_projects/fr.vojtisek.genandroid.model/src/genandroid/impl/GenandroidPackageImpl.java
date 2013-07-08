@@ -764,6 +764,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNativeDataClass_DatabaseType() {
+		return (EAttribute)nativeDataClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataAssociation() {
 		return dataAssociationEClass;
 	}
@@ -949,6 +958,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		nativeDataClassEClass = createEClass(NATIVE_DATA_CLASS);
 		createEAttribute(nativeDataClassEClass, NATIVE_DATA_CLASS__INSTANCE_CLASS_NAME);
+		createEAttribute(nativeDataClassEClass, NATIVE_DATA_CLASS__DATABASE_TYPE);
 
 		dataAssociationEClass = createEClass(DATA_ASSOCIATION);
 		createEReference(dataAssociationEClass, DATA_ASSOCIATION__REFERENCES);
@@ -1090,6 +1100,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 
 		initEClass(nativeDataClassEClass, NativeDataClass.class, "NativeDataClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNativeDataClass_InstanceClassName(), theEcorePackage.getEString(), "instanceClassName", null, 0, 1, NativeDataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNativeDataClass_DatabaseType(), ecorePackage.getEString(), "databaseType", null, 0, 1, NativeDataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataAssociationEClass, DataAssociation.class, "DataAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataAssociation_References(), this.getDataReference(), this.getDataReference_Opposite(), "references", null, 2, 2, DataAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
