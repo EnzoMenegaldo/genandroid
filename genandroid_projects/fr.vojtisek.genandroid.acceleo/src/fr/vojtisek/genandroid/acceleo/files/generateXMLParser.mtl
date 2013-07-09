@@ -134,16 +134,42 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 				[for (att : DataAttribute | aDataClassifer.oclAsType(DataClass).dataAttributes)]
 					[if (att.upperBound = 1 and not att.simpleXmlType)]
 						[if (att.type.instanceClassName = 'java.lang.String')]
-			if (name.equals("[att.name.toUpper()/]")) {
-				parser.require(XmlPullParser.START_TAG, ns, "[att.name.toUpper()/]");
+			if (name.equals("[att.name.toLowerFirst()/]")) {
+				parser.require(XmlPullParser.START_TAG, ns, "[att.name.toLowerFirst()/]");
 	            result.set[att.name.toUpperFirst()/](readText(parser));
-				parser.require(XmlPullParser.END_TAG, ns, "[att.name.toUpper()/]");
+				parser.require(XmlPullParser.END_TAG, ns, "[att.name.toLowerFirst()/]");
 	        } else
 						[else]
 			//TODO if (name.equals("[att.name.toUpper()/]")) {
 	        //    title = readTitle(parser);
 	        //} else	
 						[/if]
+					[/if]
+				[/for]
+				[for (ref : DataReference | aDataClassifer.oclAsType(DataClass).dataReferences)]
+					[if(ref.containment)]
+						[if(ref.upperBound = 1)]
+					// TODO deal with owned ref [ref.name/]
+						[else]
+			if (name.equals("[ref.name.toLowerFirst()/]")) {
+				parser.require(XmlPullParser.START_TAG, ns, "[ref.name.toLowerFirst()/]");
+				List<[ref.type.name.toUpperFirst()/]> entries = new ArrayList<[ref.type.name.toUpperFirst()/]>();
+			    while (parser.next() != XmlPullParser.END_TAG) {
+			        if (parser.getEventType() != XmlPullParser.START_TAG) {
+			            continue;
+			        }
+			        String refParserName = parser.getName();
+					if (refParserName.equals("[ref.type.name.toUpper()/]")) {
+			            entries.add(read[ref.type.name.toUpperFirst()/](parser));
+			        } else {
+			            skip(parser);
+			        }
+			    }
+				parser.require(XmlPullParser.END_TAG, ns, "[ref.name.toLowerFirst()/]");
+	        } else
+						[/if]
+					[else]
+					// TODO deal with cross reference [ref.name/]
 					[/if]
 				[/for]
 	        {
