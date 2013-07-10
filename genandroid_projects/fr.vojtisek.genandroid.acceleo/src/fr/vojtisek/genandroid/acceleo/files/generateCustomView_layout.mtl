@@ -6,7 +6,7 @@
 
 [file ('/res/layout/'+aCustomViewActivity.name.toLower()+'_customview.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
-<!--[protected ('customView_layout')]
+<!--[protected ('customView_layout for '+aCustomViewActivity.name)]
 -->
 <!-- freely adapt here the desired layout for your custom view -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

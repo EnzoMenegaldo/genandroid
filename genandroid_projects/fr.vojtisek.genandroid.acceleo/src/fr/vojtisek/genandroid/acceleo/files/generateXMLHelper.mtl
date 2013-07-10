@@ -25,6 +25,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import [anAndroidProject.packagePrefix/].datamodel.associations.*;
 import [anAndroidProject.packagePrefix/].datamodel.*;
+import [anAndroidProject.packagePrefix/].datamodel.xml.[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser.RefCommand;
 // [protected ('additional import')]
 // [/protected]
 
@@ -104,6 +105,7 @@ public class XMLHelper {
 		[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser parser = new [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser();
 		try {
 			parser.parse(inputStream);
+			// create the elements in the DB
 	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 		[if(aDataClassifer.oclIsKindOf(DataClass))]
 			for([aDataClassifer.name.toUpperFirst()/] [aDataClassifer.name.toLowerFirst()/] : parser.[aDataClassifer.name.toLowerFirst()/]s){
@@ -115,7 +117,24 @@ public class XMLHelper {
 			}
 		[/if]
 	[/for]	
-
+			
+			// proceed with cross ref
+			for (RefCommand command : parser.refCommands) {
+				command.run();
+			}
+			
+			// update the DB
+	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+		[if(aDataClassifer.oclIsKindOf(DataClass))]
+			for([aDataClassifer.name.toUpperFirst()/] elem : parser.[aDataClassifer.name.toLowerFirst()/]sToUpdate){
+				try {
+					dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.update(elem);
+				} catch (SQLException e) {
+					log.error("cannot update [aDataClassifer.name.toUpperFirst()/] "+e.getMessage(),e);
+				}
+			}
+		[/if]
+	[/for]
 		} catch (XmlPullParserException e) {
 			log.error("XML parse error "+e.getMessage(),e);
 		} catch (IOException e) {

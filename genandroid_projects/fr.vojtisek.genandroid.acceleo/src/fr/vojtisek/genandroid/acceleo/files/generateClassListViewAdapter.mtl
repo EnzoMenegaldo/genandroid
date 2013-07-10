@@ -12,10 +12,12 @@ package [aClassListViewActivity.packagePrefix()/].activities;
 import java.util.List;
 
 import [aClassListViewActivity.packagePrefix()/].R;
+import [aClassListViewActivity.packagePrefix()/].datamodel.[aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper;
 import [aClassListViewActivity.packagePrefix()/].datamodel.[aClassListViewActivity.listedElement.name/];
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,15 +37,28 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter{
 	
-private Context context;
+	private Context context;
+
+	/**
+     * dbHelper used to autorefresh values and doing queries
+     * must be set other wise most getter will return proxy that will need to be refreshed
+	 */
+	protected [aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper _contextDB = null;
+
+	private static final String LOG_TAG = [aClassListViewActivity.name/]_Adapter.class.getCanonicalName();
 
     private List<[aClassListViewActivity.listedElement.name/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
 
-	public [aClassListViewActivity.name/]_Adapter(Context context, RuntimeExceptionDao<[aClassListViewActivity.listedElement.name/], Integer> entriesDao) {
+	public [aClassListViewActivity.name/]_Adapter(Context context, [aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper contextDB) {
 		super();
 		this.context = context;
+		this._contextDB = contextDB;
 		// TODO find a way to query in a lazy way
-		this.[aClassListViewActivity.listedElement.name.toLowerFirst()/]List = entriesDao.queryForAll();
+		try{
+			this.[aClassListViewActivity.listedElement.name.toLowerFirst()/]List = _contextDB.[aClassListViewActivity.listedElement.name.toLowerFirst()/]Dao.queryForAll();
+		} catch (java.sql.SQLException e) {
+			Log.e(LOG_TAG, e.getMessage(), e);
+		}
 	}
 
 	@Override
@@ -65,6 +80,7 @@ private Context context;
 	@Override
 	public View getView(int position, View convertView, ViewGroup viewGroup) {
 		[aClassListViewActivity.listedElement.name/] entry = [aClassListViewActivity.listedElement.name.toLowerFirst()/]List.get(position);
+		entry.setContextDB(_contextDB);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);

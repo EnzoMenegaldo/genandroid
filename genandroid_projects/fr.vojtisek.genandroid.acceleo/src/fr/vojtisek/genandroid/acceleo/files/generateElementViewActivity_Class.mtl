@@ -29,11 +29,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
-
+// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_import'))]
+// [/protected]
 
 public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>{
 	
 	protected int [anElementViewActivity.element.name.toLowerFirst()/]Id;
+	
+	private static final String LOG_TAG = [anElementViewActivity.name/]_ElementViewActivity.class.getCanonicalName();
 	
 	/** Called when the activity is first created. */
     @Override
@@ -55,7 +58,8 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
     	// get our dao
     	RuntimeExceptionDao<[anElementViewActivity.element.name/], Integer> entriesDao = getHelper().get[anElementViewActivity.element.name/]Dao();
     	[anElementViewActivity.element.name/] entry = entriesDao.queryForId([anElementViewActivity.element.name.toLowerFirst()/]Id);
-    	
+    	entry.setContextDB(getHelper().get[anElementViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());
+
     	[for (dataAtt : DataAttribute | anElementViewActivity.element.dataAttributes)]
     		[if (dataAtt.type.instanceClassName = 'java.lang.String')]
 		((TextView) findViewById(R.id.[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.name.toLower()/])).setText(entry.get[dataAtt.name.toUpperFirst()/]());
@@ -63,7 +67,9 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
 		((TextView) findViewById(R.id.[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.name.toLower()/])).setText(((Integer)entry.get[dataAtt.name.toUpperFirst()/]()).toString());					
 			[/if]
     	[/for]
-    	/*SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+		
+		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity.refreshScreenData'))]
+		/*SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
     	((TextView) findViewById(R.id.detail_divedate)).setText(dateFormatter.format(entry.getDate()));
 		
     	((TextView) findViewById(R.id.detail_divelocation)).setText(entry.getLocation());
@@ -71,7 +77,9 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
     	((TextView) findViewById(R.id.detail_divedepth)).setText(entry.getMaxdepth().toString());
     	
     	((TextView) findViewById(R.id.detail_diveduration)).setText(entry.getDuration().toString());
-    	*/
+    	*/	
+		// [/protected]
+    	
 	}
 
 	@Override

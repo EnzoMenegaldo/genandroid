@@ -10,7 +10,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	<!--<ImageView
+	<!--[protected ('elementView_layout for '+anElementViewActivity.name)]
+-->
+<!--<ImageView
         android:id="@+id/divelist_viewrow_icon"
         android:contentDescription="Dive icon"
         android:layout_width="22px"
@@ -20,6 +22,9 @@
         android:layout_marginTop="4px"
         android:src="@drawable/ic_launcher" >
     </ImageView>-->
+<!--[/protected]
+-->
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >

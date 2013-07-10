@@ -8,7 +8,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings speifc to [aBackgroundActivity.name.toLower()/] Custom View -->
 <resources>	
-	<!--[protected ('BackgroundActivity_strings')]
+	<!--[protected ('BackgroundActivity_strings'+aBackgroundActivity.name.toLower())]
 	-->
 	<!-- freely add here the desired resource String for your custom view -->
 	<string name="[aBackgroundActivity.name.toLower()/]_bg_initialTickerText">[aBackgroundActivity.name.toUpperFirst()/]</string>
