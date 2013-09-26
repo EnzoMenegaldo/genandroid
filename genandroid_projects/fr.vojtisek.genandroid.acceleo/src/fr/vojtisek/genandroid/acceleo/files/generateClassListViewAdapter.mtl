@@ -25,6 +25,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +37,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 // additional imports
 //[/protected]
 
-public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter{
+public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implements Filterable{
 	
 	private Context context;
 
@@ -123,6 +125,10 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter{
 
 	}
 
+	public Filter getFilter() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
 [/file]
