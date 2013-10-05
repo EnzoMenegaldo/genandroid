@@ -8,7 +8,9 @@
 /* [aClassListViewActivity.eContainer(AndroidProject).fileHeader/] */
 package [aClassListViewActivity.packagePrefix()/].activities;
 
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import [aClassListViewActivity.packagePrefix()/].R;
@@ -24,6 +26,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -50,6 +53,9 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 	private static final String LOG_TAG = [aClassListViewActivity.name/]_Adapter.class.getCanonicalName();
 
     private List<[aClassListViewActivity.listedElement.name/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
+    private List<[aClassListViewActivity.listedElement.name/]> filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List;
+	private final Object mLock = new Object();
+	private SimpleFilter mFilter;
 
 	public [aClassListViewActivity.name/]_Adapter(Context context, [aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper contextDB) {
 		super();
@@ -58,6 +64,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 		// TODO find a way to query in a lazy way
 		try{
 			this.[aClassListViewActivity.listedElement.name.toLowerFirst()/]List = _contextDB.[aClassListViewActivity.listedElement.name.toLowerFirst()/]Dao.queryForAll();
+			this.filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = this.[aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
 		} catch (java.sql.SQLException e) {
 			Log.e(LOG_TAG, e.getMessage(), e);
 		}
@@ -65,12 +72,12 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 
 	@Override
 	public int getCount() {
-		return [aClassListViewActivity.listedElement.name.toLowerFirst()/]List.size();
+		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return [aClassListViewActivity.listedElement.name.toLowerFirst()/]List.get(position);
+		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
 
 	}
 
@@ -81,7 +88,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup viewGroup) {
-		[aClassListViewActivity.listedElement.name/] entry = [aClassListViewActivity.listedElement.name.toLowerFirst()/]List.get(position);
+		[aClassListViewActivity.listedElement.name/] entry = filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
 		entry.setContextDB(_contextDB);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
@@ -125,11 +132,98 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 
 	}
 
-	public Filter getFilter() {
-		// TODO Auto-generated method stub
-		return null;
+	protected boolean sortAfterFilter() {
+		return false;
 	}
 	
+	public int filter(int position, Fiche fiche, String pattern){
+		// [protected ('protected additional '+aClassListViewActivity.name+'_Adapter filter code')]
+		// TODO probablement faire en sorte d'ignorer les accents pour la recherche
+		// TODO chercher séparement les mots (séparés par un blanc) et faire un "ET" 
+		if(fiche.getNomCommun().toLowerCase().contains(pattern)) return 1;
+		else if(fiche.getNomScientifique().toLowerCase().contains(pattern)) return 1;
+		//else if(fiche.getAutresDenominations().contains(pattern)) return 1; 
+		else return -1;
+		// [/protected]
+	}
+	
+	@Override
+	public Filter getFilter() {
+		if (mFilter == null) {
+			mFilter = new SimpleFilter();
+		}
+		return mFilter;
+	}
+	
+	private class SimpleFilter extends Filter {
+
+		@Override
+		protected FilterResults performFiltering(CharSequence prefix) {
+			FilterResults results = new FilterResults();
+
+			/*if (ficheList == null) {
+				synchronized (mLock) {
+					ficheList = new ArrayList<Fiches>(mObjects);
+				}
+			}*/
+
+			if (prefix == null || prefix.length() == 0) {
+				synchronized (mLock) {
+					ArrayList<Fiche> list = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>([aClassListViewActivity.listedElement.name.toLowerFirst()/]List);
+					results.values = list;
+					results.count = list.size();
+				}
+			} else {
+				String prefixString = prefix.toString().toLowerCase();
+				boolean sort = sortAfterFilter();
+
+				final List<Fiche> values = ficheList;
+				final int count = values.size();
+				
+				final ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]> newValues = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>(count);
+				final int['[]'/] orders = sort ? new int['['/]count[']'/] : null;
+
+				for (int i = 0; i < count; i++) {
+					final Fiche value = values.get(i);
+					int order = ListeFicheAvecFiltre_Adapter.this.filter(i, value, prefixString);
+					if (order >= 0) {
+						if (sort)
+							orders['['/]newValues.size()[']'/] = order;
+						newValues.add(value);
+					}
+				}
+				
+				if (sort) {
+					Comparator<[aClassListViewActivity.listedElement.name.toUpperFirst()/]> c = new Comparator<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>() {
+						public int compare([aClassListViewActivity.listedElement.name.toUpperFirst()/] object1, [aClassListViewActivity.listedElement.name.toUpperFirst()/] object2) {
+							// [protected ('protected additional '+aClassListViewActivity.name+'_Adapter compare code')]
+							int i1 = newValues.indexOf(object1);
+							int i2 = newValues.indexOf(object2);
+							return orders['['/]i1[']'/] - orders['['/]i2[']'/];
+							// [/protected]
+						}
+					};
+					Collections.sort(newValues, c);
+				}
+
+				results.values = newValues;
+				results.count = newValues.size();
+			}
+
+			return results;
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		protected void publishResults(CharSequence constraint, FilterResults results) {
+			filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = (List<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>) results.values;
+			if (results.count > 0) {
+				notifyDataSetChanged();
+			} else {
+				notifyDataSetInvalidated();
+			}
+		}
+	}
 }
 [/file]
 [/template]
