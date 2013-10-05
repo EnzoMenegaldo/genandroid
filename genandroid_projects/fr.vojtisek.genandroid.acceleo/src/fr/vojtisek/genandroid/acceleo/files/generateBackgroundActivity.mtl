@@ -90,6 +90,8 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
     protected void onPostExecute(Integer result)    {
         //The task is complete, tell the status bar about it
         mNotificationHelper.completed();
+		// [protected (''+aBackgroundActivity.name+' onPostExecute')]
+		// [/protected]
     }
 
     

@@ -67,7 +67,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseA
 
     /** refresh screen from data 
      */
-    private void refreshScreenData() {
+    public void refreshScreenData() {
     	//[protected ('action when refreshing the screen')]
 		//[/protected]
 	}
