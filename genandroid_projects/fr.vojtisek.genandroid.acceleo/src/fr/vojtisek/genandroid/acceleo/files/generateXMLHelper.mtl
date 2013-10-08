@@ -104,10 +104,12 @@ public class XMLHelper {
 	public static void loadDBFromXMLFile([anAndroidProject.dataModel.name.toUpperFirst()/]Helper dbContext, InputStream inputStream){
 		[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser parser = new [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser();
 		try {
+			log.info("starting parsing...");
 			parser.parse(inputStream);
 			// create the elements in the DB
 	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 		[if(aDataClassifer.oclIsKindOf(DataClass))]
+			log.info("starting creation of [aDataClassifer.name.toUpperFirst()/]...");
 			for([aDataClassifer.name.toUpperFirst()/] [aDataClassifer.name.toLowerFirst()/] : parser.[aDataClassifer.name.toLowerFirst()/]s){
 				try {
 					dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.create([aDataClassifer.name.toLowerFirst()/]);
@@ -117,7 +119,7 @@ public class XMLHelper {
 			}
 		[/if]
 	[/for]	
-			
+			log.info("starting crossref...");
 			// proceed with cross ref
 			for (RefCommand command : parser.refCommands) {
 				command.run();
@@ -126,6 +128,7 @@ public class XMLHelper {
 			// update the DB
 	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 		[if(aDataClassifer.oclIsKindOf(DataClass))]
+			log.info("starting update DB of [aDataClassifer.name.toUpperFirst()/]...");
 			for([aDataClassifer.name.toUpperFirst()/] elem : parser.[aDataClassifer.name.toLowerFirst()/]sToUpdate){
 				try {
 					dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.update(elem);
@@ -135,6 +138,7 @@ public class XMLHelper {
 			}
 		[/if]
 	[/for]
+			log.info("DB filled from XML");
 		} catch (XmlPullParserException e) {
 			log.error("XML parse error "+e.getMessage(),e);
 		} catch (IOException e) {
