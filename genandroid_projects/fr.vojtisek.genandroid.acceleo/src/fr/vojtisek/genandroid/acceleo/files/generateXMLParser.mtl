@@ -118,7 +118,8 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 				[if(aDataClassifer.oclIsKindOf(DataClass))]
 		 	if (name.equals(DATACLASSIFIER_[aDataClassifer.name.toUpper()/]S)) {
-	            [aDataClassifer.name.toLowerFirst()/]s.addAll(read[aDataClassifer.name.toUpperFirst()/]s(parser,DATACLASSIFIER_[aDataClassifer.name.toUpper()/]S));
+				[aDataClassifer.name.toLowerFirst()/]s = read[aDataClassifer.name.toUpperFirst()/]s(parser,DATACLASSIFIER_[aDataClassifer.name.toUpper()/]S);
+	            // [aDataClassifer.name.toLowerFirst()/]s.addAll(read[aDataClassifer.name.toUpperFirst()/]s(parser,DATACLASSIFIER_[aDataClassifer.name.toUpper()/]S));
 	        } else 
 				[/if]
 			[/for]
@@ -137,7 +138,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
      * parser for a group of [aDataClassifer.name.toUpperFirst()/]
      */
 	List<[aDataClassifer.name.toUpperFirst()/]> read[aDataClassifer.name.toUpperFirst()/]s(XmlPullParser parser, final String containingTag)  throws XmlPullParserException, IOException{
-		List<[aDataClassifer.name.toUpperFirst()/]> entries = new ArrayList<[aDataClassifer.name.toUpperFirst()/]>();
+		ArrayList<[aDataClassifer.name.toUpperFirst()/]> entries = new ArrayList<[aDataClassifer.name.toUpperFirst()/]>();
 		parser.require(XmlPullParser.START_TAG, ns, containingTag);
 	    while (parser.next() != XmlPullParser.END_TAG) {
 	        if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -150,6 +151,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 	            skip(parser);
 	        }
 	    }
+		entries.trimToSize();
 		return entries;
 	}
 			[/if]
@@ -183,7 +185,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 				[for (att : DataAttribute | aDataClassifer.oclAsType(DataClass).dataAttributes)]
 					[if (att.upperBound = 1 and not att.simpleXmlType)]
 						[if (att.type.instanceClassName = 'java.lang.String')]
-			if (currentTagName.equals("[att.name.toLowerFirst()/]")) {
+			if (currentTagName.equals(DATAATT_[aDataClassifer.name.toUpper()/]_[att.name.toLowerFirst()/])) {
 				parser.require(XmlPullParser.START_TAG, ns, DATAATT_[aDataClassifer.name.toUpper()/]_[att.name.toLowerFirst()/]);
 	            result.set[att.name.toUpperFirst()/](readText(parser));
 				parser.require(XmlPullParser.END_TAG, ns, DATAATT_[aDataClassifer.name.toUpper()/]_[att.name.toLowerFirst()/]);
@@ -200,7 +202,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 						[if(ref.upperBound = 1)]
 					// TODO deal with owned ref [ref.name/]
 						[else]
-			if (currentTagName.equals("[ref.name.toLowerFirst()/]")) {
+			if (currentTagName.equals(DATAREF_[aDataClassifer.name.toUpper()/]_[ref.name.toLowerFirst()/])) {
 				List<[ref.type.name.toUpperFirst()/]> entries = read[ref.type.name.toUpperFirst()/]s(parser,DATAREF_[aDataClassifer.name.toUpper()/]_[ref.name.toLowerFirst()/]);	
 				[ref.type.name.toLowerFirst()/]s.addAll(entries); // add for inclusion in the DB
 				//result.get[ref.name.toUpperFirst()/]().addAll(entries);  //  doesn't work and need to be done in the other way round using the opposite
