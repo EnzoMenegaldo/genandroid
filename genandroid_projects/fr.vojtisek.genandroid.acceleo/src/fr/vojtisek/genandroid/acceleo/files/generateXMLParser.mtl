@@ -136,7 +136,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 	/**
      * parser for a group of [aDataClassifer.name.toUpperFirst()/]
      */
-	List<[aDataClassifer.name.toUpperFirst()/]> read[aDataClassifer.name.toUpperFirst()/]s(XmlPullParser parser, String containingTag)  throws XmlPullParserException, IOException{
+	List<[aDataClassifer.name.toUpperFirst()/]> read[aDataClassifer.name.toUpperFirst()/]s(XmlPullParser parser, final String containingTag)  throws XmlPullParserException, IOException{
 		List<[aDataClassifer.name.toUpperFirst()/]> entries = new ArrayList<[aDataClassifer.name.toUpperFirst()/]>();
 		parser.require(XmlPullParser.START_TAG, ns, containingTag);
 	    while (parser.next() != XmlPullParser.END_TAG) {
