@@ -34,7 +34,10 @@ import android.preference.PreferenceManager;
 [/if]
 //[protected ('additional imports '+aCustomViewActivity.name+'_CustomViewActivity')]
 //[/protected]
-public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>{
+public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>
+//[protected ('additional implements '+aCustomViewActivity.name+'_CustomViewActivity')]
+//[/protected]
+{
 	
 	//[protected ('constants '+aCustomViewActivity.name+'_CustomViewActivity')]
 	//[/protected]
