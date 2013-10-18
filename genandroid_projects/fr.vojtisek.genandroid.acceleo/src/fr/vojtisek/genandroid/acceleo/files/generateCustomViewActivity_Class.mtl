@@ -32,11 +32,11 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 	(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
 import android.preference.PreferenceManager;
 [/if]
-//[protected ('additional imports')]
+//[protected ('additional imports '+aCustomViewActivity.name+'_CustomViewActivity')]
 //[/protected]
 public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>{
 	
-	//[protected ('constants')]
+	//[protected ('constants '+aCustomViewActivity.name+'_CustomViewActivity')]
 	//[/protected]
 
 	/** Called when the activity is first created. */
@@ -48,7 +48,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseA
 			PreferenceManager.setDefaultValues(this, R.xml.[aCustomViewActivity.eContainer(PresentationModel).preferenceView.name.toLower()/], false);
 		[/if]
         setContentView(R.layout.[aCustomViewActivity.name.toLower()/]_customview);
-        //[protected ('onCreate')]
+        //[protected ('onCreate '+aCustomViewActivity.name+'_CustomViewActivity')]
 		//[/protected]
     }
     
@@ -56,10 +56,10 @@ public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseA
 	protected void onResume() {
 		super.onResume();
 		refreshScreenData();
-		//[protected ('onResume')]
+		//[protected ('onResume '+aCustomViewActivity.name+'_CustomViewActivity')]
 		//[/protected]
 	}
-    //[protected ('additional code')]
+    //[protected ('additional code '+aCustomViewActivity.name+'_CustomViewActivity')]
 	public void onClickBtnSample(View view){
 		showToast("sample button pressed. \nPlease customize ;-)");
     }
@@ -68,7 +68,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseA
     /** refresh screen from data 
      */
     public void refreshScreenData() {
-    	//[protected ('action when refreshing the screen')]
+    	//[protected ('action when refreshing the screen '+aCustomViewActivity.name+'_CustomViewActivity')]
 		//[/protected]
 	}
 
@@ -76,7 +76,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseA
     public boolean onCreateOptionsMenu(Menu menu) {
 		// add options in the menu
 		[aCustomViewActivity.addPreferenceInMenu()/]
-		//[protected ('additional onCreateOptionsMenu')]
+		//[protected ('additional onCreateOptionsMenu '+aCustomViewActivity.name+'_CustomViewActivity')]
 
 		//[/protected]
         return super.onCreateOptionsMenu(menu);
@@ -88,7 +88,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseA
     	// behavior of option menu
         switch (item.getItemId()) {
 		[aCustomViewActivity.addPreferenceMenuAction()/]
-		//[protected ('additional menu action')]
+		//[protected ('additional menu action '+aCustomViewActivity.name+'_CustomViewActivity')]
 
 		//[/protected]
         }

@@ -23,7 +23,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].R;
-// [protected ('additional imports')]
+// [protected ('additional imports '+aBackgroundActivity.name+'_BgActivity')]
 // [/protected]
 
 public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,Integer, Integer>{
@@ -34,7 +34,7 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
     private OrmLiteDBHelper dbHelper;
     private Context context;
     
-    // [protected ('additional attribute declarations')]
+    // [protected ('additional attribute declarations '+aBackgroundActivity.name+'_BgActivity')]
 	// [/protected]
     
 	/** constructor */
@@ -55,13 +55,13 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
     protected Integer doInBackground(String... arg0) {
     	
 
-		// [protected ('initialization of the task')]
+		// [protected ('initialization of the task '+aBackgroundActivity.name+'_BgActivity')]
 		// do the initializatio of the task here
 		// once done, you should indicates to the notificationHelper how many item will be processed
 		//mNotificationHelper.setMaxNbPages(maxNbPages.toString());
 		// [/protected]
     	
-    	// [protected ('main loop of task')]
+    	// [protected ('main loop of task '+aBackgroundActivity.name+'_BgActivity')]
 		// This is where we would do the actual job
 		// you should indicates the progression using publishProgress()
 		for (int i=10;i<=100;i += 10)
@@ -77,7 +77,7 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
             }
 		// [/protected]
         
-		// [protected ('end of task')]
+		// [protected ('end of task '+aBackgroundActivity.name+'_BgActivity')]
 		// return the number of item processed
         return 100;
 		// [/protected]
@@ -94,11 +94,9 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
 		// [/protected]
     }
 
-    
-    // [protected ('additional operations')]
+    // [protected ('additional operations '+aBackgroundActivity.name+'_BgActivity')]
 	
 	// [/protected]
-    
 	
 }
 [/file]

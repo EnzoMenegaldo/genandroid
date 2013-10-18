@@ -8,11 +8,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings specific to [aCustomViewActivity.name.toLower()/] Custom View -->
 <resources>	
-	<!--[protected ('customView_strings'.concat(aCustomViewActivity.name.toLower()))]
+	<!-- [protected ('customView_strings '+aCustomViewActivity.name.toLower())]
 	-->
 	<!-- freely add here the desired resource String for your custom view -->
 	<string name="[aCustomViewActivity.name.toLower()/]_customview_sample_btn_label">SampleButton</string>
-	<!--[/protected]
+	<!-- [/protected]
 	-->
 </resources>
 [/file]

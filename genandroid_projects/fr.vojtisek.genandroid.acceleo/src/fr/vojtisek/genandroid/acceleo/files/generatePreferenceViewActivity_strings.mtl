@@ -8,7 +8,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings specific to [aPreferenceViewActivity.name.toLower()/] Preference View -->
 <resources>
-    <!--[protected ('protected')]
+    <!--[protected ('protected PreferenceViewActivity_strings '+aPreferenceViewActivity.name.toLower())]
 		-->
     <!-- Options text -->
     <string name="[aPreferenceViewActivity.name.toLower()/]_menu_title">[aPreferenceViewActivity.name.toUpperFirst()/]</string>
