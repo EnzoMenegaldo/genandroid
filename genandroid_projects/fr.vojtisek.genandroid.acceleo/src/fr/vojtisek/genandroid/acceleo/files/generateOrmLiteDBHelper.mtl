@@ -28,7 +28,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	// name of the database file for your application -- change to something appropriate for your app
 	private static final String DATABASE_NAME = "[aAndroidProject.name/].db";
 	// any time you make changes to your database objects, you may have to increase the database version
-	// [protected (aAndroidProject.name)]
+	// [protected ('OrmLiteDBHelper DB version '+aAndroidProject.name)]
 	private static final int DATABASE_VERSION = 1;
 	// [/protected]
 
@@ -37,7 +37,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 		[if(aDataClass.oclIsKindOf(DataClass))]
 			[if (aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
 	// the DAO object we use to access the diveBudies table
-	private Dao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]Dao = null;
+	// private Dao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]Dao = null;
 	private RuntimeExceptionDao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]RuntimeDao = null;
 			[/if]
 		[/if]
@@ -53,6 +53,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
+	// [protected ('OrmLiteDBHelper onCreate '+aAndroidProject.name)]
 		try {
 			Log.i(OrmLiteDBHelper.class.getName(), "onCreate");
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
@@ -75,6 +76,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 		dao.create(simple);
 		Log.i(ORMLiteDBHelper.class.getName(), "created new entries in onCreate: " + millis);
 		*/
+	// [/protected]
 	}
 
 	/**
@@ -83,6 +85,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
+	// [protected ('OrmLiteDBHelper onUpgrade '+aAndroidProject.name)]
 		try {
 			Log.i(OrmLiteDBHelper.class.getName(), "onUpgrade");
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
@@ -96,6 +99,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 			Log.e(OrmLiteDBHelper.class.getName(), "Can't drop databases", e);
 			throw new RuntimeException(e);
 		}
+	// [/protected]
 	}
 
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]

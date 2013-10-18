@@ -44,7 +44,7 @@
 		[/if] 
 	[/for]
 	[anAndroidProject.dataModel.generateYUMLClassDiagram()/]
-	[anAndroidProject.generateDBContextHelper()/]	
+	[anAndroidProject.generateDBContextHelper()/]
 	[anAndroidProject.generateXMLHelper()/]		
 	[anAndroidProject.generateXMLParser()/]
 	
