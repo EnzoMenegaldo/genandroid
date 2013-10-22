@@ -8,6 +8,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings specific to [anElementViewActivity.name.toLower()/] Element View and EditableElement View -->
 <resources>
+	<!--[protected ('protected'.concat(anElementViewActivity.name.toLower()+'_elementview_strings.xml'))]
+	-->	
 	[for (dataAtt : DataAttribute | anElementViewActivity.element.dataAttributes)]
 		[if ((dataAtt.type.instanceClassName = 'java.lang.String') or
 			(dataAtt.type.instanceClassName = 'int')) 
@@ -22,6 +24,8 @@
 	<string name="[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.name.toLower()/]_hint_text"></string>
 		[/if]
 	[/for]
+	<!-- [/protected]
+	-->
 </resources>
 [/file]
 

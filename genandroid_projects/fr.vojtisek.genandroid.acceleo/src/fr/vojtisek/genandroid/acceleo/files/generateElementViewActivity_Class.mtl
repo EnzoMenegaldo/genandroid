@@ -32,11 +32,17 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 // [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_import'))]
 // [/protected]
 
-public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>{
+public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>
+// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_implements'))]
+// [/protected]
+{
 	
 	protected int [anElementViewActivity.element.name.toLowerFirst()/]Id;
 	
 	private static final String LOG_TAG = [anElementViewActivity.name/]_ElementViewActivity.class.getCanonicalName();
+
+// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_attributes'))]
+// [/protected]
 	
 	/** Called when the activity is first created. */
     @Override
@@ -44,7 +50,9 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.[anElementViewActivity.name.toLower()/]_elementview);
         [anElementViewActivity.element.name.toLowerFirst()/]Id = getIntent().getExtras().getInt("[anElementViewActivity.element.name.toLowerFirst()/]Id");
-        //findViewById(R.id.divedate);
+        
+		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_onCreate'))]
+		// [/protected]
     }
     
     @Override
@@ -60,6 +68,7 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
     	[anElementViewActivity.element.name/] entry = entriesDao.queryForId([anElementViewActivity.element.name.toLowerFirst()/]Id);
     	entry.setContextDB(getHelper().get[anElementViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());
 
+		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity.refreshScreenData'))]
     	[for (dataAtt : DataAttribute | anElementViewActivity.element.dataAttributes)]
     		[if (dataAtt.type.instanceClassName = 'java.lang.String')]
 		((TextView) findViewById(R.id.[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.name.toLower()/])).setText(entry.get[dataAtt.name.toUpperFirst()/]());
@@ -68,7 +77,7 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
 			[/if]
     	[/for]
 		
-		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity.refreshScreenData'))]
+		
 		/*SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
     	((TextView) findViewById(R.id.detail_divedate)).setText(dateFormatter.format(entry.getDate()));
 		
@@ -116,6 +125,9 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
         }
         return false;
     }
+
+	// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_operations'))]
+	// [/protected]
 
 	private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
