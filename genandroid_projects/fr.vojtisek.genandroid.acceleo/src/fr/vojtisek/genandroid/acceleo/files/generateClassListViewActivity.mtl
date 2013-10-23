@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.WindowManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -49,7 +50,8 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		[/if]
         adapter = new [aClassListViewActivity.name/]_Adapter(this, getHelper().get[aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());
 
-        
+		// avoid opening the keayboard on view opening
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         list.setOnItemClickListener(this);
 
         list.setAdapter(adapter);
