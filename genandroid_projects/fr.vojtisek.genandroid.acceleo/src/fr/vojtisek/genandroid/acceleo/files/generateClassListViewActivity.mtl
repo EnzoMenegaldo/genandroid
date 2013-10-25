@@ -21,8 +21,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.WindowManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
@@ -34,6 +36,9 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
 public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener{
 	
+	//[protected ('constants '+aClassListViewActivity.name+'_ClassListViewActivity')]
+	//[/protected]
+
 	// Search EditText
     EditText inputSearch;
     [aClassListViewActivity.name/]_Adapter adapter;
@@ -101,6 +106,30 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		showToast(view.toString() + ", "+ view.getId());
 		[/if]
     }
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+		// add options in the menu
+		[aClassListViewActivity.addPreferenceInMenu()/]
+		//[protected ('additional onCreateOptionsMenu '+aClassListViewActivity.name+'_ClassListViewActivity')]
+
+		//[/protected]
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	// behavior of option menu
+        switch (item.getItemId()) {
+		[aClassListViewActivity.addPreferenceMenuAction()/]
+		//[protected ('additional menu action '+aClassListViewActivity.name+'_ClassListViewActivity')]
+
+		//[/protected]
+        }
+        return false;
+    }
+
 
 	// [protected ('protected'.concat(aClassListViewActivity.name).concat('_ClassListViewActivity'))]
 	public void onClickFilterBtn(View view){
