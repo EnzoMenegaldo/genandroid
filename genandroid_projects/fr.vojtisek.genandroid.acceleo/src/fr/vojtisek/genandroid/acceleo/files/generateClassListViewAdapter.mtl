@@ -57,6 +57,10 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 	private final Object mLock = new Object();
 	private SimpleFilter mFilter;
 
+	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter attributes')]
+	// additional attributes
+	//[/protected]
+
 	public [aClassListViewActivity.name/]_Adapter(Context context, [aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper contextDB) {
 		super();
 		this.context = context;
@@ -131,6 +135,10 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
         return convertView;
 
 	}
+
+	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter methods')]
+	// additional methods
+	//[/protected]
 
 	protected boolean sortAfterFilter() {
 		return false;
@@ -216,10 +224,11 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 		@SuppressWarnings("unchecked")
 		@Override
 		protected void publishResults(CharSequence constraint, FilterResults results) {
-			filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = (List<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>) results.values;
 			if (results.count > 0) {
+				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = (List<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>) results.values;
 				notifyDataSetChanged();
 			} else {
+				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>();
 				notifyDataSetInvalidated();
 			}
 		}

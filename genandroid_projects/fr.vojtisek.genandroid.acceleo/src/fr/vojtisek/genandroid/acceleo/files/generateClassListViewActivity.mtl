@@ -107,6 +107,10 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		[/if]
     }
 
+	//[protected ('additional  '+aClassListViewActivity.name+'_ClassListViewActivity methods')]
+
+	//[/protected]
+
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 		// add options in the menu
