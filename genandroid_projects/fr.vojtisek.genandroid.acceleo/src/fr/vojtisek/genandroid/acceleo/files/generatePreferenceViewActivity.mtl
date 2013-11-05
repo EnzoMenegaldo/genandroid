@@ -15,7 +15,15 @@ import android.view.MenuItem;
 
 import [aPreferenceViewActivity.packagePrefix()/].R;
 
+//[protected (aPreferenceViewActivity.name +' preference activity additional imports')]
+//[/protected]
+
 public class [aPreferenceViewActivity.name.toUpperFirst()/]_PreferenceViewActivity  extends android.preference.PreferenceActivity {
+
+	
+	//[protected (aPreferenceViewActivity.name +' preference activity additional attributes')]
+	//[/protected]
+
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,10 @@ public class [aPreferenceViewActivity.name.toUpperFirst()/]_PreferenceViewActivi
 		//[/protected]
         return false;
     }
+
+	
+	//[protected (aPreferenceViewActivity.name +' preference activity additional operations')]
+	//[/protected]
 }
 [/file]
 [/template]

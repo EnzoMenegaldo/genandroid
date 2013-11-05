@@ -10,6 +10,7 @@
 package [aCustomViewActivity.packagePrefix()/].activities;
 
 
+import [aCustomViewActivity.packagePrefix()/].BuildConfig;
 import [aCustomViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [aCustomViewActivity.packagePrefix()/].R;
 
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+
 [if (aCustomViewActivity = aCustomViewActivity.eContainer(PresentationModel).welcomeView and
 	(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
 import android.preference.PreferenceManager;
