@@ -30,8 +30,8 @@ public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
 	[/for]
 	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
 		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
-	//public RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
 	public Dao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
+	//public RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
 		[/if]
 	[/for]
 
@@ -40,10 +40,9 @@ public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
 	}
 
 	public [aAndroidProject.dataModel.name.toUpperFirst()/]Helper(
-		[aAndroidProject.dataModel.dataClasses->selectByKind(DataClass).oneDataClassDaoParam()->sep(',\n\t\t')/]
-		[if(aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)->size() <> 0)],
+		[aAndroidProject.dataModel.dataClasses->selectByKind(DataClass).oneDataClassDaoParam()->sep(',\n\t\t')/] [if (aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)->size() <> 0)],
 		[/if]
-		[aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1).oneAssocDaoParam()->sep(',\n\t\t')/]
+        [aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1).oneAssocDaoParam()->sep(',\n\t\t')/]
 	){
 	[for (classifier : DataClassifier | aAndroidProject.dataModel.dataClasses)]
 		[if(classifier.oclIsKindOf(DataClass))]
@@ -52,7 +51,7 @@ public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
 	[/for]
 	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
 		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
-		[assoc.name.toLowerFirst()/]Dao = [assoc.name.toLowerFirst()/]Dao;
+		this.[assoc.name.toLowerFirst()/]Dao = [assoc.name.toLowerFirst()/]Dao;
 		[/if]
 	[/for]
 	}

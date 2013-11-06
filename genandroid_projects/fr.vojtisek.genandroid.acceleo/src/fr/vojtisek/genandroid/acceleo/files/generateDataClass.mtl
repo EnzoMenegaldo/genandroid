@@ -17,6 +17,7 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.SelectArg;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 
@@ -108,33 +109,37 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[else] [comment management of references with opposite and multiplicity <> 1 /]
 				[if (ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().upperBound <> 1)]	
 					[if (ref.storage = storageKind::SQLite)]
-	public List<[ref.type.name.toUpperFirst()/]> lookup[ref.name.toUpperFirst()/]([aDataClass.eContainer(DataModel).name.toUpperFirst()/]Helper contextDB) throws SQLException {
-		if ([ref.name.toLowerFirst()/]Query == null) {
-			[ref.name.toLowerFirst()/]Query = make[ref.name.toUpperFirst()/]Query(contextDB);
+	// work in progress, find association 
+	// Association many to many [ref.opposite.name.toUpperFirst()/]
+	[let otherRef : DataReference = ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first()]
+	@ForeignCollectionField(eager = false, foreignFieldName = "[otherRef.type.name.toLowerFirst()/]")	
+	protected ForeignCollection<[ref.opposite.name.toUpperFirst()/]> [ref.opposite.name.toLowerFirst()/];
+
+	/** [ref.documentation/] 
+	  * Attention, returned list is readonly
+      */
+	public List<[ref.type.name.toUpperFirst()/]> get[ref.name.toUpperFirst()/](){
+		List<[ref.type.name.toUpperFirst()/]> result = new ArrayList<[ref.type.name.toUpperFirst()/]>();
+		
+		for ([ref.opposite.name.toUpperFirst()/] a[ref.opposite.name.toUpperFirst()/] : [ref.opposite.name.toLowerFirst()/]) {
+			if(_contextDB != null) a[ref.opposite.name.toUpperFirst()/].setContextDB(_contextDB);
+			result.add(a[ref.opposite.name.toUpperFirst()/].get[ref.type.name.toUpperFirst()/]());
 		}
-		[ref.name.toLowerFirst()/]Query.setArgumentHolderValue(0, this);
-		return contextDB.[ref.type.name.toLowerFirst()/]Dao.query([ref.name.toLowerFirst()/]Query);
+		return result;
 	}
-	private PreparedQuery<[ref.type.name.toUpperFirst()/]> [ref.name.toLowerFirst()/]Query = null;
-	/**
-	 * Build a query for [ref.type.name.toUpperFirst()/] objects that match a [aDataClass.name/]
-	 */
-	private PreparedQuery<[ref.type.name.toUpperFirst()/]> make[ref.name.toUpperFirst()/]Query([aDataClass.eContainer(DataModel).name.toUpperFirst()/]Helper contextDB) throws SQLException {
-		// build our inner query for UserPost objects
-		QueryBuilder<[ref.opposite.name.toUpperFirst()/], Integer> [ref.opposite.name.toLowerFirst()/]Qb = contextDB.[ref.opposite.name.toLowerFirst()/]Dao.queryBuilder();
-		// just select the post-id field
-		[ref.opposite.name.toLowerFirst()/]Qb.selectColumns([ref.opposite.name.toUpperFirst()/].[ref.type.name.toUpper()/]_ID_FIELD_NAME);
-		SelectArg userSelectArg = new SelectArg();
-		// you could also just pass in user1 here
-		[ref.opposite.name.toLowerFirst()/]Qb.where().eq([ref.opposite.name.toUpperFirst()/].[aDataClass.name.toUpper()/]_ID_FIELD_NAME, userSelectArg);
-
-		// build our outer query for Post objects
-		QueryBuilder<[ref.type.name.toUpperFirst()/], Integer> [ref.type.name.toLowerFirst()/]Qb = contextDB.[ref.type.name.toLowerFirst()/]Dao.queryBuilder();
-		// where the id matches in the [ref.type.name.toLowerFirst()/]-id from the inner query
-		[ref.type.name.toLowerFirst()/]Qb.where().in("_id", [ref.opposite.name.toLowerFirst()/]Qb);
-		return [ref.type.name.toLowerFirst()/]Qb.prepare();
+	public void add[ref.type.name.toUpperFirst()/]([ref.type.name.toUpperFirst()/] [ref.type.name.toLowerFirst()/]){
+		try {
+		[if (ref = ref.opposite.references->first())]
+			_contextDB.[ref.opposite.name.toLowerFirst()/]Dao.create(new [ref.opposite.name.toUpperFirst()/]( this, [ref.type.name.toLowerFirst()/]));
+		[else]
+			_contextDB.[ref.opposite.name.toLowerFirst()/]Dao.create(new [ref.opposite.name.toUpperFirst()/]( [ref.type.name.toLowerFirst()/], this));		
+		[/if]
+		} catch (SQLException e) {
+			log.error("Pb while adding association [ref.opposite.name.toLowerFirst()/]",e);
+		}
 	}
-
+	[/let]
+	// end work in progress 	
 
 				
 					[else]
@@ -303,23 +308,25 @@ public class [aDataClass.name.toUpperFirst()/] {
 		sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");		
 				[/if]
 			[else]		
-		try{
+		
 				[if(not ref.containment)]
-			for([ref.type.name.toUpperFirst()/] ref : this.lookup[ref.name.toUpperFirst()/](contextDB)){
-	    		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
-	    		sb.append(ref._id);
-	        	sb.append("\"/>");
-				
-	    	}
+		for([ref.type.name.toUpperFirst()/] ref : this.get[ref.name.toUpperFirst()/]()){
+    		sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+" id=\"");
+    		sb.append(ref._id);
+        	sb.append("\"/>");
+			
+    	}
 				[else]
+		try{
 			sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
 			for([ref.type.name.toUpperFirst()/] ref : this.lookup[ref.name.toUpperFirst()/](contextDB)){
 				sb.append("\n"+ref.toXML(indent+"\t", contextDB));				
 	    	}
 			sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
+        }
+		catch(SQLException e){};
 				[/if]
-		}
-		catch(SQLException e){};	
+			
 			[/if]
 		[/if]
 	[/for]

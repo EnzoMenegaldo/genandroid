@@ -11,6 +11,11 @@ package [aDataAssociation.references->first().eContainer().oclAsType(DataClass).
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.sql.SQLException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import [aDataAssociation.references->first().eContainer().oclAsType(DataClass).packagePrefix()/].datamodel.*;
 
 /** 
@@ -18,8 +23,9 @@ import [aDataAssociation.references->first().eContainer().oclAsType(DataClass).p
   */ 
 @DatabaseTable(tableName = "[aDataAssociation.name.toLowerFirst()/]")
 public class [aDataAssociation.name.toUpperFirst()/] {
-
  
+	public static Log log = LogFactory.getLog([aDataAssociation.name.toUpperFirst()/].class);
+
 	[let leftClass : DataClass = aDataAssociation.references->first().eContainer().oclAsType(DataClass)]
 	[let rightClass : DataClass = aDataAssociation.references->last().eContainer().oclAsType(DataClass)]
 	
@@ -38,6 +44,17 @@ public class [aDataAssociation.name.toUpperFirst()/] {
 	@DatabaseField(foreign = true, columnName = [rightClass.name.toUpper()/]_ID_FIELD_NAME)
 	[rightClass.name.toUpperFirst()/] [rightClass.name.toLowerFirst()/];
 
+	/**
+     * dbHelper used to autorefresh values and doing queries
+     * must be set other wise most getter will return proxy that will need to be refreshed
+	 */
+	protected [aDataAssociation.eContainer(DataModel).name.toUpperFirst()/]Helper _contextDB = null;
+
+	/**
+	 * object created from DB may need to be updated from the DB for being fully navigable
+	 */
+	public boolean _mayNeedDBRefresh = true;
+
 	[aDataAssociation.name.toUpperFirst()/]() {
 		// for ormlite
 	}
@@ -46,8 +63,54 @@ public class [aDataAssociation.name.toUpperFirst()/] {
 		this.[leftClass.name.toLowerFirst()/] = [leftClass.name.toLowerFirst()/];
 		this.[rightClass.name.toLowerFirst()/] = [rightClass.name.toLowerFirst()/];
 	}
+
+	/** accessors for Left part */  
+	public [leftClass.name.toUpperFirst()/] get[leftClass.name.toUpperFirst()/]() {
+		try {
+			if(_mayNeedDBRefresh && _contextDB != null){
+				_contextDB.[leftClass.name.toLowerFirst()/]Dao.refresh(this.[leftClass.name.toLowerFirst()/]);
+				_mayNeedDBRefresh = false;
+			}
+		} catch (SQLException e) {
+			log.error(e.getMessage(),e);
+		}
+		if(_contextDB==null && this.[leftClass.name.toLowerFirst()/] == null){
+			log.warn("[aDataAssociation.name.toUpperFirst()/] may not be properly refreshed from DB (_id="+_id+")");
+		}
+		return this.[leftClass.name.toLowerFirst()/];
+	}
+	public void set[leftClass.name.toUpperFirst()/]([leftClass.name.toUpperFirst()/] [leftClass.name.toLowerFirst()/]) {
+		this.[leftClass.name.toLowerFirst()/] = [leftClass.name.toLowerFirst()/];
+	}
+
+	/** accessors for Right part */ 
+	public [rightClass.name.toUpperFirst()/] get[rightClass.name.toUpperFirst()/]() {
+		try {
+			if(_mayNeedDBRefresh && _contextDB != null){
+				_contextDB.[rightClass.name.toLowerFirst()/]Dao.refresh(this.[rightClass.name.toLowerFirst()/]);
+				_mayNeedDBRefresh = false;
+			}
+		} catch (SQLException e) {
+			log.error(e.getMessage(),e);
+		}
+		if(_contextDB==null && this.[rightClass.name.toLowerFirst()/] == null){
+			log.warn("[aDataAssociation.name.toUpperFirst()/] may not be properly refreshed from DB (_id="+_id+")");
+		}
+		return this.[rightClass.name.toLowerFirst()/];
+	}
+	public void set[rightClass.name.toUpperFirst()/]([rightClass.name.toUpperFirst()/] [rightClass.name.toLowerFirst()/]) {
+		this.[rightClass.name.toLowerFirst()/] = [rightClass.name.toLowerFirst()/];
+	}
+
 	[/let]
 	[/let]
+
+	public [aDataAssociation.eContainer(DataModel).name.toUpperFirst()/]Helper getContextDB(){
+		return _contextDB;
+	}
+	public void setContextDB([aDataAssociation.eContainer(DataModel).name.toUpperFirst()/]Helper contextDB){
+		this._contextDB = contextDB;
+	}
 }
 [/file]
 [/template]
