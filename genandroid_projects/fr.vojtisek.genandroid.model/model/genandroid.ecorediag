@@ -199,6 +199,10 @@
     <children xmi:type="notation:Node" xmi:id="_MqIi0F_IEeGBMabQlDmg6w" type="1001">
       <children xmi:type="notation:Node" xmi:id="_MqIi01_IEeGBMabQlDmg6w" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_MqIi1F_IEeGBMabQlDmg6w" type="5001">
+        <children xmi:type="notation:Node" xmi:id="_g2618Ef0EeOaHKNplXU5oA" type="2001">
+          <element xmi:type="ecore:EAttribute" href="genandroid.ecore#//ListViewActivity/isFilterable"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_g2618Uf0EeOaHKNplXU5oA"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_MqIi1V_IEeGBMabQlDmg6w"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_MqIi1l_IEeGBMabQlDmg6w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_MqIi11_IEeGBMabQlDmg6w"/>

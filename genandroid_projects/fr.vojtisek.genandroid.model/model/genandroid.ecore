@@ -69,6 +69,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListViewActivity" eSuperTypes="#//ViewActivity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectItemAction" eType="#//ViewActivity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isFilterable" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AttributeListViewActivity" eSuperTypes="#//ListViewActivity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"

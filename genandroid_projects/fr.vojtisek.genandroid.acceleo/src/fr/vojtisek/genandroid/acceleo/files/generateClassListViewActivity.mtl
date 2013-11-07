@@ -38,9 +38,10 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 	
 	//[protected ('constants '+aClassListViewActivity.name+'_ClassListViewActivity')]
 	//[/protected]
-
+	[if(aClassListViewActivity.isFilterable)] 
 	// Search EditText
     EditText inputSearch;
+	[/if]
     [aClassListViewActivity.name/]_Adapter adapter;
 
 	public void onCreate(Bundle bundle) {
@@ -60,7 +61,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
         list.setOnItemClickListener(this);
 
         list.setAdapter(adapter);
-
+	[if(aClassListViewActivity.isFilterable)] 
 		inputSearch = (EditText) findViewById(R.id.inputSearch_[aClassListViewActivity.name.toLower()/]_listviewsearchrow);
 
 		/**
@@ -86,16 +87,14 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
                 // TODO Auto-generated method stub                         
             }
         });
+	[/if]
+		//[protected ('onCreate additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
+		//[/protected]
 	}
 	
 
 
 	public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
-		//showToast(view.toString() + ", "+ view.getId());
-		/*SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-        //tvLabel.setText(dateFormatter.format(entry.getDate()));
-        showToast(dateFormatter.format(((DiveEntry)view.getTag()).getDate()));
-		*/
 		[if(selectItemAction <> null)]
         Intent toDetailView = new Intent(this, [selectItemAction.name/]_ElementViewActivity.class);
         Bundle b = new Bundle();
@@ -103,7 +102,9 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		toDetailView.putExtras(b);
         startActivity(toDetailView);
 		[else]
+		//[protected ('onItemClick additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
 		showToast(view.toString() + ", "+ view.getId());
+		//[/protected]		
 		[/if]
     }
 

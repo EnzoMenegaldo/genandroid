@@ -464,13 +464,22 @@ public interface GenandroidPackage extends EPackage {
 	int LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION = VIEW_ACTIVITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Is Filterable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_ACTIVITY__IS_FILTERABLE = VIEW_ACTIVITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>List View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 1;
+	int LIST_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ClassListViewActivityImpl <em>Class List View Activity</em>}' class.
@@ -526,6 +535,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION = LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Filterable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__IS_FILTERABLE = LIST_VIEW_ACTIVITY__IS_FILTERABLE;
 
 	/**
 	 * The feature id for the '<em><b>Listed Element</b></em>' reference.
@@ -709,6 +727,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION = CLASS_LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Filterable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__IS_FILTERABLE = CLASS_LIST_VIEW_ACTIVITY__IS_FILTERABLE;
 
 	/**
 	 * The feature id for the '<em><b>Listed Element</b></em>' reference.
@@ -1110,6 +1137,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE_LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION = LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Filterable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_LIST_VIEW_ACTIVITY__IS_FILTERABLE = LIST_VIEW_ACTIVITY__IS_FILTERABLE;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -1858,6 +1894,17 @@ public interface GenandroidPackage extends EPackage {
 	EReference getListViewActivity_SelectItemAction();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.ListViewActivity#isIsFilterable <em>Is Filterable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Filterable</em>'.
+	 * @see genandroid.ListViewActivity#isIsFilterable()
+	 * @see #getListViewActivity()
+	 * @generated
+	 */
+	EAttribute getListViewActivity_IsFilterable();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.AttributeListViewActivity <em>Attribute List View Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2492,6 +2539,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION = eINSTANCE.getListViewActivity_SelectItemAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Filterable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_VIEW_ACTIVITY__IS_FILTERABLE = eINSTANCE.getListViewActivity_IsFilterable();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.AttributeListViewActivityImpl <em>Attribute List View Activity</em>}' class.

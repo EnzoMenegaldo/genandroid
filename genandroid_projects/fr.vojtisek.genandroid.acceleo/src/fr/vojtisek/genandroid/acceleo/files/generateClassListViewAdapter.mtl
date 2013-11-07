@@ -28,8 +28,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+[if(aClassListViewActivity.isFilterable)] 
 import android.widget.Filter;
 import android.widget.Filterable;
+[/if]
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +42,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 // additional imports
 //[/protected]
 
-public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implements Filterable{
+public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aClassListViewActivity.isFilterable)] implements Filterable[/if]{
 	
 	private Context context;
 
@@ -54,9 +56,10 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 
     private List<[aClassListViewActivity.listedElement.name/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
     private List<[aClassListViewActivity.listedElement.name/]> filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List;
+	[if(aClassListViewActivity.isFilterable)] 
 	private final Object mLock = new Object();
 	private SimpleFilter mFilter;
-
+	[/if]
 	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter attributes')]
 	// additional attributes
 	//[/protected]
@@ -139,7 +142,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter methods')]
 	// additional methods
 	//[/protected]
-
+	[if(aClassListViewActivity.isFilterable)] 
 	protected boolean sortAfterFilter() {
 		return false;
 	}
@@ -233,6 +236,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter implemen
 			}
 		}
 	}
+	[/if]
 }
 [/file]
 [/template]

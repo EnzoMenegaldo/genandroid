@@ -57,6 +57,7 @@
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//ListViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ListViewActivity/selectItemAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ListViewActivity/isFilterable"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//AttributeListViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//AttributeListViewActivity/attribute"/>

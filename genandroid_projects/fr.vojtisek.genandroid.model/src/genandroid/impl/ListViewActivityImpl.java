@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#getSelectItemAction <em>Select Item Action</em>}</li>
+ *   <li>{@link genandroid.impl.ListViewActivityImpl#isIsFilterable <em>Is Filterable</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +41,25 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 	 * @ordered
 	 */
 	protected ViewActivity selectItemAction;
+
+	/**
+	 * The default value of the '{@link #isIsFilterable() <em>Is Filterable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsFilterable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_FILTERABLE_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isIsFilterable() <em>Is Filterable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsFilterable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isFilterable = IS_FILTERABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,12 +123,35 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsFilterable() {
+		return isFilterable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsFilterable(boolean newIsFilterable) {
+		boolean oldIsFilterable = isFilterable;
+		isFilterable = newIsFilterable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.LIST_VIEW_ACTIVITY__IS_FILTERABLE, oldIsFilterable, isFilterable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION:
 				if (resolve) return getSelectItemAction();
 				return basicGetSelectItemAction();
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_FILTERABLE:
+				return isIsFilterable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +166,9 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 		switch (featureID) {
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION:
 				setSelectItemAction((ViewActivity)newValue);
+				return;
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_FILTERABLE:
+				setIsFilterable((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +185,9 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION:
 				setSelectItemAction((ViewActivity)null);
 				return;
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_FILTERABLE:
+				setIsFilterable(IS_FILTERABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,8 +202,26 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 		switch (featureID) {
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION:
 				return selectItemAction != null;
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_FILTERABLE:
+				return isFilterable != IS_FILTERABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isFilterable: ");
+		result.append(isFilterable);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ListViewActivityImpl
