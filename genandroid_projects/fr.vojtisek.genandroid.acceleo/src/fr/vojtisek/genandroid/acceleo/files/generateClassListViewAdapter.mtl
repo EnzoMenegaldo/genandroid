@@ -19,6 +19,8 @@ import [aClassListViewActivity.packagePrefix()/].datamodel.[aClassListViewActivi
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +61,8 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 	[if(aClassListViewActivity.isFilterable)] 
 	private final Object mLock = new Object();
 	private SimpleFilter mFilter;
-	[/if]
+	[/if]	
+	SharedPreferences prefs;
 	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter attributes')]
 	// additional attributes
 	//[/protected]
@@ -68,13 +71,20 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 		super();
 		this.context = context;
 		this._contextDB = contextDB;
-		// TODO find a way to query in a lazy way
+		updateList();
+		prefs = PreferenceManager.getDefaultSharedPreferences(context);
+	}
+	
+	protected void updateList(){
+		// [protected ('protected '+aClassListViewActivity.name+'_Adapter updateList')]
+		// TODO find a way to query in a lazier way
 		try{
 			this.[aClassListViewActivity.listedElement.name.toLowerFirst()/]List = _contextDB.[aClassListViewActivity.listedElement.name.toLowerFirst()/]Dao.queryForAll();
 			this.filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = this.[aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
 		} catch (java.sql.SQLException e) {
 			Log.e(LOG_TAG, e.getMessage(), e);
 		}
+		// [/protected]
 	}
 
 	@Override
@@ -95,7 +105,8 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup viewGroup) {
-		[aClassListViewActivity.listedElement.name/] entry = filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
+		final [aClassListViewActivity.listedElement.name/] entry = filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
+		if(_contextDB != null) entry.setContextDB(_contextDB);
 		entry.setContextDB(_contextDB);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context

@@ -53,7 +53,8 @@ public class [aDataAssociation.name.toUpperFirst()/] {
 	/**
 	 * object created from DB may need to be updated from the DB for being fully navigable
 	 */
-	public boolean _mayNeedDBRefresh = true;
+	public boolean _[leftClass.name.toLowerFirst()/]_mayNeedDBRefresh = true;
+	public boolean _[rightClass.name.toLowerFirst()/]_mayNeedDBRefresh = true;
 
 	[aDataAssociation.name.toUpperFirst()/]() {
 		// for ormlite
@@ -67,9 +68,10 @@ public class [aDataAssociation.name.toUpperFirst()/] {
 	/** accessors for Left part */  
 	public [leftClass.name.toUpperFirst()/] get[leftClass.name.toUpperFirst()/]() {
 		try {
-			if(_mayNeedDBRefresh && _contextDB != null){
+			if(_[leftClass.name.toLowerFirst()/]_mayNeedDBRefresh && _contextDB != null){
 				_contextDB.[leftClass.name.toLowerFirst()/]Dao.refresh(this.[leftClass.name.toLowerFirst()/]);
-				_mayNeedDBRefresh = false;
+				this.[leftClass.name.toLowerFirst()/].setContextDB(_contextDB);
+				_[leftClass.name.toLowerFirst()/]_mayNeedDBRefresh = false;
 			}
 		} catch (SQLException e) {
 			log.error(e.getMessage(),e);
@@ -86,9 +88,10 @@ public class [aDataAssociation.name.toUpperFirst()/] {
 	/** accessors for Right part */ 
 	public [rightClass.name.toUpperFirst()/] get[rightClass.name.toUpperFirst()/]() {
 		try {
-			if(_mayNeedDBRefresh && _contextDB != null){
+			if(_[rightClass.name.toLowerFirst()/]_mayNeedDBRefresh && _contextDB != null){
 				_contextDB.[rightClass.name.toLowerFirst()/]Dao.refresh(this.[rightClass.name.toLowerFirst()/]);
-				_mayNeedDBRefresh = false;
+				this.[rightClass.name.toLowerFirst()/].setContextDB(_contextDB);
+				_[rightClass.name.toLowerFirst()/]_mayNeedDBRefresh = false;
 			}
 		} catch (SQLException e) {
 			log.error(e.getMessage(),e);
