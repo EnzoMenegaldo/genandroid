@@ -17,6 +17,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
+import [aAndroidProject.packagePrefix/].datamodel.associations.*;
 
 /**
  * ORMLite Data base helper, designed to be used by android Activity
@@ -40,6 +41,12 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	// private Dao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]Dao = null;
 	private RuntimeExceptionDao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]RuntimeDao = null;
 			[/if]
+		[/if]
+	[/for]
+	
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		private RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]RuntimeDao = null;
 		[/if]
 	[/for]
 
@@ -105,7 +112,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
 		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
 	/**
-	 * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our DiveBudy class. It will
+	 * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our [aDataClass.name.toUpperFirst()/] class. It will
 	 * create it or just give the cached value. RuntimeExceptionDao only through RuntimeExceptions.
 	 */
 	public RuntimeExceptionDao<[aDataClass.name.toUpperFirst()/], Integer> get[aDataClass.name.toUpperFirst()/]Dao() {
@@ -118,6 +125,22 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 		[/if]
 	[/for]
 	
+	
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+	/**
+	 * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our [assoc.name.toUpperFirst()/] class. It will
+	 * create it or just give the cached value. RuntimeExceptionDao only through RuntimeExceptions.
+	 */
+	public RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> get[assoc.name.toUpperFirst()/]Dao() {
+		if ([assoc.name.toLowerFirst()/]RuntimeDao == null) {
+			[assoc.name.toLowerFirst()/]RuntimeDao = getRuntimeExceptionDao([assoc.name.toUpperFirst()/].class);
+		}
+		return [assoc.name.toLowerFirst()/]RuntimeDao;
+	}
+		[/if]
+	[/for]
+
 
 	/**
 	 * Close the database connections and clear any cached DAOs.
@@ -128,6 +151,11 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
 		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
 		[aDataClass.name.toLowerFirst()/]RuntimeDao = null;
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		[assoc.name.toLowerFirst()/]RuntimeDao = null;
 		[/if]
 	[/for]
 	}
@@ -142,6 +170,11 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
 		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
 			helper.[aDataClass.name.toLowerFirst()/]Dao = getDao([aDataClass.name.toUpperFirst()/].class);
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		helper.[assoc.name.toLowerFirst()/]Dao = getDao([assoc.name.toUpperFirst()/].class);
 		[/if]
 	[/for]
 		} catch (SQLException e) {
