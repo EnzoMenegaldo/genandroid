@@ -39,9 +39,11 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
     
 	/** constructor */
     public [aBackgroundActivity.name/]_BgActivity(Context context, OrmLiteDBHelper dbHelper){
+		// [protected ('additional attribute declarations '+aBackgroundActivity.name+'_BgActivity constructor')]
 		String initialTickerText = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_initialTickerText);
 		String notificationTitle = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_notificationTitle);
         mNotificationHelper = new NotificationHelper(context, initialTickerText, notificationTitle);
+		// [/protected]
         this.dbHelper = dbHelper;
 		this.context = context;
     }

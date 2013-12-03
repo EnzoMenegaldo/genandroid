@@ -26,6 +26,9 @@ public class NotificationHelper {
     private CharSequence mContentTitle;
     
     private String maxItemToProcess = "???";
+
+	// [protected ('notification helper additional attributes')]
+	// [/protected]
     
 	/** Initial text that appears in the status bar */
     private String initialTickerText;
@@ -87,7 +90,10 @@ public class NotificationHelper {
      */
     public void progressUpdate(int nbItemsComplete) {
         //build up the new status message
+
+		// [protected ('notification helper additional status message')]
         CharSequence contentText = nbItemsComplete + " / " +maxItemToProcess;
+		// [/protected]
         //publish it to the status bar
         //mNotification.setLatestEventInfo(mContext, mContentTitle, contentText, mContentIntent);
         //mNotificationManager.notify(NOTIFICATION_ID, mNotification);
@@ -127,6 +133,9 @@ public class NotificationHelper {
         		NOTIFICATION_ID,
                 mNotifyBuilder.build());
 	}
+
+	// [protected ('notification helper additional operations')]
+	// [/protected]
 }
 [/file]
 [/template]

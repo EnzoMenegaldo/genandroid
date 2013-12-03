@@ -29,6 +29,15 @@ public class [aPreferenceViewActivity.name.toUpperFirst()/]_PreferenceViewActivi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.[aPreferenceViewActivity.name.toLower()/]); 
+		//[protected (aPreferenceViewActivity.name +' preference activity additional onCreate')]
+		//[/protected]
+    }
+
+    @Override
+	protected void onResume() {
+		super.onResume(); 
+		//[protected (aPreferenceViewActivity.name +' preference activity additional onResume')]
+		//[/protected]
     }
 
     @Override
