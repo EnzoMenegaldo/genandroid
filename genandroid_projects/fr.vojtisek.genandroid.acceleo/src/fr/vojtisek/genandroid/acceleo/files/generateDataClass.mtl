@@ -59,7 +59,13 @@ public class [aDataClass.name.toUpperFirst()/] {
 	/**
 	 * object created from DB may need to be updated from the DB for being fully navigable
 	 */
-	public boolean _mayNeedDBRefresh = true;
+	[for (ref : DataReference | aDataClass.dataReferences)]
+		[if (ref.upperBound = 1)]
+			[if (not ref.derived)]	
+	public boolean [ref.name.toLowerFirst()/]_mayNeedDBRefresh = true;
+			[/if]
+		[/if]
+	[/for]
 	
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
 
@@ -210,9 +216,9 @@ public class [aDataClass.name.toUpperFirst()/] {
 		// [/protected]
 			[else]
 		try {
-			if(_mayNeedDBRefresh && _contextDB != null){
+			if([ref.name.toLowerFirst()/]_mayNeedDBRefresh && _contextDB != null){
 				_contextDB.[ref.type.name.toLowerFirst()/]Dao.refresh(this.[ref.name.toLowerFirst()/]);
-				_mayNeedDBRefresh = false;
+				[ref.name.toLowerFirst()/]_mayNeedDBRefresh = false;
 			}
 		} catch (SQLException e) {
 			log.error(e.getMessage(),e);
