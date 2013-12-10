@@ -746,6 +746,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCustomViewActivity_IsOrmLiteBaseActivity() {
+		return (EAttribute)customViewActivityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataClassifier() {
 		return dataClassifierEClass;
 	}
@@ -963,6 +972,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEAttribute(structuralFeatureEClass, STRUCTURAL_FEATURE__UPPER_BOUND);
 
 		customViewActivityEClass = createEClass(CUSTOM_VIEW_ACTIVITY);
+		createEAttribute(customViewActivityEClass, CUSTOM_VIEW_ACTIVITY__IS_ORM_LITE_BASE_ACTIVITY);
 
 		dataClassifierEClass = createEClass(DATA_CLASSIFIER);
 
@@ -1106,6 +1116,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEAttribute(getStructuralFeature_UpperBound(), theEcorePackage.getEInt(), "upperBound", "1", 0, 1, StructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(customViewActivityEClass, CustomViewActivity.class, "CustomViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCustomViewActivity_IsOrmLiteBaseActivity(), theEcorePackage.getEBoolean(), "isOrmLiteBaseActivity", "true", 0, 1, CustomViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataClassifierEClass, DataClassifier.class, "DataClassifier", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

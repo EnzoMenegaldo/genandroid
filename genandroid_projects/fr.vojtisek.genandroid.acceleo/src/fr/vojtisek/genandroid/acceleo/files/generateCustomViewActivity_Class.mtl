@@ -27,8 +27,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+[if (aCustomViewActivity.isOrmLiteBaseActivity)]
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+[/if]
 
 [if (aCustomViewActivity = aCustomViewActivity.eContainer(PresentationModel).welcomeView and
 	(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
@@ -36,7 +38,8 @@ import android.preference.PreferenceManager;
 [/if]
 //[protected ('additional imports '+aCustomViewActivity.name+'_CustomViewActivity')]
 //[/protected]
-public class [aCustomViewActivity.name/]_CustomViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>
+public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActivity.isOrmLiteBaseActivity)]extends OrmLiteBaseActivity<OrmLiteDBHelper>
+[else]extends Activity[/if]
 //[protected ('additional implements '+aCustomViewActivity.name+'_CustomViewActivity')]
 //[/protected]
 {

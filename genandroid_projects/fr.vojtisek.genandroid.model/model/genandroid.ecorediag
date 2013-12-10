@@ -335,6 +335,10 @@
     <children xmi:type="notation:Node" xmi:id="_kjXsoHg6EeKjO9hO-NhLHQ" type="1001">
       <children xmi:type="notation:Node" xmi:id="_kjXso3g6EeKjO9hO-NhLHQ" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_kjXspHg6EeKjO9hO-NhLHQ" type="5001">
+        <children xmi:type="notation:Node" xmi:id="_AateoGHlEeO4zahrtLhM0g" type="2001">
+          <element xmi:type="ecore:EAttribute" href="genandroid.ecore#//CustomViewActivity/isOrmLiteBaseActivity"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_AateoWHlEeO4zahrtLhM0g"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_kjXspXg6EeKjO9hO-NhLHQ"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_kjXspng6EeKjO9hO-NhLHQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_kjXsp3g6EeKjO9hO-NhLHQ"/>

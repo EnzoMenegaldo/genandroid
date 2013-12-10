@@ -76,7 +76,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//StructuralFeature/lowerbound"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//StructuralFeature/upperBound"/>
     </genClasses>
-    <genClasses ecoreClass="genandroid.ecore#//CustomViewActivity"/>
+    <genClasses ecoreClass="genandroid.ecore#//CustomViewActivity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//CustomViewActivity/isOrmLiteBaseActivity"/>
+    </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataClassifier"/>
     <genClasses ecoreClass="genandroid.ecore#//NativeDataClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//NativeDataClass/instanceClassName"/>

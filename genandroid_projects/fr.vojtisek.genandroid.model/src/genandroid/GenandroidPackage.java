@@ -1276,13 +1276,22 @@ public interface GenandroidPackage extends EPackage {
 	int CUSTOM_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
 
 	/**
+	 * The feature id for the '<em><b>Is Orm Lite Base Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_VIEW_ACTIVITY__IS_ORM_LITE_BASE_ACTIVITY = VIEW_ACTIVITY_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Custom View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOM_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 0;
+	int CUSTOM_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.NativeDataClassImpl <em>Native Data Class</em>}' class.
@@ -2053,6 +2062,17 @@ public interface GenandroidPackage extends EPackage {
 	EClass getCustomViewActivity();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.CustomViewActivity#isIsOrmLiteBaseActivity <em>Is Orm Lite Base Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Orm Lite Base Activity</em>'.
+	 * @see genandroid.CustomViewActivity#isIsOrmLiteBaseActivity()
+	 * @see #getCustomViewActivity()
+	 * @generated
+	 */
+	EAttribute getCustomViewActivity_IsOrmLiteBaseActivity();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataClassifier <em>Data Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2671,6 +2691,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CUSTOM_VIEW_ACTIVITY = eINSTANCE.getCustomViewActivity();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Orm Lite Base Activity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CUSTOM_VIEW_ACTIVITY__IS_ORM_LITE_BASE_ACTIVITY = eINSTANCE.getCustomViewActivity_IsOrmLiteBaseActivity();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataClassifierImpl <em>Data Classifier</em>}' class.
