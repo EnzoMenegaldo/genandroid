@@ -620,6 +620,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getListViewActivity_IsLargeList() {
+		return (EAttribute)listViewActivityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAttributeListViewActivity() {
 		return attributeListViewActivityEClass;
 	}
@@ -952,6 +961,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		listViewActivityEClass = createEClass(LIST_VIEW_ACTIVITY);
 		createEReference(listViewActivityEClass, LIST_VIEW_ACTIVITY__SELECT_ITEM_ACTION);
 		createEAttribute(listViewActivityEClass, LIST_VIEW_ACTIVITY__IS_FILTERABLE);
+		createEAttribute(listViewActivityEClass, LIST_VIEW_ACTIVITY__IS_LARGE_LIST);
 
 		attributeListViewActivityEClass = createEClass(ATTRIBUTE_LIST_VIEW_ACTIVITY);
 		createEReference(attributeListViewActivityEClass, ATTRIBUTE_LIST_VIEW_ACTIVITY__ATTRIBUTE);
@@ -1096,6 +1106,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(listViewActivityEClass, ListViewActivity.class, "ListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListViewActivity_SelectItemAction(), this.getViewActivity(), null, "selectItemAction", null, 0, 1, ListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getListViewActivity_IsFilterable(), theEcorePackage.getEBoolean(), "isFilterable", "true", 0, 1, ListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getListViewActivity_IsLargeList(), theEcorePackage.getEBoolean(), "isLargeList", null, 0, 1, ListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeListViewActivityEClass, AttributeListViewActivity.class, "AttributeListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAttributeListViewActivity_Attribute(), this.getDataAttribute(), null, "attribute", null, 1, 1, AttributeListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

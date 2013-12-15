@@ -63,6 +63,7 @@ public class ListViewActivityItemProvider
 
 			addSelectItemActionPropertyDescriptor(object);
 			addIsFilterablePropertyDescriptor(object);
+			addIsLargeListPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class ListViewActivityItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Large List feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsLargeListPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ListViewActivity_isLargeList_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ListViewActivity_isLargeList_feature", "_UI_ListViewActivity_type"),
+				 GenandroidPackage.Literals.LIST_VIEW_ACTIVITY__IS_LARGE_LIST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ListViewActivity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,6 +172,7 @@ public class ListViewActivityItemProvider
 
 		switch (notification.getFeatureID(ListViewActivity.class)) {
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_FILTERABLE:
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_LARGE_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

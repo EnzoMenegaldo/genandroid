@@ -17,6 +17,7 @@ package genandroid;
  * <ul>
  *   <li>{@link genandroid.ListViewActivity#getSelectItemAction <em>Select Item Action</em>}</li>
  *   <li>{@link genandroid.ListViewActivity#isIsFilterable <em>Is Filterable</em>}</li>
+ *   <li>{@link genandroid.ListViewActivity#isIsLargeList <em>Is Large List</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,31 @@ public interface ListViewActivity extends ViewActivity {
 	 * @generated
 	 */
 	void setIsFilterable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Large List</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Large List</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Large List</em>' attribute.
+	 * @see #setIsLargeList(boolean)
+	 * @see genandroid.GenandroidPackage#getListViewActivity_IsLargeList()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsLargeList();
+
+	/**
+	 * Sets the value of the '{@link genandroid.ListViewActivity#isIsLargeList <em>Is Large List</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Large List</em>' attribute.
+	 * @see #isIsLargeList()
+	 * @generated
+	 */
+	void setIsLargeList(boolean value);
 
 } // ListViewActivity

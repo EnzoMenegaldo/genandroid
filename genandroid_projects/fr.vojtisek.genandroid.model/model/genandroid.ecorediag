@@ -203,6 +203,10 @@
           <element xmi:type="ecore:EAttribute" href="genandroid.ecore#//ListViewActivity/isFilterable"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_g2618Uf0EeOaHKNplXU5oA"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_TOvpQGWyEeOIhPTvQKhaOw" type="2001">
+          <element xmi:type="ecore:EAttribute" href="genandroid.ecore#//ListViewActivity/isLargeList"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_TOvpQWWyEeOIhPTvQKhaOw"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_MqIi1V_IEeGBMabQlDmg6w"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_MqIi1l_IEeGBMabQlDmg6w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_MqIi11_IEeGBMabQlDmg6w"/>
