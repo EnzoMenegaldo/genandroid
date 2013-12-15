@@ -56,8 +56,9 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		[else]
         list.setClickable(false);
 		[/if]
-        adapter = new [aClassListViewActivity.name/]_Adapter(this, getHelper().get[aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());
-
+		//[protected ('onCreate '+aClassListViewActivity.name+'_ClassListViewActivity adapter creation')]
+        adapter = new [aClassListViewActivity.name/]_Adapter(this, getHelper().get[aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());		
+		//[/protected]
 		// avoid opening the keyboard on view opening
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         list.setOnItemClickListener(this);

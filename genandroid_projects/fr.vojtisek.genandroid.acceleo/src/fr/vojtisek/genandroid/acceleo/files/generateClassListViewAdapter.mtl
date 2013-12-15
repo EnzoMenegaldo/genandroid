@@ -21,6 +21,9 @@ import [aClassListViewActivity.packagePrefix()/].datamodel.[aClassListViewActivi
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+[if(aClassListViewActivity.isLargeList)]
+import android.support.v4.util.LruCache;
+[/if]
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +41,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.j256.ormlite.dao.GenericRawResults;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 //[protected ('protected additional '+aClassListViewActivity.name+'_Adapter imports')]
@@ -56,8 +60,14 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	private static final String LOG_TAG = [aClassListViewActivity.name/]_Adapter.class.getCanonicalName();
 
+	[if(aClassListViewActivity.isLargeList)]
+    private List<Integer> [aClassListViewActivity.listedElement.name.toLowerFirst()/]IdList;
+    private List<Integer> filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList;
+	LruCache<Integer, [aClassListViewActivity.listedElement.name.toUpperFirst()/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]Cache =  new LruCache<Integer, [aClassListViewActivity.listedElement.name.toUpperFirst()/]>(100);
+	[else]
     private List<[aClassListViewActivity.listedElement.name/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
     private List<[aClassListViewActivity.listedElement.name/]> filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List;
+	[/if]
 	[if(aClassListViewActivity.isFilterable)] 
 	private final Object mLock = new Object();
 	private SimpleFilter mFilter;
@@ -89,13 +99,20 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	@Override
 	public int getCount() {
+		[if(aClassListViewActivity.isLargeList)]
+		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.size();
+		[else]
 		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.size();
+		[/if]
 	}
 
 	@Override
 	public Object getItem(int position) {
+		[if(aClassListViewActivity.isLargeList)]
+		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.get(position);
+		[else]
 		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
-
+		[/if]
 	}
 
 	@Override
@@ -105,14 +122,20 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup viewGroup) {
-		final [aClassListViewActivity.listedElement.name/] entry = filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
-		if(_contextDB != null) entry.setContextDB(_contextDB);
-		entry.setContextDB(_contextDB);
+		
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.[aClassListViewActivity.name.toLower()/]_listviewrow, null);
         }
+
+		[if(aClassListViewActivity.isLargeList)]
+		final Fiche entry = getFicheForId(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.get(position));
+		if(entry == null) return convertView;
+		[else]
+		final [aClassListViewActivity.listedElement.name/] entry = filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.get(position);
+		if(_contextDB != null) entry.setContextDB(_contextDB); 		
+		[/if]
        
 		// set data in the row 
 		TextView tvLabel = (TextView) convertView.findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listviewrow_label);
@@ -150,6 +173,21 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	}
 
+	[if(aClassListViewActivity.isLargeList)]
+	protected [aClassListViewActivity.listedElement.name.toUpperFirst()/] get[aClassListViewActivity.listedElement.name.toUpperFirst()/]ForId(Integer [aClassListViewActivity.listedElement.name.toLowerFirst()/]Id){
+		[aClassListViewActivity.listedElement.name.toUpperFirst()/] f = [aClassListViewActivity.listedElement.name.toLowerFirst()/]Cache.get([aClassListViewActivity.listedElement.name.toLowerFirst()/]Id);
+		if(f != null) return f;
+		try {
+			f = _contextDB.[aClassListViewActivity.listedElement.name.toLowerFirst()/]Dao.queryForId([aClassListViewActivity.listedElement.name.toLowerFirst()/]Id);
+			ficheCache.put(ficheId, f);
+			if(_contextDB != null) f.setContextDB(_contextDB);
+			return f;
+		} catch (SQLException e1) {
+			Log.e(LOG_TAG, "Cannot retreive [aClassListViewActivity.listedElement.name.toLowerFirst()/] with _id = "+[aClassListViewActivity.listedElement.name.toLowerFirst()/]Id+" "+e1.getMessage(), e1);
+			return null;
+		}
+	}
+	[/if]
 	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter methods')]
 	// additional methods
 	//[/protected]
@@ -191,30 +229,54 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 			if (prefix == null || prefix.length() == 0) {
 				synchronized (mLock) {
-					ArrayList<Fiche> list = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>([aClassListViewActivity.listedElement.name.toLowerFirst()/]List);
+		[if(aClassListViewActivity.isLargeList)]
+					ArrayList<Integer> list = new ArrayList<Integer>([aClassListViewActivity.listedElement.name.toLowerFirst()/]IdList);
+		[else]
+					ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]> list = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>([aClassListViewActivity.listedElement.name.toLowerFirst()/]List);
+		[/if]
 					results.values = list;
 					results.count = list.size();
 				}
 			} else {
 				String prefixString = prefix.toString().toLowerCase();
 				boolean sort = sortAfterFilter();
-
-				final List<Fiche> values = ficheList;
+		[if(aClassListViewActivity.isLargeList)]
+				final List<Integer> values = [aClassListViewActivity.listedElement.name.toLowerFirst()/]IdList;
+		[else]
+				final List<[aClassListViewActivity.listedElement.name.toUpperFirst()/]> values = ficheList;
+		[/if]
 				final int count = values.size();
-				
+		
+		[if(aClassListViewActivity.isLargeList)]	
+				final ArrayList<Integer> newValues = new ArrayList<Integer>(count);
+		[else]	
 				final ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]> newValues = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>(count);
+		[/if]
 				final int['[]'/] orders = sort ? new int['['/]count[']'/] : null;
 
 				for (int i = 0; i < count; i++) {
+		[if(aClassListViewActivity.isLargeList)]
+					final Integer valueId =  values.get(i);
+					Fiche value = get[aClassListViewActivity.listedElement.name.toUpperFirst()/]ForId(valueId);
+					if(value != null){
+						int order = [aClassListViewActivity.name/]_Adapter.this.filter(i, value, prefixString);
+						if (order >= 0) {
+							if (sort)
+								orders['['/]newValues.size()[']'/] = order;
+							newValues.add(valueId);
+						}
+					}
+		[else]
 					final Fiche value = values.get(i);
-					int order = ListeFicheAvecFiltre_Adapter.this.filter(i, value, prefixString);
+					int order = [aClassListViewActivity.name/]_Adapter.this.filter(i, value, prefixString);
 					if (order >= 0) {
 						if (sort)
 							orders['['/]newValues.size()[']'/] = order;
 						newValues.add(value);
 					}
+		[/if]
 				}
-				
+				/* TODO implement a sort
 				if (sort) {
 					Comparator<[aClassListViewActivity.listedElement.name.toUpperFirst()/]> c = new Comparator<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>() {
 						public int compare([aClassListViewActivity.listedElement.name.toUpperFirst()/] object1, [aClassListViewActivity.listedElement.name.toUpperFirst()/] object2) {
@@ -227,7 +289,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 					};
 					Collections.sort(newValues, c);
 				}
-
+				*/
 				results.values = newValues;
 				results.count = newValues.size();
 			}
@@ -238,6 +300,16 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 		@SuppressWarnings("unchecked")
 		@Override
 		protected void publishResults(CharSequence constraint, FilterResults results) {
+		[if(aClassListViewActivity.isLargeList)]
+			if (results.count > 0) {
+				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList = (List<Integer>) results.values;
+				notifyDataSetChanged();
+			} else {
+				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList = new ArrayList<Integer>();
+				notifyDataSetInvalidated();
+			}
+		[else]
+			
 			if (results.count > 0) {
 				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = (List<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>) results.values;
 				notifyDataSetChanged();
@@ -245,6 +317,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>();
 				notifyDataSetInvalidated();
 			}
+		[/if]
 		}
 	}
 	[/if]
