@@ -81,8 +81,8 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 		super();
 		this.context = context;
 		this._contextDB = contextDB;
-		updateList();
 		prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		updateList();
 	}
 	
 	protected void updateList(){
@@ -238,7 +238,9 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 					results.count = list.size();
 				}
 			} else {
+		// [protected ('protected '+aClassListViewActivity.name+'_Adapter filter prefix customisation')]
 				String prefixString = prefix.toString().toLowerCase();
+		// [/protected]
 				boolean sort = sortAfterFilter();
 		[if(aClassListViewActivity.isLargeList)]
 				final List<Integer> values = [aClassListViewActivity.listedElement.name.toLowerFirst()/]IdList;
