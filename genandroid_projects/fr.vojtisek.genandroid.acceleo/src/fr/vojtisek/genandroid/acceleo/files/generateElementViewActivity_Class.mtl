@@ -65,10 +65,10 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
     private void refreshScreenData() {
     	// get our dao
     	RuntimeExceptionDao<[anElementViewActivity.element.name/], Integer> entriesDao = getHelper().get[anElementViewActivity.element.name/]Dao();
+		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity.refreshScreenData'))]
     	[anElementViewActivity.element.name/] entry = entriesDao.queryForId([anElementViewActivity.element.name.toLowerFirst()/]Id);
     	entry.setContextDB(getHelper().get[anElementViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());
 
-		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity.refreshScreenData'))]
     	[for (dataAtt : DataAttribute | anElementViewActivity.element.dataAttributes)]
     		[if (dataAtt.type.instanceClassName = 'java.lang.String')]
 		((TextView) findViewById(R.id.[anElementViewActivity.name.toLower()/]_elementview_[dataAtt.name.toLower()/])).setText(entry.get[dataAtt.name.toUpperFirst()/]());

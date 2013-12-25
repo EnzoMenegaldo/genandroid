@@ -64,47 +64,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+android:id/[aClassListViewActivity.name.toLower()/]_listviewrow"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent"    
+	android:layout_marginBottom="2dp"
+    android:layout_marginTop="2dp"
     android:orientation="horizontal" >
     
     <ImageView
         android:id="@+id/[aClassListViewActivity.name.toLower()/]_listviewrow_icon"
-        android:contentDescription="[aClassListViewActivity.listedElement.name/] icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+		android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="2dip"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
+        android:layout_marginTop="2dip"
         android:adjustViewBounds="true"
-        android:maxHeight="48dip"
-        android:layout_marginLeft="4dip"
-        android:layout_marginRight="4dip"
-        android:layout_marginTop="4dip"
+        android:contentDescription="[aClassListViewActivity.listedElement.name/] icon"
+		android:scaleType="fitCenter"
         android:src="@drawable/ic_launcher" >
     </ImageView>
     <RelativeLayout
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content" >
-		
+		    android:layout_height="wrap_content"
+			android:paddingLeft="4dip"
+       		android:paddingRight="4dip" >
+		<!-- [protected ('protected '+aClassListViewActivity.name.toLower()+'_listviewrow linearlayout customization')]
+			-->
 		<LinearLayout 
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
+		    android:layout_toLeftOf="@+id/[aClassListViewActivity.name.toLower()/]_btn"
 		    android:orientation="vertical" >
 	
+		<!-- [/protected]
+			-->
 			<TextView
 		        android:id="@+id/[aClassListViewActivity.name.toLower()/]_listviewrow_label"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:textSize="20sp" >
+		        android:textAppearance="?android:attr/textAppearanceMedium"
+			    android:textColor="?android:attr/textColorPrimary" >
 		    </TextView>
 		    <TextView
 		        android:id="@+id/[aClassListViewActivity.name.toLower()/]_listviewrow_details"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:textSize="16sp" >
+		        android:paddingLeft="4dip"
+		        android:textAppearance="?android:attr/textAppearanceSmall"
+   				android:textColor="?android:attr/textColorSecondary" >
 		    </TextView>
 		</LinearLayout>
-		<!-- [protected ('protected')]
+		<!-- [protected ('protected '+aClassListViewActivity.name.toLower()+'_listviewrow linearlayout additions')]
 			-->
 		<TextView
-		    android:id="@+id/[aClassListViewActivity.name.toLower()/]__btnEtatFiche"
+		    android:id="@+id/[aClassListViewActivity.name.toLower()/]_btn"
 	        android:layout_width="wrap_content"
 	        android:layout_height="20dp"
 	        android:layout_alignParentRight="true"
@@ -114,12 +126,12 @@
 	        android:paddingTop="2dp"
 	        android:paddingBottom="2dp"
 	        android:background="@drawable/button_background"
-	        android:textColor="#ffffff"
-	        android:text=" fp " >
+	        android:textColor="?android:attr/textColorSecondary" >
 		</TextView>
 
 		<!-- [/protected]
 			-->
+		
 	</RelativeLayout>
 </LinearLayout>
 [/file]
