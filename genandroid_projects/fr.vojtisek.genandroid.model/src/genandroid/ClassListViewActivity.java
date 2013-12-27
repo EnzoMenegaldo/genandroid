@@ -17,6 +17,7 @@ package genandroid;
  * <ul>
  *   <li>{@link genandroid.ClassListViewActivity#getListedElement <em>Listed Element</em>}</li>
  *   <li>{@link genandroid.ClassListViewActivity#getPresentedDetail <em>Presented Detail</em>}</li>
+ *   <li>{@link genandroid.ClassListViewActivity#isUseCustomRowPresentation <em>Use Custom Row Presentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,32 @@ public interface ClassListViewActivity extends ListViewActivity {
 	 * @generated
 	 */
 	void setPresentedDetail(ClassDetail value);
+
+	/**
+	 * Returns the value of the '<em><b>Use Custom Row Presentation</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Use Custom Row Presentation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Use Custom Row Presentation</em>' attribute.
+	 * @see #setUseCustomRowPresentation(boolean)
+	 * @see genandroid.GenandroidPackage#getClassListViewActivity_UseCustomRowPresentation()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isUseCustomRowPresentation();
+
+	/**
+	 * Sets the value of the '{@link genandroid.ClassListViewActivity#isUseCustomRowPresentation <em>Use Custom Row Presentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Use Custom Row Presentation</em>' attribute.
+	 * @see #isUseCustomRowPresentation()
+	 * @generated
+	 */
+	void setUseCustomRowPresentation(boolean value);
 
 } // ClassListViewActivity

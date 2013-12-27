@@ -23,6 +23,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link genandroid.ClassListViewActivity} object.
@@ -61,6 +63,7 @@ public class ClassListViewActivityItemProvider
 
 			addListedElementPropertyDescriptor(object);
 			addPresentedDetailPropertyDescriptor(object);
+			addUseCustomRowPresentationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -110,6 +113,28 @@ public class ClassListViewActivityItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Use Custom Row Presentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUseCustomRowPresentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ClassListViewActivity_useCustomRowPresentation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ClassListViewActivity_useCustomRowPresentation_feature", "_UI_ClassListViewActivity_type"),
+				 GenandroidPackage.Literals.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ClassListViewActivity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,6 +169,12 @@ public class ClassListViewActivityItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ClassListViewActivity.class)) {
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

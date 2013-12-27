@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link genandroid.impl.ClassListViewActivityImpl#getListedElement <em>Listed Element</em>}</li>
  *   <li>{@link genandroid.impl.ClassListViewActivityImpl#getPresentedDetail <em>Presented Detail</em>}</li>
+ *   <li>{@link genandroid.impl.ClassListViewActivityImpl#isUseCustomRowPresentation <em>Use Custom Row Presentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,6 +53,26 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 	 * @ordered
 	 */
 	protected ClassDetail presentedDetail;
+
+	/**
+	 * The default value of the '{@link #isUseCustomRowPresentation() <em>Use Custom Row Presentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseCustomRowPresentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean USE_CUSTOM_ROW_PRESENTATION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUseCustomRowPresentation() <em>Use Custom Row Presentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseCustomRowPresentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean useCustomRowPresentation = USE_CUSTOM_ROW_PRESENTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +174,27 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUseCustomRowPresentation() {
+		return useCustomRowPresentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUseCustomRowPresentation(boolean newUseCustomRowPresentation) {
+		boolean oldUseCustomRowPresentation = useCustomRowPresentation;
+		useCustomRowPresentation = newUseCustomRowPresentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION, oldUseCustomRowPresentation, useCustomRowPresentation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -162,6 +204,8 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
 				if (resolve) return getPresentedDetail();
 				return basicGetPresentedDetail();
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION:
+				return isUseCustomRowPresentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,6 +223,9 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 				return;
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
 				setPresentedDetail((ClassDetail)newValue);
+				return;
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION:
+				setUseCustomRowPresentation((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,6 +245,9 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
 				setPresentedDetail((ClassDetail)null);
 				return;
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION:
+				setUseCustomRowPresentation(USE_CUSTOM_ROW_PRESENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,8 +264,26 @@ public class ClassListViewActivityImpl extends ListViewActivityImpl implements C
 				return listedElement != null;
 			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL:
 				return presentedDetail != null;
+			case GenandroidPackage.CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION:
+				return useCustomRowPresentation != USE_CUSTOM_ROW_PRESENTATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (useCustomRowPresentation: ");
+		result.append(useCustomRowPresentation);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ClassListViewActivityImpl

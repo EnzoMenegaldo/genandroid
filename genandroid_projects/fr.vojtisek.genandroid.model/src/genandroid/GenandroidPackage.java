@@ -582,13 +582,22 @@ public interface GenandroidPackage extends EPackage {
 	int CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Use Custom Row Presentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Class List View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_LIST_VIEW_ACTIVITY_FEATURE_COUNT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 2;
+	int CLASS_LIST_VIEW_ACTIVITY_FEATURE_COUNT = LIST_VIEW_ACTIVITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataClassifierImpl <em>Data Classifier</em>}' class.
@@ -781,6 +790,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL = CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL;
+
+	/**
+	 * The feature id for the '<em><b>Use Custom Row Presentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION = CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' reference.
@@ -1703,6 +1721,17 @@ public interface GenandroidPackage extends EPackage {
 	EReference getClassListViewActivity_PresentedDetail();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.ClassListViewActivity#isUseCustomRowPresentation <em>Use Custom Row Presentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Custom Row Presentation</em>'.
+	 * @see genandroid.ClassListViewActivity#isUseCustomRowPresentation()
+	 * @see #getClassListViewActivity()
+	 * @generated
+	 */
+	EAttribute getClassListViewActivity_UseCustomRowPresentation();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataClass <em>Data Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2418,6 +2447,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL = eINSTANCE.getClassListViewActivity_PresentedDetail();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Custom Row Presentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION = eINSTANCE.getClassListViewActivity_UseCustomRowPresentation();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataClassImpl <em>Data Class</em>}' class.

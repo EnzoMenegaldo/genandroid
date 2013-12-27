@@ -29,6 +29,7 @@
     <genClasses ecoreClass="genandroid.ecore#//ClassListViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ClassListViewActivity/listedElement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ClassListViewActivity/presentedDetail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ClassListViewActivity/useCustomRowPresentation"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//DataClass/storage"/>

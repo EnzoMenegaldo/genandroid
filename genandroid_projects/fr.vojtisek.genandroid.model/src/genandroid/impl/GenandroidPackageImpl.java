@@ -413,6 +413,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getClassListViewActivity_UseCustomRowPresentation() {
+		return (EAttribute)classListViewActivityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataClass() {
 		return dataClassEClass;
 	}
@@ -932,6 +941,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		classListViewActivityEClass = createEClass(CLASS_LIST_VIEW_ACTIVITY);
 		createEReference(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__LISTED_ELEMENT);
 		createEReference(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__PRESENTED_DETAIL);
+		createEAttribute(classListViewActivityEClass, CLASS_LIST_VIEW_ACTIVITY__USE_CUSTOM_ROW_PRESENTATION);
 
 		dataClassEClass = createEClass(DATA_CLASS);
 		createEAttribute(dataClassEClass, DATA_CLASS__STORAGE);
@@ -1077,6 +1087,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEClass(classListViewActivityEClass, ClassListViewActivity.class, "ClassListViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassListViewActivity_ListedElement(), this.getDataClass(), null, "listedElement", null, 1, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClassListViewActivity_PresentedDetail(), this.getClassDetail(), null, "presentedDetail", null, 0, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClassListViewActivity_UseCustomRowPresentation(), theEcorePackage.getEBoolean(), "useCustomRowPresentation", "false", 0, 1, ClassListViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataClassEClass, DataClass.class, "DataClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataClass_Storage(), this.getstorageKind(), "storage", "0", 1, 1, DataClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
