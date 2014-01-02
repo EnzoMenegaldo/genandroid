@@ -11,6 +11,9 @@ package [aClassListViewActivity.packagePrefix()/].activities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+[if(aClassListViewActivity.useIndexSearch)]
+import java.util.HashMap;
+[/if]
 import java.util.List;
 
 import [aClassListViewActivity.packagePrefix()/].R;
@@ -62,7 +65,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	[if(aClassListViewActivity.isLargeList)]
     private List<Integer> [aClassListViewActivity.listedElement.name.toLowerFirst()/]IdList;
-    private List<Integer> filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList;
+    public List<Integer> filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList;
 	LruCache<Integer, [aClassListViewActivity.listedElement.name.toUpperFirst()/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]Cache =  new LruCache<Integer, [aClassListViewActivity.listedElement.name.toUpperFirst()/]>(100);
 	[else]
     private List<[aClassListViewActivity.listedElement.name/]> [aClassListViewActivity.listedElement.name.toLowerFirst()/]List;
@@ -186,7 +189,76 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 			return null;
 		}
 	}
+
+		[if(aClassListViewActivity.isLargeList)]
+	public HashMap<Character, Integer> getUsedAlphabetHashMap(){
+		HashMap<Character, Integer> alphabetToIndex = new HashMap<Character, Integer>();
+		Log.d(LOG_TAG,"getUsedAlphabetHashMap - début");
+		int base_list_length=filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.size();
+		if(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.size() < 100 ){
+			// the base has been filtered so return the element from the filtered one
+			alphabetToIndex=new HashMap<Character, Integer>();
+			
+			
+			for(int i=0; i < base_list_length; i++){
+				[aClassListViewActivity.listedElement.name.toUpperFirst()/] entry = get[aClassListViewActivity.listedElement.name.toUpperFirst()/]ForId(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.get(i));
+				char firstCharacter=getFirstCharForIndex(entry);
+				boolean presentOrNot=alphabetToIndex.containsKey(firstCharacter);
+				if(!presentOrNot){
+					alphabetToIndex.put(firstCharacter, i);
+					//Log.d(TAG,"Character="+firstCharacter+"  position="+i);
+				}
+			}
+			
+		}
+		else{
+			// large list
+			// use binarysearch if large list
+			String alphabet_list['[]'/]= context.getResources().getStringArray(R.array.alphabtes_array);
+			int startSearchPos = 0;
+			for (int i = 0; i < alphabet_list.length; i++) {
+				int foundPosition = binarySearch(alphabet_list['[i]'/].charAt(0), startSearchPos, base_list_length);
+				if(foundPosition != -1){
+					alphabetToIndex.put(alphabet_list['[i]'/].charAt(0), foundPosition);
+					startSearchPos = foundPosition; // mini optimisation, no need to look before for former chars
+				}
+			}
+		}
+		Log.d(LOG_TAG,"getUsedAlphabetHashMap - fin");
+		return alphabetToIndex;
+	}
+	
+	protected char getFirstCharForIndex([aClassListViewActivity.listedElement.name.toUpperFirst()/] entry){
+		//[protected ('protected '+aClassListViewActivity.name+'_Adapter binarySearch custom')]
+    	return entry.getNomScientifiqueTxt().charAt(0);
+	  	//[/protected]
+	}
+
+
+	/**
+	 * 
+	 * @param key to be searched
+	 * @param startBottom initial value for bottom, default = 0
+	 * @param startTop initial top value, default = array.length -1
+	 * @return
+	 */
+	public int binarySearch( char key, int startBottom, int startTop) {
+	   int bot = startBottom;
+	   int top = startTop;
+	   while (bot <= top) {
+	      int mid = bot + (top - bot) / 2;
+	      [aClassListViewActivity.listedElement.name.toUpperFirst()/] entry = get[aClassListViewActivity.listedElement.name.toUpperFirst()/]ForId(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.get(mid));
+		  char midCharacter=getFirstCharForIndex(entry);
+	      if      (key < midCharacter) top = mid - 1;
+	      else if (key > midCharacter) bot = mid + 1;
+	      else return mid;
+	   }
+	   return -1;
+	} 
+		
+		[/if]
 	[/if]
+	
 	//[protected ('protected additional '+aClassListViewActivity.name+'_Adapter methods')]
 	// additional methods
 	//[/protected]

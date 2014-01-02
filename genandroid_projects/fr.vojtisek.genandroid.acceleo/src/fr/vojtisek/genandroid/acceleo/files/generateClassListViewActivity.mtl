@@ -10,7 +10,11 @@
 package [aClassListViewActivity.packagePrefix()/].activities;
 
 
-import [aClassListViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
+[if(aClassListViewActivity.useIndexSearch)]
+import java.util.HashMap;
+import [aClassListViewActivity.packagePrefix()/].activities.view.indexbar.ActivityWithIndexBar;
+import [aClassListViewActivity.packagePrefix()/].activities.view.indexbar.IndexBarHandler;
+[/if]
 import [aClassListViewActivity.packagePrefix()/].datamodel.*;
 import [aClassListViewActivity.packagePrefix()/].R;
 
@@ -19,6 +23,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+[if(aClassListViewActivity.useIndexSearch)]
+import android.os.Handler;
+[/if]
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -31,12 +38,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
+[if(aClassListViewActivity.useIndexSearch)]
+import android.widget.TextView;
+[/if]
 import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 // [protected ('protected'.concat(aClassListViewActivity.name).concat('_ClassListViewActivity_additionalimports'))]
 // [/protected]
 
-public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener{
+public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener [if(aClassListViewActivity.useIndexSearch)], ActivityWithIndexBar[/if]{
 	
 	//[protected ('constants '+aClassListViewActivity.name+'_ClassListViewActivity')]
 	//[/protected]
@@ -45,6 +55,12 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
     EditText inputSearch;
 	[/if]
     [aClassListViewActivity.name/]_Adapter adapter;
+
+	[if(aClassListViewActivity.useIndexSearch)]
+	Handler mHandler;
+    HashMap<Character, Integer> alphabetToIndex;
+	int number_of_alphabets=-1;
+	[/if]
 
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
@@ -91,6 +107,10 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
             }
         });
 	[/if]
+	[if(aClassListViewActivity.useIndexSearch)]
+		// add handler for indexBar
+        mHandler = new IndexBarHandler(this);
+	[/if]
 		//[protected ('onCreate additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
 		//[/protected]
 	}
@@ -98,17 +118,41 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 
 
 	public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
-		[if(selectItemAction <> null)]
-        Intent toDetailView = new Intent(this, [selectItemAction.name/]_ElementViewActivity.class);
-        Bundle b = new Bundle();
-        b.putInt("[aClassListViewActivity.listedElement.name.toLower()/]Id", (([aClassListViewActivity.listedElement.name/])view.getTag()).getId());
-		toDetailView.putExtras(b);
-        startActivity(toDetailView);
-		[else]
-		//[protected ('onItemClick additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
-		showToast(view.toString() + ", "+ view.getId());
-		//[/protected]		
+		[if(aClassListViewActivity.useIndexSearch)]
+		Log.d(LOG_TAG, "onItemClick "+view);
+		if(view instanceof LinearLayout && view.getId() == R.id.listeficheavecfiltre_listviewrow){
+			// normal case on main item
 		[/if]
+		[if(selectItemAction <> null)]
+	        Intent toDetailView = new Intent(this, [selectItemAction.name/]_ElementViewActivity.class);
+	        Bundle b = new Bundle();
+	        b.putInt("[aClassListViewActivity.listedElement.name.toLowerFirst()/]Id", (([aClassListViewActivity.listedElement.name/])view.getTag()).getId());
+			toDetailView.putExtras(b);
+	        startActivity(toDetailView);
+		[else]
+			//[protected ('onItemClick additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
+			showToast(view.toString() + ", "+ view.getId());
+			//[/protected]		
+		[/if]
+		[if(aClassListViewActivity.useIndexSearch)]
+		}
+		else if(view instanceof TextView && view.getId() == R.id.indexbar_alphabtes_row_textview){
+			// click on indexBar
+			TextView rowview=(TextView)view;
+			
+			CharSequence alpahbet=rowview.getText();
+			
+			if(alpahbet==null || alpahbet.equals(""))
+				return;
+			
+			String selected_alpahbet=alpahbet.toString().trim();
+			Integer newPosition=alphabetToIndex.get(selected_alpahbet.charAt(0));
+			Log.d(LOG_TAG, "Selected Alphabet is:"+selected_alpahbet+"   position is:"+newPosition);
+					
+			ListView listview=(ListView)findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listview);
+			listview.setSelection(newPosition);
+		}
+		[/if]		
     }
 
 	//[protected ('additional  '+aClassListViewActivity.name+'_ClassListViewActivity methods')]
@@ -138,6 +182,54 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
         return false;
     }
 
+	[if(aClassListViewActivity.useIndexSearch)]
+	@Override
+	public Handler getHandler() {
+		return mHandler;
+	}
+	
+	private void populateIndexBarHashMap() {
+		alphabetToIndex= adapter.getUsedAlphabetHashMap();
+		number_of_alphabets=alphabetToIndex.size();		//Number of enteries in the map is equal to number of letters that would necessarily display on the right.
+		
+		/*Now I am making an entry of those alphabets which are not there in the Map*/
+		String alphabets['[]'/]=getResources().getStringArray(R.array.alphabtes_array);
+		int index=-1;
+		
+		for(String alpha1: alphabets){
+			char alpha=alpha1.charAt(0);
+			index++;
+			
+			if(alphabetToIndex.containsKey(alpha))
+				continue;
+
+			/*Start searching the next character position. Example, here alpha is E. Since there is no entry for E, we need to find the position of next Character, F.*/
+			for(int i=index+1  ; i< 26 ;i++){		//start from next character to last character
+				char searchAlphabet=alphabets['[i]'/].charAt(0);   
+				
+				/*If we find the position of F character, then on click event on E should take the user to F*/	
+				if(  alphabetToIndex.containsKey(searchAlphabet)){
+					alphabetToIndex.put(alpha, alphabetToIndex.get(searchAlphabet));
+					break;
+				}
+				else
+					if(i==25) /*If there are no entries after E, then on click event on E should take the user to end of the list*/
+						alphabetToIndex.put(alpha, adapter.filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.size()-1);
+					else
+						continue;
+					
+			}//
+		}//
+	}
+	
+	@Override
+	public ListView getAlphabetListView() {
+		return (ListView)findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listView_alphabets);
+	}
+	public View getAlphabetRowView(){
+		return findViewById(R.id.alphabet_row_layout);
+	}
+	[/if]
 
 	// [protected ('protected'.concat(aClassListViewActivity.name).concat('_ClassListViewActivity'))]
 	public void onClickFilterBtn(View view){

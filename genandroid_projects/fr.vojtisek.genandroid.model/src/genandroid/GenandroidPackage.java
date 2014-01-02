@@ -482,13 +482,22 @@ public interface GenandroidPackage extends EPackage {
 	int LIST_VIEW_ACTIVITY__IS_LARGE_LIST = VIEW_ACTIVITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Use Index Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH = VIEW_ACTIVITY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>List View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 3;
+	int LIST_VIEW_ACTIVITY_FEATURE_COUNT = VIEW_ACTIVITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ClassListViewActivityImpl <em>Class List View Activity</em>}' class.
@@ -562,6 +571,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_LIST_VIEW_ACTIVITY__IS_LARGE_LIST = LIST_VIEW_ACTIVITY__IS_LARGE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Use Index Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH = LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH;
 
 	/**
 	 * The feature id for the '<em><b>Listed Element</b></em>' reference.
@@ -772,6 +790,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY__IS_LARGE_LIST = CLASS_LIST_VIEW_ACTIVITY__IS_LARGE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Use Index Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH = CLASS_LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH;
 
 	/**
 	 * The feature id for the '<em><b>Listed Element</b></em>' reference.
@@ -1200,6 +1227,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE_LIST_VIEW_ACTIVITY__IS_LARGE_LIST = LIST_VIEW_ACTIVITY__IS_LARGE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Use Index Search</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH = LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -1990,6 +2026,17 @@ public interface GenandroidPackage extends EPackage {
 	EAttribute getListViewActivity_IsLargeList();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.ListViewActivity#isUseIndexSearch <em>Use Index Search</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Index Search</em>'.
+	 * @see genandroid.ListViewActivity#isUseIndexSearch()
+	 * @see #getListViewActivity()
+	 * @generated
+	 */
+	EAttribute getListViewActivity_UseIndexSearch();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.AttributeListViewActivity <em>Attribute List View Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2659,6 +2706,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LIST_VIEW_ACTIVITY__IS_LARGE_LIST = eINSTANCE.getListViewActivity_IsLargeList();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Index Search</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH = eINSTANCE.getListViewActivity_UseIndexSearch();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.AttributeListViewActivityImpl <em>Attribute List View Activity</em>}' class.

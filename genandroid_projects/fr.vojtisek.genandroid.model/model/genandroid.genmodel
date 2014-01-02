@@ -60,6 +60,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ListViewActivity/selectItemAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ListViewActivity/isFilterable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ListViewActivity/isLargeList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ListViewActivity/useIndexSearch"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//AttributeListViewActivity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//AttributeListViewActivity/attribute"/>

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link genandroid.impl.ListViewActivityImpl#getSelectItemAction <em>Select Item Action</em>}</li>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#isIsFilterable <em>Is Filterable</em>}</li>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#isIsLargeList <em>Is Large List</em>}</li>
+ *   <li>{@link genandroid.impl.ListViewActivityImpl#isUseIndexSearch <em>Use Index Search</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +82,26 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 	 * @ordered
 	 */
 	protected boolean isLargeList = IS_LARGE_LIST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isUseIndexSearch() <em>Use Index Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseIndexSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean USE_INDEX_SEARCH_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUseIndexSearch() <em>Use Index Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseIndexSearch()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean useIndexSearch = USE_INDEX_SEARCH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +207,27 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUseIndexSearch() {
+		return useIndexSearch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUseIndexSearch(boolean newUseIndexSearch) {
+		boolean oldUseIndexSearch = useIndexSearch;
+		useIndexSearch = newUseIndexSearch;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH, oldUseIndexSearch, useIndexSearch));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -196,6 +238,8 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 				return isIsFilterable();
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_LARGE_LIST:
 				return isIsLargeList();
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH:
+				return isUseIndexSearch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +260,9 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 				return;
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_LARGE_LIST:
 				setIsLargeList((Boolean)newValue);
+				return;
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH:
+				setUseIndexSearch((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,6 +285,9 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_LARGE_LIST:
 				setIsLargeList(IS_LARGE_LIST_EDEFAULT);
 				return;
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH:
+				setUseIndexSearch(USE_INDEX_SEARCH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +306,8 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 				return isFilterable != IS_FILTERABLE_EDEFAULT;
 			case GenandroidPackage.LIST_VIEW_ACTIVITY__IS_LARGE_LIST:
 				return isLargeList != IS_LARGE_LIST_EDEFAULT;
+			case GenandroidPackage.LIST_VIEW_ACTIVITY__USE_INDEX_SEARCH:
+				return useIndexSearch != USE_INDEX_SEARCH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -274,6 +326,8 @@ public class ListViewActivityImpl extends ViewActivityImpl implements ListViewAc
 		result.append(isFilterable);
 		result.append(", isLargeList: ");
 		result.append(isLargeList);
+		result.append(", useIndexSearch: ");
+		result.append(useIndexSearch);
 		result.append(')');
 		return result.toString();
 	}

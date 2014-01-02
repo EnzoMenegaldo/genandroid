@@ -18,6 +18,7 @@ package genandroid;
  *   <li>{@link genandroid.ListViewActivity#getSelectItemAction <em>Select Item Action</em>}</li>
  *   <li>{@link genandroid.ListViewActivity#isIsFilterable <em>Is Filterable</em>}</li>
  *   <li>{@link genandroid.ListViewActivity#isIsLargeList <em>Is Large List</em>}</li>
+ *   <li>{@link genandroid.ListViewActivity#isUseIndexSearch <em>Use Index Search</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,32 @@ public interface ListViewActivity extends ViewActivity {
 	 * @generated
 	 */
 	void setIsLargeList(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Use Index Search</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Use Index Search</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Use Index Search</em>' attribute.
+	 * @see #setUseIndexSearch(boolean)
+	 * @see genandroid.GenandroidPackage#getListViewActivity_UseIndexSearch()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isUseIndexSearch();
+
+	/**
+	 * Sets the value of the '{@link genandroid.ListViewActivity#isUseIndexSearch <em>Use Index Search</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Use Index Search</em>' attribute.
+	 * @see #isUseIndexSearch()
+	 * @generated
+	 */
+	void setUseIndexSearch(boolean value);
 
 } // ListViewActivity
