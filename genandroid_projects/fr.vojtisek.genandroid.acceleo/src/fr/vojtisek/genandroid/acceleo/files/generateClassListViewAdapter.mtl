@@ -17,6 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import [aClassListViewActivity.packagePrefix()/].R;
+[if(aClassListViewActivity.useIndexSearch)]
+import [aClassListViewActivity.packagePrefix()/].activities.view.indexbar.ActivityWithIndexBar;
+[/if]
 import [aClassListViewActivity.packagePrefix()/].datamodel.[aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper;
 import [aClassListViewActivity.packagePrefix()/].datamodel.[aClassListViewActivity.listedElement.name/];
 
@@ -433,6 +436,10 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 				filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List = new ArrayList<[aClassListViewActivity.listedElement.name.toUpperFirst()/]>();
 				notifyDataSetInvalidated();
 			}
+		[/if]
+		[if(aClassListViewActivity.useIndexSearch)]
+			// update hashmap for index
+			((ActivityWithIndexBar)context).populateIndexBarHashMap();
 		[/if]
 		}
 	}
