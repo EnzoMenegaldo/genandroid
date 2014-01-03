@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 [if(aClassListViewActivity.useIndexSearch)]
 import android.os.Handler;
+import android.widget.LinearLayout;
 [/if]
 import android.preference.PreferenceManager;
 import android.text.Editable;
@@ -48,6 +49,8 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
 public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener [if(aClassListViewActivity.useIndexSearch)], ActivityWithIndexBar[/if]{
 	
+	private static final String LOG_TAG = [aClassListViewActivity.name/]_ClassListViewActivity.class.getSimpleName();
+
 	//[protected ('constants '+aClassListViewActivity.name+'_ClassListViewActivity')]
 	//[/protected]
 	[if(aClassListViewActivity.isFilterable)] 
@@ -115,12 +118,20 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		//[/protected]
 	}
 	
-
+	@Override
+	protected void onResume() {
+		super.onResume();
+		//[protected ('onResume additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
+		//[/protected]
+	[if(aClassListViewActivity.useIndexSearch)]
+		populateIndexBarHashMap();
+	[/if]
+	}
 
 	public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
 		[if(aClassListViewActivity.useIndexSearch)]
 		Log.d(LOG_TAG, "onItemClick "+view);
-		if(view instanceof LinearLayout && view.getId() == R.id.listeficheavecfiltre_listviewrow){
+		if(view instanceof LinearLayout && view.getId() == R.id.[aClassListViewActivity.name.toLower()/]_listviewrow){
 			// normal case on main item
 		[/if]
 		[if(selectItemAction <> null)]
@@ -214,7 +225,11 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 				}
 				else
 					if(i==25) /*If there are no entries after E, then on click event on E should take the user to end of the list*/
+			[if(aClassListViewActivity.isLargeList)]
 						alphabetToIndex.put(alpha, adapter.filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.size()-1);
+			[else]
+						alphabetToIndex.put(alpha, adapter.filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]List.size()-1);
+			[/if]
 					else
 						continue;
 					

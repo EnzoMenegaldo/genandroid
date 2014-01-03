@@ -98,7 +98,7 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
 		menu.add(Menu.NONE, 0, 0, R.string.edit_menu).setIcon(android.R.drawable.ic_menu_edit);
 		[/if]
         [anElementViewActivity.addPreferenceInMenu()/]
-		//[protected ('additional onCreateOptionsMenu')]
+		//[protected ('additional onCreateOptionsMenu '+anElementViewActivity.name+'_EditableElementViewActivity')]
 
 		//[/protected]
         return super.onCreateOptionsMenu(menu);
@@ -119,7 +119,7 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
             return true;
 		[/if]
         [anElementViewActivity.addPreferenceMenuAction()/]
-		//[protected ('additional menu action')]
+		//[protected ('additional menu action'+anElementViewActivity.name+'_ElementViewActivity')]
 
 		//[/protected]
         }

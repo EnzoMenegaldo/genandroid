@@ -101,7 +101,7 @@ public class [anElementViewActivity.name/]EditableElementViewActivity extends Or
     public boolean onCreateOptionsMenu(Menu menu) {
 		// add options in the menu
         [anElementViewActivity.addPreferenceInMenu()/]
-		//[protected ('additional onCreateOptionsMenu')]
+		//[protected ('additional onCreateOptionsMenu '+anElementViewActivity.name+'_EditableElementViewActivity')]
 
 		//[/protected]
         return super.onCreateOptionsMenu(menu);
@@ -115,7 +115,7 @@ public class [anElementViewActivity.name/]EditableElementViewActivity extends Or
         
         switch (item.getItemId()) {
         [anElementViewActivity.addPreferenceMenuAction()/]
-		//[protected ('additional menu action')]
+		//[protected ('additional menu action'+anElementViewActivity.name+'_EditableElementViewActivity')]
 
 		//[/protected]
         }
