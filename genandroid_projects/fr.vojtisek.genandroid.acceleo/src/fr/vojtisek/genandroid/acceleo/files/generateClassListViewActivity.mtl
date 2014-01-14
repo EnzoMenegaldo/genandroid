@@ -17,6 +17,7 @@ import [aClassListViewActivity.packagePrefix()/].activities.view.indexbar.IndexB
 [/if]
 import [aClassListViewActivity.packagePrefix()/].datamodel.*;
 import [aClassListViewActivity.packagePrefix()/].R;
+import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,12 +29,18 @@ import android.os.Handler;
 import android.widget.LinearLayout;
 [/if]
 import android.preference.PreferenceManager;
+[if(aClassListViewActivity.hasSupportForParentActivity)]
+import android.support.v4.app.TaskStackBuilder;
+[/if]
+import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -47,7 +54,7 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 // [protected ('protected'.concat(aClassListViewActivity.name).concat('_ClassListViewActivity_additionalimports'))]
 // [/protected]
 
-public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper> implements OnItemClickListener [if(aClassListViewActivity.useIndexSearch)], ActivityWithIndexBar[/if]{
+public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteActionBarActivity<OrmLiteDBHelper> implements OnItemClickListener [if(aClassListViewActivity.useIndexSearch)], ActivityWithIndexBar[/if]{
 	
 	private static final String LOG_TAG = [aClassListViewActivity.name/]_ClassListViewActivity.class.getSimpleName();
 
@@ -69,12 +76,17 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		super.onCreate(bundle);
 		setContentView(R.layout.[aClassListViewActivity.name.toLower()/]_listview);
 
+	[if(aClassListViewActivity.hasSupportForParentActivity)]
+		ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
+
+	[/if]
 		ListView list = (ListView) findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listview);
-		[if(not (aClassListViewActivity.selectItemAction = null))]
+	[if(not (aClassListViewActivity.selectItemAction = null))]
         list.setClickable(true);
-		[else]
+	[else]
         list.setClickable(false);
-		[/if]
+	[/if]
 		//[protected ('onCreate '+aClassListViewActivity.name+'_ClassListViewActivity adapter creation')]
         adapter = new [aClassListViewActivity.name/]_Adapter(this, getHelper().get[aClassListViewActivity.eContainer(AndroidProject).dataModel.name/]Helper());		
 		//[/protected]
@@ -174,7 +186,9 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 		// add options in the menu
-		[aClassListViewActivity.addPreferenceInMenu()/]
+		MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.[aClassListViewActivity.name.toLower()/]_classlistview_actions, menu);
+		// add additional programmatic options in the menu
 		//[protected ('additional onCreateOptionsMenu '+aClassListViewActivity.name+'_ClassListViewActivity')]
 
 		//[/protected]
@@ -184,17 +198,39 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	// behavior of option menu
+		// behavior of option menu
         switch (item.getItemId()) {
-		[aClassListViewActivity.addPreferenceMenuAction()/]
-		//[protected ('additional menu action '+aClassListViewActivity.name+'_ClassListViewActivity')]
-
-		//[/protected]
+		[if(not aClassListViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
+			case R.id.[aClassListViewActivity.name.toLower()/]_classlistview_action_preference:
+	        	startActivity(new Intent(this, Preference_PreferenceViewActivity.class));
+	            return true;
+		[/if]
+			//[protected ('additional menu action '+aClassListViewActivity.name+'_ClassListViewActivity')]
+	
+			//[/protected]
+			default:
+                return super.onOptionsItemSelected(item);
         }
-        return false;
     }
 
+	[if(aClassListViewActivity.hasSupportForParentActivity)]
+	//  ------------ dealing with Up button
+	@Override
+	public Intent getSupportParentActivityIntent() {
+		//[protected ('getSupportParentActivityIntent '+aClassListViewActivity.name+'_ClassListViewActivity')]
+		// navigates to the parent activity
+		return new Intent(this, Accueil_CustomViewActivity.class);
+		//[/protected]
+	}
+	@Override
+	public void onCreateSupportNavigateUpTaskStack(TaskStackBuilder builder) {
+		//[protected ('onCreateSupportNavigateUpTaskStack '+aClassListViewActivity.name+'_ClassListViewActivity')]
+		super.onCreateSupportNavigateUpTaskStack(builder);
+		//[/protected]
+	}
+	[/if]
 	[if(aClassListViewActivity.useIndexSearch)]
+	// -------------- handler (for indexBar)
 	@Override
 	public Handler getHandler() {
 		return mHandler;

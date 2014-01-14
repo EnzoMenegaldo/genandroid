@@ -21,7 +21,7 @@
 <!--[/protected]-->
 	
 	[for (aViewActivity : ViewActivity | aAndroidProject.presentationModel.viewActivities)]
-		<activity 
+		<activity  android:theme="@style/Theme.AppCompat"
 			android:name=".activities.[aViewActivity.name/]_[aViewActivity.eClass().name/]" 
 			android:label="@string/app_name">
 		[if (aViewActivity = aAndroidProject.presentationModel.welcomeView)]

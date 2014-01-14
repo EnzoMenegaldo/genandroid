@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link genandroid.ViewActivity#getAccessibleViews <em>Accessible Views</em>}</li>
  *   <li>{@link genandroid.ViewActivity#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
+ *   <li>{@link genandroid.ViewActivity#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,4 +60,31 @@ public interface ViewActivity extends NamedElement {
 	 * @generated
 	 */
 	EList<BackgroundActivity> getTriggerableBackgroundActivities();
+
+	/**
+	 * Returns the value of the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Support For Parent Activity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Support For Parent Activity</em>' attribute.
+	 * @see #setHasSupportForParentActivity(boolean)
+	 * @see genandroid.GenandroidPackage#getViewActivity_HasSupportForParentActivity()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isHasSupportForParentActivity();
+
+	/**
+	 * Sets the value of the '{@link genandroid.ViewActivity#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Has Support For Parent Activity</em>' attribute.
+	 * @see #isHasSupportForParentActivity()
+	 * @generated
+	 */
+	void setHasSupportForParentActivity(boolean value);
 } // ViewActivity

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getAccessibleViews <em>Accessible Views</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
+ *   <li>{@link genandroid.impl.ViewActivityImpl#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +55,26 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 	 * @ordered
 	 */
 	protected EList<BackgroundActivity> triggerableBackgroundActivities;
+
+	/**
+	 * The default value of the '{@link #isHasSupportForParentActivity() <em>Has Support For Parent Activity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHasSupportForParentActivity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHasSupportForParentActivity() <em>Has Support For Parent Activity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHasSupportForParentActivity()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hasSupportForParentActivity = HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +124,27 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isHasSupportForParentActivity() {
+		return hasSupportForParentActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHasSupportForParentActivity(boolean newHasSupportForParentActivity) {
+		boolean oldHasSupportForParentActivity = hasSupportForParentActivity;
+		hasSupportForParentActivity = newHasSupportForParentActivity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY, oldHasSupportForParentActivity, hasSupportForParentActivity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -110,6 +152,8 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 				return getAccessibleViews();
 			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
 				return getTriggerableBackgroundActivities();
+			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
+				return isHasSupportForParentActivity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,6 +175,9 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 				getTriggerableBackgroundActivities().clear();
 				getTriggerableBackgroundActivities().addAll((Collection<? extends BackgroundActivity>)newValue);
 				return;
+			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
+				setHasSupportForParentActivity((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -149,6 +196,9 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
 				getTriggerableBackgroundActivities().clear();
 				return;
+			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
+				setHasSupportForParentActivity(HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -165,8 +215,26 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 				return accessibleViews != null && !accessibleViews.isEmpty();
 			case GenandroidPackage.VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES:
 				return triggerableBackgroundActivities != null && !triggerableBackgroundActivities.isEmpty();
+			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
+				return hasSupportForParentActivity != HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (hasSupportForParentActivity: ");
+		result.append(hasSupportForParentActivity);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ViewActivityImpl

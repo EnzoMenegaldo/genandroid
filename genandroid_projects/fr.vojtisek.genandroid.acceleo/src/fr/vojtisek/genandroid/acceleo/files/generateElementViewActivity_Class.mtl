@@ -13,13 +13,19 @@ package [anElementViewActivity.packagePrefix()/].activities;
 import [anElementViewActivity.packagePrefix()/].datamodel.[anElementViewActivity.element.name/];
 import [anElementViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [anElementViewActivity.packagePrefix()/].R;
+import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+[if(anElementViewActivity.hasSupportForParentActivity)]
+import android.support.v4.app.TaskStackBuilder;
+[/if]
+import android.support.v7.app.ActionBar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,7 +38,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 // [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_import'))]
 // [/protected]
 
-public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBaseActivity<OrmLiteDBHelper>
+public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteActionBarActivity<OrmLiteDBHelper>
 // [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_implements'))]
 // [/protected]
 {
@@ -49,6 +55,12 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.[anElementViewActivity.name.toLower()/]_elementview);
+
+	[if(anElementViewActivity.hasSupportForParentActivity)]
+		ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
+
+	[/if]
         [anElementViewActivity.element.name.toLowerFirst()/]Id = getIntent().getExtras().getInt("[anElementViewActivity.element.name.toLowerFirst()/]Id");
         
 		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_onCreate'))]
@@ -94,10 +106,9 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
 		// add options in the menu
-		[if(anElementViewActivity.oclIsKindOf(EditableElementViewActivity))]
-		menu.add(Menu.NONE, 0, 0, R.string.edit_menu).setIcon(android.R.drawable.ic_menu_edit);
-		[/if]
-        [anElementViewActivity.addPreferenceInMenu()/]
+		MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.[anElementViewActivity.name.toLower()/]_elementview_actions, menu);
+		// add additional programmatic options in the menu
 		//[protected ('additional onCreateOptionsMenu '+anElementViewActivity.name+'_EditableElementViewActivity')]
 
 		//[/protected]
@@ -107,24 +118,37 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteBa
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	// behavior of option menu
+		// behavior of option menu
         switch (item.getItemId()) {
-		[if(anElementViewActivity.oclIsKindOf(EditableElementViewActivity))]
-        case 0:
-        	Intent toDetailView = new Intent(this, [anElementViewActivity.name/]EditableElementViewActivity.class);
-            Bundle b = new Bundle();
-            b.putInt("[anElementViewActivity.element.name.toLowerFirst()/]Id", [anElementViewActivity.element.name.toLowerFirst()/]Id);
-    		toDetailView.putExtras(b);
-            startActivity(toDetailView);
-            return true;
+		[if(not anElementViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
+			case R.id.[anElementViewActivity.name.toLower()/]_elementview_action_preference:
+	        	startActivity(new Intent(this, Preference_PreferenceViewActivity.class));
+	            return true;
 		[/if]
-        [anElementViewActivity.addPreferenceMenuAction()/]
-		//[protected ('additional menu action'+anElementViewActivity.name+'_ElementViewActivity')]
-
-		//[/protected]
-        }
-        return false;
+			//[protected ('additional menu action '+anElementViewActivity.name+'_ElementViewActivity')]
+	
+			//[/protected]
+			default:
+                return super.onOptionsItemSelected(item);
+        }    	
     }
+
+	[if(anElementViewActivity.hasSupportForParentActivity)]
+	//  ------------ dealing with Up button
+	@Override
+	public Intent getSupportParentActivityIntent() {
+		//[protected ('getSupportParentActivityIntent '+anElementViewActivity.name+'_ClassListViewActivity')]
+		// navigates to the parent activity
+		return new Intent(this, Accueil_CustomViewActivity.class);
+		//[/protected]
+	}
+	@Override
+	public void onCreateSupportNavigateUpTaskStack(TaskStackBuilder builder) {
+		//[protected ('onCreateSupportNavigateUpTaskStack '+anElementViewActivity.name+'_ClassListViewActivity')]
+		super.onCreateSupportNavigateUpTaskStack(builder);
+		//[/protected]
+	}
+	[/if]
 
 	// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_operations'))]
 	// [/protected]

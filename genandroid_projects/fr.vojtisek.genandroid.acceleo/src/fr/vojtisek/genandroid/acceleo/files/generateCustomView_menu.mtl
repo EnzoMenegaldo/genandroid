@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[module generateCustomView_menu('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateCustomView_menu(aCustomViewActivity : CustomViewActivity)]
+
+[file ('/res/menu/'+aCustomViewActivity.name.toLower()+'_customview_actions.xml', false, 'UTF-8')]
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/[aCustomViewActivity.name.toLower()/]_customview_action_preference"
+	      android:icon="@android:drawable/ic_menu_preferences"
+	      android:title="@string/preference_menu_title" />
+	<!--[protected ('customView_menu for '+aCustomViewActivity.name)]
+	-->
+	<!-- freely adapt here the desired layout for yourmenu -->
+	<!--[/protected]
+	-->
+</menu>
+
+
+[/file]
+
+
+[/template]
+
