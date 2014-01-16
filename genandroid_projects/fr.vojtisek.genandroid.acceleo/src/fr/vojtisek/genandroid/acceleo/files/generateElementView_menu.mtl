@@ -5,7 +5,8 @@
 [template public generateElementView_menu(anElementViewActivity : ElementViewActivity)]
 
 [file ('/res/menu/'+anElementViewActivity.name.toLower()+'_elementview_actions.xml', false, 'UTF-8')]
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:[anElementViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
 	<item android:id="@+id/[anElementViewActivity.name.toLower()/]_elementview_action_preference"
 	      android:icon="@android:drawable/ic_menu_preferences"
 	      android:title="@string/preference_menu_title" />

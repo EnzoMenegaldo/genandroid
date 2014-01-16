@@ -20,13 +20,13 @@
 
         <!-- Editext for Search -->
 
-        <EditText
+        <!--<EditText
             android:id="@+id/inputSearch_[aClassListViewActivity.name.toLower()/]_listviewsearchrow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.67"
             android:hint="@string/searchHint_[aClassListViewActivity.name.toLower()/]_listviewsearchrow"
-            android:inputType="textVisiblePassword" />
+            android:inputType="textVisiblePassword" />--> 
 	<!--	[protected ('protected'.concat(aClassListViewActivity.name.toLower()).concat('_listviewsearchrow'))] 
       -->
         <Button

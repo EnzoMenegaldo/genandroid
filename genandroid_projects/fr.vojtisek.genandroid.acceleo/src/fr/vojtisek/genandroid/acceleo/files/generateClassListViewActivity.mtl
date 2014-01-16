@@ -20,9 +20,13 @@ import [aClassListViewActivity.packagePrefix()/].R;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.app.Activity;
+[if(aClassListViewActivity.isFilterable)]
+import android.app.SearchManager;
+[/if]
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 [if(aClassListViewActivity.useIndexSearch)]
 import android.os.Handler;
@@ -33,6 +37,11 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.TaskStackBuilder;
 [/if]
 import android.support.v7.app.ActionBar;
+[if(aClassListViewActivity.isFilterable)]
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SearchViewCompat;
+import android.support.v7.widget.SearchView;
+[/if]
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -62,7 +71,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 	//[/protected]
 	[if(aClassListViewActivity.isFilterable)] 
 	// Search EditText
-    EditText inputSearch;
+    //EditText inputSearch;
 	[/if]
     [aClassListViewActivity.name/]_Adapter adapter;
 
@@ -95,32 +104,11 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
         list.setOnItemClickListener(this);
 
         list.setAdapter(adapter);
-	[if(aClassListViewActivity.isFilterable)] 
-		inputSearch = (EditText) findViewById(R.id.inputSearch_[aClassListViewActivity.name.toLower()/]_listviewsearchrow);
 
-		/**
-         * Enabling Search Filter
-         * */
-        inputSearch.addTextChangedListener(new TextWatcher() {
-             
-            @Override
-            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                // When user changed the Text
-                [aClassListViewActivity.name/]_ClassListViewActivity.this.adapter.getFilter().filter(cs);  
-            }
-             
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                    int arg3) {
-                // TODO Auto-generated method stub
-                 
-            }
-             
-            @Override
-            public void afterTextChanged(Editable arg0) {
-                // TODO Auto-generated method stub                         
-            }
-        });
+	[if(aClassListViewActivity.isFilterable)] 
+		// Get the intent, verify the action and get the query
+        handleIntent(getIntent());
+
 	[/if]
 	[if(aClassListViewActivity.useIndexSearch)]
 		// add handler for indexBar
@@ -139,6 +127,38 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		populateIndexBarHashMap();
 	[/if]
 	}
+
+	[if(aClassListViewActivity.isFilterable)] 
+	@Override
+    protected void onNewIntent(Intent intent) {
+        // Because this activity has set launchMode="singleTop", the system calls this method
+        // to deliver the intent if this activity is currently the foreground activity when
+        // invoked again (when the user executes a search from this activity, we don't create
+        // a new instance of this activity, so the system delivers the search intent here)
+        handleIntent(intent);
+    }
+	
+	private void handleIntent(Intent intent) {
+		//Log.d(LOG_TAG,"Intent received");
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+           // handles a click on a search suggestion; launches activity to show word
+           //  Intent wordIntent = new Intent(this, WordActivity.class);
+           // wordIntent.setData(intent.getData());
+           // startActivity(wordIntent);
+        } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            // handles a search query
+            String query = intent.getStringExtra(SearchManager.QUERY);
+    		Log.d(LOG_TAG,"ACTION_SEARCH Intent received for "+query);
+            [aClassListViewActivity.name/]_ClassListViewActivity.this.adapter.getFilter().filter(query);
+        }
+    }	
+
+	@Override
+	public boolean onSearchRequested() {
+		Log.d(LOG_TAG,"onSearchRequested received");
+	    return super.onSearchRequested();
+	}
+	[/if]
 
 	public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
 		[if(aClassListViewActivity.useIndexSearch)]
@@ -188,6 +208,37 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 		// add options in the menu
 		MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.[aClassListViewActivity.name.toLower()/]_classlistview_actions, menu);
+	[if(aClassListViewActivity.isFilterable)]
+		// Associate searchable configuration with the SearchView
+		// deal with compat
+		MenuItem  menuItem = (MenuItem ) menu.findItem(R.id.[aClassListViewActivity.name.toLower()/]_classlistview_action_search);
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+	    SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+		searchView.setSearchableInfo( searchManager.getSearchableInfo(getComponentName()));
+	    searchView.setIconifiedByDefault(false);
+    	searchView.setOnQueryTextListener( new SearchView.OnQueryTextListener() {
+			
+			@Override
+			public boolean onQueryTextSubmit(String arg0) {
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+					// already done by normal
+				}
+				else{
+					[aClassListViewActivity.name.toUpperFirst()/]_ClassListViewActivity.this.adapter.getFilter().filter(arg0);
+				}
+				return false;
+			}
+			
+			@Override
+			public boolean onQueryTextChange(String arg0) {
+				// TODO must be careful if the request might be long
+				// action on text change
+				[aClassListViewActivity.name.toUpperFirst()/]_ClassListViewActivity.this.adapter.getFilter().filter(arg0);
+				return false;
+			}
+		});
+	    
+	[/if]
 		// add additional programmatic options in the menu
 		//[protected ('additional onCreateOptionsMenu '+aClassListViewActivity.name+'_ClassListViewActivity')]
 

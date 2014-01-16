@@ -5,10 +5,18 @@
 [template public generateClassListView_menu(aClassListViewActivity : ClassListViewActivity)]
 
 [file ('/res/menu/'+aClassListViewActivity.name.toLower()+'_classlistview_actions.xml', false, 'UTF-8')]
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:[aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
 	<item android:id="@+id/[aClassListViewActivity.name.toLower()/]_classlistview_action_preference"
 	      android:icon="@android:drawable/ic_menu_preferences"
 	      android:title="@string/preference_menu_title" />
+	[if(aClassListViewActivity.isFilterable)]
+	<item android:id="@+id/[aClassListViewActivity.name.toLower()/]_classlistview_action_search"
+	      android:icon="@drawable/ic_action_search"
+	      android:title="@string/searchHint_[aClassListViewActivity.name.toLower()/]_listviewsearchrow"
+	      [aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]:showAsAction="ifRoom|collapseActionView"
+          [aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]:actionViewClass="android.support.v7.widget.SearchView"/>
+	[/if]
 	<!--[protected ('customView_menu for '+aClassListViewActivity.name)]
 	-->
 	<!-- freely adapt here the desired layout for yourmenu -->
@@ -18,7 +26,14 @@
 
 
 [/file]
-
-
+[if(aClassListViewActivity.isFilterable)]
+	[file ('/res/xml/'+aClassListViewActivity.name.toLower()+'_classlistview_searchable.xml', false, 'UTF-8')]
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_name"
+    android:hint="@string/searchHint_[aClassListViewActivity.name.toLower()/]_classlistview" >
+</searchable>
+	[/file]
+[/if]
 [/template]
 
