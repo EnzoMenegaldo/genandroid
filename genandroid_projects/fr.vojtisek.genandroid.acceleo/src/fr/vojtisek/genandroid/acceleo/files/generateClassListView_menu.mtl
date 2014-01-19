@@ -7,9 +7,7 @@
 [file ('/res/menu/'+aClassListViewActivity.name.toLower()+'_classlistview_actions.xml', false, 'UTF-8')]
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:[aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
-	<item android:id="@+id/[aClassListViewActivity.name.toLower()/]_classlistview_action_preference"
-	      android:icon="@android:drawable/ic_menu_preferences"
-	      android:title="@string/preference_menu_title" />
+	
 	[if(aClassListViewActivity.isFilterable)]
 	<item android:id="@+id/[aClassListViewActivity.name.toLower()/]_classlistview_action_search"
 	      android:icon="@drawable/ic_action_search"
@@ -22,6 +20,10 @@
 	<!-- freely adapt here the desired layout for yourmenu -->
 	<!--[/protected]
 	-->
+	<item android:id="@+id/[aClassListViewActivity.name.toLower()/]_classlistview_action_preference"
+	      android:icon="@android:drawable/ic_menu_preferences"
+	      android:title="@string/preference_menu_title"
+	      android:showAsAction="never" />
 </menu>
 
 
