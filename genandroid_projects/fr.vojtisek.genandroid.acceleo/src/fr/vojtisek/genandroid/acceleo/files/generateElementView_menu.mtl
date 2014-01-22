@@ -1,0 +1,27 @@
+[comment encoding = UTF-8 /]
+[module generateElementView_menu('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateElementView_menu(anElementViewActivity : ElementViewActivity)]
+
+[file ('/res/menu/'+anElementViewActivity.name.toLower()+'_elementview_actions.xml', false, 'UTF-8')]
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:[anElementViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
+	
+	<!--[protected ('elementView_menu for '+anElementViewActivity.name)]
+	-->
+	<!-- freely adapt here the desired layout for yourmenu -->
+	<!--[/protected]
+	-->
+	<item android:id="@+id/[anElementViewActivity.name.toLower()/]_elementview_action_preference"
+	      android:icon="@android:drawable/ic_menu_preferences"
+	      android:title="@string/preference_menu_title"
+	      android:showAsAction="never"   />
+</menu>
+
+
+[/file]
+
+
+[/template]
+

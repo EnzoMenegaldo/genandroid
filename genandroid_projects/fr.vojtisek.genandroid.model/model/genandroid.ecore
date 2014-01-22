@@ -21,6 +21,8 @@
         eType="#//ViewActivity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggerableBackgroundActivities"
         upperBound="-1" eType="#//BackgroundActivity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasSupportForParentActivity"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EditableElementViewActivity" eSuperTypes="#//ElementViewActivity"/>
   <eClassifiers xsi:type="ecore:EClass" name="ClassListViewActivity" eSuperTypes="#//ListViewActivity">

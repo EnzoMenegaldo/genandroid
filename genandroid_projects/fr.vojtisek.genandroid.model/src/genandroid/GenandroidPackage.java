@@ -272,13 +272,22 @@ public interface GenandroidPackage extends EPackage {
 	int VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_ACTIVITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VIEW_ACTIVITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.ElementViewActivityImpl <em>Element View Activity</em>}' class.
@@ -325,6 +334,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
+
+	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -391,6 +409,15 @@ public interface GenandroidPackage extends EPackage {
 	int EDITABLE_ELEMENT_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = ELEMENT_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
 
 	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITABLE_ELEMENT_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = ELEMENT_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,6 +480,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
+
+	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -544,6 +580,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
+
+	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -763,6 +808,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = CLASS_LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
+
+	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = CLASS_LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
@@ -1202,6 +1256,15 @@ public interface GenandroidPackage extends EPackage {
 	int ATTRIBUTE_LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = LIST_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
 
 	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = LIST_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
+
+	/**
 	 * The feature id for the '<em><b>Select Item Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1311,6 +1374,15 @@ public interface GenandroidPackage extends EPackage {
 	int PREFERENCE_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
 
 	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREFERENCE_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
+
+	/**
 	 * The number of structural features of the '<em>Preference View Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1364,6 +1436,15 @@ public interface GenandroidPackage extends EPackage {
 	 * @ordered
 	 */
 	int CUSTOM_VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES;
+
+	/**
+	 * The feature id for the '<em><b>Has Support For Parent Activity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY;
 
 	/**
 	 * The feature id for the '<em><b>Is Orm Lite Base Activity</b></em>' attribute.
@@ -1713,6 +1794,17 @@ public interface GenandroidPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getViewActivity_TriggerableBackgroundActivities();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.ViewActivity#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Support For Parent Activity</em>'.
+	 * @see genandroid.ViewActivity#isHasSupportForParentActivity()
+	 * @see #getViewActivity()
+	 * @generated
+	 */
+	EAttribute getViewActivity_HasSupportForParentActivity();
 
 	/**
 	 * Returns the meta object for class '{@link genandroid.EditableElementViewActivity <em>Editable Element View Activity</em>}'.
@@ -2458,6 +2550,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES = eINSTANCE.getViewActivity_TriggerableBackgroundActivities();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Support For Parent Activity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY = eINSTANCE.getViewActivity_HasSupportForParentActivity();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.EditableElementViewActivityImpl <em>Editable Element View Activity</em>}' class.
