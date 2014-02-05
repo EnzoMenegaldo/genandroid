@@ -17,6 +17,7 @@ import [aClassListViewActivity.packagePrefix()/].activities.view.indexbar.IndexB
 [/if]
 import [aClassListViewActivity.packagePrefix()/].datamodel.*;
 import [aClassListViewActivity.packagePrefix()/].R;
+import [aClassListViewActivity.packagePrefix()/].tools.ThemeUtil;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.app.Activity;
@@ -83,6 +84,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		ThemeUtil.onActivityCreateSetTheme(this);
 		setContentView(R.layout.[aClassListViewActivity.name.toLower()/]_listview);
 
 	[if(aClassListViewActivity.hasSupportForParentActivity)]

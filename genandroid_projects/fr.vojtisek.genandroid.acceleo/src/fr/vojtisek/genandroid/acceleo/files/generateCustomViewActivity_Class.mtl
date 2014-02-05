@@ -13,6 +13,7 @@ package [aCustomViewActivity.packagePrefix()/].activities;
 import [aCustomViewActivity.packagePrefix()/].BuildConfig;
 import [aCustomViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [aCustomViewActivity.packagePrefix()/].R;
+import [aCustomViewActivity.packagePrefix()/].tools.ThemeUtil;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.app.Activity;
@@ -56,6 +57,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		ThemeUtil.onActivityCreateSetTheme(this);
 		[if (aCustomViewActivity = aCustomViewActivity.eContainer(PresentationModel).welcomeView and
 			(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
 			PreferenceManager.setDefaultValues(this, R.xml.[aCustomViewActivity.eContainer(PresentationModel).preferenceView.name.toLower()/], false);
