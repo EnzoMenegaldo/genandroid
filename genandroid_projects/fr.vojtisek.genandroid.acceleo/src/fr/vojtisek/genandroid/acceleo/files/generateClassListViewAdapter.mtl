@@ -42,6 +42,7 @@ import android.widget.BaseAdapter;
 [if(aClassListViewActivity.isFilterable)] 
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 [/if]
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -105,6 +106,11 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	@Override
 	public int getCount() {
+		[if(aClassListViewActivity.isFilterable)]
+		if(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/][if(aClassListViewActivity.isLargeList)]Id[/if]List.size() == 0){
+			return 1;	// will create a dummy entry to invite changing the filters
+        }
+		[/if]
 		[if(aClassListViewActivity.isLargeList)]
 		return filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.size();
 		[else]
@@ -134,7 +140,11 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.[aClassListViewActivity.name.toLower()/]_listviewrow, null);
         }
-
+		[if(aClassListViewActivity.isFilterable)]
+		if(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/][if(aClassListViewActivity.isLargeList)]Id[/if]List.size() == 0){
+        	return getNoResultSubstitute(convertView);
+        }
+		[/if]
 		[if(aClassListViewActivity.isLargeList)]
 		final Fiche entry = getFicheForId(filtered[aClassListViewActivity.listedElement.name.toUpperFirst()/]IdList.get(position));
 		if(entry == null) return convertView;
@@ -178,6 +188,43 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	}
 
+	[if(aClassListViewActivity.isFilterable)]
+	protected View getNoResultSubstitute(View convertView){
+		TextView tvLabel = (TextView) convertView.findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listviewrow_label);
+		tvLabel.setText(R.string.[aClassListViewActivity.name.toLower()/]_classlistview_no_result);
+		// [protected ('protected additional '+aClassListViewActivity.name+'_Adapter getNoResultSubstitute code')]
+		try{
+			StringBuilder sbRechercheCourante = new StringBuilder();
+	        int filtreCourantId = prefs.getInt(context.getString(R.string.pref_key_filtre_groupe), 1);	        
+			if(filtreCourantId==1){
+				sbRechercheCourante.append(context.getString(R.string.accueil_recherche_precedente_filtreEspece_sans));
+	        }
+			else {
+				Groupe groupeFiltreCourant = _contextDB.groupeDao.queryForId(filtreCourantId);
+				sbRechercheCourante.append(context.getString(R.string.listeficheavecfiltre_popup_filtreEspece_avec)+" "+groupeFiltreCourant.getNomGroupe().trim());
+			}
+			sbRechercheCourante.append(" ; ");
+			int currentFilterId = prefs.getInt(context.getString(R.string.pref_key_filtre_zonegeo), -1);
+	        if(currentFilterId == -1 || currentFilterId == 0){ // test sur 0, juste pour assurer la migration depuis alpha3 , a supprimer plus tard
+	        	sbRechercheCourante.append(context.getString(R.string.accueil_recherche_precedente_filtreGeographique_sans));
+	        }
+	        else{
+	        	ZoneGeographique currentZoneFilter= _contextDB.zoneGeographiqueDao.queryForId(currentFilterId);
+	        	sbRechercheCourante.append(context.getString(R.string.listeficheavecfiltre_popup_filtreGeographique_avec)+" "+currentZoneFilter.getNom().trim());
+	        }
+	        // TODO ajouter le filtre textuel courant qui lui aussi peut impliquer de ne retourner aucun résultats
+	        TextView tvDetails = (TextView) convertView.findViewById(R.id.listeficheavecfiltre_listviewrow_details);
+			tvDetails.setText( sbRechercheCourante.toString() );
+		} catch (SQLException e) {
+			Log.e(LOG_TAG, e.getMessage(), e);
+		}
+    	convertView.findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listviewrow__btnEtatFiche).setVisibility(View.GONE);
+		// [/protected]
+		ImageView ivIcon = (ImageView) convertView.findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listviewrow_icon);
+    	ivIcon.setImageResource(R.drawable.app_ic_launcher);
+		return convertView;
+	}
+	[/if]
 	[if(aClassListViewActivity.isLargeList)]
 	protected [aClassListViewActivity.listedElement.name.toUpperFirst()/] get[aClassListViewActivity.listedElement.name.toUpperFirst()/]ForId(Integer [aClassListViewActivity.listedElement.name.toLowerFirst()/]Id){
 		[aClassListViewActivity.listedElement.name.toUpperFirst()/] f = [aClassListViewActivity.listedElement.name.toLowerFirst()/]Cache.get([aClassListViewActivity.listedElement.name.toLowerFirst()/]Id);
