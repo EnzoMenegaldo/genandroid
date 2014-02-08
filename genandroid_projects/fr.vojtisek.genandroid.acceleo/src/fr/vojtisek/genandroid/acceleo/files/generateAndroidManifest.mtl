@@ -21,7 +21,11 @@
 <!--[/protected]-->
 	
 	[for (aViewActivity : ViewActivity | aAndroidProject.presentationModel.viewActivities)]
+		[if(aViewActivity.oclIsKindOf(PreferenceViewActivity))]
+		<activity  
+		[else]
 		<activity  android:theme="@style/Theme.App[aAndroidProject.name/]"
+		[/if]
 			android:name=".activities.[aViewActivity.name/]_[aViewActivity.eClass().name/]" 
 		[if(aViewActivity.oclIsKindOf(ClassListViewActivity) and aViewActivity.oclAsType(ClassListViewActivity).isFilterable)]
 			android:launchMode="singleTop"
