@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/fr.vojtisek.genandroid.feature_1.0.0.qualifier.jar" id="fr.vojtisek.genandroid.feature" version="1.0.0.qualifier">
+      <category name="GenAndroid"/>
+   </feature>
+   <category-def name="GenAndroid" label="GenAndroid"/>
+</site>

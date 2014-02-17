@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.vojtisek.genandroid</groupId>
+	<artifactId>fr.vojtisek.genandroid.root</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>2.8</maven-dependency-plugin.version>
+		<emf.version>2.9.1-v20130827-0309</emf.version>
+		<tycho.version>0.19.0</tycho.version>
+	</properties>
+
+	<modules>
+		<module>../fr.vojtisek.genandroid.model</module>
+		<module>../fr.vojtisek.genandroid.model.edit</module>
+		<module>../fr.vojtisek.genandroid.model.editor</module>	
+		<module>../fr.vojtisek.genandroid.feature</module>
+		<module>../fr.vojtisek.genandroid.p2updatesite</module>
+	</modules>
+	<repositories>
+		<repository>
+			<id>kepler</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/kepler</url>
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+</project> 

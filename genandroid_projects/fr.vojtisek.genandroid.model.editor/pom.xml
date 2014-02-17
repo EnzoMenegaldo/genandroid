@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<relativePath>../fr.vojtisek.genandroid.root/pom.xml</relativePath>
+		<groupId>fr.vojtisek.genandroid</groupId>
+		<artifactId>fr.vojtisek.genandroid.root</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>fr.vojtisek.genandroid.model.editor</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<name>fr.vojtisek.genandroid.model.editor</name>
+
+</project>
