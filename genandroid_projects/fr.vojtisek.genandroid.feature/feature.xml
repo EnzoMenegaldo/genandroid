@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="fr.vojtisek.genandroid.feature"
-      label="K3 feature"
+      label="GenAndroid feature"
       version="1.0.0.qualifier">
 
    <description url="https://github.com/barais/k3/">
