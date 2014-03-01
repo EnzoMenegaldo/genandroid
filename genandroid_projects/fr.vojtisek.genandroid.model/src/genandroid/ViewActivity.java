@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link genandroid.ViewActivity#getAccessibleViews <em>Accessible Views</em>}</li>
  *   <li>{@link genandroid.ViewActivity#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
  *   <li>{@link genandroid.ViewActivity#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}</li>
+ *   <li>{@link genandroid.ViewActivity#getDefaultParentActivity <em>Default Parent Activity</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,4 +88,30 @@ public interface ViewActivity extends NamedElement {
 	 * @generated
 	 */
 	void setHasSupportForParentActivity(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Parent Activity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Parent Activity</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Parent Activity</em>' reference.
+	 * @see #setDefaultParentActivity(ViewActivity)
+	 * @see genandroid.GenandroidPackage#getViewActivity_DefaultParentActivity()
+	 * @model
+	 * @generated
+	 */
+	ViewActivity getDefaultParentActivity();
+
+	/**
+	 * Sets the value of the '{@link genandroid.ViewActivity#getDefaultParentActivity <em>Default Parent Activity</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Parent Activity</em>' reference.
+	 * @see #getDefaultParentActivity()
+	 * @generated
+	 */
+	void setDefaultParentActivity(ViewActivity value);
 } // ViewActivity

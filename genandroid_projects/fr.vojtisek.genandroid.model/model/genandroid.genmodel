@@ -25,6 +25,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ViewActivity/accessibleViews"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ViewActivity/triggerableBackgroundActivities"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//ViewActivity/hasSupportForParentActivity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//ViewActivity/defaultParentActivity"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//EditableElementViewActivity"/>
     <genClasses ecoreClass="genandroid.ecore#//ClassListViewActivity">

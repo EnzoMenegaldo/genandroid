@@ -116,6 +116,16 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
 			//[protected ('additional menu action '+aCustomViewActivity.name+'_CustomViewActivity')]
 	
 			//[/protected]
+		[if(aCustomViewActivity.hasSupportForParentActivity and not aCustomViewActivity.defaultParentActivity.oclIsUndefined())]
+			// Respond to the action bar's Up/Home button
+			case android.R.id.home:
+	        	TaskStackBuilder.create(this)
+	                // Add all of this activity's parents to the back stack
+	                .addNextIntentWithParentStack(getSupportParentActivityIntent())
+	                // Navigate up to the closest parent
+	                .startActivities();
+	            return true;
+		[/if]
 			default:
                 return super.onOptionsItemSelected(item);
         }

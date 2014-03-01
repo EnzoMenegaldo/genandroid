@@ -386,6 +386,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getViewActivity_DefaultParentActivity() {
+		return (EReference)viewActivityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEditableElementViewActivity() {
 		return editableElementViewActivityEClass;
 	}
@@ -954,6 +963,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(viewActivityEClass, VIEW_ACTIVITY__ACCESSIBLE_VIEWS);
 		createEReference(viewActivityEClass, VIEW_ACTIVITY__TRIGGERABLE_BACKGROUND_ACTIVITIES);
 		createEAttribute(viewActivityEClass, VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY);
+		createEReference(viewActivityEClass, VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY);
 
 		editableElementViewActivityEClass = createEClass(EDITABLE_ELEMENT_VIEW_ACTIVITY);
 
@@ -1102,6 +1112,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getViewActivity_AccessibleViews(), this.getViewActivity(), null, "accessibleViews", null, 0, -1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViewActivity_TriggerableBackgroundActivities(), this.getBackgroundActivity(), null, "triggerableBackgroundActivities", null, 0, -1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getViewActivity_HasSupportForParentActivity(), ecorePackage.getEBoolean(), "hasSupportForParentActivity", "false", 0, 1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViewActivity_DefaultParentActivity(), this.getViewActivity(), null, "defaultParentActivity", null, 0, 1, ViewActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(editableElementViewActivityEClass, EditableElementViewActivity.class, "EditableElementViewActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

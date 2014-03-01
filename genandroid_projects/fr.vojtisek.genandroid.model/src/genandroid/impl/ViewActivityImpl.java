@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link genandroid.impl.ViewActivityImpl#getAccessibleViews <em>Accessible Views</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}</li>
+ *   <li>{@link genandroid.impl.ViewActivityImpl#getDefaultParentActivity <em>Default Parent Activity</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +77,16 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 	 * @ordered
 	 */
 	protected boolean hasSupportForParentActivity = HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDefaultParentActivity() <em>Default Parent Activity</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultParentActivity()
+	 * @generated
+	 * @ordered
+	 */
+	protected ViewActivity defaultParentActivity;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +157,44 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ViewActivity getDefaultParentActivity() {
+		if (defaultParentActivity != null && defaultParentActivity.eIsProxy()) {
+			InternalEObject oldDefaultParentActivity = (InternalEObject)defaultParentActivity;
+			defaultParentActivity = (ViewActivity)eResolveProxy(oldDefaultParentActivity);
+			if (defaultParentActivity != oldDefaultParentActivity) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GenandroidPackage.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY, oldDefaultParentActivity, defaultParentActivity));
+			}
+		}
+		return defaultParentActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewActivity basicGetDefaultParentActivity() {
+		return defaultParentActivity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultParentActivity(ViewActivity newDefaultParentActivity) {
+		ViewActivity oldDefaultParentActivity = defaultParentActivity;
+		defaultParentActivity = newDefaultParentActivity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY, oldDefaultParentActivity, defaultParentActivity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -154,6 +204,9 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 				return getTriggerableBackgroundActivities();
 			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
 				return isHasSupportForParentActivity();
+			case GenandroidPackage.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY:
+				if (resolve) return getDefaultParentActivity();
+				return basicGetDefaultParentActivity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +231,9 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
 				setHasSupportForParentActivity((Boolean)newValue);
 				return;
+			case GenandroidPackage.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY:
+				setDefaultParentActivity((ViewActivity)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,6 +255,9 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
 				setHasSupportForParentActivity(HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT);
 				return;
+			case GenandroidPackage.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY:
+				setDefaultParentActivity((ViewActivity)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,6 +276,8 @@ public abstract class ViewActivityImpl extends NamedElementImpl implements ViewA
 				return triggerableBackgroundActivities != null && !triggerableBackgroundActivities.isEmpty();
 			case GenandroidPackage.VIEW_ACTIVITY__HAS_SUPPORT_FOR_PARENT_ACTIVITY:
 				return hasSupportForParentActivity != HAS_SUPPORT_FOR_PARENT_ACTIVITY_EDEFAULT;
+			case GenandroidPackage.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY:
+				return defaultParentActivity != null;
 		}
 		return super.eIsSet(featureID);
 	}

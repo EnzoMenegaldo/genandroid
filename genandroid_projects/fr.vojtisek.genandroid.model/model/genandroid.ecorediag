@@ -95,7 +95,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_SdV1oVVWEeGJgJ0ZZtJ8vQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="genandroid.ecore#//DataAttribute"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SdV1olVWEeGJgJ0ZZtJ8vQ" x="545" y="445"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SdV1olVWEeGJgJ0ZZtJ8vQ" x="675" y="440"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_a43QcFVWEeGJgJ0ZZtJ8vQ" type="1001">
       <children xmi:type="notation:Node" xmi:id="_a5KLYFVWEeGJgJ0ZZtJ8vQ" type="4001"/>
@@ -119,7 +119,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_a43QcVVWEeGJgJ0ZZtJ8vQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="genandroid.ecore#//DataReference"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a43QclVWEeGJgJ0ZZtJ8vQ" x="625" y="335"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a43QclVWEeGJgJ0ZZtJ8vQ" x="735" y="335"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_ilkWEFVZEeGJgJ0ZZtJ8vQ" type="1005">
       <children xmi:type="notation:Node" xmi:id="_il34EFVZEeGJgJ0ZZtJ8vQ" type="4010"/>
@@ -146,7 +146,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_ilkWEVVZEeGJgJ0ZZtJ8vQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EEnum" href="genandroid.ecore#//storageKind"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ilkWElVZEeGJgJ0ZZtJ8vQ" x="770" y="470"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ilkWElVZEeGJgJ0ZZtJ8vQ" x="930" y="470"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_GNJ4UF_IEeGBMabQlDmg6w" type="1001">
       <children xmi:type="notation:Node" xmi:id="_GNTCQF_IEeGBMabQlDmg6w" type="4001"/>
@@ -354,7 +354,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_kjXsoXg6EeKjO9hO-NhLHQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="genandroid.ecore#//CustomViewActivity"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kjXsong6EeKjO9hO-NhLHQ" x="85" y="550"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kjXsong6EeKjO9hO-NhLHQ" x="15" y="550"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_zdM5wXhdEeK8iuTEAtr-vg" type="1001">
       <children xmi:type="notation:Node" xmi:id="_zdWqwHhdEeK8iuTEAtr-vg" type="4001"/>
@@ -758,6 +758,19 @@
       <element xsi:nil="true"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zg4wUINoEeKpPpyhv5xw2g" points="[23, -24, -279, 304]$[303, -303, 1, 25]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zg6lgINoEeKpPpyhv5xw2g" id="(0.24705882352941178,0.6323529411764706)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_sAR7cKFWEeOpkMZqYKr7tQ" type="3002" source="_GNJ4UF_IEeGBMabQlDmg6w" target="_GNJ4UF_IEeGBMabQlDmg6w">
+      <children xmi:type="notation:Node" xmi:id="_sAXbAKFWEeOpkMZqYKr7tQ" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_sAXbAaFWEeOpkMZqYKr7tQ" x="-10" y="-10"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_sAXbAqFWEeOpkMZqYKr7tQ" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_sAXbA6FWEeOpkMZqYKr7tQ" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_sAR7caFWEeOpkMZqYKr7tQ" lineColor="4210752"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_sAR7cqFWEeOpkMZqYKr7tQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+      <element xmi:type="ecore:EReference" href="genandroid.ecore#//ViewActivity/defaultParentActivity"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sAR7c6FWEeOpkMZqYKr7tQ" points="[129, 0, 44, -11]$[161, 0, 76, -11]$[161, 56, 76, 45]$[108, 25, 23, 14]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yQEegKFWEeOpkMZqYKr7tQ" id="(0.8307692307692308,0.7254901960784313)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_JtEygFVZEeGJgJ0ZZtJ8vQ" type="EcoreTools" name="DataModel" measurementUnit="Pixel">
