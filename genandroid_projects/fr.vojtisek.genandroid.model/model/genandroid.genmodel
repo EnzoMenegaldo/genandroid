@@ -92,7 +92,9 @@
     <genClasses ecoreClass="genandroid.ecore#//DataAssociation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataAssociation/references"/>
     </genClasses>
-    <genClasses ecoreClass="genandroid.ecore#//BackgroundActivity"/>
+    <genClasses ecoreClass="genandroid.ecore#//BackgroundActivity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//BackgroundActivity/targetIntent"/>
+    </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//PresentationModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//PresentationModel/viewActivities"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference genandroid.ecore#//PresentationModel/preferenceView"/>

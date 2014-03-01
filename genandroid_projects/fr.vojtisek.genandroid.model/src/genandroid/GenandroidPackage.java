@@ -1675,13 +1675,22 @@ public interface GenandroidPackage extends EPackage {
 	int BACKGROUND_ACTIVITY__DOCUMENTATION = NAMED_ELEMENT__DOCUMENTATION;
 
 	/**
+	 * The feature id for the '<em><b>Target Intent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_ACTIVITY__TARGET_INTENT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Background Activity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BACKGROUND_ACTIVITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int BACKGROUND_ACTIVITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.PresentationModelImpl <em>Presentation Model</em>}' class.
@@ -2453,6 +2462,17 @@ public interface GenandroidPackage extends EPackage {
 	EClass getBackgroundActivity();
 
 	/**
+	 * Returns the meta object for the reference '{@link genandroid.BackgroundActivity#getTargetIntent <em>Target Intent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Intent</em>'.
+	 * @see genandroid.BackgroundActivity#getTargetIntent()
+	 * @see #getBackgroundActivity()
+	 * @generated
+	 */
+	EReference getBackgroundActivity_TargetIntent();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.PresentationModel <em>Presentation Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3110,6 +3130,14 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BACKGROUND_ACTIVITY = eINSTANCE.getBackgroundActivity();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Intent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BACKGROUND_ACTIVITY__TARGET_INTENT = eINSTANCE.getBackgroundActivity_TargetIntent();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.PresentationModelImpl <em>Presentation Model</em>}' class.

@@ -863,6 +863,15 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBackgroundActivity_TargetIntent() {
+		return (EReference)backgroundActivityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPresentationModel() {
 		return presentationModelEClass;
 	}
@@ -1034,6 +1043,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		createEReference(dataAssociationEClass, DATA_ASSOCIATION__REFERENCES);
 
 		backgroundActivityEClass = createEClass(BACKGROUND_ACTIVITY);
+		createEReference(backgroundActivityEClass, BACKGROUND_ACTIVITY__TARGET_INTENT);
 
 		presentationModelEClass = createEClass(PRESENTATION_MODEL);
 		createEReference(presentationModelEClass, PRESENTATION_MODEL__VIEW_ACTIVITIES);
@@ -1183,6 +1193,7 @@ public class GenandroidPackageImpl extends EPackageImpl implements GenandroidPac
 		initEReference(getDataAssociation_References(), this.getDataReference(), this.getDataReference_Opposite(), "references", null, 2, 2, DataAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(backgroundActivityEClass, BackgroundActivity.class, "BackgroundActivity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBackgroundActivity_TargetIntent(), this.getViewActivity(), null, "targetIntent", null, 0, 1, BackgroundActivity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(presentationModelEClass, PresentationModel.class, "PresentationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPresentationModel_ViewActivities(), this.getViewActivity(), null, "viewActivities", null, 0, -1, PresentationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

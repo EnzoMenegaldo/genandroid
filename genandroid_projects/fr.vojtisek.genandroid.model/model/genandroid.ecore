@@ -122,7 +122,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" lowerBound="2"
         upperBound="2" eType="#//DataReference" eOpposite="#//DataReference/opposite"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BackgroundActivity" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BackgroundActivity" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetIntent" eType="#//ViewActivity"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresentationModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewActivities" upperBound="-1"
         eType="#//ViewActivity" containment="true"/>
