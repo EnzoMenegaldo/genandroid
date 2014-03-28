@@ -72,6 +72,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 		[if(not att.documentation.oclIsUndefined())]
 	/** [att.documentation/] */ 
 		[/if]
+	/** TEST GM : [att.storage/] = [storageKind::SQLite/] **/
 		[if (att.upperBound = 1)]
 			[if (att.storage = storageKind::SQLite)] 
 				[if (att.type.databaseType.oclIsUndefined())]
@@ -79,10 +80,17 @@ public class [aDataClass.name.toUpperFirst()/] {
 				[else]
 	@DatabaseField(dataType = [att.type.databaseType/])
 				[/if]
+			[else]
+				[if (att.storage.oclIsUndefined())]
+	/** Contournement Guillaume car att.storage est toujours vide chez moi **/
+	@DatabaseField
+				[/if]
 			[/if]
 	protected [att.oneEAttributeParam()/];
 		[else]
 	// NOT Implemented<[att.type.instanceClassName/]> [att.name.toLowerFirst()/];
+	// [protected (att.name.toLowerFirst().concat('- Permet de ne pas perdre Implémentation Manuelle de : ')) ]
+	// [/protected]
 		[/if]
 	[/for]
 	
@@ -95,6 +103,11 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[if (ref.upperBound = 1)]
 				[if (ref.storage = storageKind::SQLite)]
 	@DatabaseField(foreign = true)
+				[else]
+					[if (ref.storage.oclIsUndefined())]
+	/** Contournement Guillaume car ref.storage est toujours vide chez moi **/
+	@DatabaseField(foreign = true)
+					[/if]
 				[/if]
 	protected [ref.oneEReferenceParam()/];
 			[else] [comment management of references with multiplicity <> 1 but no opposite /]
@@ -103,6 +116,8 @@ public class [aDataClass.name.toUpperFirst()/] {
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 				[else]
 	// NOT Implemented non SQLite collection reference (no opposite) [ref.name.toLowerFirst()/];
+	// [protected (ref.name.toLowerFirst().concat('- Permet de ne pas perdre Implémentation Manuelle de : ')) ]
+	// [/protected]
 				[/if]
 			[/if]
 		[else]
@@ -150,6 +165,8 @@ public class [aDataClass.name.toUpperFirst()/] {
 				
 					[else]
 	// NOT Implemented non SQLite many2many collection reference [ref.name.toLowerFirst()/];
+	// [protected (ref.name.toLowerFirst().concat(' - Permet de ne pas perdre Implémentation Manuelle de : ')) ]
+	// [/protected]
 					[/if]
 				[else] [comment the opposite has multiplicity = 1/]
 					[if (ref.storage = storageKind::SQLite)]
@@ -157,6 +174,8 @@ public class [aDataClass.name.toUpperFirst()/] {
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 					[else]
 	// NOT Implemented non SQLite collection reference [ref.name.toLowerFirst()/];
+	// [protected (ref.name.toLowerFirst().concat(' - Permet de ne pas perdre Implémentation Manuelle de : ')) ]
+	// [/protected]
 					[/if]
 				[/if]
 			[/if]
