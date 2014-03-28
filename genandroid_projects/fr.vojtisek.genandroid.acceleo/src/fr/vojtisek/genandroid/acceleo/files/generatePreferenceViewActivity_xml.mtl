@@ -6,7 +6,7 @@
 
 [file ('/res/xml/'.concat(aPreferenceViewActivity.name.toLower()).concat('.xml'), false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="racine">
 
     <!--[protected ('protected PreferenceViewActivity '+aPreferenceViewActivity.name.toLower())]
 		-->
