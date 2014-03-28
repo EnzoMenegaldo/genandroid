@@ -262,6 +262,16 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 			//[protected ('additional menu action '+aClassListViewActivity.name+'_ClassListViewActivity')]
 	
 			//[/protected]
+		[if(aClassListViewActivity.hasSupportForParentActivity and not aClassListViewActivity.defaultParentActivity.oclIsUndefined())]
+			// Respond to the action bar's Up/Home button
+			case android.R.id.home:
+	        	TaskStackBuilder.create(this)
+	                // Add all of this activity's parents to the back stack
+	                .addNextIntentWithParentStack(getSupportParentActivityIntent())
+	                // Navigate up to the closest parent
+	                .startActivities();
+	            return true;
+		[/if]
 			default:
                 return super.onOptionsItemSelected(item);
         }

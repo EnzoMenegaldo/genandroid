@@ -66,6 +66,7 @@ public class ViewActivityItemProvider
 			addAccessibleViewsPropertyDescriptor(object);
 			addTriggerableBackgroundActivitiesPropertyDescriptor(object);
 			addHasSupportForParentActivityPropertyDescriptor(object);
+			addDefaultParentActivityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class ViewActivityItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Default Parent Activity feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefaultParentActivityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ViewActivity_defaultParentActivity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ViewActivity_defaultParentActivity_feature", "_UI_ViewActivity_type"),
+				 GenandroidPackage.Literals.VIEW_ACTIVITY__DEFAULT_PARENT_ACTIVITY,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

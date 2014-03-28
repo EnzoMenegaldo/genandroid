@@ -64,8 +64,31 @@ public class BackgroundActivityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTargetIntentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Intent feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetIntentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BackgroundActivity_targetIntent_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BackgroundActivity_targetIntent_feature", "_UI_BackgroundActivity_type"),
+				 GenandroidPackage.Literals.BACKGROUND_ACTIVITY__TARGET_INTENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

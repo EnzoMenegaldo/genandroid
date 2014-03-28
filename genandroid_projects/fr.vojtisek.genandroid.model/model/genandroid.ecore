@@ -23,6 +23,8 @@
         upperBound="-1" eType="#//BackgroundActivity"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasSupportForParentActivity"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultParentActivity"
+        eType="#//ViewActivity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EditableElementViewActivity" eSuperTypes="#//ElementViewActivity"/>
   <eClassifiers xsi:type="ecore:EClass" name="ClassListViewActivity" eSuperTypes="#//ListViewActivity">
@@ -120,7 +122,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" lowerBound="2"
         upperBound="2" eType="#//DataReference" eOpposite="#//DataReference/opposite"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BackgroundActivity" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BackgroundActivity" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetIntent" eType="#//ViewActivity"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PresentationModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewActivities" upperBound="-1"
         eType="#//ViewActivity" containment="true"/>
