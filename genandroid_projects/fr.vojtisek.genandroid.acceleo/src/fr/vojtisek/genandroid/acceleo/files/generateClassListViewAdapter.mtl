@@ -134,7 +134,7 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup viewGroup) {
-		
+		// [protected ('protected additional '+aClassListViewActivity.name+'_Adapter getView_assign code')]
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -175,7 +175,8 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 			[/for]
         tvDetails.setText(detailsSB.toString());
 		[/if]
-		
+		// [/protected]
+
         // assign the entry to the row in order to ease GUI interactions
         LinearLayout llRow = (LinearLayout)convertView.findViewById(R.id.[aClassListViewActivity.name.toLower()/]_listviewrow);
         llRow.setTag(entry);
