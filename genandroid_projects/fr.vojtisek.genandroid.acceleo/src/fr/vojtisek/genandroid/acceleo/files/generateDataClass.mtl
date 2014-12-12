@@ -165,7 +165,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 				
 					[else]
 	// NOT Implemented non SQLite many2many collection reference [ref.name.toLowerFirst()/];
-	// [protected (ref.name.toLowerFirst().concat(' - Permet de ne pas perdre Implémentation Manuelle de : ')) ]
+	// [protected (ref.name.toLowerFirst().concat(' - Permet de ne pas perdre Implémentation Manuelle de non SQLite many2many : ')) ]
 	// [/protected]
 					[/if]
 				[else] [comment the opposite has multiplicity = 1/]
@@ -174,7 +174,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 					[else]
 	// NOT Implemented non SQLite collection reference [ref.name.toLowerFirst()/];
-	// [protected (ref.name.toLowerFirst().concat(' - Permet de ne pas perdre Implémentation Manuelle de : ')) ]
+	// [protected (ref.name.toLowerFirst().concat(' - Permet de ne pas perdre Implémentation Manuelle de non SQLite collection reference : ')) ]
 	// [/protected]
 					[/if]
 				[/if]

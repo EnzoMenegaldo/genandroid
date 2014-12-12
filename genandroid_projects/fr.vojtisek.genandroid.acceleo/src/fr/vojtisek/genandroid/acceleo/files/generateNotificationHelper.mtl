@@ -60,7 +60,7 @@ public class NotificationHelper {
        
         
         //create the content which is shown in the notification pulldown
-		// [protected ('notification helper additional status message')]
+		// [protected ('notification helper additional status message (createNotification)')]
         CharSequence contentText = "0 / "+maxItemToProcess; //Text of the notification in the pull down
 		// [/protected]
 
@@ -98,7 +98,7 @@ public class NotificationHelper {
     public void progressUpdate(int nbItemsComplete) {
         //build up the new status message
 
-		// [protected ('notification helper additional status message')]
+		// [protected ('notification helper additional status message (progressUpdate)')]
         CharSequence contentText = nbItemsComplete + " / " +maxItemToProcess;
 		// [/protected]
         //publish it to the status bar
