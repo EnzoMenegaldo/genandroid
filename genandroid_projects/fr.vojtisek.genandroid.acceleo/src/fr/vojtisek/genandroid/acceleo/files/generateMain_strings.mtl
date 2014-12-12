@@ -8,9 +8,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">[aAndroidProject.name/]</string>
 	<!--[protected ('remove protected zone to rebuild all default values')]
 		-->
+    <string name="app_name">[aAndroidProject.name/]</string>
     <string name="edit_menu">Edit</string>
 	<!--[/protected]
 	  -->

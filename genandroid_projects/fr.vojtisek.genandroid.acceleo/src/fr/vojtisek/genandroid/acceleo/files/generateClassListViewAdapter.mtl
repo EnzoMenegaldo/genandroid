@@ -89,6 +89,8 @@ public class [aClassListViewActivity.name/]_Adapter extends BaseAdapter  [if(aCl
 		this.context = context;
 		this._contextDB = contextDB;
 		prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        // [protected ('protected '+aClassListViewActivity.name+'_Adapter constructor')]
+		// [/protected]
 		updateList();
 	}
 	

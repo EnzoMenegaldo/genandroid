@@ -27,6 +27,9 @@ import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].activities
 [/if]
 import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].R;
+
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+
 // [protected ('additional imports '+aBackgroundActivity.name+'_BgActivity')]
 // [/protected]
 
@@ -35,21 +38,23 @@ public class [aBackgroundActivity.name/]_BgActivity  extends AsyncTask<String,In
 	
 	
     private NotificationHelper mNotificationHelper;
-    private OrmLiteDBHelper dbHelper;
+    private OrmLiteDBHelper dbHelper;    
     private Context context;
     
     // [protected ('additional attribute declarations '+aBackgroundActivity.name+'_BgActivity')]
 	// [/protected]
     
 	/** constructor */
-    public [aBackgroundActivity.name/]_BgActivity(Context context, OrmLiteDBHelper dbHelper){
+    public [aBackgroundActivity.name/]_BgActivity(Context context){
+		this.dbHelper = OpenHelperManager.getHelper(context.getApplicationContext(), OrmLiteDBHelper.class);
+		// use application wide helper
+        this.context = context.getApplicationContext();
 		// [protected ('additional attribute declarations '+aBackgroundActivity.name+'_BgActivity constructor')]
 		String initialTickerText = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_initialTickerText);
 		String notificationTitle = context.getString(R.string.[aBackgroundActivity.name.toLower()/]_bg_notificationTitle);
         mNotificationHelper = new NotificationHelper(context, initialTickerText, notificationTitle);
 		// [/protected]
-        this.dbHelper = dbHelper;
-		this.context = context;
+        
     }
 
     protected void onPreExecute(){

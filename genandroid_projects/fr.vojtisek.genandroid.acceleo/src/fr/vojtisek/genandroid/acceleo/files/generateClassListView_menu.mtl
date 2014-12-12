@@ -10,7 +10,7 @@
 	
 	[if(aClassListViewActivity.isFilterable)]
 	<item android:id="@+id/[aClassListViewActivity.name.toLower()/]_classlistview_action_search"
-	      android:icon="@drawable/ic_action_search"
+	      android:icon="?attr/ic_action_search"
 	      android:title="@string/searchHint_[aClassListViewActivity.name.toLower()/]_listviewsearchrow"
 	      [aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]:showAsAction="ifRoom|collapseActionView"
           [aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]:actionViewClass="android.support.v7.widget.SearchView"/>
