@@ -59,6 +59,10 @@
 		[/if]
 		</activity>
 	[/for]
+<!--[protected ('zone 2')]
+      -->
+
+<!--[/protected]-->
     </application>
 
 </manifest>
