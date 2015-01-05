@@ -122,9 +122,6 @@ public class [anElementViewActivity.name/]EditableElementViewActivity extends Or
         return false;
     }
 
-	private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
 }
 [/file]
 [/template]

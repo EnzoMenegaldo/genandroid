@@ -20,22 +20,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 [if(anElementViewActivity.hasSupportForParentActivity)]
-import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 [/if]
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 // [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_import'))]
 // [/protected]
@@ -166,9 +158,6 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteAc
 	// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_operations'))]
 	// [/protected]
 
-	private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
 }
 [/file]
 [/template]

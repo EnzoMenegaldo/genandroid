@@ -154,9 +154,9 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
 		//[/protected]
 	}
 	[/if]
-	private void showToast(String message) {
+	[if (not aCustomViewActivity.isOrmLiteBaseActivity)]private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
+    }[/if]
 }
 [/file]
 [/template]

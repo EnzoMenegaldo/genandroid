@@ -20,47 +20,40 @@ import [aClassListViewActivity.packagePrefix()/].R;
 import [aClassListViewActivity.packagePrefix()/].tools.ThemeUtil;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
-import android.app.Activity;
 [if(aClassListViewActivity.isFilterable)]
 import android.app.SearchManager;
-[/if]
 import android.content.Context;
+[/if]
 import android.content.Intent;
-import android.content.SharedPreferences;
+[if(aClassListViewActivity.isFilterable)]
 import android.os.Build;
+[/if]
 import android.os.Bundle;
 [if(aClassListViewActivity.useIndexSearch)]
 import android.os.Handler;
 import android.widget.LinearLayout;
 [/if]
-import android.preference.PreferenceManager;
 [if(aClassListViewActivity.hasSupportForParentActivity)]
 import android.support.v4.app.TaskStackBuilder;
 [/if]
 import android.support.v7.app.ActionBar;
 [if(aClassListViewActivity.isFilterable)]
 import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.SearchViewCompat;
 import android.support.v7.widget.SearchView;
 [/if]
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.ListView;
 [if(aClassListViewActivity.useIndexSearch)]
 import android.widget.TextView;
 [/if]
 import android.widget.Toast;
-import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 // [protected ('protected'.concat(aClassListViewActivity.name).concat('_ClassListViewActivity_additionalimports'))]
 // [/protected]
 
@@ -70,10 +63,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 
 	//[protected ('constants '+aClassListViewActivity.name+'_ClassListViewActivity')]
 	//[/protected]
-	[if(aClassListViewActivity.isFilterable)] 
-	// Search EditText
-    //EditText inputSearch;
-	[/if]
+	
     [aClassListViewActivity.name/]_Adapter adapter;
 
 	[if(aClassListViewActivity.useIndexSearch)]
@@ -353,9 +343,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
     }
 	// [/protected]
 
-	private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
+	
 }
 [/file]
 [/template]
