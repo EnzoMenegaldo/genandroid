@@ -13,7 +13,7 @@
     [if(aClassListViewActivity.isFilterable)] 
     <!-- Search row -->
     <LinearLayout
-        android:id="@+android:id/[aClassListViewActivity.name.toLower()/]_listviewsearchrow"
+        android:id="@+id/[aClassListViewActivity.name.toLower()/]_listviewsearchrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -92,7 +92,7 @@
 	</RelativeLayout>
 	[else]
 	<ListView 
-	    android:id="@+android:id/[aClassListViewActivity.name.toLower()/]_listview"
+	    android:id="@+id/[aClassListViewActivity.name.toLower()/]_listview"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent" >
 	</ListView>
@@ -106,7 +106,7 @@
 <!-- [protected ('protected '+aClassListViewActivity.name.toLower()+'_listviewrow linearlayout full_customization')]
 		-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+android:id/[aClassListViewActivity.name.toLower()/]_listviewrow"
+    android:id="@+id/[aClassListViewActivity.name.toLower()/]_listviewrow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"    
 	android:layout_marginBottom="2dp"
@@ -172,7 +172,7 @@
 			-->
 	[else]
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+android:id/[aClassListViewActivity.name.toLower()/]_listviewrow"
+    android:id="@+id/[aClassListViewActivity.name.toLower()/]_listviewrow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"    
 	android:layout_marginBottom="2dp"
