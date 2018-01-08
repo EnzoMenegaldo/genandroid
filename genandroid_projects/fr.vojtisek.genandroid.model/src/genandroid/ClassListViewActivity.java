@@ -14,12 +14,12 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.ClassListViewActivity#getListedElement <em>Listed Element</em>}</li>
  *   <li>{@link genandroid.ClassListViewActivity#getPresentedDetail <em>Presented Detail</em>}</li>
  *   <li>{@link genandroid.ClassListViewActivity#isUseCustomRowPresentation <em>Use Custom Row Presentation</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getClassListViewActivity()
  * @model

@@ -4,7 +4,7 @@
 
 [template public generateDataClassFile(aDataClass : DataClass)]
 
-[file ('/src/'+aDataClass.packagePrefixFolder()+'/datamodel/'.concat(aDataClass.name).concat('.java'), false, 'UTF-8')]
+[file ('/'+aDataClass.eContainer(AndroidProject).javaSourceFolder+aDataClass.packagePrefixFolder()+'/datamodel/'.concat(aDataClass.name).concat('.java'), false, 'UTF-8')]
 /* [aDataClass.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
 package [aDataClass.packagePrefix()/].datamodel;
 

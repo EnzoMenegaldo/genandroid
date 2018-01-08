@@ -4,7 +4,7 @@
 
 [template public generateCustomView_strings(aCustomViewActivity : CustomViewActivity)]
 
-[file ('/res/values/'+aCustomViewActivity.name.toLower()+'_customview_strings.xml', false, 'UTF-8')]
+[file ('/'+aCustomViewActivity.eContainer(AndroidProject).resFolder+'values/'+aCustomViewActivity.name.toLower()+'_customview_strings.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings specific to [aCustomViewActivity.name.toLower()/] Custom View -->
 <resources>	

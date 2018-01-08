@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.CustomViewActivityImpl#isIsOrmLiteBaseActivity <em>Is Orm Lite Base Activity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

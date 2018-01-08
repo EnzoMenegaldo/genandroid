@@ -15,10 +15,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.DataAssociation#getReferences <em>References</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getDataAssociation()
  * @model

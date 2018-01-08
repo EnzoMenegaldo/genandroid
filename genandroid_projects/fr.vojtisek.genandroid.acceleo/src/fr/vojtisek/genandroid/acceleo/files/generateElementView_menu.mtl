@@ -4,7 +4,7 @@
 
 [template public generateElementView_menu(anElementViewActivity : ElementViewActivity)]
 
-[file ('/res/menu/'+anElementViewActivity.name.toLower()+'_elementview_actions.xml', false, 'UTF-8')]
+[file ('/'+anElementViewActivity.eContainer(AndroidProject).resFolder+'menu/'+anElementViewActivity.name.toLower()+'_elementview_actions.xml', false, 'UTF-8')]
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:[anElementViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
 	

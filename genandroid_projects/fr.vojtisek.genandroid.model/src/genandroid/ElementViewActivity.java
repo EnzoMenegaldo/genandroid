@@ -14,10 +14,10 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.ElementViewActivity#getElement <em>Element</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getElementViewActivity()
  * @model

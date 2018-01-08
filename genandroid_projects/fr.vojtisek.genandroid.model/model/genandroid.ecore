@@ -9,6 +9,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileHeader" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="presentationModel" eType="#//PresentationModel"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaSourceFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="src/main/java/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="src/main/res/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manifestFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="src/main/"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataModel" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataClasses" upperBound="-1"
@@ -37,7 +43,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataClass" eSuperTypes="#//DataClassifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storage" lowerBound="1"
-        eType="#//storageKind" defaultValueLiteral="0"/>
+        eType="#//storageKind" defaultValueLiteral="SQLite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataReferences" upperBound="-1"
         eType="#//DataReference" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataAttributes" upperBound="-1"
@@ -57,10 +63,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataAttribute" eSuperTypes="#//StructuralFeature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storage" lowerBound="1"
-        eType="#//storageKind" defaultValueLiteral="0"/>
+        eType="#//storageKind" defaultValueLiteral="SQLite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//NativeDataClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleXmlType" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
-        defaultValueLiteral="">
+        defaultValueLiteral="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An attribute of simple kind, will be serialized in a simple attribute rather that in dedicated tag"/>
       </eAnnotations>
@@ -68,7 +74,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataReference" eSuperTypes="#//StructuralFeature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storage" lowerBound="1"
-        eType="#//storageKind" defaultValueLiteral="0"/>
+        eType="#//storageKind" defaultValueLiteral="SQLite"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="containment" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" eType="#//DataAssociation"
         eOpposite="#//DataAssociation/references"/>

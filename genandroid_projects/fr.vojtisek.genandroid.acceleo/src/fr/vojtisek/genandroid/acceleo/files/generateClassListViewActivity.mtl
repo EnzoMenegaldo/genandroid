@@ -5,7 +5,7 @@
 
 [template public generateClassListViewActivity_Class(aClassListViewActivity : ClassListViewActivity)]
 
-[file ('/src/'+aClassListViewActivity.packagePrefixFolder()+'/activities/'+aClassListViewActivity.name+'_ClassListViewActivity.java', false, 'UTF-8')]
+[file ('/'+aClassListViewActivity.eContainer(AndroidProject).javaSourceFolder+aClassListViewActivity.packagePrefixFolder()+'/activities/'+aClassListViewActivity.name+'_ClassListViewActivity.java', false, 'UTF-8')]
 /* [aClassListViewActivity.eContainer(AndroidProject).fileHeader/] */
 package [aClassListViewActivity.packagePrefix()/].activities;
 

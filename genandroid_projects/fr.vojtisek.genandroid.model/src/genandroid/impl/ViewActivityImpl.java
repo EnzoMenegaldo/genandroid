@@ -27,13 +27,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getAccessibleViews <em>Accessible Views</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}</li>
  *   <li>{@link genandroid.impl.ViewActivityImpl#getDefaultParentActivity <em>Default Parent Activity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

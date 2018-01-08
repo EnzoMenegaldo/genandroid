@@ -14,11 +14,11 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.ReferenceListViewActivity#getReference <em>Reference</em>}</li>
  *   <li>{@link genandroid.ReferenceListViewActivity#getFrom <em>From</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getReferenceListViewActivity()
  * @model

@@ -28,13 +28,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.DataReferenceImpl#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.impl.DataReferenceImpl#isContainment <em>Containment</em>}</li>
  *   <li>{@link genandroid.impl.DataReferenceImpl#getOpposite <em>Opposite</em>}</li>
  *   <li>{@link genandroid.impl.DataReferenceImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

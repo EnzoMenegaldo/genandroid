@@ -4,7 +4,7 @@
 
 [template public generateBackgroundActivity_strings(aBackgroundActivity : BackgroundActivity)]
 
-[file ('/res/values/'+aBackgroundActivity.name.toLower()+'_background_strings.xml', false, 'UTF-8')]
+[file ('/'+aBackgroundActivity.eContainer(AndroidProject).resFolder+'values/'+aBackgroundActivity.name.toLower()+'_background_strings.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings speifc to [aBackgroundActivity.name.toLower()/] Custom View -->
 <resources>	

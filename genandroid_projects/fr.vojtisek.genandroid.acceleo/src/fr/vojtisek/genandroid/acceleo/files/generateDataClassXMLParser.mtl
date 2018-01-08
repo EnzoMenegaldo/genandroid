@@ -4,7 +4,7 @@
 
 [template public generateDataClassXMLParser(aDataClass : DataClass)]
 
-[file ('/src/'+aDataClass.packagePrefixFolder()+'/datamodel/xml/'.concat(aDataClass.name).concat('XMLParser.java'), false, 'UTF-8')]
+[file ('/'+aDataClass.eContainer(AndroidProject).javaSourceFolder+aDataClass.packagePrefixFolder()+'/datamodel/xml/'.concat(aDataClass.name).concat('XMLParser.java'), false, 'UTF-8')]
 /* [aDataClass.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
 package [aDataClass.packagePrefix()/].datamodel.xml;
 

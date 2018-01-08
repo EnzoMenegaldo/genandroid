@@ -14,11 +14,11 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.NativeDataClass#getInstanceClassName <em>Instance Class Name</em>}</li>
  *   <li>{@link genandroid.NativeDataClass#getDatabaseType <em>Database Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getNativeDataClass()
  * @model

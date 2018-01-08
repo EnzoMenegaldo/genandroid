@@ -5,7 +5,7 @@
 
 [template public generateBackgroundActivity(aBackgroundActivity : BackgroundActivity)]
 
-[file ('/src/'+aBackgroundActivity.packagePrefixFolder()+'/async/'+aBackgroundActivity.name+'_BgActivity.java', false, 'UTF-8')]
+[file ('/'+aBackgroundActivity.eContainer(AndroidProject).javaSourceFolder+aBackgroundActivity.packagePrefixFolder()+'/async/'+aBackgroundActivity.name+'_BgActivity.java', false, 'UTF-8')]
 /* [aBackgroundActivity.eContainer(AndroidProject).fileHeader/] */
 package [aBackgroundActivity.oclAsType(NamedElement).packagePrefix()/].async;
 

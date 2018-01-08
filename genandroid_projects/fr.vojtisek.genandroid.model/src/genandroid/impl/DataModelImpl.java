@@ -36,11 +36,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.DataModelImpl#getDataClasses <em>Data Classes</em>}</li>
  *   <li>{@link genandroid.impl.DataModelImpl#getDataAssociations <em>Data Associations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

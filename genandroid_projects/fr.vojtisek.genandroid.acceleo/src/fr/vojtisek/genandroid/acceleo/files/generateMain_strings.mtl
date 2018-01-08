@@ -4,7 +4,7 @@
 
 [template public generateMain_strings(aAndroidProject : AndroidProject)]
 
-[file ('/res/values/strings.xml', false, 'UTF-8')]
+[file ('/'+aAndroidProject.resFolder+'values/strings.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 

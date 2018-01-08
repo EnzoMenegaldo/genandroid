@@ -4,7 +4,7 @@
 
 [template public generateClassListView_menu(aClassListViewActivity : ClassListViewActivity)]
 
-[file ('/res/menu/'+aClassListViewActivity.name.toLower()+'_classlistview_actions.xml', false, 'UTF-8')]
+[file ('/'+aClassListViewActivity.eContainer(AndroidProject).resFolder+'menu/'+aClassListViewActivity.name.toLower()+'_classlistview_actions.xml', false, 'UTF-8')]
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:[aClassListViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
 	

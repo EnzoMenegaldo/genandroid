@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#getSelectItemAction <em>Select Item Action</em>}</li>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#isIsFilterable <em>Is Filterable</em>}</li>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#isIsLargeList <em>Is Large List</em>}</li>
  *   <li>{@link genandroid.impl.ListViewActivityImpl#isUseIndexSearch <em>Use Index Search</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

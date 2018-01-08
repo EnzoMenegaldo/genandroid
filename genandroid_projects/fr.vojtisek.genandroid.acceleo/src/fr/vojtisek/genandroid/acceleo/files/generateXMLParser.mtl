@@ -4,7 +4,7 @@
 
 [template public generateXMLParser(anAndroidProject : AndroidProject)]
 
-[file ('/src/'+anAndroidProject.packagePrefixFolder()+'/datamodel/xml/'+anAndroidProject.dataModel.name.toUpperFirst()+'XMLParser.java', false, 'UTF-8')]
+[file ('/'+anAndroidProject.javaSourceFolder+anAndroidProject.packagePrefixFolder()+'/datamodel/xml/'+anAndroidProject.dataModel.name.toUpperFirst()+'XMLParser.java', false, 'UTF-8')]
 /* [anAndroidProject.fileHeader/] */
 package [anAndroidProject.packagePrefix/].datamodel.xml;
 

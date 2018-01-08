@@ -26,12 +26,12 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.DataAttributeImpl#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.impl.DataAttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link genandroid.impl.DataAttributeImpl#isSimpleXmlType <em>Simple Xml Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -74,7 +74,7 @@ public class DataAttributeImpl extends StructuralFeatureImpl implements DataAttr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SIMPLE_XML_TYPE_EDEFAULT = false;
+	protected static final boolean SIMPLE_XML_TYPE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isSimpleXmlType() <em>Simple Xml Type</em>}' attribute.

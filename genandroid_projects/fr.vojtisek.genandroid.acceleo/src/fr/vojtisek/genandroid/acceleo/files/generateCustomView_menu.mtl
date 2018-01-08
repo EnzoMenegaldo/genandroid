@@ -4,7 +4,7 @@
 
 [template public generateCustomView_menu(aCustomViewActivity : CustomViewActivity)]
 
-[file ('/res/menu/'+aCustomViewActivity.name.toLower()+'_customview_actions.xml', false, 'UTF-8')]
+[file ('/'+aCustomViewActivity.eContainer(AndroidProject).resFolder+'menu/'+aCustomViewActivity.name.toLower()+'_customview_actions.xml', false, 'UTF-8')]
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:[aCustomViewActivity.ancestors(AndroidProject).name.toLower()/]="http://schemas.android.com/apk/res-auto">
 	

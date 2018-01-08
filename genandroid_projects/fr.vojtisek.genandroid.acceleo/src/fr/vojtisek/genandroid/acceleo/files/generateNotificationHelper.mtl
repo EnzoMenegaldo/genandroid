@@ -4,7 +4,7 @@
 
 [template public generateNotificationHelper(aAndroidProject : AndroidProject)]
 
-[file ('/src/'+aAndroidProject.packagePrefixFolder()+'/async/NotificationHelper.java', false, 'UTF-8')]
+[file ('/'+aAndroidProject.javaSourceFolder+aAndroidProject.packagePrefixFolder()+'/async/NotificationHelper.java', false, 'UTF-8')]
 /* [aAndroidProject.fileHeader/] */
 package [aAndroidProject.packagePrefix/].async;
 

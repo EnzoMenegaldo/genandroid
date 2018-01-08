@@ -16,6 +16,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/packagePrefix"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/fileHeader"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//AndroidProject/presentationModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/javaSourceFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/resFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute genandroid.ecore#//AndroidProject/manifestFolder"/>
     </genClasses>
     <genClasses ecoreClass="genandroid.ecore#//DataModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference genandroid.ecore#//DataModel/dataClasses"/>

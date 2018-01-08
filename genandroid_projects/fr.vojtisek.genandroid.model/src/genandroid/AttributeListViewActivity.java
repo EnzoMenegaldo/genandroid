@@ -14,11 +14,11 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.AttributeListViewActivity#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link genandroid.AttributeListViewActivity#getFrom <em>From</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getAttributeListViewActivity()
  * @model

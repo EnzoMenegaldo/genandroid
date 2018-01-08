@@ -39,13 +39,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class AndroidProjectItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -69,6 +63,9 @@ public class AndroidProjectItemProvider
 
 			addPackagePrefixPropertyDescriptor(object);
 			addFileHeaderPropertyDescriptor(object);
+			addJavaSourceFolderPropertyDescriptor(object);
+			addResFolderPropertyDescriptor(object);
+			addManifestFolderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +108,72 @@ public class AndroidProjectItemProvider
 				 GenandroidPackage.Literals.ANDROID_PROJECT__FILE_HEADER,
 				 true,
 				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Java Source Folder feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJavaSourceFolderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AndroidProject_javaSourceFolder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_javaSourceFolder_feature", "_UI_AndroidProject_type"),
+				 GenandroidPackage.Literals.ANDROID_PROJECT__JAVA_SOURCE_FOLDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Res Folder feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResFolderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AndroidProject_resFolder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_resFolder_feature", "_UI_AndroidProject_type"),
+				 GenandroidPackage.Literals.ANDROID_PROJECT__RES_FOLDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Manifest Folder feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addManifestFolderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AndroidProject_manifestFolder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AndroidProject_manifestFolder_feature", "_UI_AndroidProject_type"),
+				 GenandroidPackage.Literals.ANDROID_PROJECT__MANIFEST_FOLDER,
+				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -187,6 +250,9 @@ public class AndroidProjectItemProvider
 		switch (notification.getFeatureID(AndroidProject.class)) {
 			case GenandroidPackage.ANDROID_PROJECT__PACKAGE_PREFIX:
 			case GenandroidPackage.ANDROID_PROJECT__FILE_HEADER:
+			case GenandroidPackage.ANDROID_PROJECT__JAVA_SOURCE_FOLDER:
+			case GenandroidPackage.ANDROID_PROJECT__RES_FOLDER:
+			case GenandroidPackage.ANDROID_PROJECT__MANIFEST_FOLDER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GenandroidPackage.ANDROID_PROJECT__DATA_MODEL:

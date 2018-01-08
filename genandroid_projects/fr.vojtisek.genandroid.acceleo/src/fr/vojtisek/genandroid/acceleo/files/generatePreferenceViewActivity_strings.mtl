@@ -4,7 +4,7 @@
 
 [template public generatePreferenceViewActivity_strings(aPreferenceViewActivity : PreferenceViewActivity)]
 
-[file ('/res/values/'.concat(aPreferenceViewActivity.name.toLower()).concat('_strings.xml'), false, 'UTF-8')]
+[file ('/'+aPreferenceViewActivity.eContainer(AndroidProject).resFolder+'values/'.concat(aPreferenceViewActivity.name.toLower()).concat('_strings.xml'), false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings specific to [aPreferenceViewActivity.name.toLower()/] Preference View -->
 <resources>

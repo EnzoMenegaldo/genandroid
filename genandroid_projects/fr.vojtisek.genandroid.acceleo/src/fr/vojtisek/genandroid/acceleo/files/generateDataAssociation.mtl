@@ -4,7 +4,9 @@
 
 [template public generateDataAssociationFile(aDataAssociation : DataAssociation)]
 
-[file ('/src/'+aDataAssociation.references->first().eContainer().oclAsType(DataClass).packagePrefixFolder()+'/datamodel/associations/'.concat(aDataAssociation.name).concat('.java'), false, 'UTF-8')]
+[file ('/'+aDataAssociation.eContainer(AndroidProject).javaSourceFolder
++aDataAssociation.references->first().eContainer().oclAsType(DataClass).packagePrefixFolder()
++'/datamodel/associations/'.concat(aDataAssociation.name).concat('.java'), false, 'UTF-8')]
 /* [aDataAssociation.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
 package [aDataAssociation.references->first().eContainer().oclAsType(DataClass).packagePrefix()/].datamodel.associations;
 

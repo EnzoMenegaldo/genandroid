@@ -24,12 +24,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.ClassListViewActivityImpl#getListedElement <em>Listed Element</em>}</li>
  *   <li>{@link genandroid.impl.ClassListViewActivityImpl#getPresentedDetail <em>Presented Detail</em>}</li>
  *   <li>{@link genandroid.impl.ClassListViewActivityImpl#isUseCustomRowPresentation <em>Use Custom Row Presentation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

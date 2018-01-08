@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.ViewActivity#getAccessibleViews <em>Accessible Views</em>}</li>
  *   <li>{@link genandroid.ViewActivity#getTriggerableBackgroundActivities <em>Triggerable Background Activities</em>}</li>
  *   <li>{@link genandroid.ViewActivity#isHasSupportForParentActivity <em>Has Support For Parent Activity</em>}</li>
  *   <li>{@link genandroid.ViewActivity#getDefaultParentActivity <em>Default Parent Activity</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getViewActivity()
  * @model abstract="true"

@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.DataModel#getDataClasses <em>Data Classes</em>}</li>
  *   <li>{@link genandroid.DataModel#getDataAssociations <em>Data Associations</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getDataModel()
  * @model

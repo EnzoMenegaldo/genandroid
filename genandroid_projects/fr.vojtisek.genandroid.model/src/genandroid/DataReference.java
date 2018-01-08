@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.EReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.DataReference#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.DataReference#isContainment <em>Containment</em>}</li>
  *   <li>{@link genandroid.DataReference#getOpposite <em>Opposite</em>}</li>
  *   <li>{@link genandroid.DataReference#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getDataReference()
  * @model
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EReference;
 public interface DataReference extends StructuralFeature {
 	/**
 	 * Returns the value of the '<em><b>Storage</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"SQLite"</code>.
 	 * The literals are from the enumeration {@link genandroid.storageKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -43,7 +43,7 @@ public interface DataReference extends StructuralFeature {
 	 * @see genandroid.storageKind
 	 * @see #setStorage(storageKind)
 	 * @see genandroid.GenandroidPackage#getDataReference_Storage()
-	 * @model default="0" required="true"
+	 * @model default="SQLite" required="true"
 	 * @generated
 	 */
 	storageKind getStorage();

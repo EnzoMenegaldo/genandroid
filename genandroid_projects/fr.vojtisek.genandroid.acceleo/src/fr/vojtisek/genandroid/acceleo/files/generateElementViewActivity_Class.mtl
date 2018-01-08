@@ -5,7 +5,7 @@
 
 [template public generateElementViewActivity_Class(anElementViewActivity : ElementViewActivity)]
 
-[file ('/src/'+anElementViewActivity.packagePrefixFolder()+'/activities/'+anElementViewActivity.name+'_ElementViewActivity.java', false, 'UTF-8')]
+[file ('/'+anElementViewActivity.eContainer(AndroidProject).javaSourceFolder+anElementViewActivity.packagePrefixFolder()+'/activities/'+anElementViewActivity.name+'_ElementViewActivity.java', false, 'UTF-8')]
 /* [anElementViewActivity.eContainer(AndroidProject).fileHeader/] */
 package [anElementViewActivity.packagePrefix()/].activities;
 

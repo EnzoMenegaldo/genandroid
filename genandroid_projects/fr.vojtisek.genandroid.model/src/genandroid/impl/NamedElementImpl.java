@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.NamedElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link genandroid.impl.NamedElementImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

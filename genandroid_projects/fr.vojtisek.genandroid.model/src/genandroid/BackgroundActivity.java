@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.BackgroundActivity#getTargetIntent <em>Target Intent</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getBackgroundActivity()
  * @model

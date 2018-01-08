@@ -162,13 +162,40 @@ public interface GenandroidPackage extends EPackage {
 	int ANDROID_PROJECT__PRESENTATION_MODEL = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Java Source Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__JAVA_SOURCE_FOLDER = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Res Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__RES_FOLDER = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Manifest Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANDROID_PROJECT__MANIFEST_FOLDER = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Android Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANDROID_PROJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ANDROID_PROJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.
@@ -1822,6 +1849,39 @@ public interface GenandroidPackage extends EPackage {
 	EReference getAndroidProject_PresentationModel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link genandroid.AndroidProject#getJavaSourceFolder <em>Java Source Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Java Source Folder</em>'.
+	 * @see genandroid.AndroidProject#getJavaSourceFolder()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EAttribute getAndroidProject_JavaSourceFolder();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.AndroidProject#getResFolder <em>Res Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Res Folder</em>'.
+	 * @see genandroid.AndroidProject#getResFolder()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EAttribute getAndroidProject_ResFolder();
+
+	/**
+	 * Returns the meta object for the attribute '{@link genandroid.AndroidProject#getManifestFolder <em>Manifest Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Manifest Folder</em>'.
+	 * @see genandroid.AndroidProject#getManifestFolder()
+	 * @see #getAndroidProject()
+	 * @generated
+	 */
+	EAttribute getAndroidProject_ManifestFolder();
+
+	/**
 	 * Returns the meta object for class '{@link genandroid.DataModel <em>Data Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2610,6 +2670,30 @@ public interface GenandroidPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANDROID_PROJECT__PRESENTATION_MODEL = eINSTANCE.getAndroidProject_PresentationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Java Source Folder</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANDROID_PROJECT__JAVA_SOURCE_FOLDER = eINSTANCE.getAndroidProject_JavaSourceFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Res Folder</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANDROID_PROJECT__RES_FOLDER = eINSTANCE.getAndroidProject_ResFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Manifest Folder</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANDROID_PROJECT__MANIFEST_FOLDER = eINSTANCE.getAndroidProject_ManifestFolder();
 
 		/**
 		 * The meta object literal for the '{@link genandroid.impl.DataModelImpl <em>Data Model</em>}' class.

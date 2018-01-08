@@ -4,7 +4,7 @@
 
 [template public generateSQLiteDAOHelper(aAndroidProject : AndroidProject)]
 
-[file ('/src/'+aAndroidProject.packagePrefixFolder()+'/datamodel/'+projectName4Class(aAndroidProject)+'DbAdapter.java', false, 'UTF-8')]
+[file ('/'+aAndroidProject.javaSourceFolder+aAndroidProject.packagePrefixFolder()+'/datamodel/'+projectName4Class(aAndroidProject)+'DbAdapter.java', false, 'UTF-8')]
 /* [aAndroidProject.fileHeader/] */
 package fr.vojtisek.testgenapp.datamodel;
 

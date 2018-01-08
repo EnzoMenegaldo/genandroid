@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.DataClass#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.DataClass#getDataReferences <em>Data References</em>}</li>
  *   <li>{@link genandroid.DataClass#getDataAttributes <em>Data Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getDataClass()
  * @model
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface DataClass extends DataClassifier {
 	/**
 	 * Returns the value of the '<em><b>Storage</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"SQLite"</code>.
 	 * The literals are from the enumeration {@link genandroid.storageKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -43,7 +43,7 @@ public interface DataClass extends DataClassifier {
 	 * @see genandroid.storageKind
 	 * @see #setStorage(storageKind)
 	 * @see genandroid.GenandroidPackage#getDataClass_Storage()
-	 * @model default="0" required="true"
+	 * @model default="SQLite" required="true"
 	 * @generated
 	 */
 	storageKind getStorage();

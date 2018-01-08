@@ -25,12 +25,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.ClassDetailImpl#getMainAttributes <em>Main Attributes</em>}</li>
  *   <li>{@link genandroid.impl.ClassDetailImpl#getName <em>Name</em>}</li>
  *   <li>{@link genandroid.impl.ClassDetailImpl#getSecondaryAttributes <em>Secondary Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

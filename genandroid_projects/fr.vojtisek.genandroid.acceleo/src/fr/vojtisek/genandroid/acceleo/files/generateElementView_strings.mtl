@@ -4,7 +4,7 @@
 
 [template public generateElementView_strings(anElementViewActivity : ElementViewActivity)]
 
-[file ('/res/values/'+anElementViewActivity.name.toLower()+'_elementview_strings.xml', false, 'UTF-8')]
+[file ('/'+anElementViewActivity.eContainer(AndroidProject).resFolder+'values/'+anElementViewActivity.name.toLower()+'_elementview_strings.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Resource Strings specific to [anElementViewActivity.name.toLower()/] Element View and EditableElement View -->
 <resources>

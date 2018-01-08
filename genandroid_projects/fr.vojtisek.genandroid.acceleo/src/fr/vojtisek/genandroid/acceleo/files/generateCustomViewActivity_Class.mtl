@@ -5,7 +5,7 @@
 
 [template public generateCustomViewActivity_Class(aCustomViewActivity : CustomViewActivity)]
 
-[file ('/src/'+aCustomViewActivity.packagePrefixFolder()+'/activities/'+aCustomViewActivity.name+'_CustomViewActivity.java', false, 'UTF-8')]
+[file ('/'+aCustomViewActivity.eContainer(AndroidProject).javaSourceFolder+aCustomViewActivity.packagePrefixFolder()+'/activities/'+aCustomViewActivity.name+'_CustomViewActivity.java', false, 'UTF-8')]
 /* [aCustomViewActivity.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
 package [aCustomViewActivity.packagePrefix()/].activities;
 

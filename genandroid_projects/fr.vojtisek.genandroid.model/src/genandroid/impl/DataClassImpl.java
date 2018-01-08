@@ -31,12 +31,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.DataClassImpl#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.impl.DataClassImpl#getDataReferences <em>Data References</em>}</li>
  *   <li>{@link genandroid.impl.DataClassImpl#getDataAttributes <em>Data Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

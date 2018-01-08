@@ -4,7 +4,7 @@
 
 [template public generatePreferenceViewActivity(aPreferenceViewActivity : PreferenceViewActivity)]
 
-[file ('/src/'+aPreferenceViewActivity.packagePrefixFolder()+'/activities/'.concat(aPreferenceViewActivity.name).concat('_PreferenceViewActivity.java'), false, 'UTF-8')]
+[file ('/'+aPreferenceViewActivity.eContainer(AndroidProject).javaSourceFolder+aPreferenceViewActivity.packagePrefixFolder()+'/activities/'.concat(aPreferenceViewActivity.name).concat('_PreferenceViewActivity.java'), false, 'UTF-8')]
 /* [aPreferenceViewActivity.eContainer().eContainer().oclAsType(AndroidProject).fileHeader/] */
 package [aPreferenceViewActivity.packagePrefix()/].activities;
 

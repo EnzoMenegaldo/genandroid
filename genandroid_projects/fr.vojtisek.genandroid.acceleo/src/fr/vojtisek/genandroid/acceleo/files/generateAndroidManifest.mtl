@@ -4,7 +4,7 @@
 
 [template public generateAndroidManifest(aAndroidProject : AndroidProject)]
 
-[file ('/AndroidManifest.xml', false, 'UTF-8')]
+[file ('/'+aAndroidProject.manifestFolder+'AndroidManifest.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <!--[protected ('zone 1')]
       -->

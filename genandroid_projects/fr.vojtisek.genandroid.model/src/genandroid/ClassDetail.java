@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.ClassDetail#getMainAttributes <em>Main Attributes</em>}</li>
  *   <li>{@link genandroid.ClassDetail#getName <em>Name</em>}</li>
  *   <li>{@link genandroid.ClassDetail#getSecondaryAttributes <em>Secondary Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getClassDetail()
  * @model

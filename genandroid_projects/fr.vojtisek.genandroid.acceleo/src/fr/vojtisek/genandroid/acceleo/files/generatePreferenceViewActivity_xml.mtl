@@ -4,7 +4,7 @@
 
 [template public generatePreferenceViewActivity_xml(aPreferenceViewActivity : PreferenceViewActivity)]
 
-[file ('/res/xml/'.concat(aPreferenceViewActivity.name.toLower()).concat('.xml'), false, 'UTF-8')]
+[file ('/'+aPreferenceViewActivity.eContainer(AndroidProject).resFolder+'xml/'.concat(aPreferenceViewActivity.name.toLower()).concat('.xml'), false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="racine">
 

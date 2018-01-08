@@ -37,13 +37,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getDataModel <em>Data Model</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getPackagePrefix <em>Package Prefix</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getFileHeader <em>File Header</em>}</li>
  *   <li>{@link genandroid.impl.AndroidProjectImpl#getPresentationModel <em>Presentation Model</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getJavaSourceFolder <em>Java Source Folder</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getResFolder <em>Res Folder</em>}</li>
+ *   <li>{@link genandroid.impl.AndroidProjectImpl#getManifestFolder <em>Manifest Folder</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -107,6 +110,66 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 	 * @ordered
 	 */
 	protected PresentationModel presentationModel;
+
+	/**
+	 * The default value of the '{@link #getJavaSourceFolder() <em>Java Source Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJavaSourceFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JAVA_SOURCE_FOLDER_EDEFAULT = "src/main/java/";
+
+	/**
+	 * The cached value of the '{@link #getJavaSourceFolder() <em>Java Source Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJavaSourceFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected String javaSourceFolder = JAVA_SOURCE_FOLDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getResFolder() <em>Res Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RES_FOLDER_EDEFAULT = "src/main/res/";
+
+	/**
+	 * The cached value of the '{@link #getResFolder() <em>Res Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected String resFolder = RES_FOLDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getManifestFolder() <em>Manifest Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManifestFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MANIFEST_FOLDER_EDEFAULT = "src/main/";
+
+	/**
+	 * The cached value of the '{@link #getManifestFolder() <em>Manifest Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManifestFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected String manifestFolder = MANIFEST_FOLDER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,6 +323,69 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getJavaSourceFolder() {
+		return javaSourceFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJavaSourceFolder(String newJavaSourceFolder) {
+		String oldJavaSourceFolder = javaSourceFolder;
+		javaSourceFolder = newJavaSourceFolder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__JAVA_SOURCE_FOLDER, oldJavaSourceFolder, javaSourceFolder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getResFolder() {
+		return resFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResFolder(String newResFolder) {
+		String oldResFolder = resFolder;
+		resFolder = newResFolder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__RES_FOLDER, oldResFolder, resFolder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getManifestFolder() {
+		return manifestFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setManifestFolder(String newManifestFolder) {
+		String oldManifestFolder = manifestFolder;
+		manifestFolder = newManifestFolder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GenandroidPackage.ANDROID_PROJECT__MANIFEST_FOLDER, oldManifestFolder, manifestFolder));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -287,6 +413,12 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 				return getFileHeader();
 			case GenandroidPackage.ANDROID_PROJECT__PRESENTATION_MODEL:
 				return getPresentationModel();
+			case GenandroidPackage.ANDROID_PROJECT__JAVA_SOURCE_FOLDER:
+				return getJavaSourceFolder();
+			case GenandroidPackage.ANDROID_PROJECT__RES_FOLDER:
+				return getResFolder();
+			case GenandroidPackage.ANDROID_PROJECT__MANIFEST_FOLDER:
+				return getManifestFolder();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -312,6 +444,15 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 			case GenandroidPackage.ANDROID_PROJECT__PRESENTATION_MODEL:
 				setPresentationModel((PresentationModel)newValue);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__JAVA_SOURCE_FOLDER:
+				setJavaSourceFolder((String)newValue);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__RES_FOLDER:
+				setResFolder((String)newValue);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__MANIFEST_FOLDER:
+				setManifestFolder((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -336,6 +477,15 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 			case GenandroidPackage.ANDROID_PROJECT__PRESENTATION_MODEL:
 				setPresentationModel((PresentationModel)null);
 				return;
+			case GenandroidPackage.ANDROID_PROJECT__JAVA_SOURCE_FOLDER:
+				setJavaSourceFolder(JAVA_SOURCE_FOLDER_EDEFAULT);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__RES_FOLDER:
+				setResFolder(RES_FOLDER_EDEFAULT);
+				return;
+			case GenandroidPackage.ANDROID_PROJECT__MANIFEST_FOLDER:
+				setManifestFolder(MANIFEST_FOLDER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -356,6 +506,12 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 				return FILE_HEADER_EDEFAULT == null ? fileHeader != null : !FILE_HEADER_EDEFAULT.equals(fileHeader);
 			case GenandroidPackage.ANDROID_PROJECT__PRESENTATION_MODEL:
 				return presentationModel != null;
+			case GenandroidPackage.ANDROID_PROJECT__JAVA_SOURCE_FOLDER:
+				return JAVA_SOURCE_FOLDER_EDEFAULT == null ? javaSourceFolder != null : !JAVA_SOURCE_FOLDER_EDEFAULT.equals(javaSourceFolder);
+			case GenandroidPackage.ANDROID_PROJECT__RES_FOLDER:
+				return RES_FOLDER_EDEFAULT == null ? resFolder != null : !RES_FOLDER_EDEFAULT.equals(resFolder);
+			case GenandroidPackage.ANDROID_PROJECT__MANIFEST_FOLDER:
+				return MANIFEST_FOLDER_EDEFAULT == null ? manifestFolder != null : !MANIFEST_FOLDER_EDEFAULT.equals(manifestFolder);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -374,6 +530,12 @@ public class AndroidProjectImpl extends NamedElementImpl implements AndroidProje
 		result.append(packagePrefix);
 		result.append(", fileHeader: ");
 		result.append(fileHeader);
+		result.append(", javaSourceFolder: ");
+		result.append(javaSourceFolder);
+		result.append(", resFolder: ");
+		result.append(resFolder);
+		result.append(", manifestFolder: ");
+		result.append(manifestFolder);
 		result.append(')');
 		return result.toString();
 	}

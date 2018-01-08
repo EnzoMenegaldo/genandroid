@@ -24,12 +24,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.StructuralFeatureImpl#isDerived <em>Derived</em>}</li>
  *   <li>{@link genandroid.impl.StructuralFeatureImpl#getLowerbound <em>Lowerbound</em>}</li>
  *   <li>{@link genandroid.impl.StructuralFeatureImpl#getUpperBound <em>Upper Bound</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

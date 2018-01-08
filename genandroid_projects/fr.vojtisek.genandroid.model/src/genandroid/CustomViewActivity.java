@@ -14,10 +14,10 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.CustomViewActivity#isIsOrmLiteBaseActivity <em>Is Orm Lite Base Activity</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getCustomViewActivity()
  * @model

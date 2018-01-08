@@ -4,7 +4,7 @@
 
 [template public generateClassListViewAdapter(aClassListViewActivity : ClassListViewActivity)]
 
-[file ('/src/'+aClassListViewActivity.packagePrefixFolder()+'/activities/'+aClassListViewActivity.name+'_Adapter.java', false, 'UTF-8')]
+[file ('/'+aClassListViewActivity.eContainer(AndroidProject).javaSourceFolder+aClassListViewActivity.packagePrefixFolder()+'/activities/'+aClassListViewActivity.name+'_Adapter.java', false, 'UTF-8')]
 /* [aClassListViewActivity.eContainer(AndroidProject).fileHeader/] */
 package [aClassListViewActivity.packagePrefix()/].activities;
 [if(aClassListViewActivity.isFilterable)]

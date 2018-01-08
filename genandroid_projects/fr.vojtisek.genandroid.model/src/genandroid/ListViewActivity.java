@@ -14,13 +14,13 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.ListViewActivity#getSelectItemAction <em>Select Item Action</em>}</li>
  *   <li>{@link genandroid.ListViewActivity#isIsFilterable <em>Is Filterable</em>}</li>
  *   <li>{@link genandroid.ListViewActivity#isIsLargeList <em>Is Large List</em>}</li>
  *   <li>{@link genandroid.ListViewActivity#isUseIndexSearch <em>Use Index Search</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getListViewActivity()
  * @model

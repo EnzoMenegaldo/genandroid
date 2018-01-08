@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.impl.PresentationModelImpl#getViewActivities <em>View Activities</em>}</li>
  *   <li>{@link genandroid.impl.PresentationModelImpl#getPreferenceView <em>Preference View</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link genandroid.impl.PresentationModelImpl#getWelcomeView <em>Welcome View</em>}</li>
  *   <li>{@link genandroid.impl.PresentationModelImpl#getBackgroundActivities <em>Background Activities</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

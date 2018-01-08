@@ -14,12 +14,12 @@ package genandroid;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.StructuralFeature#isDerived <em>Derived</em>}</li>
  *   <li>{@link genandroid.StructuralFeature#getLowerbound <em>Lowerbound</em>}</li>
  *   <li>{@link genandroid.StructuralFeature#getUpperBound <em>Upper Bound</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getStructuralFeature()
  * @model

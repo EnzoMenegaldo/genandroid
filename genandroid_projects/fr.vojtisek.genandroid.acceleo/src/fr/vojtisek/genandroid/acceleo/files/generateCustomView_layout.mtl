@@ -4,7 +4,7 @@
 
 [template public generateCustomView_layout(aCustomViewActivity : CustomViewActivity)]
 
-[file ('/res/layout/'+aCustomViewActivity.name.toLower()+'_customview.xml', false, 'UTF-8')]
+[file ('/'+aCustomViewActivity.eContainer(AndroidProject).resFolder+'layout/'+aCustomViewActivity.name.toLower()+'_customview.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
 <!--[protected ('customView_layout for '+aCustomViewActivity.name)]
 -->

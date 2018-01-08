@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link genandroid.DataAttribute#getStorage <em>Storage</em>}</li>
  *   <li>{@link genandroid.DataAttribute#getType <em>Type</em>}</li>
  *   <li>{@link genandroid.DataAttribute#isSimpleXmlType <em>Simple Xml Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see genandroid.GenandroidPackage#getDataAttribute()
  * @model
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface DataAttribute extends StructuralFeature {
 	/**
 	 * Returns the value of the '<em><b>Storage</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"SQLite"</code>.
 	 * The literals are from the enumeration {@link genandroid.storageKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -42,7 +42,7 @@ public interface DataAttribute extends StructuralFeature {
 	 * @see genandroid.storageKind
 	 * @see #setStorage(storageKind)
 	 * @see genandroid.GenandroidPackage#getDataAttribute_Storage()
-	 * @model default="0" required="true"
+	 * @model default="SQLite" required="true"
 	 * @generated
 	 */
 	storageKind getStorage();
@@ -86,7 +86,7 @@ public interface DataAttribute extends StructuralFeature {
 
 	/**
 	 * Returns the value of the '<em><b>Simple Xml Type</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -95,7 +95,7 @@ public interface DataAttribute extends StructuralFeature {
 	 * @return the value of the '<em>Simple Xml Type</em>' attribute.
 	 * @see #setSimpleXmlType(boolean)
 	 * @see genandroid.GenandroidPackage#getDataAttribute_SimpleXmlType()
-	 * @model default=""
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isSimpleXmlType();

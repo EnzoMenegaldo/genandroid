@@ -32,7 +32,7 @@ public class GenandroidFactoryImpl extends EFactoryImpl implements GenandroidFac
 	 */
 	public static GenandroidFactory init() {
 		try {
-			GenandroidFactory theGenandroidFactory = (GenandroidFactory)EPackage.Registry.INSTANCE.getEFactory("http://genandroid/1.0"); 
+			GenandroidFactory theGenandroidFactory = (GenandroidFactory)EPackage.Registry.INSTANCE.getEFactory(GenandroidPackage.eNS_URI);
 			if (theGenandroidFactory != null) {
 				return theGenandroidFactory;
 			}
