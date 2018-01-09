@@ -117,7 +117,7 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteAc
         switch (item.getItemId()) {
 		[if(not anElementViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
 			case R.id.[anElementViewActivity.name.toLower()/]_elementview_action_preference:
-	        	startActivity(new Intent(this, Preference_PreferenceViewActivity.class));
+	        	startActivity(new Intent(this, [anElementViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.name.toUpperFirst()/]_PreferenceViewActivity.class));
 	            return true;
 		[/if]
 			//[protected ('additional menu action '+anElementViewActivity.name+'_ElementViewActivity')]

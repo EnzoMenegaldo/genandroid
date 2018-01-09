@@ -246,7 +246,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
         switch (item.getItemId()) {
 		[if(not aClassListViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
 			case R.id.[aClassListViewActivity.name.toLower()/]_classlistview_action_preference:
-	        	startActivity(new Intent(this, Preference_PreferenceViewActivity.class));
+	        	startActivity(new Intent(this, [aClassListViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.name.toUpperFirst()/]_PreferenceViewActivity.class));
 	            return true;
 		[/if]
 			//[protected ('additional menu action '+aClassListViewActivity.name+'_ClassListViewActivity')]

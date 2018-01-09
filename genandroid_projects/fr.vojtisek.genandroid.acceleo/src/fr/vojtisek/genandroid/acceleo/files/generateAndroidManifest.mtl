@@ -24,7 +24,7 @@
 		[if(aViewActivity.oclIsKindOf(PreferenceViewActivity))]
 		<activity  
 		[else]
-		<activity  android:theme="@style/Theme.App[aAndroidProject.name/]"
+		<activity  android:theme="@style/AppTheme"
 		[/if]
 			android:name=".activities.[aViewActivity.name/]_[aViewActivity.eClass().name/]" 
 		[if(aViewActivity.oclIsKindOf(ClassListViewActivity) and aViewActivity.oclAsType(ClassListViewActivity).isFilterable)]

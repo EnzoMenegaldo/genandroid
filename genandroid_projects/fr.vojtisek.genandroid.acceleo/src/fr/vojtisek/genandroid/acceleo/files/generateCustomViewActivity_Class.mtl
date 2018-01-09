@@ -117,7 +117,7 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
         switch (item.getItemId()) {
 		[if(not aCustomViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
 			case R.id.[aCustomViewActivity.name.toLower()/]_customview_action_preference:
-	        	startActivity(new Intent(this, Preference_PreferenceViewActivity.class));
+	        	startActivity(new Intent(this, [aCustomViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.name.toUpperFirst()/]_PreferenceViewActivity.class));
 	            return true;
 		[/if]
 			//[protected ('additional menu action '+aCustomViewActivity.name+'_CustomViewActivity')]
