@@ -34,7 +34,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 
 	List<RefCommand> refCommands = new ArrayList<RefCommand>();
 
-	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+	[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 			[if(aDataClassifer.oclIsKindOf(DataClass))]
 	List<[aDataClassifer.name.toUpperFirst()/]> [aDataClassifer.name.toLowerFirst()/]s = new ArrayList<[aDataClassifer.name.toUpperFirst()/]>();
@@ -55,7 +55,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 	// minimize memory footprint by using static Strings
     public static final String ID_STRING = "id";
 
-	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+	[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 			[if(aDataClassifer.oclIsKindOf(DataClass))]
 	public static final String DATACLASSIFIER_[aDataClassifer.name.toUpper()/]S = "[aDataClassifer.name.toUpper()/]S";
@@ -64,7 +64,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 		[/for]
 	[/let]
 
-[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 			[if(aDataClassifer.oclIsKindOf(DataClass))]
 				[for (att : DataAttribute | aDataClassifer.oclAsType(DataClass).dataAttributes)]
@@ -114,7 +114,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 	            continue;
 	        }
 	        String name = parser.getName();
-		[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+		[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 				[if(aDataClassifer.oclIsKindOf(DataClass))]
 		 	if (name.equals(DATACLASSIFIER_[aDataClassifer.name.toUpper()/]S)) {
@@ -131,7 +131,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 		
 	}
 
-	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+	[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 			[if(aDataClassifer.oclIsKindOf(DataClass))]
 	/**
@@ -158,7 +158,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 		[/for]
 	[/let]
 
-	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+	[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 			[if(aDataClassifer.oclIsKindOf(DataClass))]
 	[aDataClassifer.name.toUpperFirst()/] read[aDataClassifer.name.toUpperFirst()/](XmlPullParser parser)  throws XmlPullParserException, IOException{
@@ -239,7 +239,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 	public abstract class RefCommand{
 		public abstract void run();
 	}
-	[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+	[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 		[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 			[if(aDataClassifer.oclIsKindOf(DataClass))]
 				[for (ref : DataReference | aDataClassifer.oclAsType(DataClass).dataReferences)]
@@ -293,7 +293,7 @@ public class [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser {
 		[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser parser;
 		
 		public [aDataClassifer.name.toUpperFirst()/]_set[ref.name.toUpperFirst()/]_RefCommand([aDataClassifer.name.toUpperFirst()/] self,
-				String referencedElementID, DorisDBXMLParser parser) {
+				String referencedElementID, [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser parser) {
 			super();
 			this.self = self;
 			this.referencedElementID = referencedElementID;

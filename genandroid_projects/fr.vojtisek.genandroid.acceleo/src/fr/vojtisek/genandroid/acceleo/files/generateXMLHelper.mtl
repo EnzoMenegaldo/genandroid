@@ -59,7 +59,7 @@ public class XMLHelper {
 	public static String generateXML4DB([anAndroidProject.dataModel.name.toUpperFirst()/]Helper dbContext){
 		StringBuilder sb = new StringBuilder();
 		sb.append("<[anAndroidProject.dataModel.name.toUpper()/]>");
-		[let containedClasses : Bag(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+		[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
 			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
 				[if(aDataClassifer.oclIsKindOf(DataClass))]
 		sb.append("\n\t<[aDataClassifer.name.toUpper()/]S>");
