@@ -17,7 +17,6 @@ import [aClassListViewActivity.packagePrefix()/].activities.view.indexbar.IndexB
 [/if]
 import [aClassListViewActivity.packagePrefix()/].datamodel.*;
 import [aClassListViewActivity.packagePrefix()/].R;
-import [aClassListViewActivity.packagePrefix()/].tools.ThemeUtil;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 [if(aClassListViewActivity.isFilterable)]
@@ -55,6 +54,7 @@ import android.widget.TextView;
 [/if]
 import android.widget.Toast;
 // [protected ('protected'.concat(aClassListViewActivity.name).concat('_ClassListViewActivity_additionalimports'))]
+import [aClassListViewActivity.packagePrefix()/].tools.ThemeUtil;
 // [/protected]
 
 public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLiteActionBarActivity<OrmLiteDBHelper> implements OnItemClickListener [if(aClassListViewActivity.useIndexSearch)], ActivityWithIndexBar[/if]{
@@ -74,7 +74,9 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		//[protected ('onCreate '+aClassListViewActivity.name+'_ClassListViewActivity_1')]
 		ThemeUtil.onActivityCreateSetTheme(this);
+		//[/protected]
 		setContentView(R.layout.[aClassListViewActivity.name.toLower()/]_listview);
 
 	[if(aClassListViewActivity.hasSupportForParentActivity)]

@@ -13,7 +13,6 @@ package [anElementViewActivity.packagePrefix()/].activities;
 import [anElementViewActivity.packagePrefix()/].datamodel.[anElementViewActivity.element.name/];
 import [anElementViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [anElementViewActivity.packagePrefix()/].R;
-import [anElementViewActivity.packagePrefix()/].tools.ThemeUtil;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.app.Activity;
@@ -30,6 +29,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 // [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_additional_import'))]
+import [anElementViewActivity.packagePrefix()/].tools.ThemeUtil;
 // [/protected]
 
 public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteActionBarActivity<OrmLiteDBHelper>
@@ -48,7 +48,9 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteAc
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		// [protected ('protected'.concat(anElementViewActivity.name+'_ElementViewActivity_onCreate_1'))]
 		ThemeUtil.onActivityCreateSetTheme(this);
+		// [/protected]
         setContentView(R.layout.[anElementViewActivity.name.toLower()/]_elementview);
 
 	[if(anElementViewActivity.hasSupportForParentActivity)]

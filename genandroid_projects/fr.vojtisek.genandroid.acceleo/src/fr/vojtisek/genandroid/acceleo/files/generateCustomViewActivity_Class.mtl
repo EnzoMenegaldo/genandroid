@@ -12,7 +12,6 @@ package [aCustomViewActivity.packagePrefix()/].activities;
 
 import [aCustomViewActivity.packagePrefix()/].datamodel.OrmLiteDBHelper;
 import [aCustomViewActivity.packagePrefix()/].R;
-import [aCustomViewActivity.packagePrefix()/].tools.ThemeUtil;
 import fr.vojtisek.genandroid.genandroidlib.activities.OrmLiteActionBarActivity;
 
 import android.content.Intent;
@@ -31,6 +30,7 @@ import android.view.MenuItem;
 import android.preference.PreferenceManager;
 [/if]
 //[protected ('additional imports '+aCustomViewActivity.name+'_CustomViewActivity')]
+import [aCustomViewActivity.packagePrefix()/].tools.ThemeUtil;
 
 import [aCustomViewActivity.packagePrefix()/].BuildConfig;
 
@@ -64,7 +64,9 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		//[protected ('onCreate '+aCustomViewActivity.name+'_CustomViewActivity_1')]
 		ThemeUtil.onActivityCreateSetTheme(this);
+		//[/protected]		
 		[if (aCustomViewActivity = aCustomViewActivity.eContainer(PresentationModel).welcomeView and
 			(not aCustomViewActivity.eContainer(PresentationModel).preferenceView.oclIsUndefined()))]
 			PreferenceManager.setDefaultValues(this, R.xml.[aCustomViewActivity.eContainer(PresentationModel).preferenceView.name.toLower()/], false);
