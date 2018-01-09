@@ -12,7 +12,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
-import [aDataClass.packagePrefix()/].datamodel.associations.*;
+[for (aDataAssociation : DataAssociation | aDataClass.eContainer(AndroidProject).dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
+import [aDataClass.packagePrefix()/].datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
 import [aDataClass.packagePrefix()/].datamodel.*;
 //[protected ('additional import for '+aDataClass.name.toUpperFirst()+'XMLParser')]
 //[/protected]

@@ -23,7 +23,11 @@ import java.sql.SQLException;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParserException;
 
-import [anAndroidProject.packagePrefix/].datamodel.associations.*;
+[for (aDataAssociation : DataAssociation | anAndroidProject.dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
+import [anAndroidProject.packagePrefix()/].datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
 import [anAndroidProject.packagePrefix/].datamodel.*;
 import [anAndroidProject.packagePrefix/].datamodel.xml.[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser.RefCommand;
 // [protected ('additional import')]

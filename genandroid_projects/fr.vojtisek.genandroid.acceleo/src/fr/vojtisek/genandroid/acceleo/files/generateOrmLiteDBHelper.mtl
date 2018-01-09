@@ -15,7 +15,11 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import java.sql.SQLException;
-import [aAndroidProject.packagePrefix/].datamodel.associations.*;
+[for (aDataAssociation : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
+import [aAndroidProject.packagePrefix()/].datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
 // [protected ('protected additional OrmLiteDBHelper imports')]
 import com.j256.ormlite.table.TableUtils;
 // [/protected]

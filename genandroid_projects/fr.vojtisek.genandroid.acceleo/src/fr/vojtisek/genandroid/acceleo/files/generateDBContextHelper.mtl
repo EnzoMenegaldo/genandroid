@@ -14,7 +14,11 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
-import [aAndroidProject.packagePrefix/].datamodel.associations.*;
+[for (aDataAssociation : DataAssociation |aAndroidProject.dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
+import [aAndroidProject.packagePrefix()/].datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
 
 /**
  * Context class used to simplify the access to the different DAOs of the application

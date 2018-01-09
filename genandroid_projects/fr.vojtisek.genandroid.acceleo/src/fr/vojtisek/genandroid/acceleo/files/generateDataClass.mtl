@@ -25,8 +25,11 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import [aDataClass.packagePrefix()/].datamodel.associations.*;
-
+[for (aDataAssociation : DataAssociation | aDataClass.eContainer(AndroidProject).dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
+import [aDataClass.packagePrefix()/].datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
 // [protected ('additional import for '.concat(aDataClass.name))]
 // [/protected]
 
