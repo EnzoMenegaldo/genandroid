@@ -20,11 +20,14 @@ import [aAndroidProject.packagePrefix()/].datamodel.associations.[aDataAssociati
 	[/if] 
 [/for]
 
+//[protected ('additional import for '+aAndroidProject.dataModel.name.toUpperFirst()+'Helper')]
+//[/protected]
 /**
  * Context class used to simplify the access to the different DAOs of the application
  */
 public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
-
+	//[protected ('additional variables for '+aAndroidProject.dataModel.name.toUpperFirst()+'Helper')]
+	//[/protected]
 
 	[for (classifier : DataClassifier | aAndroidProject.dataModel.dataClasses)]
 		[if(classifier.oclIsKindOf(DataClass))]
@@ -60,7 +63,8 @@ public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
 	[/for]
 	}
 
-	
+	//[protected ('additional methods for '+aAndroidProject.dataModel.name.toUpperFirst()+'Helper')]
+	//[/protected]
 
 }
 [/file]
