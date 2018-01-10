@@ -10,13 +10,13 @@
 	
 	<!--[protected ('customView_menu for '+aCustomViewActivity.name)]
 	-->
-	<!-- freely adapt here the desired layout for yourmenu -->
+	<!-- freely adapt here the desired layout for your menu -->
 	<!--[/protected]
 	-->
 	<item android:id="@+id/[aCustomViewActivity.name.toLower()/]_customview_action_preference"
 	      android:icon="@android:drawable/ic_menu_preferences"
 	      android:title="@string/[aCustomViewActivity.ancestors(AndroidProject).presentationModel.preferenceView.name.toLower()/]_menu_title"
-	      android:showAsAction="never"  />
+	      [aCustomViewActivity.ancestors(AndroidProject).name.toLower()/]:showAsAction="never"  />
 </menu>
 
 
