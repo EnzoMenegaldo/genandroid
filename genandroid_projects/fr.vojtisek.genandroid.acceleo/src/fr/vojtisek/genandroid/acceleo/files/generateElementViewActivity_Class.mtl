@@ -146,7 +146,7 @@ public class [anElementViewActivity.name/]_ElementViewActivity extends OrmLiteAc
 	public Intent getSupportParentActivityIntent() {
 		//[protected ('getSupportParentActivityIntent '+anElementViewActivity.name+'_ClassListViewActivity')]
 		// navigates to the parent activity
-		return new Intent(this, Accueil_CustomViewActivity.class);
+		return new Intent(this, [anElementViewActivity.defaultParentActivity.name/]_[anElementViewActivity.defaultParentActivity.eClass().name/].class);
 		//[/protected]
 	}
 	@Override

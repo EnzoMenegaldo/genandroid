@@ -275,7 +275,7 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 	public Intent getSupportParentActivityIntent() {
 		//[protected ('getSupportParentActivityIntent '+aClassListViewActivity.name+'_ClassListViewActivity')]
 		// navigates to the parent activity
-		return new Intent(this, Accueil_CustomViewActivity.class);
+		return new Intent(this, [aClassListViewActivity.defaultParentActivity.name/]_[aClassListViewActivity.defaultParentActivity.eClass().name/].class);
 		//[/protected]
 	}
 	@Override

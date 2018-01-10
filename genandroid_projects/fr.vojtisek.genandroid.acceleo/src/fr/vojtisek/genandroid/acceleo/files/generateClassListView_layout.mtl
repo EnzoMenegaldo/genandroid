@@ -100,7 +100,7 @@
 </LinearLayout>
 [/file]
 
-[file ('/res/layout/'+aClassListViewActivity.name.toLower()+'_listviewrow.xml', false, 'UTF-8')]
+[file ('/'+aClassListViewActivity.eContainer(AndroidProject).resFolder+'layout/'+aClassListViewActivity.name.toLower()+'_listviewrow.xml', false, 'UTF-8')]
 <?xml version="1.0" encoding="utf-8"?>
     [if(aClassListViewActivity.useCustomRowPresentation)]
 <!-- [protected ('protected '+aClassListViewActivity.name.toLower()+'_listviewrow linearlayout full_customization')]
