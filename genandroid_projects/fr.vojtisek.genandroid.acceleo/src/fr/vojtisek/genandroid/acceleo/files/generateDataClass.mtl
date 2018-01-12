@@ -75,7 +75,6 @@ public class [aDataClass.name.toUpperFirst()/] {
 		[if(not att.documentation.oclIsUndefined())]
 	/** [att.documentation/] */ 
 		[/if]
-	/** TEST GM : [att.storage/] = [storageKind::SQLite/] **/
 		[if (att.upperBound = 1)]
 			[if (att.storage = storageKind::SQLite)] 
 				[if (att.type.databaseType.oclIsUndefined())]

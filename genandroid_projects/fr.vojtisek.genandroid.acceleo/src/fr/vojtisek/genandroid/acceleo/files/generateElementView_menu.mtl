@@ -16,7 +16,7 @@
 	<item android:id="@+id/[anElementViewActivity.name.toLower()/]_elementview_action_preference"
 	      android:icon="@android:drawable/ic_menu_preferences"
 	      android:title="@string/[anElementViewActivity.ancestors(AndroidProject).presentationModel.preferenceView.name.toLower()/]_menu_title"
-	      android:showAsAction="never"   />
+	      [anElementViewActivity.ancestors(AndroidProject).name.toLower()/]:showAsAction="never"   />
 </menu>
 
 
