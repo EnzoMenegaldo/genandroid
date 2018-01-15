@@ -26,8 +26,8 @@ import org.apache.commons.logging.LogFactory;
 import org.xmlpull.v1.XmlPullParserException;
 
 [for (aDataAssociation : DataAssociation | anAndroidProject.dataModel.dataAssociations)]
-	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
-import [anAndroidProject.packagePrefix()/].datamodel.associations.[aDataAssociation.name/];
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)]
+import [anAndroidProject.packagePrefix/].datamodel.associations.[aDataAssociation.name/];
 	[/if] 
 [/for]
 import [anAndroidProject.packagePrefix/].datamodel.*;
