@@ -23,7 +23,7 @@
 	[/if]
 [/for]
 [for (assoc : DataAssociation | aDataModel.dataAssociations)]
-['['+assoc.references->first().type.name+']'/][assoc.references->first().name/] [assoc.references->first().multiplicity()/]-[
+['['+assoc.references->first().type.name+']'/][assoc.references->first().name/] [assoc.references->first().multiplicity()/][if(assoc.references->last().containment)]++[/if]-[if(assoc.references->first().containment)]++[/if][
 assoc.references->last().name/]  [assoc.references->last().multiplicity()/]['['+assoc.references->last().type.name+']'/]
 [/for]
 [/file]
