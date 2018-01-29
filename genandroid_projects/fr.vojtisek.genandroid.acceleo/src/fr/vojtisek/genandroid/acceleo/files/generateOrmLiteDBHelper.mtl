@@ -42,8 +42,7 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
 		[if(aDataClass.oclIsKindOf(DataClass))]
 			[if (aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
-	// the DAO object we use to access the diveBudies table
-	// private Dao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]Dao = null;
+	// the DAO object we use to access the [aDataClass.name.toUpperFirst()/] table
 	private RuntimeExceptionDao<[aDataClass.name.toUpperFirst()/], Integer> [aDataClass.name.toLowerFirst()/]RuntimeDao = null;
 			[/if]
 		[/if]
@@ -51,7 +50,8 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	
 	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
 		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
-		private RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]RuntimeDao = null;
+	// the DAO object we use to access the [assoc.name.toUpperFirst()/] table implemeting the association
+	private RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]RuntimeDao = null;
 		[/if]
 	[/for]
 
@@ -68,27 +68,24 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	// [protected ('OrmLiteDBHelper onCreate '+aAndroidProject.name)]
 		try {
 			Log.i(OrmLiteDBHelper.class.getName(), "onCreate");
-	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
-		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
-			TableUtils.createTable(connectionSource, [aDataClass.name.toUpperFirst()/].class);
-		[/if]
-	[/for]
+			createAllTables(db);
 		} catch (SQLException e) {
 			Log.e(OrmLiteDBHelper.class.getName(), "Can't create database", e);
 			throw new RuntimeException(e);
 		}
-
-		// here we try inserting data in the on-create as a test
-		/*RuntimeExceptionDao<DiveEntry, Integer> dao = getSimpleDataDao();
-		long millis = System.currentTimeMillis();
-		// create some entries in the onCreate
-		DiveEntry simple = new DiveEntry(millis);
-		dao.create(simple);
-		simple = new DiveEntry(millis + 1);
-		dao.create(simple);
-		Log.i(ORMLiteDBHelper.class.getName(), "created new entries in onCreate: " + millis);
-		*/
 	// [/protected]
+	}
+	public void createAllTables(SQLiteDatabase db)  throws SQLException {
+	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
+		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
+		TableUtils.createTable(connectionSource, [aDataClass.name.toUpperFirst()/].class);
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		TableUtils.createTable(connectionSource, [assoc.name.toUpperFirst()/].class);
+		[/if]
+	[/for]
 	}
 
 	/**
@@ -100,18 +97,26 @@ public class OrmLiteDBHelper extends OrmLiteSqliteOpenHelper{
 	// [protected ('OrmLiteDBHelper onUpgrade '+aAndroidProject.name)]
 		try {
 			Log.i(OrmLiteDBHelper.class.getName(), "onUpgrade");
-	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
-		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
-			TableUtils.dropTable(connectionSource, [aDataClass.name.toUpperFirst()/].class, true);
-		[/if]
-	[/for]
+			dropAllTables(db);
 			// after we drop the old databases, we create the new ones
 			onCreate(db, connectionSource);
 		} catch (SQLException e) {
-			Log.e(OrmLiteDBHelper.class.getName(), "Can't drop databases", e);
+			Log.e(OrmLiteDBHelper.class.getName(), "Can't upgrade databases", e);
 			throw new RuntimeException(e);
 		}
 	// [/protected]
+	}
+	public void dropAllTables(SQLiteDatabase db)  throws SQLException {
+	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
+		[if (aDataClass.oclIsKindOf(DataClass) and aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
+		TableUtils.dropTable(connectionSource, [aDataClass.name.toUpperFirst()/].class, true);
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		TableUtils.dropTable(connectionSource, [assoc.name.toUpperFirst()/].class, true);
+		[/if]
+	[/for]
 	}
 
 	[for (aDataClass : DataClassifier | aAndroidProject.dataModel.dataClasses)]
