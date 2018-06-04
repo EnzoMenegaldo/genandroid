@@ -16,6 +16,14 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.SelectArg;
 
+[comment Add import for Json serialisation purpose : /]
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +45,9 @@ import [aDataClass.packagePrefix()/].datamodel.associations.[aDataAssociation.na
   * [aDataClass.documentation/] 
   */ 
 @DatabaseTable(tableName = "[aDataClass.name.toLowerFirst()/]")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
+                  property  = "_id",
+				  scope = [aDataClass.name.toUpperFirst()/].class)
 public class [aDataClass.name.toUpperFirst()/] {
 
 	public static Log log = LogFactory.getLog([aDataClass.name.toUpperFirst()/].class);
@@ -57,6 +68,7 @@ public class [aDataClass.name.toUpperFirst()/] {
      * dbHelper used to autorefresh values and doing queries
      * must be set other wise most getter will return proxy that will need to be refreshed
 	 */
+	@JsonIgnore
 	protected [aDataClass.eContainer(DataModel).name.toUpperFirst()/]Helper _contextDB = null;
 
 	/**
@@ -65,6 +77,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	[for (ref : DataReference | aDataClass.dataReferences)]
 		[if (ref.upperBound = 1)]
 			[if (not ref.derived)]	
+	@JsonIgnore
 	public boolean [ref.name.toLowerFirst()/]_mayNeedDBRefresh = true;
 			[/if]
 		[/if]
@@ -105,6 +118,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[if (ref.upperBound = 1)]
 				[if (ref.storage = storageKind::SQLite)]
 	@DatabaseField(foreign = true)
+	// @JsonManagedReference(value="[ref.opposite.name.toLowerCase()/]")
 				[else]
 					[if (ref.storage.oclIsUndefined())]
 	/** Contournement Guillaume car ref.storage est toujours vide chez moi **/
@@ -115,6 +129,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[else] [comment management of references with multiplicity <> 1 but no opposite /]
 				[if (ref.storage = storageKind::SQLite)]
 	@ForeignCollectionField(eager = false)
+	@JsonIgnore
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 				[else]
 	// NOT Implemented non SQLite collection reference (no opposite) [ref.name.toLowerFirst()/];
@@ -127,6 +142,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[if (ref.upperBound = 1)]
 				[if (ref.storage = storageKind::SQLite)]
 	@DatabaseField(foreign = true) //, columnName = USER_ID_FIELD_NAME)
+	// @JsonManagedReference(value="[ref.opposite.name.toLowerCase()/]")
 				[/if]
 	protected [ref.oneEReferenceParam()/];
 			[else] [comment management of references with opposite and multiplicity <> 1 /]
@@ -135,7 +151,8 @@ public class [aDataClass.name.toUpperFirst()/] {
 	// work in progress, find association 
 	// Association many to many [ref.opposite.name.toUpperFirst()/]
 	[let otherRef : DataReference = ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first()]
-	@ForeignCollectionField(eager = false, foreignFieldName = "[otherRef.type.name.toLowerFirst()/]")	
+	@ForeignCollectionField(eager = false, foreignFieldName = "[otherRef.type.name.toLowerFirst()/]")
+	@JsonIgnore	
 	protected ForeignCollection<[ref.opposite.name.toUpperFirst()/]> [ref.opposite.name.toLowerFirst()/];
 
 	/** [ref.documentation/] 
@@ -173,6 +190,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 				[else] [comment the opposite has multiplicity = 1/]
 					[if (ref.storage = storageKind::SQLite)]
 	@ForeignCollectionField(eager = false, foreignFieldName = "[ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().name/]")
+	@JsonIgnore
 	protected ForeignCollection<[ref.type.name/]> [ref.name.toLowerFirst()/];
 					[else]
 	// NOT Implemented non SQLite collection reference [ref.name.toLowerFirst()/];
@@ -200,6 +218,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	public int getId() {
 		return _id;
 	}
+	@JsonProperty
 	public void setId(int id) {
 		this._id = id;
 	}
@@ -207,6 +226,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 	public [aDataClass.eContainer(DataModel).name.toUpperFirst()/]Helper getContextDB(){
 		return _contextDB;
 	}
+	@JsonIgnore
 	public void setContextDB([aDataClass.eContainer(DataModel).name.toUpperFirst()/]Helper contextDB){
 		this._contextDB = contextDB;
 	}
@@ -220,6 +240,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[/if]
 		return this.[att.name.toLowerFirst()/];
 	}
+	@JsonProperty
 	public void set[att.name.toUpperFirst()/]([att.type.instanceClassName/] [att.name.toLowerFirst()/]) {
 		this.[att.name.toLowerFirst()/] = [att.name.toLowerFirst()/];
 	}
@@ -250,6 +271,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 		}
 		return this.[ref.name.toLowerFirst()/];
 	}
+	@JsonProperty
 	public void set[ref.name.toUpperFirst()/]([ref.type.name.toUpperFirst()/] [ref.name.toLowerFirst()/]) {
 		this.[ref.name.toLowerFirst()/] = [ref.name.toLowerFirst()/];
 	}			
@@ -258,13 +280,19 @@ public class [aDataClass.name.toUpperFirst()/] {
 				[if(not ref.documentation.oclIsUndefined())]
 	/** [ref.documentation/] */
 				[/if] 
-	public Collection<[ref.type.name.toUpperFirst()/]> get[ref.name.toUpperFirst()/]() {
+	public List	<[ref.type.name.toUpperFirst()/]> get[ref.name.toUpperFirst()/]() {
 				[if (ref.derived)]
 		// [protected ('placeholder for derived reference '.concat(ref.name))]
 		// [/protected]
 				[/if]
-		return this.[ref.name.toLowerFirst()/];
-	}					
+		if(null==this.[ref.name.toLowerFirst()/]){return null;}
+		return new ArrayList<[ref.type.name.toUpperFirst()/]>([ref.name.toLowerFirst()/]);
+	}
+	
+	[comment @JsonProperty
+	public void set"ref.name.toUpperFirst()/" (Collection<"ref.type.name.toUpperFirst()/"> collection){ this."ref.name.toLowerFirst()/"=(ForeignCollection) collection;}/]
+
+			
 			[/if]
 		[/if]
 	[/for]
