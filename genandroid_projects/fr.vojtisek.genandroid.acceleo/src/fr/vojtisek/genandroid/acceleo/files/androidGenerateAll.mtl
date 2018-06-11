@@ -35,6 +35,7 @@
 [comment][import fr::vojtisek::genandroid::acceleo::files::generateDAOHelper/]
 [import fr::vojtisek::genandroid::acceleo::files::generateSQLiteDAOHelper/][/comment]
 [import fr::vojtisek::genandroid::acceleo::files::generateOrmLiteDBHelper/]
+[import fr::vojtisek::genandroid::acceleo::files::generateMobilePrivacyRestClient/]
 
 
 [template public workflowDataClass(anAndroidProject : AndroidProject)]
@@ -94,7 +95,8 @@
 	[comment][anAndroidProject.generateDAOHelper()/]
 	[anAndroidProject.generateSQLiteDAOHelper()/][/comment]
 	[anAndroidProject.generateDBContextHelper()/]	
-	[anAndroidProject.generateOrmLiteDBHelper()/]	
+	[anAndroidProject.generateOrmLiteDBHelper()/]
+	[anAndroidProject.generateExportClassFile()/]	
 	[anAndroidProject.generateXMLHelper()/]		
 	[anAndroidProject.generateXMLParser()/]	
 	[anAndroidProject.generateAndroidManifest()/]	
