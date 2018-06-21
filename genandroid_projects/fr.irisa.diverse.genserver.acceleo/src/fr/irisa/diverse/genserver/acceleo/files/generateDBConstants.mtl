@@ -1,0 +1,27 @@
+[comment encoding = UTF-8 /]
+[module generateDBConstants('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateDBConstantsFile(anAndroidProject : AndroidProject)]
+
+[file ('/'+anAndroidProject.javaSourceFolder+anAndroidProject.packagePrefixFolder()+'server/datamodel/DBConstants.java', false, 'UTF-8')]
+/* [anAndroidProject.fileHeader/] */
+package [anAndroidProject.packagePrefix/]server.datamodel;
+
+public class DBConstants {
+
+// [protected ('setup your db informations here :')]
+	// we are using the created SQLite database
+	public final static String DATABASE_URL = "jdbc:sqlite:run/database/MobilePrivacyProfilerDB.db";
+
+	// Dossiers liés au fonctionnement de l'appli prefetch
+	public final static String DOSSIER_RACINE = "./run";
+	public final static String DOSSIER_DATABASE = "./run/database";
+	public final static String DOSSIER_TESTS = "./test_results";
+// [/protected]	
+
+
+}
+
+[/file]
+[/template]

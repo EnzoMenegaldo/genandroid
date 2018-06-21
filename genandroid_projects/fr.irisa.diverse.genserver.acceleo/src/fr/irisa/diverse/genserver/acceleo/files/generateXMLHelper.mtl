@@ -1,0 +1,163 @@
+[comment encoding = UTF-8 /]
+[module generateXMLHelper('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateXMLHelperFile(anAndroidProject : AndroidProject)]
+
+[file ('/'+anAndroidProject.javaSourceFolder+anAndroidProject.packagePrefixFolder()+'server/datamodel/xml/XMLHelper.java', false, 'UTF-8')]
+/* [anAndroidProject.fileHeader/] */
+package [anAndroidProject.packagePrefix/]server.datamodel.xml;
+
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.List;
+import com.j256.ormlite.logger.Log;
+import org.apache.commons.logging.LogFactory;
+import org.xmlpull.v1.XmlPullParserException;
+
+[for (aDataAssociation : DataAssociation | anAndroidProject.dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)]
+import [anAndroidProject.packagePrefix/]server.datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
+import [anAndroidProject.packagePrefix/]server.datamodel.*;
+import [anAndroidProject.packagePrefix/]server.datamodel.xml.[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser.RefCommand;
+// [protected ('additional import')]
+// [/protected]
+
+/**
+ * Class used to simplify the access to the XML tools in the application
+ */
+public class XMLHelper {
+	private static org.apache.commons.logging.Log log = LogFactory.getLog(XMLHelper.class);
+	// [protected ('additional helper code 1')]
+	// [/protected]
+
+	public static void saveDBToFile(File file,[anAndroidProject.dataModel.name.toUpperFirst()/]Helper dbContext){
+		try {
+			// Create file
+			FileWriter fstream = new FileWriter(file);
+			BufferedWriter out = new BufferedWriter(fstream);
+			out.write(generateXML4DB(dbContext));
+			// Close the output stream
+			out.close();
+		} catch (Exception e) {// Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
+	
+	public static String generateXML4DB([anAndroidProject.dataModel.name.toUpperFirst()/]Helper dbContext){
+		StringBuilder sb = new StringBuilder();
+		sb.append("<[anAndroidProject.dataModel.name.toUpper()/]>");
+		[let containedClasses : Sequence(DataClass) = anAndroidProject.dataModel.dataClasses->selectByKind(DataClass).dataReferences->select(ref | ref.containment)->collect(ref | ref.type)]
+			[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+				[if(aDataClassifer.oclIsKindOf(DataClass))]
+		sb.append("\n\t<[aDataClassifer.name.toUpper()/]S>");
+		try {	
+			List<[aDataClassifer.name.toUpperFirst()/]> [aDataClassifer.name.toLowerFirst()/]s = dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.queryForAll();
+			for([aDataClassifer.name.toUpperFirst()/]  [aDataClassifer.name.toLowerFirst()/] : [aDataClassifer.name.toLowerFirst()/]s){
+				// TODO find if contained by another element, if not put it there
+				[if(containedClasses->includes(aDataClassifer))]
+				boolean isContained = false;
+					[let containingReferences : Sequence(DataReference) = anAndroidProject.dataModel.dataAssociations
+						->select(assoc |  (assoc.references->first().type = aDataClassifer and assoc.references->first().containment) 
+										or (assoc.references->last().type = aDataClassifer and assoc.references->last().containment))
+						->collect(assoc |assoc.references)->select(ref |ref.type <> aDataClassifer and ref.upperBound = 1) ]
+						[for (aRef : DataReference | containingReferences)]
+				if([aDataClassifer.name.toLowerFirst()/].get[aRef.name.toUpperFirst()/]() != null){
+					isContained = true;
+				}
+						[/for]
+					[/let]				
+				if(!isContained){
+					sb.append("\n");
+					sb.append([aDataClassifer.name.toLowerFirst()/].toXML("\t\t", dbContext));
+				}
+				[else]
+					sb.append("\n");
+					sb.append([aDataClassifer.name.toLowerFirst()/].toXML("\t\t", dbContext));
+				[/if]
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sb.append("\n\t</[aDataClassifer.name.toUpper()/]S>\n");
+				[/if]
+			[/for]
+		[/let]
+		sb.append("\n</[anAndroidProject.dataModel.name.toUpper()/]>");
+		return sb.toString();
+	}
+	
+	public static void loadDBFromXMLFile([anAndroidProject.dataModel.name.toUpperFirst()/]Helper dbContext, File file){
+		try{
+			loadDBFromXMLFile(dbContext, new FileInputStream(file));
+		} catch (FileNotFoundException e) {
+			log.error("File not found "+e.getMessage(),e);
+		}
+	}
+
+	public static void loadDBFromXMLFile([anAndroidProject.dataModel.name.toUpperFirst()/]Helper dbContext, InputStream inputStream){
+		[anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser parser = new [anAndroidProject.dataModel.name.toUpperFirst()/]XMLParser();
+		try {
+			log.info("starting parsing...");
+			parser.parse(inputStream);
+			// create the elements in the DB
+	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+		[if(aDataClassifer.oclIsKindOf(DataClass))]
+			log.info("starting creation of [aDataClassifer.name.toUpperFirst()/]...");
+			for([aDataClassifer.name.toUpperFirst()/] [aDataClassifer.name.toLowerFirst()/] : parser.[aDataClassifer.name.toLowerFirst()/]s){
+				try {
+					dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.create([aDataClassifer.name.toLowerFirst()/]);
+				} catch (SQLException e) {
+					log.error("cannot create [aDataClassifer.name.toUpperFirst()/] "+e.getMessage(),e);
+				}
+			}
+		[/if]
+	[/for]	
+			log.info("starting crossref...");
+			// proceed with cross ref
+			for (RefCommand command : parser.refCommands) {
+				command.run();
+			}
+			
+			// update the DB
+	[for (aDataClassifer : DataClassifier | anAndroidProject.dataModel.dataClasses)] 
+		[if(aDataClassifer.oclIsKindOf(DataClass))]
+			log.info("starting update DB of [aDataClassifer.name.toUpperFirst()/]...");
+			for([aDataClassifer.name.toUpperFirst()/] elem : parser.[aDataClassifer.name.toLowerFirst()/]sToUpdate){
+				try {
+					dbContext.[aDataClassifer.name.toLowerFirst()/]Dao.update(elem);
+				} catch (SQLException e) {
+					log.error("cannot update [aDataClassifer.name.toUpperFirst()/] "+e.getMessage(),e);
+				}
+			}
+		[/if]
+	[/for]
+			log.info("DB filled from XML");
+		} catch (XmlPullParserException e) {
+			log.error("XML parse error "+e.getMessage(),e);
+		} catch (IOException e) {
+			log.error("Read error "+e.getMessage(),e);
+		}
+		// [protected ('loadDBFromXMLFile 2')]
+		// [/protected]
+	}
+	
+	// [protected ('additional helper code 2')]
+	// [/protected]
+}
+[/file]
+[/template]
+

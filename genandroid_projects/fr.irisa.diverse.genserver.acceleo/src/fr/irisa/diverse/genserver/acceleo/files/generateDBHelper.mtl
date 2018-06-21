@@ -1,0 +1,340 @@
+[comment encoding = UTF-8 /]
+[module generateDBHelper('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateDBHelperFile(aAndroidProject : AndroidProject)]
+
+[file ('/'+aAndroidProject.javaSourceFolder+aAndroidProject.packagePrefixFolder()+'server/datamodel/'+aAndroidProject.dataModel.name.toUpperFirst()+'Helper.java', false, 'UTF-8')]
+/* [aAndroidProject.fileHeader/] */
+package [aAndroidProject.packagePrefix/]server.datamodel;
+
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+import java.sql.SQLException;
+
+[for (aDataAssociation : DataAssociation |aAndroidProject.dataModel.dataAssociations)]
+	[if(aDataAssociation.references->first().upperBound <> 1 and aDataAssociation.references->last().upperBound <> 1)] 
+import [aAndroidProject.packagePrefix/]server.datamodel.associations.[aDataAssociation.name/];
+	[/if] 
+[/for]
+
+//[protected ('additional import for '+aAndroidProject.dataModel.name.toUpperFirst()+'Helper')]
+import com.j256.ormlite.dao.CloseableIterator;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+//[/protected]
+/**
+ * Context class used to simplify the access to the different DAOs of the application
+ */
+public class [aAndroidProject.dataModel.name.toUpperFirst()/]Helper {
+	//[protected ('additional variables for '+aAndroidProject.dataModel.name.toUpperFirst()+'Helper')]
+	public static Log log = LogFactory.getLog([aAndroidProject.dataModel.name.toUpperFirst()/]Helper.class);
+	//[/protected]
+
+	[for (classifier : DataClassifier | aAndroidProject.dataModel.dataClasses)]
+		[if(classifier.oclIsKindOf(DataClass))]
+	public Dao<[classifier.name.toUpperFirst()/], Integer> [classifier.name.toLowerFirst()/]Dao;
+	//public RuntimeExceptionDao<[classifier.name.toUpperFirst()/], Integer> [classifier.name.toLowerFirst()/]Dao;
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+	public Dao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
+	//public RuntimeExceptionDao<[assoc.name.toUpperFirst()/], Integer> [assoc.name.toLowerFirst()/]Dao;
+		[/if]
+	[/for]
+
+	
+	public [aAndroidProject.dataModel.name.toUpperFirst()/]Helper(){
+	}
+
+	public [aAndroidProject.dataModel.name.toUpperFirst()/]Helper(
+		[aAndroidProject.dataModel.dataClasses->selectByKind(DataClass).oneDataClassDaoParam()->sep(',\n\t\t')/] [if (aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)->size() <> 0)],
+		[/if]
+        [aAndroidProject.dataModel.dataAssociations->select(assoc | assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1).oneAssocDaoParam()->sep(',\n\t\t')/]
+	){
+	[for (classifier : DataClassifier | aAndroidProject.dataModel.dataClasses)]
+		[if(classifier.oclIsKindOf(DataClass))]
+		this.[classifier.name.toLowerFirst()/]Dao = [classifier.name.toLowerFirst()/]Dao;
+		[/if]
+	[/for]
+	[for (assoc : DataAssociation | aAndroidProject.dataModel.dataAssociations)]
+		[if(assoc.references->first().upperBound <> 1 and assoc.references->last().upperBound <> 1)] 
+		this.[assoc.name.toLowerFirst()/]Dao = [assoc.name.toLowerFirst()/]Dao;
+		[/if]
+	[/for]
+	}
+
+	//[protected ('additional methods for '+aAndroidProject.dataModel.name.toUpperFirst()+'Helper')]
+	
+
+	/** find ApplicationHistory in the base using appName
+	 * @param appName
+	 * @return
+	 */
+	public ApplicationHistory queryApplicationHistoryByAppName(String appName) {
+		try {
+			ApplicationHistory queryApplicationHistory = new ApplicationHistory();
+			queryApplicationHistory.setAppName(appName);
+			List<ApplicationHistory> fichesDeLaBase = this.applicationHistoryDao.queryForMatching(queryApplicationHistory);
+			if(fichesDeLaBase.size() != 1){
+				log.debug("Application with appName "+queryApplicationHistory.getAppName()+ " doesn't exist in the base");
+				return null;
+			}
+			return fichesDeLaBase.get(0);
+		} catch (SQLException e) {
+			log.error("error while querying application with appName "+appName+ " in the base", e);
+		}
+		return null;
+	}
+
+	/** find ApplicationHistory in the base using appName
+	 * @param packageName
+	 * @return
+	 */
+	public ApplicationHistory queryApplicationHistoryByPackageName(String packageName) {
+		try {
+			ApplicationHistory queryApplicationHistory = new ApplicationHistory();
+			queryApplicationHistory.setPackageName(packageName);
+			List<ApplicationHistory> fichesDeLaBase = this.applicationHistoryDao.queryForMatching(queryApplicationHistory);
+			if(fichesDeLaBase.size() != 1){
+			//	Log.d(TAG,"Application with packageName "+queryApplicationHistory.getPackageName()+ " doesn't exist in the base");
+				return null;
+			}
+			return fichesDeLaBase.get(0);
+		} catch (SQLException e) {
+			log.error("error while querying application with packageName "+packageName+ " in the base", e);
+		}
+		return null;
+	}
+
+	/** find ApplicationUsageStats in the base using refereed ApplicationHistory
+	 * @param applicationHistory
+	 * @return
+	 */
+	public List<ApplicationUsageStats> queryApplicationUsageStatsByApplicationHistory(ApplicationHistory applicationHistory) {
+		try {
+			ApplicationUsageStats queryApplicationUsageStats = new ApplicationUsageStats();
+			queryApplicationUsageStats.setApplication(applicationHistory);
+			List<ApplicationUsageStats> fichesDeLaBase = this.applicationUsageStatsDao.queryForMatching(queryApplicationUsageStats);
+			if(0==fichesDeLaBase.size()){
+				log.debug("ApplicationUsageStats doesn't exist in the base for this Application :"+applicationHistory.getPackageName());
+				return null;
+			}
+			return fichesDeLaBase;
+		} catch (SQLException e) { log.error("error while querying applicationUsageStats with application from package :"+applicationHistory.packageName+ " in the base", e); }
+		return null;
+	}
+
+	/** find Cell in the base using cellId
+	 * @param cellId
+	 * @return Cell with the cellId Identity
+	 */
+	public Cell queryCellByCellId(int cellId){
+		//Log.d(TAG,"queryCellByCellId with parameter : "+ cellId);
+		Cell queryCell = new Cell();
+		queryCell.setCellId(cellId);
+		log.debug("queryCellByCellId with "+queryCell.getCellId()+" as cellId");
+		try {
+			List<Cell> queryOutput = this.cellDao.queryForMatching(queryCell);
+			if(1 != queryOutput.size()){
+				log.debug("Cell with cellId "+queryCell.getCellId()+ " doesn't exist in the base");
+				return null;
+			}
+			return queryOutput.get(0);
+		} catch (SQLException e) {
+			log.error("error while querying cell with cellId "+cellId+ " in the base", e);
+		}
+		return null;
+	}
+
+	/** find Cell in the base using cellId
+	 * @param
+	 * @return A list of String types
+	 */
+	public List<String> queryAllAuthentificationType(){
+		List<String> result=new ArrayList<String>();
+
+		Authentification queryAuth = new Authentification();
+		List<Authentification> queryOutput=new ArrayList<>();
+		try {
+			queryOutput = this.authentificationDao.queryForMatching(queryAuth);
+		} catch (SQLException e) {
+			log.error("error while querying Authentification types in the base", e);
+			}
+
+		for(Authentification auth :queryOutput){
+			result.add(auth.getType());
+		}
+
+		return result;
+	}
+
+	/** find Cell in the base using cellId
+	 * @param eventID
+	 * @return the corresponding CalendarEvent or null if not found
+	 */
+	public CalendarEvent queryCalendarEvent(long eventID){
+		CalendarEvent queryCalendarEvent = new CalendarEvent();
+		queryCalendarEvent.setEventId(eventID);
+		List<CalendarEvent> queryOutput= null;
+		try {
+			queryOutput = this.calendarEventDao.queryForMatching(queryCalendarEvent);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		if(0!=queryOutput.size()) {return queryOutput.get(0);}
+		else { return null; }
+	}
+
+	/**
+	 * On the device this table contains a single entry
+	 * @return
+	 */
+	public MobilePrivacyProfilerDB_metadata getDeviceDBMetadata() {
+		MobilePrivacyProfilerDB_metadata metadata=null;
+		List<MobilePrivacyProfilerDB_metadata> it = new ArrayList<>();
+        try {
+            it= this.mobilePrivacyProfilerDB_metadataDao.queryForAll();
+
+        if(!it.isEmpty()){
+			metadata = it.get(0);
+		} else {
+			metadata = new MobilePrivacyProfilerDB_metadata();
+			metadata.setUserId(UUID.randomUUID().toString());
+				this.mobilePrivacyProfilerDB_metadataDao.create(metadata);
+		}
+        } catch (SQLException e) { log.error("error while getting MobilePrivacyProfilerDB_metadata", e);}
+
+		return metadata;
+	}
+
+	/**
+	 * Get a list of all entries in ApplicationHistory
+	 * @return List<ApplicationHistory>
+	 */
+	public List<ApplicationHistory> getAllApplicationHistory() throws SQLException {
+		List<ApplicationHistory> result=null;
+		List<ApplicationHistory> it = this.applicationHistoryDao.queryForAll();
+
+		return it;
+	}
+
+	/**
+	 *
+	 * @param object
+	 * @param type
+	 * @param dao
+	 * @return true is the argument is an entry from DB
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
+	 */
+	public boolean isRegisteredDbClassObject(DbClass object, Class type, Dao dao) throws IllegalAccessException, InstantiationException {
+
+		DbClass query = (DbClass) type.newInstance();
+		query.set_id(object.get_id());
+		query.setUserId(object.getUserId());
+		List queryOutput = null;
+		try {
+			queryOutput = dao.queryForMatching(type.cast(query));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return !queryOutput.isEmpty();
+	}
+
+	/**
+	 * Update the DB with a new version of data from the client
+	 * @param object
+	 * @param type
+	 * @param dao
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
+	 */
+
+	public void updateObjectFromDB(DbClass object, Class type, Dao dao) throws IllegalAccessException, InstantiationException {
+		DbClass query = (DbClass) type.newInstance();
+		query.set_id(object.get_id());
+		query.setUserId(object.getUserId());
+		List queryOutput = null;
+		try {
+			queryOutput = dao.queryForMatching(type.cast(query));
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		if (queryOutput.size()==1) {
+			int id =((DbClass) queryOutput.get(0)).getId();
+			object.setId(id);
+			try {dao.createOrUpdate(type.cast(object));
+				/*dao.delete(queryOutput);
+				dao.create(type.cast(object));*/
+			} catch (SQLException e) { e.printStackTrace(); }
+			log.info("Updated an "+type.getSimpleName()+" entry in the DB");
+		}
+		else{
+			log.info("An update of an "+type.getSimpleName()+" entry from DB went wrong");
+		}
+	}
+
+	/**
+	 * drop all data from Contact, ContactPhoneNumber, ContactIM, ContactOrganisation, ContactEvent,
+	 * ContactEmail, ContactPhysicalAddress
+	 */
+	public void flushContactDataSet(){
+
+		List<ContactPhoneNumber> queryContactPhoneNumberOutput=new ArrayList<>();
+		try {
+			queryContactPhoneNumberOutput = this.contactPhoneNumberDao.queryForAll();
+			this.contactPhoneNumberDao.delete(queryContactPhoneNumberOutput);
+		} catch (SQLException e) { log.error("error while flushing ContactPhoneNumbers from previous scan the base", e); }
+
+		List<ContactIM> queryContactIMOutput=new ArrayList<>();
+		try {
+			queryContactIMOutput = this.contactIMDao.queryForAll();
+			this.contactIMDao.delete(queryContactIMOutput);
+		} catch (SQLException e) { log.error("error while flushing ContactInstantMessengers from previous scan the base", e); }
+
+		List<ContactOrganisation> queryContactOrganisationOutput=new ArrayList<>();
+		try {
+			queryContactOrganisationOutput = this.contactOrganisationDao.queryForAll();
+			this.contactOrganisationDao.delete(queryContactOrganisationOutput);
+		}catch (SQLException e) { log.error("error while flushing ContactOrganisations from previous scan the base", e); }
+
+		List<ContactEvent> queryContactEventOutput=new ArrayList<>();
+		try {
+			queryContactEventOutput = this.contactEventDao.queryForAll();
+			this.contactEventDao.delete(queryContactEventOutput);
+		} catch (SQLException e) { log.error("error while flushing ContactEvents from previous scan the base", e); }
+
+		List<ContactEmail> queryContactEmailOutput=new ArrayList<>();
+		try {
+			queryContactEmailOutput = this.contactEmailDao.queryForAll();
+			this.contactEmailDao.delete(queryContactEmailOutput);
+		} catch (SQLException e) { log.error("error while flushing ContactEmails from previous scan the base", e); }
+
+		List<ContactPhysicalAddress> queryContactPhysicalAddressOutput=new ArrayList<>();
+		try {
+			queryContactPhysicalAddressOutput = this.contactPhysicalAddressDao.queryForAll();
+			this.contactPhysicalAddressDao.delete(queryContactPhysicalAddressOutput);
+		} catch (SQLException e) { log.error("error while flushing ContactPhysicalAddresses from previous scan the base", e); }
+
+		List<Contact> queryContactOutput=new ArrayList<>();
+		try {
+			queryContactOutput = this.contactDao.queryForAll();
+			this.contactDao.delete(queryContactOutput);
+		} catch (SQLException e) { log.error("error while flushing Contacts from previous scan the base", e); }
+
+	}
+
+	//[/protected]
+
+}
+[/file]
+[/template]
+

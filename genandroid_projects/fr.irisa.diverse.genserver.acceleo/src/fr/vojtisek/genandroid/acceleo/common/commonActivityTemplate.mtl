@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module commonActivityTemplate('http://www.eclipse.org/emf/2002/Ecore', 'http://genandroid/1.0')]
+
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public addPreferenceInMenu(aViewActivity : ViewActivity)]
+	[if(not aViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
+menu.add(Menu.NONE, 777, 0, R.string.[aViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.name.toLower()/]_menu_title).setIcon(android.R.drawable.ic_menu_preferences);
+	[/if]
+[/template]
+[template public addPreferenceMenuAction(aViewActivity : ViewActivity)]
+	[if(not aViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.oclIsUndefined())]
+	case 777:
+            startActivity(new Intent(this, [aViewActivity.eContainer(AndroidProject).presentationModel.preferenceView.name.toUpperFirst()/]_PreferenceViewActivity.class));
+            return true;
+	[/if]
+[/template]

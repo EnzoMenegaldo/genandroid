@@ -1,0 +1,36 @@
+[comment encoding = UTF-8 /]
+[module serverGenerateAll('http://genandroid/1.0')/]
+
+[import fr::irisa::diverse::genserver::acceleo::files::generateAPIServer/]
+
+[import fr::irisa::diverse::genserver::acceleo::files::generateXMLParser/]
+[import fr::irisa::diverse::genserver::acceleo::files::generateXMLHelper/]
+
+[import fr::irisa::diverse::genserver::acceleo::files::generateDataClass/]
+
+[import fr::irisa::diverse::genserver::acceleo::files::generateDbClass/]
+[import fr::irisa::diverse::genserver::acceleo::files::generateDBTools/]
+[import fr::irisa::diverse::genserver::acceleo::files::generateDBHelper/]
+[import fr::irisa::diverse::genserver::acceleo::files::generateDBConstants/]
+
+[template public serverClassSetup(aServerProject : AndroidProject)]
+
+	[comment @main /]
+
+	[for (aDataClassifer : DataClassifier | aServerProject.dataModel.dataClasses)] 
+		[if(aDataClassifer.oclIsKindOf(DataClass))]
+			[aDataClassifer.oclAsType(DataClass).generateDataClassFile()/] 
+			[comment][aDataClassifer.oclAsType(DataClass).generateDataClassXMLParser()/][/comment]
+		[/if]
+	[/for]
+[aServerProject.generateAPIServerFile()/]
+
+[aServerProject.generateXMLHelperFile()/]
+[aServerProject.generateXMLParserFile()/]
+
+[aServerProject.generateDbClassFile()/]
+[aServerProject.generateDBToolsFile()/]
+[aServerProject.generateDBHelperFile()/]
+[aServerProject.generateDBConstantsFile()/]
+
+[/template]

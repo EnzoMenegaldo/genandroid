@@ -1,0 +1,98 @@
+[comment encoding = UTF-8 /]
+[module generateDBTools('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateDBToolsFile(anAndroidProject : AndroidProject)]
+
+[file ('/'+anAndroidProject.javaSourceFolder+anAndroidProject.packagePrefixFolder()+'server/datamodel/DBTools.java', false, 'UTF-8')]
+/* [anAndroidProject.fileHeader/] */
+package [anAndroidProject.packagePrefix/]server.datamodel;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+
+
+public class DBTools {
+	
+	// Initialisation de la Gestion des Log 
+	public static Log log = LogFactory.getLog(DBTools.class);
+	
+	// Constructeur
+	public DBTools(){
+		
+	}
+	
+	public void initializeSQLite(String url) throws ClassNotFoundException, SQLException{
+		
+		Class.forName("org.sqlite.JDBC");		
+		Connection c = DriverManager.getConnection(url);
+		log.debug("Opened database successfully");
+		
+		Statement  stmt = c.createStatement();
+		String sql = "CREATE TABLE \"android_metadata\" (\"locale\" TEXT DEFAULT 'en_US')"; 
+		stmt.executeUpdate(sql);
+		stmt.close();
+		
+		stmt = c.createStatement();
+		sql = "    INSERT INTO \"android_metadata\" VALUES ('en_US')"; 
+		stmt.executeUpdate(sql);
+		stmt.close();
+		c.close();
+
+	}
+	
+	/**
+	 * Setup our database and DAOs
+	 */
+	public MobilePrivacyProfilerDBHelper setupDatabase(ConnectionSource connectionSource)
+			throws Exception {
+		log.debug("setupDatabase() - Start");
+		
+		MobilePrivacyProfilerDBHelper dbContext = null;
+		
+		dbContext = new [anAndroidProject.dataModel.name.toUpperFirst()/]Helper();
+		
+		[for (aDataClass : DataClassifier | anAndroidProject.dataModel.dataClasses)]
+			[if(aDataClass.oclIsKindOf(DataClass))]
+				[if (aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
+		dbContext.[aDataClass.name.toLowerFirst()/]Dao = DaoManager.createDao(connectionSource, [aDataClass.name.toUpperFirst()/].class);
+				[/if]
+			[/if]
+		[/for]
+
+		return dbContext;
+	}
+		
+	/**
+	 *  Tables creation
+	 */
+	public void databaseInitialisation(ConnectionSource connectionSource)
+			throws Exception {
+		log.debug("databaseInitialisation() - Start");
+		
+		// if you need to create the table
+		[for (aDataClass : DataClassifier | anAndroidProject.dataModel.dataClasses)]
+			[if(aDataClass.oclIsKindOf(DataClass))]
+				[if (aDataClass.oclAsType(DataClass).storage = storageKind::SQLite)]
+		TableUtils.createTable(connectionSource, [aDataClass.name.toUpperFirst()/].class);
+				[/if]
+			[/if]
+		[/for]
+
+		
+		log.debug("databaseInitialisation() - End");
+	}
+	
+}
+
+[/file]
+[/template]

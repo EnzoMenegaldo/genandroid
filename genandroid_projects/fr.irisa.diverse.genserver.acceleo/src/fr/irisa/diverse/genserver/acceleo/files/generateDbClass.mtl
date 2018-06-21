@@ -1,0 +1,25 @@
+[comment encoding = UTF-8 /]
+[module generateDbClass('http://genandroid/1.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import fr::vojtisek::genandroid::acceleo::common::commonTemplate/]
+
+[template public generateDbClassFile(anAndroidProject : AndroidProject)]
+
+[file ('/'+anAndroidProject.javaSourceFolder+anAndroidProject.packagePrefixFolder()+'server/datamodel/DbClass.java', false, 'UTF-8')]
+/* [anAndroidProject.fileHeader/] */
+package [anAndroidProject.packagePrefix/]server.datamodel;
+
+public interface DbClass {
+
+    public int getId();
+    public void setId(int id);
+
+    public int get_id();
+    public void set_id(int _id);
+
+    public String getUserId();
+    public void setUserId(String userId);
+
+}
+
+[/file]
+[/template]
