@@ -215,11 +215,11 @@ public class [aDataClass.name.toUpperFirst()/] {
 	[/for]
 	} 
 
-	public int getId() {
+	public int get_id() {
 		return _id;
 	}
 	@JsonProperty
-	public void setId(int id) {
+	public void set_id(int id) {
 		this._id = id;
 	}
 
@@ -338,7 +338,7 @@ public class [aDataClass.name.toUpperFirst()/] {
 			[if(ref.opposite.oclIsUndefined() or not ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().containment)]
 		if(this.[ref.name.toLowerFirst()/]!= null){
 			sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
-			sb.append(this.[ref.name.toLowerFirst()/].getId());
+			sb.append(this.[ref.name.toLowerFirst()/].get_id());
 	    	sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
 		}
 			[/if]
