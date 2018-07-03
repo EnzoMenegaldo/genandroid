@@ -342,7 +342,9 @@ public class AndroidGenerateDataModelOnly extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        resourceSet.getPackageRegistry().put("Gendroid",GenandroidPackage.eINSTANCE);
+        if (!isInWorkspace(genandroid.GenandroidPackage.class)) {
+        	resourceSet.getPackageRegistry().put(genandroid.GenandroidPackage.eINSTANCE.getNsURI(), genandroid.GenandroidPackage.eINSTANCE);
+        }
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
          * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
