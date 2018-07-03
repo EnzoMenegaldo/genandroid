@@ -60,6 +60,9 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
 	//[protected ('constants '+aCustomViewActivity.name+'_CustomViewActivity')]
 	//[/protected]
 
+	//[protected ('Static initialization  '+aCustomViewActivity.name+'_CustomViewActivity')]
+	//[/protected]
+
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,6 +115,13 @@ public class [aCustomViewActivity.name/]_CustomViewActivity [if (aCustomViewActi
         return super.onCreateOptionsMenu(menu);
     }
     
+	// Dealing with Activity results
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		//[protected ('onActivityResult '+aCustomViewActivity.name+'_CustomViewActivity')]
+
+		//[/protected]
+	}
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -157,23 +157,23 @@ public class [aClassListViewActivity.name/]_ClassListViewActivity extends OrmLit
 	public void onItemClick(AdapterView<?> arg0, View view, int position, long index) {
 		[if(aClassListViewActivity.useIndexSearch)]
 		Log.d(LOG_TAG, "onItemClick "+view);
-		if(view instanceof LinearLayout && view.getId() == R.id.[aClassListViewActivity.name.toLower()/]_listviewrow){
+		if(view instanceof LinearLayout && view.get_id() == R.id.[aClassListViewActivity.name.toLower()/]_listviewrow){
 			// normal case on main item
 		[/if]
 		[if(selectItemAction <> null)]
 	        Intent toDetailView = new Intent(this, [selectItemAction.name/]_ElementViewActivity.class);
 	        Bundle b = new Bundle();
-	        b.putInt("[aClassListViewActivity.listedElement.name.toLowerFirst()/]Id", (([aClassListViewActivity.listedElement.name/])view.getTag()).getId());
+	        b.putInt("[aClassListViewActivity.listedElement.name.toLowerFirst()/]Id", (([aClassListViewActivity.listedElement.name/])view.getTag()).get_id());
 			toDetailView.putExtras(b);
 	        startActivity(toDetailView);
 		[else]
 			//[protected ('onItemClick additions '+aClassListViewActivity.name+'_ClassListViewActivity')]
-			showToast(view.toString() + ", "+ view.getId());
+			showToast(view.toString() + ", "+ view.get_id());
 			//[/protected]		
 		[/if]
 		[if(aClassListViewActivity.useIndexSearch)]
 		}
-		else if(view instanceof TextView && view.getId() == R.id.indexbar_alphabtes_row_textview){
+		else if(view instanceof TextView && view.get_id() == R.id.indexbar_alphabtes_row_textview){
 			// click on indexBar
 			TextView rowview=(TextView)view;
 			
