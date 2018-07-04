@@ -53,8 +53,8 @@ public class [aDataClass.name.toUpperFirst()/] implements DbClass {
 	public static Log log = LogFactory.getLog([aDataClass.name.toUpperFirst()/].class);
 
 	public static final String XML_[aDataClass.name.toUpper()/] = "[aDataClass.name.toUpper()/]";
-	public static final String XML_ATT_ID = "id";
-	public static final String XML_ATT_CLIENT_ID = "client_id";
+	public static final String XML_ATT_ID = "_id";
+	public static final String XML_ATT_ANDROID_ID = "android_id";
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
 	public static final String XML_ATT_[att.name.toUpper()/] = "[att.name.toLowerFirst()/]";
 	[/for]
@@ -204,7 +204,7 @@ public class [aDataClass.name.toUpperFirst()/] implements DbClass {
 	[/for]
 
 	@DatabaseField
-	protected int client_id;
+	protected int android_id;
 
 	// [protected (aDataClass.name.concat(' additional user properties'))]
 	// [/protected]
@@ -223,19 +223,19 @@ public class [aDataClass.name.toUpperFirst()/] implements DbClass {
 	 * raw_id from client converted as part of a primary key in combination of user UUID
 	 */
 	public int get_id() {
-		return client_id;
-	}
-	@JsonProperty
-	public void set_id(int id) {
-		this.client_id = id;
-	}
-
-	public int getId() {
 		return _id;
 	}
 	@JsonProperty
-	public void setId(int id) {
+	public void set_id(int id) {
 		this._id = id;
+	}
+
+	public int getAndroid_id() {
+		return android_id;
+	}
+	@JsonProperty
+	public void setAndroid_id(int id) {
+		this.android_id = id;
 	}
 
 	public [aDataClass.eContainer(DataModel).name.toUpperFirst()/]Helper getContextDB(){
@@ -322,9 +322,9 @@ public class [aDataClass.name.toUpperFirst()/] implements DbClass {
 		sb.append(this._id);
     	sb.append("\" ");
 		sb.append(" ");
-		sb.append(XML_ATT_CLIENT_ID);
+		sb.append(XML_ATT_ANDROID_ID);
 		sb.append("=\"");
-		sb.append(this.client_id);
+		sb.append(this.android_id);
 		sb.append("\" ");
 	[for (att : DataAttribute | aDataClass.dataAttributes)]
 		[if (att.upperBound = 1 and att.simpleXmlType and not att.derived)]
@@ -358,7 +358,7 @@ public class [aDataClass.name.toUpperFirst()/] implements DbClass {
 			[if(ref.opposite.oclIsUndefined() or not ref.opposite.references->select(otherRef : DataReference | otherRef <> ref)->first().containment)]
 		if(this.[ref.name.toLowerFirst()/]!= null){
 			sb.append("\n"+indent+"\t<"+XML_REF_[ref.name.toUpper()/]+">");
-			sb.append(this.[ref.name.toLowerFirst()/].getId());
+			sb.append(this.[ref.name.toLowerFirst()/].getAndroid_id());
 	    	sb.append("</"+XML_REF_[ref.name.toUpper()/]+">");
 		}
 			[/if]

@@ -25,8 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.*;
 
 // [protected ('additional import for APIserver :')]
 // [/protected]
@@ -41,8 +40,19 @@ private static [aAndroidProject.dataModel.name.toUpperFirst()/]Helper  dbHelper;
     // Initialising log management
     private static Log log = LogFactory.getLog(APIServer.class);
 
+	private static final int MAX_THREAD = 8;
+
+// [protected ('additional other code :')]
+	private static final String PASSWORD = "password";
+    private static final String KEY_PATH ="./ssl/keystore.jks";
+// [/protected]
+
     public static void main(String['['/][']'/] args) {
 
+// [protected ('additional main code :')]
+	threadPool(MAX_THREAD);
+	secure(KEY_PATH,PASSWORD,null,null);
+// [/protected]
 
     get("/hello", (request, response) -> "Hello World");
 
